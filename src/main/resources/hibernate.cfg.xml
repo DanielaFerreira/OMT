@@ -48,20 +48,27 @@ Contributor(s):
     <property name="hibernate.connection.CharSet">utf8</property>
     <property name="hibernate.connection.characterEncoding">utf8</property>
     <property name="hibernate.connection.useUnicode">true</property>
-    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.username">php</property>
     <property name="hibernate.connection.password">root</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
-    <mapping class="com.br.OMT.models.Usuario"/>
-    <mapping class="com.br.OMT.models.Trabalho"/>
-    <mapping class="com.br.OMT.models.Projetos"/>
-    <mapping class="com.br.OMT.models.Formacao"/>
-    <mapping class="com.br.OMT.models.Evento"/>
-    <mapping class="com.br.OMT.models.Entidade"/>
-    <mapping class="com.br.OMT.models.DiscenteEstagio"/>
-    <mapping class="com.br.OMT.models.Discente"/>
+
+    <mapping class="com.br.OMT.models.CampoFormulario"/>
+    <mapping class="com.br.OMT.models.CampoValores"/>
     <mapping class="com.br.OMT.models.CursosEspecializantes"/>
-    <mapping class="com.br.OMT.models.TrabalhoCurriculo"/>
-    <mapping class="com.br.OMT.models.FotosEventos"/>
+    <mapping class="com.br.OMT.models.Discente"/>
+    <mapping class="com.br.OMT.models.DiscenteEstagio"/>
+    <mapping class="com.br.OMT.models.Entidade"/>
+    <mapping class="com.br.OMT.models.EstadoCivil"/>
+    <mapping class="com.br.OMT.models.Etnia"/>
+    <mapping class="com.br.OMT.models.Evento"/>
+    <mapping class="com.br.OMT.models.Formacao"/>
     <mapping class="com.br.OMT.models.FormacaoEmCampus"/>
+    <mapping class="com.br.OMT.models.Formulario"/>
+    <mapping class="com.br.OMT.models.FotosEventos"/>
+    <mapping class="com.br.OMT.models.Projetos"/>
+    <mapping class="com.br.OMT.models.Sexo"/>
+    <mapping class="com.br.OMT.models.Trabalho"/>
+    <mapping class="com.br.OMT.models.TrabalhoCurriculo"/>
+    <mapping class="com.br.OMT.models.Usuario"/>
   </session-factory>
 </hibernate-configuration>

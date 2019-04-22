@@ -25,7 +25,6 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.text.Normalizer;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
