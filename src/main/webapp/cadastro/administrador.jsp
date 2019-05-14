@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Novo administrador - OMT</title>
+        <title>Novo Administrador</title>
         <link rel="stylesheet" href="../css/bootstrap.css"/>
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
@@ -14,8 +14,31 @@
     <body>
         <%@include file="../header.jsp"%>
         <div class="container">
+            <!--Nav Tabs-->
+            <ul class="nav nav-tabs nav-justified green darken-2" role="tablist">
+                <li class="nav-item">
+                    <a href="egresso.jsp" class="nav-link" data-toggle="tab" role="tab">
+                        <i class="fas fa-user-graduate fa-lg"></i>
+                        Discente
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="campus.jsp" class="nav-link" data-toggle="tab" role="tab">
+                        <i class="fas fa-school fa-lg"></i>
+                        Campus
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="empresa.jsp" class="nav-link" data-toggle="tab" role="tab">
+                        <i class="fas fa-briefcase fa-lg"></i> Empresa</a>
+                </li>
+                <li class="nav-item">
+                    <a href="administrador.jsp" class="nav-link active">
+                        <i class="fa fa-user-tie fa-lg"></i>   Administrador</a>
+                </li>
+            </ul>
             <div class="card py-4 px-4">
-                <h1 class="font-weight-bold mb-4">Novo Administrador</h1>
+                <h4 class="mb-4"><strong>Dados do Administrador</strong></h4>
                 <form id="cadastrar-formacao" method="POST" action="/OMT/AdminstradoresServlet">
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -38,9 +61,9 @@
                         </div>
                     </div>
                     <div class="text-right">
-                        <button type="submit" name="acao" value="cadastrar" class="btn btn-md btn-light-green waves-effect">
+                        <button type="submit" name="acao" value="cadastrar" class="btn btn-green waves-effect">
                             <i class="fa fa-check mr-1"></i>Cadastrar</button>
-                        <button type="reset" class="btn btn-md btn-grey waves-effect"><i class="fas fa-eraser mr-1"></i>Limpar</button>
+                        <button type="reset" class="btn btn-grey waves-effect"><i class="fas fa-eraser mr-1"></i>Limpar</button>
                     </div>
                 </form>
             </div>
