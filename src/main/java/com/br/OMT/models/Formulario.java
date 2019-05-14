@@ -23,9 +23,32 @@ public class Formulario implements Serializable {
     @Column(name="titulo", nullable=false)
     private String titulo;
     
-    @ManyToOne
-    @JoinColumn(name="entidade", nullable=false)
-    private List<Entidade> administradores;
-    
+    @OneToMany
+    @Column(name="entidade", nullable=false)
+    private List<Entidade> entidade;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public List<Entidade> getEntidade() {
+        return entidade;
+    }
+
+    public void setEntidade(List<Entidade> entidade) {
+        this.entidade = entidade;
+    }
     
 }

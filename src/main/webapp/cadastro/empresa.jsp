@@ -38,7 +38,7 @@
                 <li class="nav-item">
                     <a href="campus.jsp" class="nav-link" data-toggle="tab" role="tab">
                         <i class="fas fa-school fa-lg"></i>
-                        Campus
+                        Campus   
                     </a>
                 </li>
                 <li class="nav-item">
