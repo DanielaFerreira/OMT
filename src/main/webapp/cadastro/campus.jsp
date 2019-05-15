@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Cadastro de Empresa</title>
+        <title>Cadastro de Campus</title>
         <link rel="stylesheet" href="../css/bootstrap.css"/>
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
@@ -157,6 +157,7 @@
         <script src="../js/jquery.mask.min.js"></script>
         <script src="../js/mascaras.js"></script>
         <script src="../js/consultaCNPJ.js"></script>
+        <script src="../js/consultaCEP.js"></script>
         <script>
             $('#cadastrar-empresa').submit(function () {
                 $('#cnpj').unmask('00.000.000/0000-00');

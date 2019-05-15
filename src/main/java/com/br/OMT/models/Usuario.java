@@ -33,12 +33,11 @@ public class Usuario implements Serializable {
     @Transient
     private String usuario;
 
-    @Transient
-    private String senha;
-
     @Lob
     @Column(name = "senha", nullable = false, length = 255, columnDefinition = "BLOB")
     private byte[] senhaBanco;
+    @Transient
+    private String senha;
 
     @Column(name = "tipo", nullable = true, length = 1)
     private char tipo; // A= adm    D- discente

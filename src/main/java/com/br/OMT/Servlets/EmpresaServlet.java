@@ -11,7 +11,6 @@ import com.br.OMT.Utils.Criptografia;
 import com.br.OMT.models.Entidade;
 import com.br.OMT.models.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -39,19 +38,22 @@ public class EmpresaServlet extends HttpServlet {
         if (request != null) {
             String butao = request.getParameter("acao");
             if (butao.equals("cadastrar")) {
-                Entidade e = Entidade.getInstance();
+		Entidade e = Entidade.getInstance();
+		e.setCNPJ(request.getParameter("cnpj"));
+		e.setCNAE(request.getParameter("cnae"));
                 e.setNome(request.getParameter("nome"));
                 e.setNomeFantasia(request.getParameter("nomeFantasia"));
-                e.setCNPJ(request.getParameter("cnpj"));
-                e.setCNAE(request.getParameter("cnae"));
-                e.setCEP(request.getParameter("cep"));
+		e.setRamoAtuacao(request.getParameter("ramoAtuacao"));
+                e.setTelefone(request.getParameter("telefone"));
+		e.setEmail(request.getParameter("email"));
+		e.setCEP(request.getParameter("cep"));
                 e.setEstado(request.getParameter("estado"));
                 e.setCidade(request.getParameter("cidade"));
                 e.setBairro(request.getParameter("bairro"));
                 e.setRua(request.getParameter("rua"));
                 e.setNumero(request.getParameter("numero"));
                 e.setComplemento(request.getParameter("complemento"));
-
+		
                 Usuario u = Usuario.getInstance();
                 u.setNome(request.getParameter("nomeUsuario"));
                 u.setUsuario(request.getParameter("usuario"));
@@ -59,7 +61,9 @@ public class EmpresaServlet extends HttpServlet {
                 byte[] senhaCriptografada;
 
                 try {
-                    senhaCriptografada = new Criptografia().encrypt(u.getSenha());
+		    u.setNomeBanco(Criptografia.encrypt(u.getNome()));
+		    u.setUsuarioBanco(Criptografia.encrypt(u.getUsuario()));
+                    senhaCriptografada = Criptografia.encrypt(u.getSenha());
                     u.setSenhaBanco(senhaCriptografada);
                     EmpresaDAO edao = new EmpresaDAO();
                     String str = edao.salvar(e);
