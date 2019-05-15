@@ -51,12 +51,13 @@ public class AdmistradoresServlet extends HttpServlet {
                 u.setNome(request.getParameter("nome"));
                 u.setUsuario(request.getParameter("usuario"));
                 u.setTipo('A');
-                //u.setEntidade();
                 u.setSenha(request.getParameter("senha"));
                 byte[] senhaCriptografada;
                 try {
-                    senhaCriptografada = new Criptografia().encrypt(u.getSenha());
+                    senhaCriptografada = Criptografia.encrypt(u.getSenha());
                     u.setSenhaBanco(senhaCriptografada);
+		    u.setNomeBanco(Criptografia.encrypt(u.getNome()));
+		    u.setUsuarioBanco(Criptografia.encrypt(u.getUsuario()));
                     UsuarioDAO udao = new UsuarioDAO();
                     String str = udao.salvar(u);
                     if (str.equals("")) {

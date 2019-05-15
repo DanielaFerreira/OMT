@@ -16,6 +16,7 @@ import static javax.persistence.CascadeType.ALL;
  */
 @Entity
 @Table(name = "entidade")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Entidade implements Serializable {
 
     @Id
@@ -27,17 +28,26 @@ public class Entidade implements Serializable {
 
     @Column(name = "cnae", nullable = false, length = 14)
     private String CNAE;
-
-    @Column(name = "nomeFantasi", nullable = false, length = 100)
-    private String nomeFantasia;
-
+    
     @Column(name = "nome", nullable = false, length = 50)
     private String nome;
+
+    @Column(name = "nomeFantasi", nullable = false, length = 100)
+    private String nomeFantasia;    
+    
+    @Column(name = "ramoAtuacao", nullable = true, length = 50)
+    private String ramoAtuacao;
+   
+    @Column(name = "telefone", nullable = true, length = 10)
+    private String telefone;
+    
+    @Column(name = "email", nullable = true, length = 50)
+    private String email;
 
     @Column(name = "cep", nullable = false, length = 15)
     private String CEP;
 
-    @Column(name = "estado", nullable = false, length = 2)
+    @Column(name = "estado", nullable = false, length = 20)
     private String estado;
 
     @Column(name = "cidade", nullable = false, length = 20)
@@ -72,8 +82,24 @@ public class Entidade implements Serializable {
     @Transient
     private static Entidade getInstance;
 
-    private Entidade() {
+    public Entidade() {
     }
+
+    public Entidade(Long id, String CNPJ, String CNAE, String nome, String nomeFantasia, String CEP, String estado, String cidade, String bairro, String rua, String numero, String complemento, char tipo) {
+	this.id = id;
+	this.CNPJ = CNPJ;
+	this.CNAE = CNAE;
+	this.nome = nome;
+	this.nomeFantasia = nomeFantasia;
+	this.CEP = CEP;
+	this.estado = estado;
+	this.cidade = cidade;
+	this.bairro = bairro;
+	this.rua = rua;
+	this.numero = numero;
+	this.complemento = complemento;
+	this.tipo = tipo;
+    }    
 
     public static Entidade getInstance() {
         if (getInstance == null) {
@@ -216,4 +242,28 @@ public class Entidade implements Serializable {
         this.eventos = eventos;
     }
 
+    public String getRamoAtuacao() {
+	return ramoAtuacao;
+    }
+
+    public void setRamoAtuacao(String ramoAtuacao) {
+	this.ramoAtuacao = ramoAtuacao;
+    }
+
+    public String getTelefone() {
+	return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+	this.telefone = telefone;
+    }
+
+    public String getEmail() {
+	return email;
+    }
+
+    public void setEmail(String email) {
+	this.email = email;
+    } 
+    
 }

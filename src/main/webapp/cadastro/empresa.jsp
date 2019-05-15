@@ -75,14 +75,14 @@
                         </div>
                         <div class="form-group">
                             <label for="ramoAtuacao">Ramo de atuação</label>
-                            <select class="form-control" type="text" id="ramoAtuacao" name="ramoAtuacao" required>
+                            <select class="form-control" id="ramoAtuacao" name="ramoAtuacao" required>
                                 <option value="-1" selected="selected">Selecione</option>
                                 <option value="1">Academia de Esportes / Artes Marciais</option>
                                 <option value="2">Açúcar e Álcool</option>
                                 <option value="3">Administração e Participação</option>
                                 <option value="4">Agências de Emprego / Consultoria de RH</option>
                                 <option value="5">Agências de Turismo / Viagem</option>
-                                <option value="6">Agricultura / Pecuária / Silvicultura</option><
+                                <option value="6">Agricultura / Pecuária / Silvicultura</option>
                                 <option value="7">Alimentos</option>
                                 <option value="8">Arquitetura / Paisagismo / Urbanismo </option>
                                 <option value="9">Assessoria de Imprensa</option>
@@ -118,7 +118,7 @@
                                 <option value="71">Telecomunicações</option><option value="72">Telemarketing/ Call Center</option>
                                 <option value="73">Têxtil/ Couro</option>
                                 <option value="74">Transportes </option>
-                                <option value="75">Turismo/ Hotelaria</option></select>
+                                <option value="75">Turismo/ Hotelaria</option>
                             </select>
                         </div>
 
@@ -163,7 +163,7 @@
                         </div>
                         <div class="form-group">
                             <label for="complemento">Complemento</label>
-                            <input class="form-control" type="text" id="complemento" name="complemento" readonly required>
+                            <input class="form-control" type="text" id="complemento" name="complemento" required>
                         </div>  
                     </section>
                     <hr class="my-4">
@@ -210,6 +210,7 @@
         <script src="../js/jquery.mask.min.js"></script>
         <script src="../js/mascaras.js"></script>
         <script src="../js/consultaCNPJ.js"></script>
+        <script src="../js/consultaCEP.js"></script>
         <script>
             $('#cadastrar-empresa').submit(function () {
                 $('#cnpj').unmask('00.000.000/0000-00');

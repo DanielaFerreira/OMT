@@ -26,62 +26,62 @@ public class CampusServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	    throws ServletException, IOException {
 
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setCharacterEncoding("ISO-8859-1");
+	    throws ServletException, IOException {
+	response.setCharacterEncoding("ISO-8859-1");
 
-        if (request != null) {
-            String butao = request.getParameter("acao");
-            if (butao.equals("cadastrar")) {
-                Entidade e = Entidade.getInstance();
-                e.setNome(request.getParameter("nome"));
-                e.setNomeFantasia(request.getParameter("nomeFantasia"));
-                e.setCNPJ(request.getParameter("cnpj"));
-                e.setCNAE(request.getParameter("cnae"));
-                e.setCEP(request.getParameter("cep"));
-                e.setEstado(request.getParameter("estado"));
-                e.setCidade(request.getParameter("cidade"));
-                e.setBairro(request.getParameter("bairro"));
-                e.setRua(request.getParameter("rua"));
-                e.setNumero(request.getParameter("numero"));
-                e.setComplemento(request.getParameter("complemento"));
-                e.setTipo(request.getParameter("tipo").charAt(0));
-                Usuario u = Usuario.getInstance();
-                u.setNome(request.getParameter("nomeUsuario"));
-                u.setUsuario(request.getParameter("login"));
+	if (request != null) {
+	    String butao = request.getParameter("acao");
+	    if (butao.equals("cadastrar")) {
+		Entidade e = Entidade.getInstance();
+		e.setCNPJ(request.getParameter("cnpj"));
+		e.setCNAE(request.getParameter("cnae"));
+		e.setNome(request.getParameter("nome"));
+		e.setNomeFantasia(request.getParameter("nomeFantasia"));
+		e.setCEP(request.getParameter("cep"));
+		e.setEstado(request.getParameter("estado"));
+		e.setCidade(request.getParameter("cidade"));
+		e.setBairro(request.getParameter("bairro"));
+		e.setRua(request.getParameter("rua"));
+		e.setNumero(request.getParameter("numero"));
+		e.setComplemento(request.getParameter("complemento"));
+		e.setTipo(request.getParameter("tipo").charAt(0));
 
-                u.setSenha(request.getParameter("senha"));
-                Criptografia c = new Criptografia();
-                try {
-                    u.setNomeBanco(c.encrypt(u.getNome()));
-                    u.setUsuarioBanco(c.encrypt(u.getUsuario()));
-                    u.setSenhaBanco(c.encrypt(u.getSenha()));
-                } catch (Exception ex) {
-                    Logger.getLogger(CampusServlet.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                CampusDAO cdao = new CampusDAO();
-                String str = cdao.salvar(e);
-                if (str.equals("")) {
-                    u.setTipo('A');
-                    response.getWriter().println("Eai? " + cdao.findByCNPJ(e.getCNPJ()));
-                    u.setEntidade(cdao.findByCNPJ(e.getCNPJ()));
-                    UsuarioDAO udao = new UsuarioDAO();
-                    str = udao.salvar(u);
-                    if (str.equals("")) {
-                        response.getWriter().println("OK");
-                        response.sendRedirect("../OMT/reitoria/manterCampus.jsp");
-                    } else {
-                        response.getWriter().println("ERRO: " + str);
-                    }
-                } else {
-                    response.getWriter().println("ERRO: " + str);
-                }
-            }
-        }
+		Usuario u = Usuario.getInstance();
+		u.setNome(request.getParameter("nomeUsuario"));
+		u.setUsuario(request.getParameter("login"));
+		u.setSenha(request.getParameter("senha"));
+
+		try {
+		    u.setNomeBanco(Criptografia.encrypt(u.getNome()));
+		    u.setUsuarioBanco(Criptografia.encrypt(u.getUsuario()));
+		    u.setSenhaBanco(Criptografia.encrypt(u.getSenha()));
+		    CampusDAO cdao = new CampusDAO();
+		    String str = cdao.salvar(e);
+		    if (str.equals("")) {
+			u.setTipo('A');
+			response.getWriter().println("Eai? " + cdao.findByCNPJ(e.getCNPJ()));
+			u.setEntidade(cdao.findByCNPJ(e.getCNPJ()));
+			UsuarioDAO udao = new UsuarioDAO();
+			str = udao.salvar(u);
+			if (str.equals("")) {
+			    response.getWriter().println("OK");
+			    response.sendRedirect("../OMT/reitoria/manterCampus.jsp");
+			} else {
+			    response.getWriter().println("ERRO: " + str);
+			}
+		    } else {
+			response.getWriter().println("ERRO: " + str);
+		    }
+		} catch (Exception ex) {
+		    Logger.getLogger(CampusServlet.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	    }
+	}
     }
 }

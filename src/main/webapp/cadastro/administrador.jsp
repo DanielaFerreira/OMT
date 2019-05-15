@@ -39,7 +39,7 @@
             </ul>
             <div class="card py-4 px-4">
                 <h4 class="mb-4"><strong>Dados do Administrador</strong></h4>
-                <form id="cadastrar-formacao" method="POST" action="/OMT/AdminstradoresServlet">
+                <form id="cadastrar-formacao" method="POST" action="/OMT/AdmistradoresServlet">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="nome">Nome</label>
