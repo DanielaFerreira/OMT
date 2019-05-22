@@ -72,6 +72,10 @@
         <servlet-name>TrabalhoCurriculoServlet</servlet-name>
         <servlet-class>com.br.OMT.Servlets.TrabalhoCurriculoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EnviaFormEgresso</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.EnviaFormEgresso</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EmpresaServlet</servlet-name>
         <url-pattern>/EmpresaServlet</url-pattern>
@@ -123,6 +127,10 @@
     <servlet-mapping>
         <servlet-name>TrabalhoCurriculoServlet</servlet-name>
         <url-pattern>/TrabalhoCurriculoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EnviaFormEgresso</servlet-name>
+        <url-pattern>/EnviaFormEgresso</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
