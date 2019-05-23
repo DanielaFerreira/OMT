@@ -3,103 +3,117 @@
 <html>
     <head>
         <meta charset="utf-8">
-
         <title>Questionário para egressos - OMT</title>
+
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/formEgresso.css">
-        <link href="css/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
         <script type="text/javascript" src="js/formEgresso.js"></script>
         <script src="js/bootstrap.min.js"></script>
-
     </head>
 
     <body>
+        <div class="bar">
+            <ul id="progress">
+                <li class="ativo">Dados Pessoais</li>
+                <li>Unidade de Conclusão</li>
+                <li>Curso concluído</li>
+                <li>Durante o curso</li>
+                <li>Atividades atuais</li>
+                <li>Emprego</li>
+                <li>Comentários e Sugestões</li>
+            </ul>
+        </div>
         <div class="form-style-5">
             <form id="formulario" action="/OMT/EnviaFormEgresso">
-                <ul id="progress">
-                    <li class="ativo">Dados Pessoais</li>
-                    <li>Unidade de Conclusão</li>
-                    <li>Curso concluído</li>
-                    <li>Durante o curso</li>
-                    <li>Atividades atuais</li>
-                    <li>Emprego</li>
-                    <li>Comentários e Sugestões</li>
-                </ul>
-
                 <fieldset>
-                    <div class="form-row">
-                        <div class="col1">
-                            <h2>Dados Pessoais</h2>
+                    <div class="card bg-white rounded">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <blockquote contenteditable="true">
+                                        <h2>Dados Pessoais</h2>
+                                    </blockquote>
+                                    <blockquote contenteditable="true">
+                                        <h3>Nome</h3>
+                                    </blockquote>
+                                    <input type="text" name="nome">
+                                    <blockquote contenteditable="true">
+                                        <h3>Naturalidade</h3>
+                                    </blockquote>    
+                                    <input type="text" name="nat">
+                                    <h3>Nacionalidade</h3>
+                                    <input type= "text" name="nac">
+                                    <h3>Data de nascimento</h3>
+                                    <input type= "text" name="nasc">
+                                    <h3>Idade</h3>
+                                    <input type= "text" name="idade">
+                                    <h3>Gênero:</h3>
+                                    <select id="sexo" name="gender">
+                                        <option value="#">-</option>
+                                        <option value="masc">Masculino</option>
+                                        <option value="fem">Feminino</option>
+                                        <option value="other">Prefiro não informar</option>
+                                    </select>
+                                </div>
 
-                            <h3>Nome</h3>
-                            <input type="text" name="nome" placeholder="Nome Completo">
-                            <h3>Naturalidade</h3>
-                            <input type="text" name="nat" placeholder="Naturalidade">
-                            <h3>Nacionalidade</h3>
-                            <input type= "text" name="nac" placeholder="Nacionalidade">
-                            <h3>Data de nascimento</h3>
-                            <input type= "text" name="nasc" placeholder="Data de Nascimento">
-                            <h3>Idade</h3>
-                            <input type= "text" name="idade" placeholder="Idade">
-                            <h3>Gênero:</h3>
-                            <select id="sexo" name="gender">
-                                <option value="#">-</option>
-                                <option value="masc">Masculino</option>
-                                <option value="fem">Feminino</option>
-                                <option value="other">Prefiro não informar</option>
-                            </select>
-                        </div>
+                                <div class="col">
 
-                        <div class ="col2">
+                                    <h2>Endereço</h2>
+                                    <h3>CEP</h3>
+                                    <input type= "text" name="cep">
+                                    <h3>Bairro</h3>
+                                    <input type= "text" name="bairro">
+                                    <h3>Município</h3>
+                                    <input type= "text" name="mun">
+                                    <h3>UF</h3>
+                                    <input type= "text" name="uf">
+                                </div>
 
-                            <h2>Endereço</h2>
-                            <h3>CEP</h3>
-                            <input type= "text" name="cep" placeholder="CEP">
-                            <h3>Bairro</h3>
-                            <input type= "text" name="bairro" placeholder="Bairro">
-                            <h3>Município</h3>
-                            <input type= "text" name="mun" placeholder="Municipio">
-                            <h3>UF</h3>
-                            <input type= "text" name="uf" placeholder="Unidade Federativa">
-                        </div>
+                                <div class="col">
+                                    <h2>Contato</h2>
+                                    <h3>Telefone</h3>
+                                    <input type= "text" name="tel">
+                                    <h3>Celular</h3>
+                                    <input type= "text" name="cel">
+                                    <h3>Email</h3>
+                                    <input type= "email" name="email">
+                                </div>
+                            </div>
 
-                        <div class="col">
-                            <h2>Contato</h2>
-                            <h3>Telefone</h3>
-                            <input type= "text" name="tel" placeholder="Telefone Convencional">
-                            <h3>Celular</h3>
-                            <input type= "text" name="cel" placeholder="Celular">
-                            <h3>Email</h3>
-                            <input type= "email" name="email" placeholder="Email">
+                            <input type="submit" name="next" class="next acao" value="Próximo">
                         </div>
                     </div>
-
-                    <input type="submit" name="next" class="next acao" value="Próximo">
                 </fieldset>
                 <fieldset>
-                    <h2>Unidade do IFAM onde concluiu o curso</h2>
-                    <h3>Campus:</h3>
+                    <div class="card bg-white rounded">
+                        <div class="card-body row">
 
-                    <select id="camp" name="if">
-                        <option value="#">-</option>
-                        <option value="Cmc">Campus Manaus Centro</option>
-                        <option value="cmdi">Campus Manaus Distrito Industrial</option>
-                        <option value="cmzl">Campus Manaus Zona Leste</option>
-                        <option value="cco">Campus Coari</option>
-                        <option value="cla">Campus Lábrea</option>
-                        <option value="cmau">Campus Maués</option>
-                        <option value="cpa">Campus Parintins</option>
-                        <option value="ctab">Campus Tabatinga</option>
-                        <option value="cita">Campus Itacoatiara</option>
-                        <option value="chum">Campus Humaitá</option>
-                        <option value="cman">Campus Manacapuru</option>
-                        <option value="cei">Campus Eirunepé</option>
-                        <option value="cpf">Campus Presidente Figueiredo</option>
-                        <option value="ctef">Campus Tefé</option>
-                        <option value="csgc">Campus São Gabriel da Cachoeira</option>
-                    </select>
-                    <input type="submit" name="prev" class="prev acao" value="Anterior">
-                    <input type="submit" name="next" class="next acao" value="Próximo">
+                            <h2>Unidade do IFAM onde concluiu o curso</h2>
+                            <h3>Campus:</h3>
+
+                            <select id="camp" name="if">
+                                <option value="#">-</option>
+                                <option value="Cmc">Campus Manaus Centro</option>
+                                <option value="cmdi">Campus Manaus Distrito Industrial</option>
+                                <option value="cmzl">Campus Manaus Zona Leste</option>
+                                <option value="cco">Campus Coari</option>
+                                <option value="cla">Campus Lábrea</option>
+                                <option value="cmau">Campus Maués</option>
+                                <option value="cpa">Campus Parintins</option>
+                                <option value="ctab">Campus Tabatinga</option>
+                                <option value="cita">Campus Itacoatiara</option>
+                                <option value="chum">Campus Humaitá</option>
+                                <option value="cman">Campus Manacapuru</option>
+                                <option value="cei">Campus Eirunepé</option>
+                                <option value="cpf">Campus Presidente Figueiredo</option>
+                                <option value="ctef">Campus Tefé</option>
+                                <option value="csgc">Campus São Gabriel da Cachoeira</option>
+                            </select>
+                            <input type="submit" name="prev" class="prev acao" value="Anterior">
+                            <input type="submit" name="next" class="next acao" value="Próximo">
+                        </div>
+                    </div>
                 </fieldset>
                 <fieldset>
                     <h2>Curso concluído</h2>
@@ -124,7 +138,7 @@
                         <option value="1">1º</option>
                         <option value="2">2º</option>
                     </select>
-                    <input type="text" name="time" placeholder="Tempo de conclusão(semestres/anos)">
+                    <input type="text" name="time">
 
                     <h3>Turno Frequentado:</h3>
                     <select id="turno" name="tur">
@@ -159,11 +173,11 @@
                         <option value="4">Já concluiu a faculdade ou pós-graduação</option>
                     </select>
                     <h3>Caso esteja em outra área...</h3>
-                    <input type="text" name="answer" placeholder="Se está em outra área, informe qual ou se concluiu a faculdade informe o curso.">
+                    <input type="text" name="answer">
                     <input type="submit" name="prev" class="prev acao" value="Anterior">
                     <input type="submit" name="next" class="next acao" value="Próximo">
                 </fieldset>
-                <fieldset class="col">
+                <fieldset>
                     <h2>Emprego</h2>
                     <h3>Atualmente trabalha na área de formação?</h3>
                     <select>
@@ -191,7 +205,7 @@
                         <option value="4">Outros(especificar)</option>
                     </select>
                     <h3>Caso esteja em outro ramo...</h3>
-                    <input type="text" name="spec" placeholder="Especifique">
+                    <input type="text" name="spec">
 
                     <h3>Informações da empresa em que trabalha atualmente.(Caso não esteja empregado preencha os campos com " - ")</h3>
                     <input type="text" name="emp" placeholder="Nome da empresa">
@@ -239,7 +253,7 @@
                         <option value="10">Outros(Especificar)</option>
                     </select>
                     <h3>Se possui outro motivo...</h3>
-                    <input type="text" name="spec" placeholder="Especifique">
+                    <input type="text" name="spec">
 
                     <h3>Considera a matriz curricular suficiente para o desempenho da profissão?</h3>
                     <select>
@@ -260,7 +274,7 @@
                         <option value="7">Outros.(Especificar)</option>
                     </select>
                     <h3>Se possui outro motivo...</h3>
-                    <input type="text" name="spec" placeholder="Especifique">
+                    <input type="text" name="spec">
 
                     <h3>Tem interesse em participar do encontro de egressos 2019?</h3>
                     <select>
@@ -273,7 +287,7 @@
                 </fieldset>
                 <fieldset>
                     <h2>Espaço para comentários/sugestões</h2>
-                    <textarea name="comment" placeholder="Comentários e sugestões"></textarea>
+                    <textarea name="comment"></textarea>
                     <input type="submit" name="prev" class="prev acao" value="Anterior">
                     <input type="submit" name="acao" class="acao" value="Enviar">
                 </fieldset>
