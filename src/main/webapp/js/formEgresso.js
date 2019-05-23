@@ -5,7 +5,7 @@ $(function(){
 		atual_fs = $(this).parent();
 		next_fs = $(this).parent().next();
 		
-		$('#progress li').eq($('fieldset').index(next_fs)).addClass('ativo')
+		$('#progress li').eq($('fieldset').index(next_fs)).addClass('ativo');
 		atual_fs.hide(800);
 		next_fs.show(800);
 	});
