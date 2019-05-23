@@ -21,28 +21,29 @@ import org.apache.commons.mail.EmailException;
  *
  * @author eddunic
  */
-public class EnviaFormEgresso extends HttpServlet {
+public class EnviaPDFFormEgresso extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException, MalformedURLException {
-	
-	try {
-	    CommonsMail.enviarEmail("eduardo.bitencourt007@gmail.com");
-	} catch (EmailException | MalformedURLException ex) {
-	    Logger.getLogger(EnviaFormEgresso.class.getName()).log(Level.SEVERE, null, ex);
-	}
-	
 
-//	String acao = request.getParameter("acao");
-//	if(acao.equals("Enviar")){
-//    try {
-//	CommonsMail.enviarEmail(request.getParameter("email"));
-//    } catch (EmailException ex) {
-//	Logger.getLogger(EnviaFormEgresso.class.getName()).log(Level.SEVERE, null, ex);
-//    }
+//	try {
+//	    CommonsMail.enviarEmail("eduardo.bitencourt007@gmail.com");
+//	} catch (EmailException | MalformedURLException ex) {
+//	    Logger.getLogger(EnviaPDFFormEgresso.class.getName()).log(Level.SEVERE, null, ex);
 //	}
-//	
+//	String acao = request.getParameter("acao");
+//	if (acao.equals("Enviar")) {
+//	    try {
+//		CommonsMail.enviarEmail(request.getParameter("email"));
+//	    } catch (EmailException ex) {
+//		Logger.getLogger(EnviaPDFFormEgresso.class.getName()).log(Level.SEVERE, null, ex);
+//	    }
+//	}
+	PrintWriter out = response.getWriter();
+
+	out.println(request.getParameter("nome_discente"));
+
     }
 
 }

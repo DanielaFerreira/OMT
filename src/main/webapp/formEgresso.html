@@ -15,7 +15,7 @@
 
     <body>
         <div class="form-style-5">
-            <form id="formulario" action="/OMT/EnviaFormEgresso">
+            <form id="formulario">
                 <ul id="progress">
                     <li class="ativo">Dados Pessoais</li>
                     <li>Unidade de Conclusão</li>
@@ -32,7 +32,7 @@
                             <h2>Dados Pessoais</h2>
 
                             <h3>Nome</h3>
-                            <input type="text" name="nome" placeholder="Nome Completo">
+                            <input type="text" name="nome_discente" placeholder="Nome Completo">
                             <h3>Naturalidade</h3>
                             <input type="text" name="nat" placeholder="Naturalidade">
                             <h3>Nacionalidade</h3>
@@ -275,10 +275,21 @@
                     <h2>Espaço para comentários/sugestões</h2>
                     <textarea name="comment" placeholder="Comentários e sugestões"></textarea>
                     <input type="submit" name="prev" class="prev acao" value="Anterior">
-                    <input type="submit" name="acao" class="acao" value="Enviar">
+                    <input type="submit" name="acao" class="acao" value="Enviar" onClick="chamaEnvioForm()">
                 </fieldset>
             </form>	
         </div>
+
+        <script>
+            function chamaEnvioForm() {
+//                document.location.href = "/OMT/EnviaPDFFormEgresso";
+                var redirectUrl = '/OMT/EnviaPDFFormEgresso';
+                var form = $('<form action="' + redirectUrl + '" method="post">'
+                        + '<input type="text" name="nome_discente" value="' + document.getElementByName("nome_discente") + '" />' + '</form>');
+                $('body').append(form);
+                form.submit();
+            }
+        </script>
 
     </body>
 
