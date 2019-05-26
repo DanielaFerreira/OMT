@@ -38,7 +38,7 @@ public class CommonsMail {
         
         // Para autenticar no servidor é necessário chamar os dois métodos abaixo
         email.setSSL(true);
-        email.setAuthentication("eduardo.bitencourt007@gmail.com", "32379365");
+        email.setAuthentication("eduardo.bitencourt007@gmail.com", "senha");
         
         // envia o e-mail
         email.send();
