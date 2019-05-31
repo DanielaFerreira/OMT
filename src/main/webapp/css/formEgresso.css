@@ -7,21 +7,10 @@ html{
 
 body{
 	font-family: "Trebuchet MS" , sans-serif;
-        background-color: inherit;
 }
 
-.card{
-	width: 50%;
-	margin: 50px auto;
-        margin-top: 0px;
-	text-align: center;
-	position: relative;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-}
-
-.bar{
-    	width: 500px;
+#formulario{
+	width: 500px;
 	margin: 50px auto;
 	text-align: center;
 	position: relative;
@@ -38,7 +27,7 @@ body{
 
 #formulario h3{color:#333; font-size:17px;}
 
-/* #formulario fieldset{
+#formulario fieldset{
 	background: #fff;
 	border: 0 none;
 	-moz-border-radius:5px;
@@ -49,7 +38,8 @@ body{
 	width: 80%;
 	margin: 0 5%;
 	position: absolute;
-} */
+}
+
 
 #formulario fieldset:not(:first-of-type){
 	display:none;
@@ -82,13 +72,13 @@ body{
 #formulario .acao:hover{background: rgba(52 , 177 , 140 , 0.9); cursor: pointer;}
 
 
-.bar #progress{
-	margin-bottom: 5px;
+#formulario #progress{
+	margin-bottom: 30px;
 	overflow: hidden;
 	counter-reset: step;
 }
 
-.bar #progress li{
+#formulario #progress li{
 	list-style-type: none;
 	color:#fff;
 	font-weight: bold;
@@ -98,7 +88,7 @@ body{
 	position: relative;
 }
 
-.bar #progress li:before{
+#formulario #progress li:before{
 	content: counter(step);
 	counter-increment: step;
 	width: 20px;
@@ -112,10 +102,10 @@ body{
 	margin: 0 auto 10px auto;
 }
 
-.bar #progress li:after{
+#formulario #progress li:after{
 	content: '';
 	width: 100%;
-	background: white;
+	background:white;
 	height: 2px;
 	position: absolute;
 	top: 9px;
@@ -123,10 +113,10 @@ body{
 	z-index: -1;
 }
 
-.bar #progress li.ativo:after{
+#formulario #progress li:after{
 	content: '';
 	width: 100%;
-	background:;
+	background:white;
 	height: 2px;
 	position: absolute;
 	top: 9px;
@@ -134,19 +124,20 @@ body{
 	z-index: -1;
 }
 
-.bar #progress li:first-child:after{
+
+#formulario #progress li:first-child:after{
 	content: none;
 }
 
-.bar #progress li:nth-child(4):after{
+#formulario #progress li:nth-child(4):after{
 	content: none;
 }
 
-.bar #progress li:nth-child(7):after{
+#formulario #progress li:nth-child(7):after{
 	content: none;
 }
 
-.bar #progress li.ativo:before,#formulario #progress li.ativo:after{
+#formulario #progress li.ativo:before,#formulario #progress li.ativo:after{
 	background:rgba(40,208,141,0.9); 
 	color: white;
 	text-shadow: 0 1px 0;
@@ -177,10 +168,6 @@ textarea{
 	height: 340px;
 }
 
-.col{
-    margin-right: 5px;
-}
-
 /*	.col1{
 	width:50%;
 	height: auto;
@@ -198,5 +185,3 @@ textarea{
 	margin: 0 auto;
 	padding: 10px;
 	}*/
-
-	

@@ -24,14 +24,14 @@ import org.apache.commons.mail.EmailException;
 public class EnviaPDFFormEgresso extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException, MalformedURLException {
 
-//	try {
-//	    CommonsMail.enviarEmail("eduardo.bitencourt007@gmail.com");
-//	} catch (EmailException | MalformedURLException ex) {
-//	    Logger.getLogger(EnviaPDFFormEgresso.class.getName()).log(Level.SEVERE, null, ex);
-//	}
+	try {
+	    CommonsMail.enviarEmail("eduardo.bitencourt007@gmail.com");
+	} catch (EmailException | MalformedURLException ex) {
+	    Logger.getLogger(EnviaPDFFormEgresso.class.getName()).log(Level.SEVERE, null, ex);
+	}
 //	String acao = request.getParameter("acao");
 //	if (acao.equals("Enviar")) {
 //	    try {
@@ -40,9 +40,9 @@ public class EnviaPDFFormEgresso extends HttpServlet {
 //		Logger.getLogger(EnviaPDFFormEgresso.class.getName()).log(Level.SEVERE, null, ex);
 //	    }
 //	}
-	PrintWriter out = response.getWriter();
-
-	out.println(request.getParameter("nome_discente"));
+//	PrintWriter out = response.getWriter();
+//
+//	out.println(request.getParameter("nome_discente"));
 
     }
 
