@@ -22,9 +22,17 @@ import org.apache.commons.mail.EmailException;
  * @author eddunic
  */
 public class EnviaPDFFormEgresso extends HttpServlet {
-
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	    throws ServletException, IOException, MalformedURLException {
+    
+	doPost(request, response);
+	
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException, MalformedURLException {
 
 	try {
