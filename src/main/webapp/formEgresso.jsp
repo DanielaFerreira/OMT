@@ -15,7 +15,7 @@
 
     <body>
         <div class="form-style-5">
-            <form id="formulario">
+            <form id="formulario" action="/OMT/EnviaPDFFormEgresso" method="POST">
                 <ul id="progress">
                     <li class="ativo">Dados Pessoais</li>
                     <li>Unidade de Conclusão</li>
@@ -77,8 +77,8 @@
                             <input type= "email" name="email" placeholder="Email">
                         </div>
                     </div>
-
-                    <input type="submit" name="next" class="next acao" value="Próximo">
+                    <button name="next" class="next acao">Próximo</button>
+                    <!--<input name="next" class="next acao" value="Próximo">-->
                 </fieldset>
                 <fieldset>
                     <h2>Unidade do IFAM onde concluiu o curso</h2>
@@ -86,7 +86,7 @@
 
                     <select id="camp" name="if">
                         <option value="#">-</option>
-                        <option value="Cmc">Campus Manaus Centro</option>
+                        <option value="cmc">Campus Manaus Centro</option>
                         <option value="cmdi">Campus Manaus Distrito Industrial</option>
                         <option value="cmzl">Campus Manaus Zona Leste</option>
                         <option value="cco">Campus Coari</option>
@@ -102,13 +102,13 @@
                         <option value="ctef">Campus Tefé</option>
                         <option value="csgc">Campus São Gabriel da Cachoeira</option>
                     </select>
-                    <input type="submit" name="prev" class="prev acao" value="Anterior">
-                    <input type="submit" name="next" class="next acao" value="Próximo">
+                    <button name="prev" class="prev acao">Anterior</button>
+                    <button name="next" class="next acao">Próximo</button>
                 </fieldset>
                 <fieldset>
                     <h2>Curso concluído</h2>
                     <h3>Tipo do curso:</h3>
-                    <select id="curso" name="curs">
+                    <select id="curso" name="tipo_curso">
                         <option value="#">-</option>
                         <option value="int">Técnico Integrado</option>
                         <option value="subs">Técnico Subsequente</option>
@@ -118,9 +118,9 @@
                         <option value="bach">Bacharelado</option>
                     </select>
 
-                    <input type="text" name="nome" placeholder="Nome do curso">
-                    <input type="text" name="ano" placeholder="Ano de conclusão">
-                    <input type="text" name="nome" placeholder="Idade com a qual concluiu o curso">
+                    <input type="text" name="nome_curso" placeholder="Nome do curso">
+                    <input type="text" name="ano_curso" placeholder="Ano de conclusão">
+                    <input type="text" name="idade_curso" placeholder="Idade com a qual concluiu o curso">
 
                     <h3>Semestre de conclusão:</h3>
                     <select id="semestre" name="sem">
@@ -137,25 +137,25 @@
                         <option value="tar">Tarde</option>
                         <option value="noi">Noite</option>
                     </select>
-                    <input type="submit" name="prev" class="prev acao" value="Anterior">
-                    <input type="submit" name="next" class="next acao" value="Próximo">
+                    <button name="prev" class="prev acao">Anterior</button>
+                    <button name="next" class="next acao">Próximo</button>
                 </fieldset>
                 <fieldset>
                     <h2>Durante o curso...</h2>
                     <h3>Fez o curso com alguma atividade a mais?</h3>
-                    <select>
+                    <select id="atividade_extra" name="extra">
                         <option value="#">-</option>
                         <option value="true">Trabalhando na área</option>
                         <option value="false">Trabalhando fora da área</option>
                         <option value="null">Sem trabalhar</option>
                     </select>
-                    <input type="submit" name="prev" class="prev acao" value="Anterior">
-                    <input type="submit" name="next" class="next acao" value="Próximo">
+                    <button name="prev" class="prev acao">Anterior</button>
+                    <button name="next" class="next acao">Próximo</button>
                 </fieldset>
                 <fieldset>
                     <h2>Atividades atuais</h2>
                     <h3>Atualmente,faz faculdade ou pós-graduação?</h3>
-                    <select>
+                    <select id="atividade_atual" name="ativ_atual">
                         <option value="#">-</option>
                         <option value="1">Na mesma área de formação</option>
                         <option value="2">Em outra área</option>
@@ -163,31 +163,31 @@
                         <option value="4">Já concluiu a faculdade ou pós-graduação</option>
                     </select>
                     <h3>Caso esteja em outra área...</h3>
-                    <input type="text" name="answer" placeholder="Se está em outra área, informe qual ou se concluiu a faculdade informe o curso.">
-                    <input type="submit" name="prev" class="prev acao" value="Anterior">
-                    <input type="submit" name="next" class="next acao" value="Próximo">
+                    <input type="text" name="outra_area" placeholder="Se está em outra área, informe qual ou se concluiu a faculdade informe o curso.">
+                    <button name="prev" class="prev acao">Anterior</button>
+                    <button name="next" class="next acao">Próximo</button>
                 </fieldset>
                 <fieldset class="col">
                     <h2>Emprego</h2>
                     <h3>Atualmente trabalha na área de formação?</h3>
-                    <select>
+                    <select id="trab_formacao_atual" name="trab_formacao_atual">
                         <option value="#">-</option>
                         <option value="1">Sim</option>	
                         <option value="2">Não</option>	
                     </select>
 
                     <h3>Se respondeu "Sim", indique a relação de emprego.</h3>
-                    <select>
+                    <select id="emprego_relacao" name="emprego_relacao">
                         <option value="#">-</option>
                         <option value="1">Empregado</option>
                         <option value="2">Autônomo</option>
                         <option value="4">Outro(especifique abaixo)</option>
                     </select>
                     <h3>Se possuir outra relação de emprego...</h3>
-                    <input type="text" name="specified" placeholder="Especifique">	
+                    <input type="text" name="outroEmprego" placeholder="Especifique">	
 
                     <h3>Se está trabalhando ou trabalhou, qual o ramo de atividade da empresa?</h3>
-                    <select>
+                    <select id="ramoEmpresa" name="ramoEmpresa">
                         <option value="#">-</option>
                         <option value="1">Industrial</option>
                         <option value="2">Serviços</option>
@@ -195,31 +195,31 @@
                         <option value="4">Outros(especificar)</option>
                     </select>
                     <h3>Caso esteja em outro ramo...</h3>
-                    <input type="text" name="spec" placeholder="Especifique">
+                    <input type="text" name="outroRamo" placeholder="Especifique">
 
                     <h3>Informações da empresa em que trabalha atualmente.(Caso não esteja empregado preencha os campos com " - ")</h3>
-                    <input type="text" name="emp" placeholder="Nome da empresa">
-                    <input type="text" name="emp" placeholder="Endereço Comercial">
-                    <input type="text" name="emp" placeholder="Bairro">
-                    <input type="text" name="emp" placeholder="CEP">
-                    <input type="text" name="emp" placeholder="Telefone">
-                    <input type="text" name="emp" placeholder="Ramal">
-                    <input type="text" name="emp" placeholder="Email">
-                    <input type="text" name="emp" placeholder="Nome completo do supervisor/Chefe imediato">
-                    <input type="text" name="emp" placeholder="Data em que foi admitido no emprego. (DD/MM/AA)">
+                    <input type="text" name="nomeEmp" placeholder="Nome da empresa">
+                    <input type="text" name="enderEmp" placeholder="Endereço Comercial">
+                    <input type="text" name="bairroEmp" placeholder="Bairro">
+                    <input type="text" name="cepEmp" placeholder="CEP">
+                    <input type="text" name="telEmp" placeholder="Telefone">
+                    <input type="text" name="ramalEmp" placeholder="Ramal">
+                    <input type="text" name="emailEmp" placeholder="Email">
+                    <input type="text" name="chefeEmp" placeholder="Nome completo do supervisor/Chefe imediato">
+                    <input type="text" name="admissaoEmp" placeholder="Data em que foi admitido no emprego. (DD/MM/AA)">
 
                     <h3>Características de sua função</h3>
-                    <select>
+                    <select id="funcao" name="funcao">
                         <option value="#">-</option>
                         <option value="1">Projetos</option>
                         <option value="2">Manutenção</option>
                         <option value="3">Chefia</option>
                         <option value="4">Outros(Especificar)</option>
                     </select>
-                    <input type="text" name="spec" placeholder="Especifique">
+                    <input type="text" name="funcaoEsp" placeholder="Especifique">
 
                     <h3>Rendimento mensal</h3>
-                    <select>
+                    <select id="rend" name="rend">
                         <option value="#">-</option>
                         <option value="1">Menos de 1 salário mínimo</option>
                         <option value="2">1 a 3 salários mínimos</option>
@@ -229,7 +229,7 @@
                     </select>
 
                     <h3>Se estiver trabalhando fora da área de formação. Indique o motivo.</h3>
-                    <select>
+                    <select id="motivoFora" name="motivoFora">
                         <option value="#">-</option>
                         <option value="1">Não encontrou trabalho na área de formação.</option>
                         <option value="2">Baixos salários.</option>
@@ -243,17 +243,17 @@
                         <option value="10">Outros(Especificar)</option>
                     </select>
                     <h3>Se possui outro motivo...</h3>
-                    <input type="text" name="spec" placeholder="Especifique">
+                    <input type="text" name="motivoForaEsp" placeholder="Especifique">
 
                     <h3>Considera a matriz curricular suficiente para o desempenho da profissão?</h3>
-                    <select>
+                    <select id="matriz" name="matriz">
                         <option value="#">-</option>
                         <option value="1">Sim</option>
                         <option value="2">Não</option>
                     </select>
 
                     <h3>Se respondeu "Não" , indique a dificuldade encontrada</h3>
-                    <select>
+                    <select id="dific" name="dific">
                         <option value="#">-</option>
                         <option value="1">Carga horária das disciplinas de cultura geral insuficiente.</option>
                         <option value="2">Carga horária das disciplinas técnicas/teóricas insuficiente.</option>
@@ -264,35 +264,28 @@
                         <option value="7">Outros.(Especificar)</option>
                     </select>
                     <h3>Se possui outro motivo...</h3>
-                    <input type="text" name="spec" placeholder="Especifique">
+                    <input type="text" name="dificEsp" placeholder="Especifique">
 
                     <h3>Tem interesse em participar do encontro de egressos 2019?</h3>
-                    <select>
+                    <select id="encontro" name="encontro"> 
                         <option value="#">-</option>
                         <option value="1">Sim</option>
                         <option value="2">Não</option>
                     </select>
-                    <input type="submit" name="prev" class="prev acao" value="Anterior">
-                    <input type="submit" name="next" class="next acao" value="Próximo">
+                    <button name="prev" class="prev acao">Anterior</button>
+                    <button name="next" class="next acao">Próximo</button>
                 </fieldset>
                 <fieldset>
                     <h2>Espaço para comentários/sugestões</h2>
                     <textarea name="comment" placeholder="Comentários e sugestões"></textarea>
-                    <input type="submit" name="prev" class="prev acao" value="Anterior">
-                    <input type="submit" name="acao" class="acao" value="Enviar" onClick="chamaEnvioForm()">
+                    <button name="prev" class="prev acao">Anterior</button>
+                    <!--<button type="submit" name="acao" class="acao">Enviar</button>-->
+                    
+                    <input type="submit" name="acao" class="acao" value="Enviar">
                 </fieldset>
             </form>	
         </div>
-        <script>
-            function chamaEnvioForm() {
-//                document.location.href = "/OMT/EnviaPDFFormEgresso";
-                var redirectUrl = '/OMT/EnviaPDFFormEgresso';
-                var form = $('<form action="' + redirectUrl + '" method="post">'
-                        + '<input type="text" name="nome_discente" value="' + document.getElementByName("nome_discente") + '" />' + '</form>');
-                $('body').append(form);
-                form.submit();
-            }
-        </script>
+
     </body>
 
 

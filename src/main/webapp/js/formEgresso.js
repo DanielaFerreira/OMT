@@ -21,7 +21,7 @@ $(function(){
 	
 
 	
-	$("#formulario input[type=submit]").click(function(){
+	$("#formulario button").click(function(){
 		return false;
 	});
  });
