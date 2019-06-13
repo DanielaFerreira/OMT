@@ -20,17 +20,41 @@
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <jsp:include page="../header.jsp"/>
-        <jsp:include page="../discente/menu.jsp"/>
+        <jsp:include page="header.jsp"/>
         <main>
             <c:set var="eventos" value="${EventoDAO.listEventos()}"/>
             <c:if test="${not empty usuario}">
+
+
                 <div class="container">
+                    <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
+                        <li class="nav-item">
+                            <a href="index.jsp" class="nav-link active" data-toggle="tab" role="tab">
+                                <i class="fas fa-home fa-lg"></i>
+                                Página Inical
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="eventos.jsp" class="nav-link" data-toggle="tab" role="tab">
+                                <i class="fas fa-calendar-check fa-lg"></i>
+                                Eventos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="estagios.jsp" class="nav-link" data-toggle="tab" role="tab">
+                                <i class="fas fa-briefcase fa-lg"></i> Estágios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="cursos.jsp" class="nav-link">
+                                <i class="fa fa-chalkboard-teacher fa-lg"></i>
+                                Cursos
+                            </a>
+                        </li>
+                    </ul>
                     <div class="card px-4 py-4">
-                        <h1 class="mb-4 font-weight-bold">Bem-vindo 
+                        <h1 class="mb-4 font-weight-bold">Bem-vindo
                             <c:out value="${usuario.nome}"></c:out>!</h1>
                             <section>
-                                <h2 class="font-weight-bold mb-4">Eventos</h2>
                                 <!-- Card deck -->
                                 <div class="row card-deck">
                                 <c:forEach items="${eventos}" var="evento">
@@ -53,6 +77,7 @@
                                                 <p class="card-text"><c:out value="${evento.descricao}"></c:out></p>
                                             <a href="evento.jsp?q=${evento.URL}" class="btn btn-blue btn-sm"><i class="fa fa-pencil-alt left"></i>Saiba mais</a>
                                         </div>
+
 
                                         <!-- Card footer -->
                                         <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
@@ -83,4 +108,3 @@
         <script src="../js/general.js"></script>
     </body>
 </html>
-

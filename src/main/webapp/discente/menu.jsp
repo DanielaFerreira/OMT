@@ -1,31 +1,22 @@
 <nav class="navbar navbar-expand-lg navbar-dark green darken-1 menu-usuario py-0">
     <div class="collapse navbar-collapse barraPrincipal py-2">
         <ul class="navbar-nav">
-            <!--Pagina Inicial-->
-            <li class="nav-item">
-                <a class="nav-link" href="../discente/index.jsp">
-                    <img id="icone" src="/OMT/img/Icons/icones/png/home-1.png" title="Página Inicial">Página inicial</a>
-            </li>
             <!--Pefil do Usuário-->
             <li class="nav-item">
                 <a class="nav-link" href="../discente/alterarPerfil.jsp">
-                    <img id="icone" src="/OMT/img/Icons/icones/png/edit.png" title="Editar informações">Editar informações</a>
+                    <img id="icone" src="/OMT/img/Icons/icones/png/edit.png" title="Editar informações">Editar perfil</a>
             </li>
             <!--Caixa de Mensagens-->
             <li class="nav-item">
                 <a class="nav-link" href="../errors/manutencao.jsp">
                     <img id="icone" src="/OMT/img/Icons/icones/png/folder-14.png" title="Caixa de Mensagens">Caixa de Mensagens</a>
             </li>
-            <!--Oportunidade de Estágios-->
+            <!--Notificacoes-->
             <li class="nav-item">
                 <a class="nav-link" href="../errors/manutencao.jsp">
-                    <img id="icone" src="/OMT/img/Icons/icones/png/briefcase.png" title="Estágios/Trabalhos">Estágios/Trabalhos</a>
+                    <img id="icone" src="/OMT/img/Icons/icones/png/sino.png" title="Estágios/Trabalhos">Notificações</a>
             </li>
-            <!--Cursos Extra-curriculares-->
-            <li class="nav-item">
-                <a class="nav-link" href="../errors/manutencao.jsp">
-                    <img id="icone" src="/OMT/img/Icons/icones/png/notepad-2.png" title="Cursos Extras">Cursos extras</a>
-            </li>
+            
             <!--Currículo do Aluno-->
             <li class="nav-item">
                 <a class="nav-link" href="../discente/curriculo.jsp">
