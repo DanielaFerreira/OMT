@@ -39,6 +39,7 @@ public class TrabalhoServlet extends HttpServlet {
                 Trabalho t = Trabalho.getInstance();
                 t.setProfissao(request.getParameter("profissao"));
                 t.setTipo(request.getParameter("tipo").charAt(0));
+                t.setQuantidadeVagas(Integer.parseInt(request.getParameter("quantidadeVagas")));
                 t.setSalario(Double.parseDouble(request.getParameter("salario")));
                 t.setDescricao(request.getParameter("descricao"));
                 DateFormat df = new SimpleDateFormat("dd/MM/yyyy");

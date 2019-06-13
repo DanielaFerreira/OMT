@@ -34,6 +34,10 @@
                             <label for="salario">Salário</label>
                             <input class="form-control validate" name="salario" id="salario" type="text"/>
                         </div>
+                        <div class="form-group col-md-6">
+                            <label for="quantidadeVagas">Quantidade de vagas</label>
+                            <input class="form-control validate" name="quantidadeVagas" id="quantidadeVagas" type="number">
+                        </div>
                     </div>
 
                     <div class="form-group">
