@@ -71,7 +71,7 @@ public class EncherBanco extends HttpServlet {
             FotosEventosDAO feDAO = new FotosEventosDAO();
             FormacaoEmCampusDAO fecDAO = new FormacaoEmCampusDAO();
 
-            //Cadastro de Reitoria
+            //Cadastro de empresa
             e = Entidade.getInstance();
             e.setBairro("Centro");
             e.setCEP("690977123");
@@ -92,7 +92,7 @@ public class EncherBanco extends HttpServlet {
             u.setNomeBanco(Criptografia.encrypt(u.getNome()));
             u.setUsuario("reitor");
             u.setUsuarioBanco(Criptografia.encrypt(u.getUsuario()));
-            u.setSenha("789");
+                u.setSenha("789");
             u.setSenhaBanco(Criptografia.encrypt(u.getSenha()));
             u.setEntidade(e);
             out.println(uDAO.salvar(u));
