@@ -22,6 +22,7 @@
         <jsp:include page="../header.jsp"/>
         <main>
             <div class="container my-4" >
+                
                 <div class="card px-4 py-4">
                     <h1 class="font-weight-bold mb-4">Veja nossos Egressos</h1>
                     <table class="table table-sm table-striped table-bordered table-hover" id="table-egressos">

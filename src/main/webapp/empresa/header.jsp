@@ -1,4 +1,4 @@
-<header style="margin-bottom: 2%">
+<header>
     <nav class="navbar navbar-expand-lg navbar-dark green darken-3">
         <!--Botão home-->
         <a class="navbar-brand" href="/OMT/home.jsp">IFAM - Sistema de Egressos</a>
@@ -26,13 +26,14 @@
                 
                 <li class="dropdown">
                     <a class="dropdown-toggle nav-link active"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-user fa-lg mr-1"></i>Minha conta
+                        <i class="fa fa-user fa-lg mr-1"></i>Nome
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="../errors/manutencao.jsp"><i class="fa fa-bell fa-lg mr-1"></i>Notificações</a>
-                        <a class="dropdown-item" href="../discente/alterarPerfil.jsp"><i class="fa fa-user-edit fa-lg mr-1"></i>Meu perfil</a>
-                        <a class="dropdown-item" href="../discente/curriculo.jsp"><i class="fa fa-address-card fa-lg mr-1"></i>Currículo</a>
-                        <a class="dropdown-item" href="/OMT/LoginServlet" alt="Sair" ><i class="fa fa-sign-out-alt fa-lg mr-1"></i>Encerrar sessão</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-bell fa-lg mr-1"></i>Notificações</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-user-edit fa-lg mr-1"></i>Estágios</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-user-edit fa-lg mr-1"></i>Projetos</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-user-edit fa-lg mr-1"></i>Meus estágios</a>
+                        <a class="dropdown-item" href="#" alt="Sair" ><i class="fa fa-sign-out-alt fa-lg mr-1"></i>Encerrar sessão</a>
                     </div>
                 </li>
             </ul>
