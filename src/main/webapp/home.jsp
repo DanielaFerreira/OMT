@@ -116,9 +116,23 @@
                 </div>
                 <div class="tab-pane fade" id="login4" role="tabpanel">
                     <div class="mt-4 mx-4">
-                        <h4 class="text-center my-4">
-                            <img src="img/ops.png" alt="Logotipo do OMT" height="200" width="300">
-                        </h4>
+                       
+                            <form action="empresa\index.jsp" method="POST" class="loginMenu">
+                                <input type="hidden" name="entidade" value="entidade"/>
+
+                                <label for="acessoLoginEmpresa" class="grey-text">Nome de Acesso</label>
+                                <input class="form-control" id="acessoLoginRet" name="usuario" type="text">
+
+                                <br>
+
+                                <label for="senhaLoginEmpresa" class="grey-text">Senha</label>
+                                <input class="form-control" id="senhaLoginRet" name="senha" type="password">
+
+                                <div class="text-center my-4">
+                                    <button class="btn btn-green" id="buttonLoginEmpresa" type="submit">Entrar</button>
+                                </div>
+                            </form>
+                  
                     </div>
                 </div>
             </div>
