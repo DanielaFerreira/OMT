@@ -94,7 +94,12 @@ public class LoginServlet extends HttpServlet {
                                     request.getSession().setAttribute("entidade", e);
                                     response.getWriter().println("456");
                                     response.sendRedirect("/OMT/reitoria/index.jsp");
-                                }
+                                } else if (entidade.equals("empresa") && e.getTipo() == 'E') {
+                                    request.getSession().setAttribute("usuario", u);
+                                    request.getSession().setAttribute("entidade", e);
+                                    response.getWriter().println("879");
+                                    response.sendRedirect("/OMT/empresa/index.jsp");
+                                } 
                             }
                         } else {
                             response.getWriter().println("Errado + " + usuario + "  " + senha);

@@ -21,8 +21,7 @@
 
             <!--mensagem de boas vindas-->
             <h4 class="text-center my-4">
-                Seja bem-vindo ao<br>
-                <img src="img/logoInicial.png" alt="Logotipo do OMT" height="150" width="300">
+                <img src="img/logoInicial.png" alt="Logotipo do OMT" height="175" width="270">
             </h4>
 
             <!--Nav Tabs-->
@@ -43,6 +42,13 @@
                     <a href="#login3" class="nav-link" data-toggle="tab" role="tab">
                         <i class="fas fa-school fa-lg"></i>
                         Campus
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#login4" class="nav-link" data-toggle="tab" role="tab">
+                        <i class="fas fa-school fa-lg"></i>
+                        Empresa
                     </a>
                 </li>
                 <li class="nav-item">
@@ -94,18 +100,38 @@
                         <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
                             <input type="hidden" name="entidade" value="campus"/>
 
-                            <label for="acessoLogiTec" class="grey-text">Nome de Acesso</label>
-                            <input class="form-control" id="acessoLogiTec" type="text" name="usuario">
+                            <label for="acessoLoginCam" class="grey-text">Nome de Acesso</label>
+                            <input class="form-control" id="acessoLoginCam" name="usuario" type="text">
 
                             <br>
 
-                            <label for="senhaLoginTec" class="grey-text">Senha</label>
-                            <input class="form-control" id="senhaLoginTec" type="password" name="senha">
+                            <label for="senhaLoginCam" class="grey-text">Senha</label>
+                            <input class="form-control" id="senhaLoginCam" name="senha" type="password">
 
                             <div class="text-center my-4">
-                                <button class="btn btn-green" id="buttonLoginTec" type="submit">Entrar</button>
+                                <button class="btn btn-green" id="buttonLoginCam" type="submit">Entrar</button>
                             </div>
                         </form>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="login4" role="tabpanel">
+                    <div class="mt-4 mx-4">                       
+                            <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
+                                <input type="hidden" name="entidade" value="empresa"/>
+
+                                <label for="acessoLoginEmp" class="grey-text">Nome de Acesso</label>
+                                <input class="form-control" id="acessoLoginEmp" name="usuario" type="text">
+
+                                <br>
+
+                                <label for="senhaLoginEmp" class="grey-text">Senha</label>
+                                <input class="form-control" id="senhaLoginEmp" name="senha" type="password">
+
+                                <div class="text-center my-4">
+                                    <button class="btn btn-green" id="buttonLoginEmp" type="submit">Entrar</button>
+                                </div>
+                            </form>
+                  
                     </div>
                 </div>
             </div>

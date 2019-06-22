@@ -1,68 +1,73 @@
-<%@page pageEncoding="ISO-8859-1"%>
-<%@page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-<jsp:useBean id="DiscenteDAO" class="com.br.OMT.DAO.DiscenteDAO"/>
-<jsp:useBean id="Criptografia" class="com.br.OMT.Utils.Criptografia"/>
-<c:set var="discentes" value="${DiscenteDAO.listar()}"/>
+<%-- 
+    Document   : vaga_trabalho
+    Created on : 12/06/2019, 22:03:04
+    Author     : daniela
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Consultar Egressos</title>
+        <title>ObservatÃ³rio Mundo do Trabalho - Vaga de Trabalho</title>
         <link rel="stylesheet" href="../css/bootstrap.css"/>
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
         <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/addons/datatables.min.css">
     </head>
-
     <body>
-        <jsp:include page="../header.jsp"/>
+        <jsp:include page="header.jsp"/>
         <main>
             <div class="container my-4" >
-                
                 <div class="card px-4 py-4">
-                    <h1 class="font-weight-bold mb-4">Veja nossos Egressos</h1>
+                    <div class="row">
+                        <h1 class="font-weight-bold mb-4">Vagas de trabalho da sua empresa</h1>
+                        <div class="text-center mx-auto">
+                            <a class="btn btn-green" href="../cadastro/trabalho.jsp">Adicionar</a>
+                            <button class="btn btn-blue">Atualizar</button>
+                        </div> </div>
                     <table class="table table-sm table-striped table-bordered table-hover" id="table-egressos">
-                        <caption>Lista de egressos</caption>
+
+                        <caption>Lista de vagas de emprego</caption>
                         <thead>
-                            <tr>
-                                <th>Nome<i class="fa fa-sort float-right"></i></th>
-                                <th>Formação<i class="fa fa-sort float-right"></i></th>
-                                <th>Campus<i class="fa fa-sort float-right"></i></th>
-                                <th>Ano de formação <i class="fa fa-sort float-right"></i></th>
-                                <th>Currículo<i class="fa fa-sort float-right"></i></th>
+                            <tr class="auto">
+                                <th>ProfissÃ£o</th>
+                                <th>SalÃ¡rio</th>
+                                <th>Quantidade de Vagas</th>
+                                <th>Tipo</th>
+                                <th>DescriÃ§Ã£o</th>
+                                <th>AÃ§Ã£o</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${discentes}" var="discente">
-                                <c:set target="${discente}" property="nome" value="${Criptografia.decrypt(discente.nomeBanco)}"/>
-                                <c:set target="${discente}" property="usuario" value="${Criptografia.decrypt(discente.usuarioBanco)}"/>
-                                <tr>
-                                    <td><c:out value="${discente.nome}"/></td>               
-                                    <td>${discente.formacao.nome}</td>
-                                    <td>${discente.formacao.campus.nome}</td>
-                                    <td>${discente.formacao.anoTermino}</td>
-                                    <td><a class="blue-text" href="curriculoDiscente.jsp?id=${discente.id}">curriculo</a></td>
-                                </tr>
-                            </c:forEach>
+                        <c:forEach items="${trabalhos}" var="trabalho">
+                            <c:set target="${trabalho}" property="nome" value="${Criptografia.decrypt(trabalho.nomeBanco)}"/>
+                            <c:set target="${trabalho}" property="usuario" value="${Criptografia.decrypt(trabalho.usuarioBanco)}"/>
+                            <tr>
+                                <td><c:out value="${trabalho.profissao}"/></td>               
+                            <td>${trabalho.salario}</td>
+                            <td>${trabalho.quantidadeVagas}</td>
+                            <td>${trabalho.tipo}</td>
+                            <td>${trabalho.descricao}</td>
+                            <td><a class="blue-text" href="trabalho_cadastrado.jsp?id=${trabalho.id}"><i class="fa fa-eye"></i>Visualizar</a></td>
+                            </tr>
+                        </c:forEach>
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>Nome</th>
-                                <th>Formação</th>
+                                <th>FormaÃ§Ã£o</th>
                                 <th>Campus</th>
-                                <th>Ano de formação</th>
-                                <th>Currículo</th>
+                                <th>Ano de formaÃ§Ã£o</th>
+                                <th>CurrÃ­culo</th>
                             </tr>
                         </tfoot>
                     </table>
                 </div>
             </div>
         </main>
-        <jsp:include page="../footer.jsp"/>
+
         <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/popper.min.js"></script>
         <script src="../js/bootstrap.js"></script>

@@ -20,17 +20,15 @@
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <jsp:include page="../header.jsp"/>
-        <jsp:include page="../discente/menu.jsp"/>
+        <jsp:include page="../discente/header.jsp"/>
         <main>
             <div class="container">
                 <div class="card px-4 py-4">
-                    <h3 class="font-weight-bold mb-4">Seu Perfil</h3>
+                    <h3 class="font-weight-bold text-center">Meu Perfil</h3>
                     <form id="formAlterar" name="formAlterar" method="post" action="/OMT/DiscenteServlet" data-id="<c:out value="${usuario.id}"/>">
                         <div class="section">
-                            <h5 class="mb-4">Informações Básicas</h5>
                             <div class="form-row">
-                                <div class="form-group col-sm-12 col-lg-3">
+                                <div class="form-group col-sm-12">
                                     <div class="text-center">
                                         <c:choose>
                                             <c:when test="${fn:length(usuario.foto) > 0}">
@@ -50,6 +48,7 @@
                                         </button> 
                                     </div>
                                 </div>
+                                <h5 class="mb-4">Informações Básicas</h5>
                                 <div class="form-group col-sm-12 col-lg-5">
                                     <div class="form-group"> 
                                         <div class="text-center">

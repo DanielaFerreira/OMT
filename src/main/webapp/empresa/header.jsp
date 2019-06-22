@@ -18,14 +18,23 @@
                 <li class="nav-item">
                     <a href="" class="nav-link"><i class="fa fa-universal-access fa-lg mr-1"></i>Acessibilidade</a>
                 </li>
+
                 <li class="nav-item">
                     <a href="http://www2.ifam.edu.br" class="nav-link">
                         <img class="mr-1" height="25" width="20" src="/OMT/img/logoIF.png"/>Site do IFAM</a>
                 </li>
                 
-                <li class="nav-item">
-                    <a href="cadastro/index.jsp" class="nav-link">
-                        <i class="fa fa-user-plus fa-lg mr-1"></i>Cadastrar-se</a>
+                <li class="dropdown">
+                    <a class="dropdown-toggle nav-link active"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user fa-lg mr-1"></i>Nome
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#"><i class="fa fa-bell fa-lg mr-1"></i>Notificações</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-user-edit fa-lg mr-1"></i>Estágios</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-user-edit fa-lg mr-1"></i>Projetos</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-user-edit fa-lg mr-1"></i>Meus estágios</a>
+                        <a class="dropdown-item" href="#" alt="Sair" ><i class="fa fa-sign-out-alt fa-lg mr-1"></i>Encerrar sessão</a>
+                    </div>
                 </li>
             </ul>
         </div>

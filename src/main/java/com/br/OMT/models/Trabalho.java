@@ -26,6 +26,9 @@ public class Trabalho implements Serializable {
     @Column(name = "descricao", nullable = false)
     private String descricao;
 
+    @Column(name = "quantidadeVagas", nullable = false)
+    private int quantidadeVagas;
+
     @Column(name = "tempoInicio", nullable = true)
     @Temporal(TemporalType.TIMESTAMP)
     private Date tempoInicio;
@@ -79,6 +82,15 @@ public class Trabalho implements Serializable {
 
     public void setSalario(Double salario) {
         this.salario = salario;
+    }
+    
+    
+    public int getQuantidadeVagas() {
+        return quantidadeVagas;
+    }
+
+    public void setQuantidadeVagas(int quantidadeVagas) {
+        this.quantidadeVagas = quantidadeVagas;
     }
 
     public String getDescricao() {

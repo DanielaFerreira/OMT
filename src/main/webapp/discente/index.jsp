@@ -18,57 +18,95 @@
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
         <link rel="stylesheet" href="../css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <jsp:include page="../header.jsp"/>
-        <jsp:include page="../discente/menu.jsp"/>
+        <jsp:include page="header.jsp"/>
         <main>
             <c:set var="eventos" value="${EventoDAO.listEventos()}"/>
             <c:if test="${not empty usuario}">
-                <div class="container">
-                    <div class="card px-4 py-4">
-                        <h1 class="mb-4 font-weight-bold">Bem-vindo 
-                            <c:out value="${usuario.nome}"></c:out>!</h1>
-                            <section>
-                                <h2 class="font-weight-bold mb-4">Eventos</h2>
-                                <!-- Card deck -->
-                                <div class="row card-deck">
-                                <c:forEach items="${eventos}" var="evento">
-                                    <c:set property="fotos" target="${evento}" value="${FotosEventosDAO.getSingleFotosEventos(evento.id)}"/>
-                                    <div class="card col-md-3 mb-4 px-0">
-                                        <!--Card image-->
-                                        <div class="view overlay">
-                                            <img class="card-img-top" src="/OMT/EventoServlet?id=<c:out value="${evento.fotos[0]}"></c:out>" alt="Card image cap">
-                                            <a href="evento.jsp?q=${evento.URL}">
-                                                <div class="mask rgba-white-light"></div>
-                                            </a>
-                                        </div>
 
-                                        <!--Card content-->
-                                        <div class="card-body">
+                <div class="container-fluid">
 
-                                            <!--Título do evento-->
-                                            <h4 class="card-title"><c:out value="${evento.nome}"></c:out></h4>
-                                                <!--Descrição-->
-                                                <p class="card-text"><c:out value="${evento.descricao}"></c:out></p>
-                                            <a href="evento.jsp?q=${evento.URL}" class="btn btn-blue btn-sm"><i class="fa fa-pencil-alt left"></i>Saiba mais</a>
-                                        </div>
+                    <div class="row col-lg-10" style="margin-left: 15%;">
 
-                                        <!-- Card footer -->
-                                        <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
-                                            <ul class="list-unstyled list-inline font-small">
-                                                <li class="list-inline-item pr-2 white-text"><i class="fa fa-clock pr-1"></i>
-                                                    <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value="${evento.dataFinalEvento}"/>
-                                                </li>
-                                            </ul>
-                                        </div>
+                        <div class="col-2"> 
+                            <jsp:include page="pertil_flutuante.jsp"/>
+                        </div>
 
+                        <div class="col-8">
+                            <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
+                                <li class="nav-item">
+                                    <a href="index.jsp" class="nav-link active" data-toggle="tab" role="tab">
+                                        <i class="fas fa-home fa-lg"></i>
+                                        Página Inical
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="eventos.jsp" class="nav-link" data-toggle="tab" role="tab">
+                                        <i class="fas fa-calendar-check fa-lg"></i>
+                                        Eventos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="estagios.jsp" class="nav-link" data-toggle="tab" role="tab">
+                                        <i class="fas fa-briefcase fa-lg"></i> Estágios</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="cursos.jsp" class="nav-link">
+                                        <i class="fa fa-chalkboard-teacher fa-lg"></i>
+                                        Cursos
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="card px-4 py-4">
+                                <h1 class="mb-4 font-weight-bold">Bem-vindo
+                                    <c:out value="${usuario.nome}"></c:out>!</h1>
+                                    <section>
+                                        <!-- Card deck -->
+                                        <div class="row card-deck">
+                                        <c:forEach items="${eventos}" var="evento">
+                                            <c:set property="fotos" target="${evento}" value="${FotosEventosDAO.getSingleFotosEventos(evento.id)}"/>
+                                            <div class="card form-group col-md-3 mb-4 px-0 ">
+                                                <!--Card image-->
+                                                <div class="view overlay">
+                                                    <img class="card-img-top" src="/OMT/EventoServlet?id=<c:out value="${evento.fotos[0]}"></c:out>" alt="Card image cap">
+                                                    <a href="evento.jsp?q=${evento.URL}">
+                                                        <div class="mask rgba-white-light"></div>
+                                                    </a>
+                                                </div>
+
+                                                <!--Card content-->
+                                                <div class="card-body form-group">
+
+                                                    <!--Título do evento-->
+                                                    <h4 class="card-title"><c:out value="${evento.nome}"></c:out></h4>
+                                                        <!--Descrição-->
+                                                        <p class="card-text"><c:out value="${evento.descricao}"></c:out></p>
+                                                    <a href="evento.jsp?q=${evento.URL}" class="btn btn-blue btn-sm"><i class="fa fa-pencil-alt left"></i>Saiba mais</a>
+                                                </div>
+
+
+                                                <!-- Card footer -->
+                                                <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                                    <ul class="list-unstyled list-inline font-small">
+                                                        <li class="list-inline-item pr-2 white-text"><i class="fa fa-clock pr-1"></i>
+                                                            <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value="${evento.dataFinalEvento}"/>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                        </c:forEach>
                                     </div>
-                                </c:forEach>
+                                    <!-- Card deck -->
+                                </section>
                             </div>
-                            <!-- Card deck -->
-                        </section>
+                        </div>
                     </div>
+
+
                 </div>
             </c:if>
             <c:if test="${empty usuario}">
@@ -83,4 +121,3 @@
         <script src="../js/general.js"></script>
     </body>
 </html>
-
