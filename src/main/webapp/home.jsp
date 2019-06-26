@@ -66,7 +66,7 @@
                             <input class="form-control" id="matriculaLoginDisc" type="text"  name="login">
 
                             <br>
-
+ 
                             <label for="senhaLoginDisc" class="grey-text">Senha</label>
                             <input class="form-control" id="senhaLoginDisc" type="password" name="senha">
 
