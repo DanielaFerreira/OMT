@@ -37,7 +37,6 @@
                                 <th>Quantidade de Vagas</th>
                                 <th>Tipo</th>
                                 <th>Descrição</th>
-                                <th>Ação</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,7 +49,10 @@
                             <td>${trabalho.quantidadeVagas}</td>
                             <td>${trabalho.tipo}</td>
                             <td>${trabalho.descricao}</td>
-                            <td><a class="blue-text" href="trabalho_cadastrado.jsp?id=${trabalho.id}"><i class="fa fa-eye"></i>Visualizar</a></td>
+                            <td>
+                                <a class="blue-text" href="trabalho_cadastrado.jsp?id=${trabalho.id}"><i class="fa fa-eye"></i>Visualizar</a>
+                            </td>
+                            
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -61,6 +63,7 @@
                                 <th>Campus</th>
                                 <th>Ano de formação</th>
                                 <th>Currículo</th>
+                                <th>Ação</th>
                             </tr>
                         </tfoot>
                     </table>
@@ -108,3 +111,4 @@
         </script>
     </body>
 </html>
+

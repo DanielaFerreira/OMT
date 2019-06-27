@@ -22,6 +22,8 @@
     <body>
         <jsp:include page="../discente/header.jsp"/>
         <main>
+            <a class="btn btn-md btn-light-green" href="javascript:history.back()"></a>
+
             <div class="container">
                 <div class="card px-4 py-4">
                     <h3 class="font-weight-bold text-center">Meu Perfil</h3>
@@ -248,3 +250,4 @@
         </script>
     </body>
 </html>
+
