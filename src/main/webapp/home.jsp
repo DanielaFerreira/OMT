@@ -7,7 +7,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ObservatÃ³rio Mundo do Trabalho</title>
+        <title>Observatório Mundo do Trabalho</title>
         <link rel="stylesheet" href="css/bootstrap.css"/>
         <link rel="stylesheet" href="css/mdb.css"/>
         <link rel="stylesheet" href="css/fontawesome-all.css">
@@ -17,7 +17,7 @@
     <body>
         <jsp:include page="header.jsp"/>
         <div class="container">
-            <!--cabeÃ§alho da pÃ¡gina de menu logins-->
+            <!--cabeçalho da página de menu logins-->
 
             <!--mensagem de boas vindas-->
             <h4 class="text-center my-4">
@@ -62,7 +62,7 @@
                         <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
                             <input type="hidden" name="entidade" value="discente"/>
 
-                            <label for="matriculaLoginDisc" class="grey-text">MatrÃ­cula ou CPF(sem pontuaÃ§Ã£o)</label>
+                            <label for="matriculaLoginDisc" class="grey-text">Matrícula ou CPF(sem pontuação)</label>
                             <input class="form-control" id="matriculaLoginDisc" type="text"  name="login">
 
                             <br>
@@ -98,8 +98,8 @@
                 <div class="tab-pane fade" id="login3" role="tabpanel">
                     <div class="mt-4 mx-4">
                         <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
-                            <input type="hidden" name="entidade" value="entidade"/>
-                          
+                            <input type="hidden" name="entidade" value="campus"/>
+
                             <label for="acessoLoginCam" class="grey-text">Nome de Acesso</label>
                             <input class="form-control" id="acessoLoginCam" name="usuario" type="text">
 
@@ -137,7 +137,7 @@
             </div>
 
 
-            <!--formulÃƒÂ¡rio de login Empresas(Emp)-->
+            <!--formulÃ¡rio de login Empresas(Emp)-->
             <!--div class="card" id="loginEmp">
                 <div class="card-content">
                     <h4>Empresas</h4>

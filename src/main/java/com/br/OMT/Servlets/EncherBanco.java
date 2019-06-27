@@ -42,7 +42,6 @@ public class EncherBanco extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-
 	    throws ServletException, IOException {
 	PrintWriter out = response.getWriter();
 
@@ -323,6 +322,7 @@ public class EncherBanco extends HttpServlet {
 	    Logger.getLogger(EncherBanco.class.getName()).log(Level.SEVERE, null, ex);
 	}
 	response.sendRedirect("home.jsp");
+
     }
 
     @Override

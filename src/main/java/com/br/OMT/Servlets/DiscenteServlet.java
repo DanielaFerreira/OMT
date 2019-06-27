@@ -86,9 +86,17 @@ public class DiscenteServlet extends HttpServlet {
         etnia = request.getParameter("etnia");
         usuario = request.getParameter("usuario");
 
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         df.setLenient(false);
-        try {
+        try { 
+            /* String dateStr = request.getParameter("dataNasc");
+            Date date=df.parse(dateStr);
+            df = new SimpleDateFormat("dd-MM-yyyy");
+            //SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
+            //Date result = formater.parse(dateStr);
+            //SimpleDateFormat AppDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            //System.out.println(AppDateFormat.format(result))*/
+    //erro 2010-06-10 nao e aceitado por 10-06-2010
             dataNasc = df.parse(request.getParameter("dataNasc"));
         } catch (ParseException ex) {
             Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
