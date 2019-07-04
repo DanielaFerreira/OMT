@@ -13,7 +13,7 @@
         <div class="section">
 
             <div class="form-row">
-                <div class="form-group col-sm-12 ">
+                <div class="form-group col-sm-12">
                     <div class="text-center">
                         <c:choose>
                             <c:when test="${fn:length(usuario.foto) > 0}">

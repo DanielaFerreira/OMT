@@ -1,20 +1,20 @@
 <%-- 
     Document   : perfil_flutuante
     Created on : 21/06/2019, 14:19:18
-    Author     : Junior
+    Author     : Paulo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="card  py-4">
-    <h3 class="font-weight-bold mb-4 text-center">Meu Perfil</h3>
+    <h3 class="font-weight-bold mb-4 text-center">Empresa</h3>
     <form id="formAlterar" name="formAlterar" method="post" action="../discente/alterarPerfil.jsp">
     <div class="section">
 
         <div class="form-row">
-            <div class="form-group col-sm-12 ">
+            <div class="form-group col">
                 <div class="text-center">
                     <div>
-                        <img class="foto-curriculo border border-light rounded z-depth-1" src="../img/student.png"> 
+                        <img class="foto-curriculo border border-light rounded z-depth-1" src="../img/empresa.png"> 
                     </div>
 
                 </div>

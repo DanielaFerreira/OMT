@@ -32,6 +32,7 @@ public class TrabalhoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String mensagem = "";
         String butao = request.getParameter("acao");
         Trabalho t = Trabalho.getInstance();
         TrabalhoDAO tdao = new TrabalhoDAO();
@@ -53,9 +54,13 @@ public class TrabalhoServlet extends HttpServlet {
 
                     String str = tdao.salvar(t);
                     if (str.equals("")) {
-                        response.getWriter().println("Certo");
+                        //request.getSession().setAttribute("user", mensagem);
+
+                        response.sendRedirect("empresa/vaga_trabalho.jsp");
+                        mensagem = "<strong>Cadastro realizado!</strong> a vaga de trabalho " + t.getProfissao() + "já está na lista de vagas ofertadas pela sua empresa.";
+ 
                     } else {
-                        response.getWriter().println("Errrado: " + str);
+                        mensagem="<strong>Opa, ocorreu uma falha</strong> A vaga de trabalho " + t.getProfissao() + "não foi possível ser cadastrada por conta do erro" + str;
                     }
                 } catch (ParseException ex) {
                     System.out.println("Erro: " + ex.getMessage());
@@ -63,20 +68,25 @@ public class TrabalhoServlet extends HttpServlet {
 
             } else {
                 if (butao.equals("alterar")) {
-             t.setEntidade((Entidade) request.getSession().getAttribute("entidade"));
+                    t.setEntidade((Entidade) request.getSession().getAttribute("entidade"));
                     setDados(t, t.getProfissao(), t.getTipo(), t.getQuantidadeVagas(), t.getSalario(), t.getDescricao(), t.getTempoInicio(), t.getTempoFinal());
 
                     String str;
                     try {
                         str = tdao.atualizar(t);
                         if (str.equals("")) {
-                            response.sendRedirect("empresa/vagas_trabalho.jsp");
+                            response.sendRedirect("empresa/vaga_trabalho.jsp");
                         } else {
                             response.getWriter().println("Errado!");
                             response.getWriter().println(str);
                         }
                     } catch (Exception ex) {
                         response.getWriter().println("Erro! " + ex.getMessage());
+                    }
+                } else {
+                    if (butao.equals("deletar")) {
+                              tdao.deletar(t);
+                        response.sendRedirect("empresa/vaga_trabalho.jsp");
                     }
                 }
             }

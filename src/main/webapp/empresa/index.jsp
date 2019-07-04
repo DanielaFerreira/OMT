@@ -23,18 +23,18 @@
 
         <div class="container-fluid">
 
-            <div class="row col-lg-10" style="margin-left: 15%;">
+            <div class="row" style="margin-top: 5%;">
 
-                <div class="col-2"> 
+                <div class="col"> 
                     <jsp:include page="perfil_flutuante.jsp"/>
                 </div>
 
-                <div class="col-8"> 
+                <div class="col-10"> 
                     <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
                         <li class="nav-item">
                             <a href="#" class="nav-link active" data-toggle="tab" role="tab">
                                 <i class="fas fa-home fa-lg"></i>
-                                Página Inical
+                                Página Inicial
                             </a>
                         </li>
                         <li class="nav-item">
@@ -44,8 +44,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="tab" role="tab">
-                                <i class="fas fa-briefcase fa-lg"></i> Estágios</a>
+                            <a href="#vagas" class="nav-link" data-toggle="tab" role="tab">
+                                <i class="fas fa-briefcase fa-lg"></i> Vagas</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link" data-toggle="tab" role="tab">
@@ -68,31 +68,56 @@
                             </a>
                         </li>
                     </ul>
-                    
-                    <div class="card px-4 py-4">
-                        <h1 class="mb-4 font-weight-bold">Bem vindo</h1>
-                            <div class="row">  
-                                <div class="col-sm-12 col-md-6 col-xl-4">
-                                    <canvas id="graficoGenero1"></canvas>
-                                </div> 
-                                <div class="col-sm-12 col-md-6 col-xl-4">
-                                    <canvas id="graficoGenero3"></canvas>
-                                </div>       
-                                <div class="col-sm-12 col-md-6 col-xl-4">
-                                    <canvas id="graficoGenero2"></canvas>
-                                </div>  
-                            </div>      
-                            <div class="row">   
-                            </div>      
-                            <div class="row">    
-                            </div>        
+
+
+
+                    <div class="tab-content card mb-5">
+                        <div class="tab-pane fade in show active" id="graficos" role="tabpanel">
+                            <div class="mt-4 mx-4">
+                                <h1 class="mb-4 font-weight-bold">Estatísticas</h1>
+                                <div class="row">  
+                                    <div class="col-sm-12 col-md-6 col-xl-4">
+                                        <canvas id="graficoGenero1"></canvas>
+                                    </div> 
+                                    <div class="col-sm-12 col-md-6 col-xl-4">
+                                        <canvas id="graficoGenero3"></canvas>
+                                    </div>       
+                                    <div class="col-sm-12 col-md-6 col-xl-4">
+                                        <canvas id="graficoGenero2"></canvas>
+                                    </div>  
+                                </div>        
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="eventos" role="tabpanel">
+                            <div class="mt-4 mx-4">
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="vagas" role="tabpanel">
+                            <div class="mt-4 mx-4">
+                                <jsp:include page="vaga_trabalho.jsp"/>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="cursos" role="tabpanel">
+                            <div class="mt-4 mx-4">
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="egressos" role="tabpanel">
+                            <div class="mt-4 mx-4">
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="campus" role="tabpanel">
+                            <div class="mt-4 mx-4">
+
+                            </div>
                         </div>
                     </div>
+
                 </div>
-
-
             </div>
-
+        </div>
 
 
         <jsp:include page="../footer.jsp"/>

@@ -31,7 +31,7 @@
 
                     <div class="row col-lg-10" style="margin-left: 15%;">
 
-                        <div class="col-2"> 
+                        <div> 
                             <jsp:include page="pertil_flutuante.jsp"/>
                         </div>
 
@@ -40,7 +40,7 @@
                                 <li class="nav-item">
                                     <a href="index.jsp" class="nav-link active" data-toggle="tab" role="tab">
                                         <i class="fas fa-home fa-lg"></i>
-                                        Página Inical
+                                        Página Inicial
                                     </a>
                                 </li>
                                 <li class="nav-item">
