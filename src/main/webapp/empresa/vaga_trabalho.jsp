@@ -3,8 +3,11 @@
     Created on : 12/06/2019, 22:03:04
     Author     : daniela
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<jsp:useBean id="TrabalhoDAO" class="com.br.OMT.DAO.TrabalhoDAO"/>
+<c:set var="trabalhos" value="${TrabalhoDAO.listTrabalho()}"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,7 +30,7 @@
                             <a class="btn btn-green" href="../cadastro/trabalho.jsp">Adicionar</a>
                             <button class="btn btn-blue">Atualizar</button>
                         </div> </div>
-                    <table class="table table-sm table-striped table-bordered table-hover" id="table-egressos">
+                    <table class="table table-sm table-striped table-bordered table-hover" id="table-trabalhos">
 
                         <caption>Lista de vagas de emprego</caption>
                         <thead>
@@ -37,12 +40,11 @@
                                 <th>Quantidade de Vagas</th>
                                 <th>Tipo</th>
                                 <th>Descrição</th>
+                                <th>Ação</th>
                             </tr>
                         </thead>
                         <tbody>
                         <c:forEach items="${trabalhos}" var="trabalho">
-                            <c:set target="${trabalho}" property="nome" value="${Criptografia.decrypt(trabalho.nomeBanco)}"/>
-                            <c:set target="${trabalho}" property="usuario" value="${Criptografia.decrypt(trabalho.usuarioBanco)}"/>
                             <tr>
                                 <td><c:out value="${trabalho.profissao}"/></td>               
                             <td>${trabalho.salario}</td>
@@ -52,20 +54,22 @@
                             <td>
                                 <a class="blue-text" href="trabalho_cadastrado.jsp?id=${trabalho.id}"><i class="fa fa-eye"></i>Visualizar</a>
                             </td>
-                            
+
                             </tr>
                         </c:forEach>
                         </tbody>
                         <tfoot>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Formação</th>
-                                <th>Campus</th>
-                                <th>Ano de formação</th>
-                                <th>Currículo</th>
+                            
+                             <tr class="auto">
+                                <th>Profissão</th>
+                                <th>Salário</th>
+                                <th>Quantidade de Vagas</th>
+                                <th>Tipo</th>
+                                <th>Descrição</th>
                                 <th>Ação</th>
                             </tr>
                         </tfoot>
+
                     </table>
                 </div>
             </div>
@@ -80,7 +84,7 @@
         <script src="../js/mascaras.js"></script>
         <script src="../js/addons/datatables.min.js"></script>
         <script>
-            $("#table-egressos").DataTable({
+            $("#table-trabalhos").DataTable({
                 initComplete: function () {
                     this.api().columns().every(function () {
                         var column = this;
@@ -111,4 +115,3 @@
         </script>
     </body>
 </html>
-
