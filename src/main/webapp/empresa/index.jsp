@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
         <link rel="stylesheet" href="../css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </head>
 
     <body>
@@ -23,13 +25,13 @@
 
         <div class="container-fluid">
 
-            <div class="row" style="margin-top: 5%;">
+            <div class="row justify-content-center">
 
-                <div class="col"> 
+                <div> 
                     <jsp:include page="perfil_flutuante.jsp"/>
                 </div>
 
-                <div class="col-10"> 
+                <div class="col-8">
                     <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
                         <li class="nav-item">
                             <a href="#" class="nav-link active" data-toggle="tab" role="tab">
@@ -38,17 +40,17 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="tab" role="tab">
+                            <a href="evento.jsp" class="nav-link">
                                 <i class="fas fa-calendar-check fa-lg"></i>
                                 Eventos
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#vagas" class="nav-link" data-toggle="tab" role="tab">
+                            <a href="vaga_trabalho.jsp" class="nav-link">
                                 <i class="fas fa-briefcase fa-lg"></i> Vagas</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="tab" role="tab">
+                            <a href="curso.jsp" class="nav-link">
                                 <i class="fa fa-chalkboard-teacher fa-lg"></i>
                                 Cursos
                             </a>
@@ -68,9 +70,7 @@
                             </a>
                         </li>
                     </ul>
-
-
-
+                    
                     <div class="tab-content card mb-5">
                         <div class="tab-pane fade in show active" id="graficos" role="tabpanel">
                             <div class="mt-4 mx-4">
@@ -88,14 +88,10 @@
                                 </div>        
                             </div>
                         </div>
+                        
                         <div class="tab-pane fade" id="eventos" role="tabpanel">
                             <div class="mt-4 mx-4">
 
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="vagas" role="tabpanel">
-                            <div class="mt-4 mx-4">
-                                <jsp:include page="vaga_trabalho.jsp"/>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="cursos" role="tabpanel">

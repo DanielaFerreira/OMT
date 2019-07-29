@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark green darken-3">
+        <nav class="navbar navbar-expand-lg navbar-dark green darken-3" style="margin-bottom: 2%"> 
             <!--Botão home-->
             <a class="navbar-brand" href="/OMT/home.jsp">IFAM - Sistema de Egressos</a>
 
@@ -27,7 +27,8 @@
                         <a href="http://www2.ifam.edu.br" class="nav-link">
                             <img class="mr-1" height="25" width="20" src="/OMT/img/logoIF.png"/>Site do IFAM</a>
                     </li>
-
+                    
+                    <!--
                     <li class="dropdown">
                         <a class="dropdown-toggle nav-link active"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-user fa-lg mr-1"></i><c:out value="${usuario.nome}"></c:out>
@@ -39,6 +40,7 @@
                             <a class="dropdown-item" href="#" alt="Sair" ><i class="fa fa-sign-out-alt fa-lg mr-1"></i>Encerrar sessão</a>
                         </div>
                     </li>
+                    -->
                 </ul>
             </div>
         </nav>
