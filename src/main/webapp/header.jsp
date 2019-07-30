@@ -22,11 +22,6 @@
                     <a href="http://www2.ifam.edu.br" class="nav-link">
                         <img class="mr-1" height="25" width="20" src="/OMT/img/logoIF.png"/>Site do IFAM</a>
                 </li>
-                
-                <li class="nav-item">
-                    <a href="cadastro/index.jsp" class="nav-link">
-                        <i class="fa fa-user-plus fa-lg mr-1"></i>Cadastrar-se</a>
-                </li>
             </ul>
         </div>
     </nav>

@@ -7,7 +7,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Observatório Mundo do Trabalho - Vaga de Trabalho</title>
+        <title>Observatório Mundo do Trabalho - Curso</title>
         <link rel="stylesheet" href="../css/bootstrap.css"/>
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
@@ -40,34 +40,27 @@
                         </nav>
 
                         <div class="card px-4 py-4">
-                            <form id="cadastrar-trabalho" method="POST" action="/OMT/TrabalhoServlet">
-                                <h3 class="font-weight-bold mb-4">Nova vaga de emprego</h3>
+                            <form id="cadastrar-trabalho" method="POST" action="#">
+                                <h3 class="font-weight-bold mb-4">Novo curso</h3>
 
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="profissao">Profissão</label>
-                                        <input class="form-control validate" name="profissao" id="profissao" type="text">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="tipo">Tipo</label>
-                                        <input class="form-control validate" name="tipo" id="tipo" type="text">
+                                    <div class="form-group col-md-12">
+                                        <label for="nome">Nome</label>
+                                        <input class="form-control validate" name="nome" id="nome" type="text">
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="form-group col">
-                                        <label for="salario">Salário</label>
-                                        <input class="form-control validate" name="salario" id="salario" type="text"/>
+                                    <div class="form-group col-md-6">
+                                        <label for="nivel">Nível</label>
+                                        <input class="form-control validate" name="nivel" id="nivel" type="text">
                                     </div>
+
                                     <div class="form-group col-md-6">
                                         <label for="quantidadeVagas">Quantidade de vagas</label>
                                         <input class="form-control validate" name="quantidadeVagas" id="quantidadeVagas" type="number">
                                     </div>
-                                </div>
 
-                                <div class="form-group">
-                                    <label for="descricao">Descrição</label>
-                                    <textarea class="form-control" name="descricao" id="descricao" rows="5"></textarea>
                                 </div>
 
                                 <div class="row">
@@ -80,6 +73,7 @@
                                         <input class="form-control validate data" type="text" id="fim" name="fim"/>  
                                     </div>
                                 </div>
+
                                 <div class="text-right">
                                     <button type="submit" name="acao" value="cadastrar" class="btn btn-green waves-effct">
                                         <i class="fa fa-check mr-1"></i>Cadastrar</button>
@@ -87,6 +81,8 @@
                                     <button type="reset" class="btn btn-grey waves-effct">
                                         <i class="fas fa-eraser mr-1"></i>Limpar</button>
                                 </div>
+
+
                             </form>
                         </div>
                     </div>

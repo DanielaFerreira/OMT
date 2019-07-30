@@ -22,9 +22,19 @@
     <body>
         <jsp:include page="../discente/header.jsp"/>
         <main>
-            <a class="btn btn-md btn-light-green" href="javascript:history.back()"></a>
 
-            <div class="container">
+            <div class="container-fluid col-md-10">
+                <nav class="navbar navbar-expand-lg navbar-light green darken-1">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="javascript:history.back()" class="nav-link text-white">
+                                <i class="fa fa-arrow-alt-circle-left fa-lg"></i>
+                                Voltar
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                
                 <div class="card px-4 py-4">
                     <h3 class="font-weight-bold text-center">Meu Perfil</h3>
                     <form id="formAlterar" name="formAlterar" method="post" action="/OMT/DiscenteServlet" data-id="<c:out value="${usuario.id}"/>">
