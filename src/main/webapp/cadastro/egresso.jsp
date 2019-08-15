@@ -30,9 +30,15 @@
                 <input class="form-control RG" type="text" id="rg" name="rg" required> 
             </div>
         </div>
-        <div class="form-group">
-            <label for="email">E-mail</label>
-            <input class="form-control" type="email" name="email" id="email" maxlength="40">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="email">E-mail</label>
+                <input class="form-control" type="email" name="email" id="email" maxlength="40">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="dataNasc">Data de Nascimento</label>
+                <input class="form-control" type="date" name="dataNasc" id="dataNasc" maxlength="40">
+            </div>
         </div>
         <div class="form-row">
             <div class="form-group col-sm-12 col-lg-6">

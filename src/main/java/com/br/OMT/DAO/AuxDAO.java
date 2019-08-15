@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.br.OMT.DAO;
 
 import com.br.OMT.Hibernate.HibernateFactory;
 import com.br.OMT.Hibernate.HibernateUtil;
+import com.br.OMT.models.Aux;
 import com.br.OMT.models.Trabalho;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -17,37 +13,38 @@ import org.hibernate.query.Query;
  *
  * @author vinic
  */
-public class TrabalhoDAO {
+public class AuxDAO {
 
-    private HibernateUtil<Trabalho> hut;
+    private HibernateUtil<Aux> hut;
     private Session s;
 
-    public TrabalhoDAO() {
+    public AuxDAO() {
         HibernateFactory.initSessionFactory();
         hut = new HibernateUtil<>();
     }
 
-    public String salvar(Trabalho t) {
+    public String salvar(Aux t) {
         return hut.salvar(t);
     }
 
-    public String atualizar(Trabalho t) {
+    public String atualizar(Aux t) {
         return hut.atualizar(t);
     }
 
-    public String deletar(Trabalho t) {
+    public String deletar(Aux t) {
         return hut.deletar(t);
     }
 
-    public List<Trabalho> listTrabalho() {
-        List<Trabalho> le = null;
+    public Aux getByIdx(Long idx) {
+        Aux a;
         try {
             s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
-            Query query = s.createQuery("from Trabalho t");
-            le = query.getResultList();
+            Query query = s.createQuery("from Aux a where a.idx =:idx")
+                    .setParameter("idx", idx);
+            a = (Aux) query.getSingleResult();
             s.getTransaction().commit();
-            return le;
+            return a;
         } catch (HibernateException ex) {
             s.getTransaction().rollback();
             return null;
@@ -56,16 +53,15 @@ public class TrabalhoDAO {
         }
     }
 
-    public Trabalho getById(Long id) {
-        Trabalho t;
+    public List<Aux> listAux() {
+        List<Aux> a;
         try {
             s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
-            Query query = s.createQuery("from Trabalho t where t.id =:id")
-                    .setParameter("id", id);
-            t = (Trabalho) query.getSingleResult();
+            Query query = s.createQuery("from Aux t");
+            a = query.getResultList();
             s.getTransaction().commit();
-            return t;
+            return a;
         } catch (HibernateException ex) {
             s.getTransaction().rollback();
             return null;

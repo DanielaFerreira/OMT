@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
         <link rel="stylesheet" href="../css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </head>
 
     <body>
@@ -23,32 +25,32 @@
 
         <div class="container-fluid">
 
-            <div class="row col-lg-10" style="margin-left: 15%;">
+            <div class="row justify-content-center">
 
-                <div class="col-2"> 
+                <div> 
                     <jsp:include page="perfil_flutuante.jsp"/>
                 </div>
 
-                <div class="col-8"> 
+                <div class="col-8">
                     <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
                         <li class="nav-item">
                             <a href="#" class="nav-link active" data-toggle="tab" role="tab">
                                 <i class="fas fa-home fa-lg"></i>
-                                Página Inical
+                                Página Inicial
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="tab" role="tab">
+                            <a href="evento.jsp" class="nav-link">
                                 <i class="fas fa-calendar-check fa-lg"></i>
                                 Eventos
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="tab" role="tab">
-                                <i class="fas fa-briefcase fa-lg"></i> Estágios</a>
+                            <a href="vaga_trabalho.jsp" class="nav-link">
+                                <i class="fas fa-briefcase fa-lg"></i> Vagas</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="tab" role="tab">
+                            <a href="curso.jsp" class="nav-link">
                                 <i class="fa fa-chalkboard-teacher fa-lg"></i>
                                 Cursos
                             </a>
@@ -69,30 +71,49 @@
                         </li>
                     </ul>
                     
-                    <div class="card px-4 py-4">
-                        <h1 class="mb-4 font-weight-bold">Bem vindo</h1>
-                            <div class="row">  
-                                <div class="col-sm-12 col-md-6 col-xl-4">
-                                    <canvas id="graficoGenero1"></canvas>
-                                </div> 
-                                <div class="col-sm-12 col-md-6 col-xl-4">
-                                    <canvas id="graficoGenero3"></canvas>
-                                </div>       
-                                <div class="col-sm-12 col-md-6 col-xl-4">
-                                    <canvas id="graficoGenero2"></canvas>
-                                </div>  
-                            </div>      
-                            <div class="row">   
-                            </div>      
-                            <div class="row">    
-                            </div>        
+                    <div class="tab-content card mb-5">
+                        <div class="tab-pane fade in show active" id="graficos" role="tabpanel">
+                            <div class="mt-4 mx-4">
+                                <h1 class="mb-4 font-weight-bold">Estatísticas</h1>
+                                <div class="row">  
+                                    <div class="col-sm-12 col-md-6 col-xl-4">
+                                        <canvas id="graficoGenero1"></canvas>
+                                    </div> 
+                                    <div class="col-sm-12 col-md-6 col-xl-4">
+                                        <canvas id="graficoGenero3"></canvas>
+                                    </div>       
+                                    <div class="col-sm-12 col-md-6 col-xl-4">
+                                        <canvas id="graficoGenero2"></canvas>
+                                    </div>  
+                                </div>        
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane fade" id="eventos" role="tabpanel">
+                            <div class="mt-4 mx-4">
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="cursos" role="tabpanel">
+                            <div class="mt-4 mx-4">
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="egressos" role="tabpanel">
+                            <div class="mt-4 mx-4">
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="campus" role="tabpanel">
+                            <div class="mt-4 mx-4">
+
+                            </div>
                         </div>
                     </div>
+
                 </div>
-
-
             </div>
-
+        </div>
 
 
         <jsp:include page="../footer.jsp"/>

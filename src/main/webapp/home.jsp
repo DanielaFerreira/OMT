@@ -58,7 +58,7 @@
 
             <div class="tab-content card mb-5">
                 <div class="tab-pane fade in show active" id="login1" role="tabpanel">
-                    <div class="mt-4 mx-4">
+                    <div class="mt-4 mx-4" role="tablist">
                         <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
                             <input type="hidden" name="entidade" value="discente"/>
 
@@ -66,7 +66,7 @@
                             <input class="form-control" id="matriculaLoginDisc" type="text"  name="login">
 
                             <br>
- 
+
                             <label for="senhaLoginDisc" class="grey-text">Senha</label>
                             <input class="form-control" id="senhaLoginDisc" type="password" name="senha">
 
@@ -74,6 +74,11 @@
                                 <button class="btn btn-green" id="buttonLoginDisc" type="submit">Entrar</button>
                             </div>
                         </form>
+
+                        <div class="text-center">
+                            <label>Ainda não possui cadasto?</label>
+                            <a class="link" href="#cadastro-egresso"><b>Registre-se agora</b></a>
+                        </div>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="login2" role="tabpanel">
@@ -116,22 +121,22 @@
                 </div>
                 <div class="tab-pane fade" id="login4" role="tabpanel">
                     <div class="mt-4 mx-4">                       
-                            <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
-                                <input type="hidden" name="entidade" value="empresa"/>
+                        <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
+                            <input type="hidden" name="entidade" value="empresa"/>
 
-                                <label for="acessoLoginEmp" class="grey-text">Nome de Acesso</label>
-                                <input class="form-control" id="acessoLoginEmp" name="usuario" type="text">
+                            <label for="acessoLoginEmp" class="grey-text">Nome de Acesso</label>
+                            <input class="form-control" id="acessoLoginEmp" name="usuario" type="text">
 
-                                <br>
+                            <br>
 
-                                <label for="senhaLoginEmp" class="grey-text">Senha</label>
-                                <input class="form-control" id="senhaLoginEmp" name="senha" type="password">
+                            <label for="senhaLoginEmp" class="grey-text">Senha</label>
+                            <input class="form-control" id="senhaLoginEmp" name="senha" type="password">
 
-                                <div class="text-center my-4">
-                                    <button class="btn btn-green" id="buttonLoginEmp" type="submit">Entrar</button>
-                                </div>
-                            </form>
-                  
+                            <div class="text-center my-4">
+                                <button class="btn btn-green" id="buttonLoginEmp" type="submit">Entrar</button>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>

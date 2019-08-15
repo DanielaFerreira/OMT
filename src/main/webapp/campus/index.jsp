@@ -26,7 +26,7 @@
                     <li class="nav-item">
                         <a href="../campus/index.jsp" class="nav-link active" data-toggle="tab" role="tab">
                             <i class="fas fa-home fa-lg"></i>
-                            Página Inical
+                            Página Inicial
                         </a>
                     </li>
                     <li class="nav-item">
