@@ -76,6 +76,10 @@
         <servlet-name>EnviaPDFFormEgresso</servlet-name>
         <servlet-class>com.br.OMT.Servlets.EnviaPDFFormEgresso</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListarAuxServlet</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.ListarAuxServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EmpresaServlet</servlet-name>
         <url-pattern>/EmpresaServlet</url-pattern>
@@ -131,6 +135,10 @@
     <servlet-mapping>
         <servlet-name>EnviaPDFFormEgresso</servlet-name>
         <url-pattern>/EnviaPDFFormEgresso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarAuxServlet</servlet-name>
+        <url-pattern>/ListarAuxServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

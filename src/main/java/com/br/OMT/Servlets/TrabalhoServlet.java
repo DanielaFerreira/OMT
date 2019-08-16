@@ -69,7 +69,7 @@ public class TrabalhoServlet extends HttpServlet {
             } else {
                 if (butao.equals("alterar")) {
                     t.setEntidade((Entidade) request.getSession().getAttribute("entidade"));
-                    setDados(t, t.getProfissao(), t.getTipo(), t.getQuantidadeVagas(), t.getSalario(), t.getDescricao(), t.getTempoInicio(), t.getTempoFinal());
+                    setDados(t, t.getId(), t.getProfissao(), t.getTipo(), t.getQuantidadeVagas(), t.getSalario(), t.getDescricao(), t.getTempoInicio(), t.getTempoFinal());
 
                     String str;
                     try {
@@ -93,8 +93,9 @@ public class TrabalhoServlet extends HttpServlet {
         }
     }
 
-    private void setDados(Trabalho t, String profissao, char tipo, int qtdeVagas,
+    private void setDados(Trabalho t, Long id, String profissao, char tipo, int qtdeVagas,
             Double salario, String descricao, Date inicio, Date fim) {
+        t.setId(id);
         t.setProfissao(profissao);
         t.setTipo(tipo);
         t.setQuantidadeVagas(qtdeVagas);
