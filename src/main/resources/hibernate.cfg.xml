@@ -12,7 +12,7 @@
     <property name="hibernate.connection.username">php</property>
     <property name="hibernate.connection.password">root</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
-    <mapping class="com.br.OMT.models.Aux"/>
+    <mapping class="com.br.OMT.models.Auxiliar"/>
     <mapping class="com.br.OMT.models.CampoFormulario"/>
     <mapping class="com.br.OMT.models.CampoValores"/>
     <mapping class="com.br.OMT.models.CursosEspecializantes"/>
