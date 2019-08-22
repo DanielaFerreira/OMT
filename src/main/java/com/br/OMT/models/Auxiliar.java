@@ -12,8 +12,7 @@ import javax.persistence.Table;
  * @author eddunic
  */
 @Entity
-@Table(name = "aux")
-public class Aux implements Serializable {
+public class Auxiliar implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,10 +20,10 @@ public class Aux implements Serializable {
 
     private Long id;
 
-    public Aux() {
+    public Auxiliar() {
     }
 
-    public Aux(Long idx, Long id) {
+    public Auxiliar(Long idx, Long id) {
         this.idx = idx;
         this.id = id;
     }

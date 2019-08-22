@@ -139,7 +139,7 @@
 
                                             <!-- Modal -->
                                             <div class="modal fade" id="visualizarVaga${trabalho.id}" tabindex="-1" role="dialog" aria-labelledby="modalVisualizar" aria-hidden="true">
-                                                <form action="/OMT/ListarAuxServlet" method="POST">
+                                                <form action="/OMT/ListarAuxiliarServlet" method="POST">
                                                     <input class="form-control" id="id" type="hidden" name="id" value="${trabalho.id}" readonly>
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                         <div class="modal-content">
