@@ -3,8 +3,8 @@
     Created on : 12/06/2019, 22:03:04
     Author     : daniela
 --%>
-<%@page import="com.br.OMT.DAO.AuxDAO"%>
-<%@page import="com.br.OMT.models.Aux"%>
+<%@page import="com.br.OMT.DAO.AuxiliarDAO"%>
+<%@page import="com.br.OMT.models.Auxiliar"%>
 <%@page import="com.br.OMT.models.Trabalho"%>
 <%@page import="com.br.OMT.DAO.TrabalhoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -49,8 +49,8 @@
                     </nav>
 
                     <%
-                        Aux aux = new Aux();
-                        AuxDAO dao = new AuxDAO();
+                        Auxiliar aux = new Auxiliar();
+                        AuxiliarDAO dao = new AuxiliarDAO();
                         aux = dao.getByIdx(1L);
                         
                         TrabalhoDAO tDAO = new TrabalhoDAO();
