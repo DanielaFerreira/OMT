@@ -1,7 +1,7 @@
 package com.br.OMT.Servlets;
 
 import com.br.OMT.DAO.AuxDAO;
-import com.br.OMT.models.Aux;
+import com.br.OMT.models.Auxiliar;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +18,7 @@ public class ListarAuxServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        Aux aux = new Aux();
+        Auxiliar aux = new Auxiliar();
         AuxDAO dao = new AuxDAO();
 
         aux.setIdx(1L);

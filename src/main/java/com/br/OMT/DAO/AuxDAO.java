@@ -2,7 +2,7 @@ package com.br.OMT.DAO;
 
 import com.br.OMT.Hibernate.HibernateFactory;
 import com.br.OMT.Hibernate.HibernateUtil;
-import com.br.OMT.models.Aux;
+import com.br.OMT.models.Auxiliar;
 import com.br.OMT.models.Trabalho;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -15,7 +15,7 @@ import org.hibernate.query.Query;
  */
 public class AuxDAO {
 
-    private HibernateUtil<Aux> hut;
+    private HibernateUtil<Auxiliar> hut;
     private Session s;
 
     public AuxDAO() {
@@ -23,26 +23,26 @@ public class AuxDAO {
         hut = new HibernateUtil<>();
     }
 
-    public String salvar(Aux t) {
+    public String salvar(Auxiliar t) {
         return hut.salvar(t);
     }
 
-    public String atualizar(Aux t) {
+    public String atualizar(Auxiliar t) {
         return hut.atualizar(t);
     }
 
-    public String deletar(Aux t) {
+    public String deletar(Auxiliar t) {
         return hut.deletar(t);
     }
 
-    public Aux getByIdx(Long idx) {
-        Aux a;
+    public Auxiliar getByIdx(Long idx) {
+        Auxiliar a;
         try {
             s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
             Query query = s.createQuery("from Aux a where a.idx =:idx")
                     .setParameter("idx", idx);
-            a = (Aux) query.getSingleResult();
+            a = (Auxiliar) query.getSingleResult();
             s.getTransaction().commit();
             return a;
         } catch (HibernateException ex) {
@@ -53,8 +53,8 @@ public class AuxDAO {
         }
     }
 
-    public List<Aux> listAux() {
-        List<Aux> a;
+    public List<Auxiliar> listAux() {
+        List<Auxiliar> a;
         try {
             s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
