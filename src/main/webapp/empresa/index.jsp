@@ -57,7 +57,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="tab" role="tab">
+                            <a href="discente.jsp" class="nav-link">
                                 <i class="fa fa-user-graduate fa-lg"></i>
                                 Egresso
                             </a>
@@ -70,47 +70,23 @@
                             </a>
                         </li>
                     </ul>
-                    
-                    <div class="tab-content card mb-5">
-                        <div class="tab-pane fade in show active" id="graficos" role="tabpanel">
-                            <div class="mt-4 mx-4">
-                                <h1 class="mb-4 font-weight-bold">Estatísticas</h1>
-                                <div class="row">  
-                                    <div class="col-sm-12 col-md-6 col-xl-4">
-                                        <canvas id="graficoGenero1"></canvas>
-                                    </div> 
-                                    <div class="col-sm-12 col-md-6 col-xl-4">
-                                        <canvas id="graficoGenero3"></canvas>
-                                    </div>       
-                                    <div class="col-sm-12 col-md-6 col-xl-4">
-                                        <canvas id="graficoGenero2"></canvas>
-                                    </div>  
-                                </div>        
-                            </div>
-                        </div>
-                        
-                        <div class="tab-pane fade" id="eventos" role="tabpanel">
-                            <div class="mt-4 mx-4">
 
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="cursos" role="tabpanel">
-                            <div class="mt-4 mx-4">
-
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="egressos" role="tabpanel">
-                            <div class="mt-4 mx-4">
-
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="campus" role="tabpanel">
-                            <div class="mt-4 mx-4">
-
-                            </div>
+                    <div class="card mb-5">
+                        <div class="mt-4 mx-4">
+                            <h1 class="mb-4 font-weight-bold">Estatísticas</h1>
+                            <div class="row">  
+                                <div class="col-sm-12 col-md-6 col-xl-4">
+                                    <canvas id="graficoGenero1"></canvas>
+                                </div> 
+                                <div class="col-sm-12 col-md-6 col-xl-4">
+                                    <canvas id="graficoGenero3"></canvas>
+                                </div>       
+                                <div class="col-sm-12 col-md-6 col-xl-4">
+                                    <canvas id="graficoGenero2"></canvas>
+                                </div>  
+                            </div>        
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

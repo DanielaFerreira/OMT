@@ -3,6 +3,7 @@ package com.br.OMT.DAO;
 import com.br.OMT.Hibernate.HibernateFactory;
 import com.br.OMT.Hibernate.HibernateUtil;
 import com.br.OMT.models.Auxiliar;
+import com.br.OMT.models.Trabalho;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -12,12 +13,12 @@ import org.hibernate.query.Query;
  *
  * @author vinic
  */
-public class AuxiliarDAO {
+public class AuxDAO {
 
     private HibernateUtil<Auxiliar> hut;
     private Session s;
 
-    public AuxiliarDAO() {
+    public AuxDAO() {
         HibernateFactory.initSessionFactory();
         hut = new HibernateUtil<>();
     }
@@ -39,7 +40,7 @@ public class AuxiliarDAO {
         try {
             s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
-            Query query = s.createQuery("from Auxiliar a where a.idx =:idx")
+            Query query = s.createQuery("from Aux a where a.idx =:idx")
                     .setParameter("idx", idx);
             a = (Auxiliar) query.getSingleResult();
             s.getTransaction().commit();
@@ -52,12 +53,12 @@ public class AuxiliarDAO {
         }
     }
 
-    public List<Auxiliar> listAuxiliar() {
+    public List<Auxiliar> listAux() {
         List<Auxiliar> a;
         try {
             s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
-            Query query = s.createQuery("from Auxiliar a");
+            Query query = s.createQuery("from Aux t");
             a = query.getResultList();
             s.getTransaction().commit();
             return a;
