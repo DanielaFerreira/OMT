@@ -41,7 +41,17 @@
 
                         <div class="card px-4 py-4">
                             <form id="cadastrar-trabalho" method="POST" action="/OMT/TrabalhoServlet">
-                                <h3 class="font-weight-bold mb-4">Nova vaga de emprego</h3>
+
+                                <div class="row justify-content-between">
+                                    <div class="col-9">
+                                        <h3 class="font-weight-bold mb-4">Nova vaga de emprego</h3>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class=" align-self-end"> 
+                                            <a class="btn btn-green" href="../empresa/form_editavel.jsp">Formulário</a>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">

@@ -27,7 +27,7 @@
         <script src="js/form_builder.js"></script>        
     </head>
     <body>
-<jsp:include page="header.jsp"/>
+        <jsp:include page="header.jsp"/>
         <div class="container">
             <!-- <nav class="navbar navbar-light  bg-faded fixed-top">
                 <div class="clearfix">
@@ -41,8 +41,8 @@
 
             <div class="form_builder" style="margin-top: 25px">
                 <div>
-<button style="cursor: pointer;display: none" class="btn btn-info export_html mt-2 pull-right">Exibir HTML gerado</button>
-        </div> 
+                    <button style="cursor: pointer;display: none" class="btn btn-info export_html mt-2 pull-right">Exibir HTML gerado</button>
+                </div> 
                 <div class="row">
                     <div class="col-1"></div>
                     <div class="col-1 fixed-bottom text-center">
@@ -92,9 +92,9 @@
                                 <div style="display: none" class="form-group plain_html"><textarea rows="50" class="form-control"></textarea></div>
                             </form>
                         </div>
-                        
+
                     </div>
-     
+
                 </div>
             </div>
         </div>                      
