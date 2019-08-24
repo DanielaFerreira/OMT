@@ -9,10 +9,9 @@
     <property name="hibernate.connection.CharSet">utf8</property>
     <property name="hibernate.connection.characterEncoding">utf8</property>
     <property name="hibernate.connection.useUnicode">true</property>
-    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.username">php</property>
     <property name="hibernate.connection.password">root</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
-    <mapping class="com.br.OMT.models.Auxiliar"/>
     <mapping class="com.br.OMT.models.CampoFormulario"/>
     <mapping class="com.br.OMT.models.CampoValores"/>
     <mapping class="com.br.OMT.models.CursosEspecializantes"/>

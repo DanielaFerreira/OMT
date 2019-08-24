@@ -58,9 +58,9 @@ public class TrabalhoServlet extends HttpServlet {
 
                         response.sendRedirect("empresa/vaga_trabalho.jsp");
                         mensagem = "<strong>Cadastro realizado!</strong> a vaga de trabalho " + t.getProfissao() + "já está na lista de vagas ofertadas pela sua empresa.";
- 
+
                     } else {
-                        mensagem="<strong>Opa, ocorreu uma falha</strong> A vaga de trabalho " + t.getProfissao() + "não foi possível ser cadastrada por conta do erro" + str;
+                        mensagem = "<strong>Opa, ocorreu uma falha</strong> A vaga de trabalho " + t.getProfissao() + "não foi possível ser cadastrada por conta do erro" + str;
                     }
                 } catch (ParseException ex) {
                     System.out.println("Erro: " + ex.getMessage());
@@ -85,7 +85,10 @@ public class TrabalhoServlet extends HttpServlet {
                     }
                 } else {
                     if (butao.equals("deletar")) {
-                              tdao.deletar(t);
+                        String id = request.getParameter("id");
+                        Long idLong = Long.parseLong(id);
+                        t = tdao.getById(idLong);
+                        tdao.deletar(t);
                         response.sendRedirect("empresa/vaga_trabalho.jsp");
                     }
                 }

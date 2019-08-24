@@ -116,70 +116,71 @@
 
                                                 <!-- Modal -->
                                             <div class="modal fade bd-example-modal-xl" id="deletarVaga${trabalho.id}" tabindex="-1" role="dialog" aria-labelledby="modalDeletar" aria-hidden="true">
-                                                <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title">Você tem certeza que deseja excluir a vaga <b>${trabalho.profissao}</b>?</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body alert-danger">
-                                                            Esta é uma ação que não pode ser desfeita, pois os dados não poderão ser recuperados.
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancele</button>
-                                                            <form id="formDeletar" name="formDeletar" method="post" action="/OMT/TrabalhoServlet" data-id="<c:out value="${trabalho.id}"/>">
-                                                                <button type="submit" name="acao" value="deletar" class="btn btn-danger">Sim, delete</button>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="visualizarVaga${trabalho.id}" tabindex="-1" role="dialog" aria-labelledby="modalVisualizar" aria-hidden="true">
-                                                <form action="/OMT/ListarAuxiliarServlet" method="POST">
+                                                <form id="formDeletar" name="formDeletar" method="post" action="/OMT/TrabalhoServlet">
                                                     <input class="form-control" id="id" type="hidden" name="id" value="${trabalho.id}" readonly>
-                                                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                                                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title"><strong>${trabalho.profissao}</strong></h5>
+                                                                <h5 class="modal-title">Você tem certeza que deseja excluir a vaga <b>${trabalho.profissao}</b>?</h5>
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
-                                                            <div class="modal-body"> 
-                                                                <div class="row">
-                                                                    <label class="col"> <strong> Profissão </strong> </label>
-                                                                    <label class="col">${trabalho.profissao}</label>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <label class="col "> <strong> Salário </strong> </label>
-                                                                    <label class="col">R$ ${trabalho.salario}</label>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <label class="col "> <strong> Quantidade de Vagas </strong> </label>
-                                                                    <label class="col">${trabalho.quantidadeVagas}</label>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <label class="col "> <strong> Tipo </strong> </label>
-                                                                    <label class="col">${trabalho.tipo}</label>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <label class="col "> <strong>  Descrição </strong> </label>
-                                                                    <label class="col">${trabalho.descricao}</label>
-                                                                </div>
-                                                                <br>
-                                                                <div class="row justify-content-end">
-                                                                    <a class="btn btn-green" href="candidatos.jsp?id=${trabalho.id}">Candidatos</a>
-                                                                    <a data-dismiss="modal" aria-label="Close" class="btn btn-grey" data-toggle="modal" data-target="#deletarVaga${trabalho.id}"><i class="fa fa-trash"></i> Excluir</a>
-                                                                    <a class="btn btn-primary" href="alterarVaga.jsp?id=${trabalho.id}"><i class="fa fa-edit"></i>  Alterar</a> 
-                                                                </div>
+                                                            <div class="modal-body alert-danger">
+                                                                Esta é uma ação que não pode ser desfeita, pois os dados não poderão ser recuperados.
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancele</button>
+
+                                                                <button type="submit" name="acao" value="deletar" class="btn btn-danger">Sim, delete</button>
+
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </form>
+                                            </div>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="visualizarVaga${trabalho.id}" tabindex="-1" role="dialog" aria-labelledby="modalVisualizar" aria-hidden="true">
+                                                <input class="form-control" id="id" type="hidden" name="id" value="${trabalho.id}" readonly>
+                                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title"><strong>${trabalho.profissao}</strong></h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body"> 
+                                                            <div class="row">
+                                                                <label class="col"> <strong> Profissão </strong> </label>
+                                                                <label class="col">${trabalho.profissao}</label>
+                                                            </div>
+                                                            <div class="row">
+                                                                <label class="col "> <strong> Salário </strong> </label>
+                                                                <label class="col">R$ ${trabalho.salario}</label>
+                                                            </div>
+                                                            <div class="row">
+                                                                <label class="col "> <strong> Quantidade de Vagas </strong> </label>
+                                                                <label class="col">${trabalho.quantidadeVagas}</label>
+                                                            </div>
+                                                            <div class="row">
+                                                                <label class="col "> <strong> Tipo </strong> </label>
+                                                                <label class="col">${trabalho.tipo}</label>
+                                                            </div>
+                                                            <div class="row">
+                                                                <label class="col "> <strong>  Descrição </strong> </label>
+                                                                <label class="col">${trabalho.descricao}</label>
+                                                            </div>
+                                                            <br>
+                                                            <div class="row justify-content-end">
+                                                                <a class="btn btn-green" href="candidatos.jsp?id=${trabalho.id}">Candidatos</a>
+                                                                <a data-dismiss="modal" aria-label="Close" class="btn btn-grey" data-toggle="modal" data-target="#deletarVaga${trabalho.id}"><i class="fa fa-trash"></i> Excluir</a>
+                                                                <a class="btn btn-primary" href="alterarVaga.jsp?id=${trabalho.id}"><i class="fa fa-edit"></i>  Alterar</a> 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <script>

@@ -3,8 +3,6 @@
     Created on : 12/06/2019, 22:03:04
     Author     : daniela
 --%>
-<%@page import="com.br.OMT.DAO.AuxiliarDAO"%>
-<%@page import="com.br.OMT.models.Auxiliar"%>
 <%@page import="com.br.OMT.models.Trabalho"%>
 <%@page import="com.br.OMT.DAO.TrabalhoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -48,18 +46,15 @@
                         </ul>
                     </nav>
 
-                    <%
-                        Auxiliar aux = new Auxiliar();
-                        AuxiliarDAO dao = new AuxiliarDAO();
-                        aux = dao.getByIdx(1L);
-                        
+                    <%                    
+                        Trabalho t = Trabalho.getInstance();
                         TrabalhoDAO tDAO = new TrabalhoDAO();
-                        Trabalho t = tDAO.getById(aux.getId());
+                        t = tDAO.getById(Long.parseLong(request.getParameter("id")));                    
                     %>
 
                     <div class=" card">
                         <div class="mt-4 mx-4">
-                            <form id="cadastrar-trabalho" method="POST" action="/OMT/TrabalhoServlet" data-id="<c:out value="${trabalho.id}"/>">
+                            <form id="cadastrar-trabalho" method="POST" action="/OMT/TrabalhoServlet">
                                 <h3 class="font-weight-bold mb-4">Alterar vaga de emprego</h3>
 
                                 <div class="form-row">
@@ -76,17 +71,17 @@
                                 <div class="row">
                                     <div class="form-group col">
                                         <label for="salario">Salário</label>
-                                        <input class="form-control validate" name="salario" id="salario" value="<c:out value="<%=t.getSalario()%>"/>" type="text"/>
+                                        <input class="form-control validate" name="salario" id="salario" value="<%=t.getSalario()%>" type="text"/>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="quantidadeVagas">Quantidade de vagas</label>
-                                        <input class="form-control validate" name="quantidadeVagas" id="quantidadeVagas" value="<c:out value="<%=t.getQuantidadeVagas()%>"/>" type="number">
+                                        <input class="form-control validate" name="quantidadeVagas" id="quantidadeVagas" value="<%=t.getQuantidadeVagas()%>" type="number">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="descricao">Descrição</label>
-                                    <textarea class="form-control" name="descricao" value="<c:out value="<%=t.getDescricao()%>"/>" id="descricao" rows="5"></textarea>
+                                    <textarea class="form-control" name="descricao" value="<%=t.getDescricao()%>" id="descricao" rows="5"></textarea>
                                 </div>
 
                                 <div class="row">
@@ -96,7 +91,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="fim">Término das inscrições</label>
-                                        <input class="form-control validate data" type="text" value="<c:out value="<%=t.getTempoFinal()%>"/>" id="fim" name="fim"/>  
+                                        <input class="form-control validate data" type="text" value="<%=t.getTempoFinal()%>" id="fim" name="fim"/>  
                                     </div>
                                 </div>
                                 <div class="text-right">
