@@ -11,9 +11,9 @@
 <jsp:useBean id="TrabalhoDAO" class="com.br.OMT.DAO.TrabalhoDAO"/>
 <c:set var="trabalhos" value="${TrabalhoDAO.listTrabalho()}"/>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Observatório Mundo do Trabalho - Vaga de Trabalho</title>
         <link rel="stylesheet" href="../css/bootstrap.css"/>
@@ -46,10 +46,10 @@
                         </ul>
                     </nav>
 
-                    <%                    
+                    <%
                         Trabalho t = Trabalho.getInstance();
                         TrabalhoDAO tDAO = new TrabalhoDAO();
-                        t = tDAO.getById(Long.parseLong(request.getParameter("id")));                    
+                        t = tDAO.getById(Long.parseLong(request.getParameter("id")));
                     %>
 
                     <div class=" card">
@@ -81,18 +81,21 @@
 
                                 <div class="form-group">
                                     <label for="descricao">Descrição</label>
-                                    <textarea class="form-control" name="descricao" value="<%=t.getDescricao()%>" id="descricao" rows="5"></textarea>
+                                    <textarea class="form-control" name="descricao" id="descricao" rows="5"><%=t.getDescricao()%></textarea>
                                 </div>
 
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="inicio">Início das inscrições</label>
-                                        <input class="form-control validate data" type="text" id="inicio" value="<%=t.getTempoInicio()%>" name="inicio"/>  
+                                        <input class="form-control validate data" type="text" id="inicio" name="inicio"
+                                               value="<fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="<%=t.getTempoInicio()%>"/>"/> 
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="fim">Término das inscrições</label>
-                                        <input class="form-control validate data" type="text" value="<%=t.getTempoFinal()%>" id="fim" name="fim"/>  
+                                        <input class="form-control validate data" type="text" id="fim" name="fim"
+                                               value="<fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="<%=t.getTempoFinal()%>"/>"/> 
                                     </div>
+                                    <input class="form-control" id="id" type="hidden" name="id" value="<%= t.getId()%>" readonly>
                                 </div>
                                 <div class="text-right">
                                     <button type="submit" name="acao" value="alterar" class="btn btn-green waves-effct">
@@ -106,4 +109,11 @@
         </div>
         <jsp:include page="../footer.jsp" />
     </body>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/mdb.min.js"></script>
+    <script src="../js/general.js"></script>
+    <script src="../js/jquery.mask.min.js"></script>
+    <script src="../js/mascaras.js"></script>
 </html>
