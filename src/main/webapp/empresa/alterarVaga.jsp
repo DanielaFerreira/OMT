@@ -3,8 +3,6 @@
     Created on : 12/06/2019, 22:03:04
     Author     : daniela
 --%>
-<%@page import="com.br.OMT.DAO.AuxiliarDAO"%>
-<%@page import="com.br.OMT.models.Auxiliar"%>
 <%@page import="com.br.OMT.models.Trabalho"%>
 <%@page import="com.br.OMT.DAO.TrabalhoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
