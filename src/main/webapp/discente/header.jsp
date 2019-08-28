@@ -23,20 +23,6 @@
                     <a href="http://www2.ifam.edu.br" class="nav-link">
                         <img class="mr-1" height="25" width="20" src="/OMT/img/logoIF.png"/>Site do IFAM</a>
                 </li>
-
-                <li class="dropdown">
-                    <a class="dropdown-toggle nav-link active"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-user fa-lg mr-1"></i>Minha conta
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="notificacao.jsp"><i class="fa fa-bell fa-lg mr-1"></i>Notificações
-                             <span class="badge badge-primary badge-pill">14</span>
-                        </a>
-                        <a class="dropdown-item" href="../discente/alterarPerfil.jsp"><i class="fa fa-user-edit fa-lg mr-1"></i>Meu perfil</a>
-                        <a class="dropdown-item" href="../discente/curriculo.jsp"><i class="fa fa-address-card fa-lg mr-1"></i>Currículo</a>
-                        <a class="dropdown-item" href="/OMT/LoginServlet" alt="Sair" ><i class="fa fa-sign-out-alt fa-lg mr-1"></i>Encerrar sessão</a>
-                    </div>
-                </li>
             </ul>
         </div>
     </nav>

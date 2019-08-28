@@ -19,12 +19,9 @@
         <div class="container-fluid">
 
             <div class="row justify-content-center">
+                <jsp:include page="../empresa/perfil_flutuante.jsp"/>
 
-                <div> 
-                    <jsp:include page="../empresa/perfil_flutuante.jsp"/>
-                </div>
-
-                <div class="col-8">
+                <div class="col-lg-8">
 
                     <div class=" card mb-5">
 
@@ -43,10 +40,10 @@
                             <form id="cadastrar-trabalho" method="POST" action="/OMT/TrabalhoServlet">
 
                                 <div class="row justify-content-between">
-                                    <div class="col-9">
+                                    <div class="col-md-9">
                                         <h3 class="font-weight-bold mb-4">Nova vaga de emprego</h3>
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-md2">
                                         <div class=" align-self-end"> 
                                             <a class="btn btn-green" href="../empresa/form_editavel.jsp">Formulário</a>
                                         </div>

@@ -7,13 +7,22 @@
 <jsp:useBean id="EstadoCivil" class="com.br.OMT.Beans.EstadoCivilBean"/>
 <jsp:useBean id="Etnia" class="com.br.OMT.Beans.EtniaBean"/>
 
-<div class="card  py-4">
-    <h3 class="font-weight-bold mb-4 text-center">Meu Perfil</h3>
-    <form id="formAlterar" name="formAlterar" method="post" action="../discente/alterarPerfil.jsp" data-id="<c:out value="${usuario.id}"/>">
-        <div class="section">
+<div class="card">
 
+    <nav class="navbar navbar-expand-lg green darken-1">
+
+        <div class="nav-tabs justify-content-center border-0">
+            <div class="col-12">
+                <a class="text-white">
+                    <b>Seu perfil</b>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <br>
+        <div class="section">
             <div class="form-row">
-                <div class="form-group col-sm-12">
+                <div class="form-group col">
                     <div class="text-center">
                         <c:choose>
                             <c:when test="${fn:length(usuario.foto) > 0}">
@@ -32,15 +41,31 @@
             </div>
             <div class="form-row">
                 <div class=" col-sm-12 text-center">
-                    <h2 for="nome"><c:out value="${usuario.nome}"/></h2>
+                    <h3 for="nome"><c:out value="${usuario.nome}"/></h3>
                 </div>
             </div>
         </div>
-        <div class="col-md-12 text-center">
-            <button type="submit" name="acao" value="vermais" class="btn btn-md btn-grey"><i class="fa fa-edit fa-lg mr-1"></i> Editar perfil</button>
-        </div>
-    </form>
+    
+    <br>
+    
+    <div class="list-group">
+        <a href="notificacao.jsp" class="list-group-item list-group-item-action">
+            <i class="fa fa-bell fa-lg mr-1"></i>
+            Notificações
+            <span class="badge green darken-1 badge-pill">7</span>
+        </a>
+        <a href="alterarPerfil.jsp" class="list-group-item list-group-item-action">
+            <i class="fa fa-edit fa-lg mr-1"></i> 
+            Editar perfil
+        </a>
+        <a href="/OMT/LoginServlet" alt="Sair" class="list-group-item list-group-item-action">
+            <i class="fa fa-sign-out-alt fa-lg mr-1"></i>
+            Encerrar sessão
+        </a>
+    </div>
+    <br>
 </div>
+                
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src="../js/popper.min.js"></script>
 <script src="../js/bootstrap.js"></script>

@@ -23,12 +23,9 @@
         <div class="container-fluid">
 
             <div class="row justify-content-center">
+                <jsp:include page="../empresa/perfil_flutuante.jsp"/>
 
-                <div> 
-                    <jsp:include page="../empresa/perfil_flutuante.jsp"/>
-                </div>
-
-                <div class="col-8">
+                <div class="col-lg-8">
 
                     <div class=" card mb-5">
 
@@ -45,44 +42,44 @@
 
                         <div class="card px-4 py-4">
                             <h3 class="font-weight-bold mb-4">Candidatos para a vaga</h3>
+                            <div class="table-responsive-xl">
+                                <table class="table table-sm table-striped table-bordered table-hover" id="filtro">
+                                    <caption>Lista de eventos de sua empresa</caption>
+                                    <thead>
+                                        <tr class="auto">
+                                            <th>Nome<i class="fa fa-sort float-right"></i></th>
+                                            <th>Formação<i class="fa fa-sort float-right"></i></th>
+                                            <th>Campus<i class="fa fa-sort float-right"></i></th>
+                                            <th>Ano de formação <i class="fa fa-sort float-right"></i></th>
+                                            <th class="disabled">Ação<i class="fa fa-sort float-right"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                            <table class="table table-sm table-striped table-bordered table-hover" id="filtro">
-                                <caption>Lista de eventos de sua empresa</caption>
-                                <thead>
-                                    <tr class="auto">
-                                        <th>Nome<i class="fa fa-sort float-right"></i></th>
-                                        <th>Formação<i class="fa fa-sort float-right"></i></th>
-                                        <th>Campus<i class="fa fa-sort float-right"></i></th>
-                                        <th>Ano de formação <i class="fa fa-sort float-right"></i></th>
-                                        <th class="disabled">Ação<i class="fa fa-sort float-right"></i></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                                        <tr>
+                                            <td>Eduardo</td>               
+                                            <td>Informática</td>
+                                            <td>Ifam-CMC</td>
+                                            <td>20/08/2019 - 04/09/2019</td>
+                                            <td>
+                                                <a class="btn btn-blue"  href="curriculoDiscente.jsp?id=7">Currículo</a>
+                                                <a class="btn btn-green"><i class="fa fa-check"></i> Contratar</a>
+                                                <a class="btn btn-danger"><i class="fa fa-window-close"></i> Dispensar</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
 
-                                    <tr>
-                                        <td>Eduardo</td>               
-                                        <td>Informática</td>
-                                        <td>Ifam-CMC</td>
-                                        <td>20/08/2019 - 04/09/2019</td>
-                                        <td>
-                                            <a class="btn btn-blue">Currículo</a>
-                                            <a class="btn btn-green"><i class="fa fa-check"></i> Contratar</a>
-                                            <a class="btn btn-danger"><i class="fa fa-window-close"></i> Dispensar</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <tfoot>
-
-                                    <tr class="auto">
-                                        <th>Nome</th>
-                                        <th>Formação</th>
-                                        <th>Campus</th>
-                                        <th>Ano de formação</th>
-                                        <th>Ação</th>
-                                    </tr>
-                                </tfoot>
-                            </table>     
-
+                                        <tr class="auto">
+                                            <th>Nome</th>
+                                            <th>Formação</th>
+                                            <th>Campus</th>
+                                            <th>Ano de formação</th>
+                                            <th>Ação</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>     
+                            </div>
                         </div>
                     </div>
                 </div>

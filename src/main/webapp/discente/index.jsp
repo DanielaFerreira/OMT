@@ -30,11 +30,12 @@
                 <div class="container-fluid">
 
                     <div class="row justify-content-center">
-                        <div> 
+                        <div class="col-lg-2"> 
                             <jsp:include page="pertil_flutuante.jsp"/>
+                            <br>
                         </div>
-
-                        <div class="col-8">
+                        
+                        <div class="col-lg-8">
                             <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
                                 <li class="nav-item">
                                     <a href="#paginaInicial" class="nav-link active" data-toggle="tab" role="tab">

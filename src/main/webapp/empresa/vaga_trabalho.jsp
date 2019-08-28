@@ -26,11 +26,9 @@
 
             <div class="row justify-content-center">
 
-                <div> 
-                    <jsp:include page="perfil_flutuante.jsp"/>
-                </div>
+                <jsp:include page="perfil_flutuante.jsp"/>
 
-                <div class="col-8">
+                <div class="col-lg-8">
                     <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
                         <li class="nav-item">
                             <a href="index.jsp" class="nav-link">
@@ -85,61 +83,63 @@
                                             </div>
                                         </div> 
                                     </div>
+                                    <div class="table-responsive-xl">
+                                        <table class="table table-sm table-striped table-bordered table-hover" id="table-trabalhos">
 
-                                    <table class="table table-sm table-striped table-bordered table-hover" id="table-trabalhos">
+                                            <caption>Lista de vagas de emprego</caption>
+                                            <!--<div class="alert alert-success alert-dismissible fade show"  role="alert">
+                                            <%-- ${mensagem}--%>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"<span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div> -->
 
-                                        <caption>Lista de vagas de emprego</caption>
-                                        <!--<div class="alert alert-success alert-dismissible fade show"  role="alert">
-                                        <%-- ${mensagem}--%>
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"<span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div> -->
-
-                                        <thead>
-                                            <tr class="auto">
-                                                <th>Profissão</th>
-                                                <th>Salário</th>
-                                                <th>Quantidade de Vagas</th>
-                                                <th>Ação</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach items="${trabalhos}" var="trabalho">
-                                                <tr>
-                                                    <td><c:out value="${trabalho.profissao}"/></td>               
-                                                    <td>R$${trabalho.salario}</td>
-                                                    <td>${trabalho.quantidadeVagas}</td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-green" data-toggle="modal" data-target="#visualizarVaga${trabalho.id}">Ver mais</button>
-                                                    </td>
+                                            <thead>
+                                                <tr class="auto">
+                                                    <th>Profissão</th>
+                                                    <th>Salário</th>
+                                                    <th>Quantidade de Vagas</th>
+                                                    <th>Ação</th>
                                                 </tr>
+                                            </thead>
+                                            <tbody>
+                                                <c:forEach items="${trabalhos}" var="trabalho">
+                                                    <tr>
+                                                        <td><c:out value="${trabalho.profissao}"/></td>               
+                                                        <td>R$${trabalho.salario}</td>
+                                                        <td>${trabalho.quantidadeVagas}</td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-green" data-toggle="modal" data-target="#visualizarVaga${trabalho.id}">Ver mais</button>
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Modal -->
+                                                <div class="modal fade bd-example-modal-xl" id="deletarVaga${trabalho.id}" tabindex="-1" role="dialog" aria-labelledby="modalDeletar" aria-hidden="true">
+                                                    <form id="formDeletar" name="formDeletar" method="post" action="/OMT/TrabalhoServlet">
+                                                        <input class="form-control" id="id" type="hidden" name="id" value="${trabalho.id}" readonly>
+                                                        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title">Você tem certeza que deseja excluir a vaga <b>${trabalho.profissao}</b>?</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body alert-danger">
+                                                                    Esta é uma ação que não pode ser desfeita, pois os dados não poderão ser recuperados.
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancele</button>
+
+                                                                    <button type="submit" name="acao" value="deletar" class="btn btn-danger">Sim, delete</button>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
 
                                                 <!-- Modal -->
-                                            <div class="modal fade bd-example-modal-xl" id="deletarVaga${trabalho.id}" tabindex="-1" role="dialog" aria-labelledby="modalDeletar" aria-hidden="true">
-                                                <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title">Você tem certeza que deseja excluir a vaga <b>${trabalho.profissao}</b>?</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body alert-danger">
-                                                            Esta é uma ação que não pode ser desfeita, pois os dados não poderão ser recuperados.
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancele</button>
-                                                            <form id="formDeletar" name="formDeletar" method="post" action="/OMT/TrabalhoServlet" data-id="<c:out value="${trabalho.id}"/>">
-                                                                <button type="submit" name="acao" value="deletar" class="btn btn-danger">Sim, delete</button>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="visualizarVaga${trabalho.id}" tabindex="-1" role="dialog" aria-labelledby="modalVisualizar" aria-hidden="true">
-                                                <form action="/OMT/ListarAuxiliarServlet" method="POST">
+                                                <div class="modal fade" id="visualizarVaga${trabalho.id}" tabindex="-1" role="dialog" aria-labelledby="modalVisualizar" aria-hidden="true">
                                                     <input class="form-control" id="id" type="hidden" name="id" value="${trabalho.id}" readonly>
                                                     <div class="modal-dialog modal-lg modal-dialog-centered">
                                                         <div class="modal-content">
@@ -179,32 +179,32 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </form>
-                                            </div>
+                                                </div>
 
-                                            <script>
+                                                <script>
 
-                                                $('#deletarVaga${trabalho.id}').on('shown.bs.modal', function () {
-                                                    $('#myInput').trigger('focus'); //e.relatedTarget.
-                                                });
+                                                    $('#deletarVaga${trabalho.id}').on('shown.bs.modal', function () {
+                                                        $('#myInput').trigger('focus'); //e.relatedTarget.
+                                                    });
 
-                                                $('#visualizarVaga${trabalho.id}').on('shown.bs.modal', function () {
-                                                    $('#myInput').trigger('focus'); //e.relatedTarget.
-                                                });
-                                            </script>
-                                        </c:forEach>
-                                        </tbody>
-                                        <tfoot>
+                                                    $('#visualizarVaga${trabalho.id}').on('shown.bs.modal', function () {
+                                                        $('#myInput').trigger('focus'); //e.relatedTarget.
+                                                    });
+                                                </script>
+                                            </c:forEach>
+                                            </tbody>
+                                            <tfoot>
 
-                                            <tr class="auto">
-                                                <th>Profissão</th>
-                                                <th>Salário</th>
-                                                <th>Quantidade de Vagas</th>
-                                                <th>Ação</th>
-                                            </tr>
-                                        </tfoot>
+                                                <tr class="auto">
+                                                    <th>Profissão</th>
+                                                    <th>Salário</th>
+                                                    <th>Quantidade de Vagas</th>
+                                                    <th>Ação</th>
+                                                </tr>
+                                            </tfoot>
 
-                                    </table>
+                                        </table>
+                                    </div>
                                 </div>
                             </main>
 

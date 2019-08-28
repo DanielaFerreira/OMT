@@ -8,6 +8,19 @@
     border-bottom: .05rem solid #e5e5e5;
 }
 
+#form_area{
+    border-color: green;
+    min-height: 300px;
+    border-style: dashed;
+    border-width: 2px;
+    margin-top: 2%;
+    margin-bottom: 8%
+}
+
+.form_builder{
+    position: fixed;
+}
+
 .form_builder .nav-sidebar { 
     width: 100%;
     padding: 8px 0; 

@@ -20,11 +20,9 @@
 
             <div class="row justify-content-center">
 
-                <div> 
-                    <jsp:include page="../empresa/perfil_flutuante.jsp"/>
-                </div>
+                <jsp:include page="../empresa/perfil_flutuante.jsp"/>
 
-                <div class="col-8">
+                <div class="col-lg-8">
 
                     <div class=" card mb-5">
 
@@ -43,7 +41,7 @@
                             <form method="post" id="cadastrar-evento" action="/OMT/EventoServlet" 
                                   enctype="multipart/form-data">
                                 <h3 class="font-weight-bold mb-4">Novo evento</h3>
-                                
+
                                 <div class="form-group foto-multipla">
                                     <label for="fotos">Fotos</label>
                                     <div class="file-loading">
@@ -53,7 +51,7 @@
                                         Todas as fotos selecionadas serão exibidas para os usuários definidos
                                     </small>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="nome">Nome do Evento</label>
                                     <input class="form-control" type="text" id="nome" name="nome" required>
@@ -86,8 +84,8 @@
                                     <label for="descricao">Descrição do Evento</label>
                                     <textarea id="descricao" name="descricao" class="form-control" rows="5"></textarea>
                                 </div>
-                                
-                                
+
+
                                 <div class="text-right">
                                     <button type="submit" name="acao" value="cadastrar" class="btn btn-green waves-effct">
                                         <i class="fa fa-check mr-1"></i>Cadastrar</button>

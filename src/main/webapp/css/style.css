@@ -7,6 +7,10 @@ and open the template in the editor.
     Created on : 09/07/2018, 22:06:37
     Author     : user
 */
+.col-responsive{
+    max-width: 250px;
+}
+
 body {
     background:
         linear-gradient(-90deg, rgba(0,0,0,.05) 1px, transparent 1px),
