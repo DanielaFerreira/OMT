@@ -31,7 +31,7 @@
 
                     <div class="row justify-content-center">
 
-                        <div> 
+                        <div class="col-2"> 
                             <jsp:include page="pertil_flutuante.jsp"/>
                         </div>
 
@@ -48,18 +48,20 @@
                             </nav>
                             <div class="tab-content card px-4 py-4">
                                 <h4 href="#"><strong> Notificações</strong></h4>
-                                <table class="table table-striped">
+                                <table class="table table-sm table-striped table-bordered table-hover" id="filtro">
+                                    <caption>Notificações</caption>
                                     <thead>
-                                        <tr>
-                                            <th scope="col">
+                                        <tr class="auto">
+                                            <th>
                                                 <div class="form-check">
                                                     <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
                                                     <label class="form-check-label" for="inlineRadio1"> Selecionar tudo</label>
                                                 </div>
+                                                <i class="fa fa-sort float-right"></i>
                                             </th>
-                                            <th scope="col">Mensagem</th>
-                                            <th scope="col">Data</th>
-                                            <th scope="col">Opção</th>
+                                            <th>Mensagem<i class="fa fa-sort float-right"></i></th>
+                                            <th>Data<i class="fa fa-sort float-right"></i></th>
+                                            <th>Opção<i class="fa fa-sort float-right"></i></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -67,44 +69,31 @@
                                             <td>
                                                 <div class="form-check">
                                                     <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                                    <label class="form-check-label" for="inlineRadio1"> Tony Stark</label>
+                                                    <label class="form-check-label" for="inlineRadio1"> Samsung</label>
                                                 </div>
                                             </td>
                                             <td>Venho por meio deste informar que sua...</td>
                                             <td>12/02/2003</td>
-                                            <td><button class="btn btn-primary">Ver mais</button></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                                    <label class="form-check-label" for="inlineRadio1"> Tony Stark</label>
-                                                </div>
-                                            </td>
-                                            <td>Venho por meio deste informar que sua...</td>
-                                            <td>12/02/2003</td>
-                                            <td><button class="btn btn-primary">Ver mais</button></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                                    <label class="form-check-label" for="inlineRadio1"> Tony Stark</label>
-                                                </div>
-                                            </td>
-                                            <td>Venho por meio deste informar que sua...</td>
-                                            <td>12/02/2003</td>
-                                            <td><button class="btn btn-primary">Ver mais</button></td>
+                                            <td><a class="btn btn-primary">Ver mais</a></td>
                                         </tr>
                                     </tbody>
+                                    <tfoot>
+                                        <tr class="auto">
+                                            <th>
+                                                <div class="form-check">
+                                                    <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                                    <label class="form-check-label" for="inlineRadio1"> Selecionar tudo</label>
+                                                </div>
+                                            </th>
+                                            <th>Mensagem</th>
+                                            <th>Data</th>
+                                            <th>Opção</th>
+                                        </tr>
+                                    </tfoot>
                                 </table>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </c:if>
             <c:if test="${empty usuario}">
@@ -117,5 +106,14 @@
         <script src="../js/bootstrap.js"></script>
         <script src="../js/mdb.min.js"></script>
         <script src="../js/general.js"></script>
+        <script src="../js/jquery-3.3.1.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.js"></script>
+        <script src="../js/mdb.min.js"></script>
+        <script src="../js/general.js"></script>
+        <script src="../js/jquery.mask.min.js"></script>
+        <script src="../js/mascaras.js"></script>
+        <script src="../js/addons/datatables.min.js"></script>
+        <script src="../js/filtro/filtro.js"></script>
     </body>
 </html>

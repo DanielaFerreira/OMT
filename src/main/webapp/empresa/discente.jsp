@@ -25,12 +25,8 @@
         <div class="container-fluid">
 
             <div class="row justify-content-center">
-
-                <div> 
-                    <jsp:include page="perfil_flutuante.jsp"/>
-                </div>
-
-                <div class="col-8">
+                <jsp:include page="perfil_flutuante.jsp"/>
+                <div class="col-lg-8">
                     <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
                         <li class="nav-item">
                             <a href="index.jsp" class="nav-link">
@@ -73,40 +69,43 @@
                     <div class="card mb-5">
                         <div class="mt-4 mx-4">
                             <h3 class="font-weight-bold mb-4">Lista de egressos</h3>
-                            <table class="table table-sm table-striped table-bordered table-hover" id="filtro">
-                                <caption>Lista de egressos</caption>
-                                <thead>
-                                    <tr>
-                                        <th>Nome<i class="fa fa-sort float-right"></i></th>
-                                        <th>Formação<i class="fa fa-sort float-right"></i></th>
-                                        <th>Campus<i class="fa fa-sort float-right"></i></th>
-                                        <th>Ano de formação <i class="fa fa-sort float-right"></i></th>
-                                        <th>Currículo<i class="fa fa-sort float-right"></i></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach items="${discentes}" var="discente">
-                                        <c:set target="${discente}" property="nome" value="${Criptografia.decrypt(discente.nomeBanco)}"/>
-                                        <c:set target="${discente}" property="usuario" value="${Criptografia.decrypt(discente.usuarioBanco)}"/>
+                            <div class="table-responsive-lg">
+                                <table class="table table-sm table-striped table-bordered table-hover" id="filtro">
+                                    <caption>Lista de egressos</caption>
+                                    <thead>
                                         <tr>
-                                            <td><c:out value="${discente.nome}"/></td>               
-                                            <td>${discente.formacao.nome}</td>
-                                            <td>${discente.formacao.campus.nome}</td>
-                                            <td>${discente.formacao.anoTermino}</td>
-                                            <td><a class="btn btn-green" href="curriculoDiscente.jsp?id=${discente.id}">Ver currículo</a></td>
+                                            <th>Nome<i class="fa fa-sort float-right"></i></th>
+                                            <th>Formação<i class="fa fa-sort float-right"></i></th>
+                                            <th>Campus<i class="fa fa-sort float-right"></i></th>
+                                            <th>Ano de formação <i class="fa fa-sort float-right"></i></th>
+                                            <th>Currículo<i class="fa fa-sort float-right"></i></th>
                                         </tr>
-                                    </c:forEach>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>Nome</th>
-                                        <th>Formação</th>
-                                        <th>Campus</th>
-                                        <th>Ano de formação</th>
-                                        <th>Currículo</th>
-                                    </tr>
-                                </tfoot>
-                            </table>      
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${discentes}" var="discente">
+                                            <c:set target="${discente}" property="nome" value="${Criptografia.decrypt(discente.nomeBanco)}"/>
+                                            <c:set target="${discente}" property="usuario" value="${Criptografia.decrypt(discente.usuarioBanco)}"/>
+                                            <tr>
+                                                <td><c:out value="${discente.nome}"/></td>               
+                                                <td>${discente.formacao.nome}</td>
+                                                <td>${discente.formacao.campus.nome}</td>
+                                                <td>${discente.formacao.anoTermino}</td>
+                                                <td><a class="btn btn-green" href="curriculoDiscente.jsp?id=${discente.id}">Ver currículo</a></td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th>Formação</th>
+                                            <th>Campus</th>
+                                            <th>Ano de formação</th>
+                                            <th>Currículo</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>      
+                            </div>
+                            <br>
                         </div>
                     </div>
                 </div>

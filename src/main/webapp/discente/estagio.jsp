@@ -7,47 +7,40 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Cargo</th>
-      <th scope="col">Quantidade de vagas</th>
-      <th scope="col">Local</th>
-      <th scope="col">Opção</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Auxiliar de professor</td>
-      <td>20</td>
-      <td>CDI</td>
-      <td><button class="btn btn-primary">Candidatar-se</button></td>
-    </tr>
-    
-    <tr>
-      <th scope="row">1</th>
-      <td>Auxiliar de professor</td>
-      <td>20</td>
-      <td>CDI</td>
-      <td><button class="btn btn-primary">Candidatar-se</button></td>
-    </tr>
-    
-    <tr>
-      <th scope="row">1</th>
-      <td>Auxiliar de professor</td>
-      <td>20</td>
-      <td>CDI</td>
-      <td><button class="btn btn-primary">Candidatar-se</button></td>
-    </tr>
-    
-    <tr>
-      <th scope="row">1</th>
-      <td>Auxiliar de professor</td>
-      <td>20</td>
-      <td>CDI</td>
-      <td><button class="btn btn-primary">Candidatar-se</button></td>
-    </tr>
-  </tbody>
-</table>
+<div class="col-md-12 table-responsive-lg">
+    <table class="table table-sm table-striped table-bordered table-hover" id="filtro">
+
+        <caption>Lista de vagas de emprego</caption>
+        <thead>
+            <tr class="auto">
+                <th>Profissão</th>
+                <th>Salário</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Auxiliar de informática</th>
+                <td>900,000</td>
+                <td class="text-center"><a class="btn btn-green">Candidatar-se</a></td>
+            </tr>
+        </tbody>
+        <tfoot>
+
+            <tr class="auto">
+                <th>Profissão</th>
+                <th>Salário</th>
+                <th>Ação</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/mdb.min.js"></script>
+<script src="../js/general.js"></script>
+<script src="../js/jquery.mask.min.js"></script>
+<script src="../js/mascaras.js"></script>
+<script src="../js/addons/datatables.min.js"></script>
+<script src="../js/filtro/filtro.js"></script>

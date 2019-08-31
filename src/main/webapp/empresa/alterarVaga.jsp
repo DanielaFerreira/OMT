@@ -28,12 +28,8 @@
 
 
             <div class="row justify-content-center">
-
-                <div col-4> 
-                    <jsp:include page="perfil_flutuante.jsp"/>
-                </div>
-
-                <div class="col-8">
+                <jsp:include page="perfil_flutuante.jsp"/>
+                <div class="col-lg-8">
 
                     <nav class="navbar navbar-expand-lg navbar-light green darken-1">
                         <ul class="navbar-nav">
@@ -101,6 +97,7 @@
                                     <button type="submit" name="acao" value="alterar" class="btn btn-green waves-effct">
                                         <i class="fa fa-check mr-1"></i>Alterar</button>
                                 </div>
+                                <br>
                             </form>
                         </div>
                     </div>

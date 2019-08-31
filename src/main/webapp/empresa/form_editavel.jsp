@@ -34,14 +34,8 @@
 
             <div class="row justify-content-center">
 
-                <div> 
-                    <jsp:include page="../empresa/perfil_flutuante.jsp"/>
-                </div>
-
-                <div class="col-8">
-
-                    <div class=" card mb-5">
-
+                <div class="form-row justify-content-center col-lg-10">
+                    <div class="col-sm-11">
                         <nav class="navbar navbar-expand-lg navbar-light green darken-1">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
@@ -52,69 +46,75 @@
                                 </li>
                             </ul>
                         </nav>
-
-                        <div class="card px-4 py-4">
-                            <div class="form_builder" style="margin-top: 25px">
-                                <div>
-                                    <button style="cursor: pointer;display: none" class="btn btn-info export_html mt-2 pull-right">Exibir HTML gerado</button>
-                                </div> 
-                                <div class="row">
-                                    <div class="col-1"></div>
-                                    <div class="col-1 fixed-bottom text-center">
-                                        <nav class="card nav-sidebar">
-                                            <ul class="nav">
-                                                <li class="form_bal_textfield">
-                                                    <a href="javascript:;" title="Resposta curta"><i class="fas fa-align-left"></i></a>
-                                                </li>
-                                                <li class="form_bal_textarea">
-                                                    <a href="javascript:;" title="Resposta longa"><i class="fas fa-align-justify"></i></a>
-                                                </li>
-                                                <li class="form_bal_select">
-                                                    <a href="javascript:;" title="Lista suspensa"> <i class="fas fa-caret-square-down"></i></a>
-                                                </li>
-                                                <li class="form_bal_radio">
-                                                    <a href="javascript:;" title="Múltipla escolha"><i class="fas fa-bullseye"></i></i></a>
-                                                </li>
-                                                <li class="form_bal_checkbox">
-                                                    <a href="javascript:;" title="Caixas de seleção"><i class="fas fa-check-square"></i></a>
-                                                </li>
-                                                <li class="form_bal_email">
-                                                    <a href="javascript:;" title="E-mail"> <i class="fas fa-envelope-square"></i></a>
-                                                </li>
-                                                <li class="form_bal_number">
-                                                    <a href="javascript:;" title="Número"><i class="fas fa-list-ol"></i></a>
-                                                </li>
-                                                <li class="form_bal_password">
-                                                    <a href="javascript:;" title="Senha"> <i class="fas fa-key"></i></a>
-                                                </li>
-                                                <li class="form_bal_date">
-                                                    <a href="javascript:;" title="Data"><i class="fas fa-calendar-alt"></i></a>
-                                                </li>
-                                                <li class="form_bal_button">
-                                                    <a href="javascript:;" title="Botão"><i class="fa fa-plus-circle pull-right"></i></a>
-                                                </li>
-                                            </ul>
-                                        </nav>
+                        <div class=" card px-4 py-4">
+                            <div class="form-row justify-content-center">
+                                <div class="col-lg-12">
+                                    <h3 class="font-weight-bold mb-4">Novo formulário</h3>
+                                </div>
+                                <div class="col-sm-5 text-center">
+                                    <h5>Arraste os campos para a área abaixo</h5>
+                                </div>
+                                <div class="col-sm-5 text-center">
+                                    <h5>Preview</h5>
+                                </div>
+                            </div>
+                            <div class="form-row justify-content-center">
+                                <div class="form-row col-lg-5 bal_builder form_builder_area" id="form_area"></div>
+                                <div class="col-sm-5">
+                                    <div class="col-md-12">
+                                        <form class="form-horizontal">
+                                            <div class="preview"></div>
+                                        </form>
                                     </div>
-                                    <div class="col-5 bal_builder">
-                                        <div class="form_builder_area" ></div>
-                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
 
-                                    <div class="col-5">
-                                        <div class="col-md-10">
-                                            <form class="form-horizontal">
-                                                <div class="preview"></div>
-                                                <div style="display: none" class="form-group plain_html"><textarea rows="50" class="form-control"></textarea></div>
-                                            </form>
-                                        </div>
-
-                                    </div>
-
+                    <div class="col-sm-1">
+                        <br><br>
+                        <div class="collg-12">
+                            <div class="form_builder">
+                                <div class=" text-center">
+                                    <nav class="card nav-sidebar">
+                                        <ul class="nav">
+                                            <li class="form_bal_textfield">
+                                                <a href="javascript:;" title="Resposta curta"><i class="fas fa-align-left"></i></a>
+                                            </li>
+                                            <li class="form_bal_textarea">
+                                                <a href="javascript:;" title="Resposta longa"><i class="fas fa-align-justify"></i></a>
+                                            </li>
+                                            <li class="form_bal_select">
+                                                <a href="javascript:;" title="Lista suspensa"> <i class="fas fa-caret-square-down"></i></a>
+                                            </li>
+                                            <li class="form_bal_radio">
+                                                <a href="javascript:;" title="Múltipla escolha"><i class="fas fa-bullseye"></i></i></a>
+                                            </li>
+                                            <li class="form_bal_checkbox">
+                                                <a href="javascript:;" title="Caixas de seleção"><i class="fas fa-check-square"></i></a>
+                                            </li>
+                                            <li class="form_bal_email">
+                                                <a href="javascript:;" title="E-mail"> <i class="fas fa-envelope-square"></i></a>
+                                            </li>
+                                            <li class="form_bal_number">
+                                                <a href="javascript:;" title="Número"><i class="fas fa-list-ol"></i></a>
+                                            </li>
+                                            <li class="form_bal_password">
+                                                <a href="javascript:;" title="Senha"> <i class="fas fa-key"></i></a>
+                                            </li>
+                                            <li class="form_bal_date">
+                                                <a href="javascript:;" title="Data"><i class="fas fa-calendar-alt"></i></a>
+                                            </li>
+                                            <li class="form_bal_button">
+                                                <a href="javascript:;" title="Botão"><i class="fa fa-plus-circle pull-right"></i></a>
+                                            </li>
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

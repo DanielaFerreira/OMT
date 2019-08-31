@@ -24,11 +24,9 @@
 
             <div class="row justify-content-center">
 
-                <div> 
-                    <jsp:include page="perfil_flutuante.jsp"/>
-                </div>
+                <jsp:include page="perfil_flutuante.jsp"/>
 
-                <div class="col-8">
+                <div class="col-lg-8">
                     <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
                         <li class="nav-item">
                             <a href="index.jsp" class="nav-link">
@@ -49,9 +47,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="evento.jsp" class="nav-link">
+                            <a href="curso.jsp" class="nav-link">
                                 <i class="fa fa-chalkboard-teacher fa-lg"></i>
-                                eventos
+                                Cursos
                             </a>
                         </li>
 
@@ -83,38 +81,39 @@
                                         </div>
                                     </div> 
                                 </div>
+                                <div class="table-responsive-xl">
+                                    <table class="table table-sm table-striped table-bordered table-hover" id="filtro">
+                                        <caption>Lista de eventos de sua empresa</caption>
+                                        <thead>
+                                            <tr class="auto">
+                                                <th>Nome</th>
+                                                <th>Local</th>
+                                                <th>Período de incrição</th>
+                                                <th>Ação</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
-                                <table class="table table-sm table-striped table-bordered table-hover" id="filtro">
-                                    <caption>Lista de eventos de sua empresa</caption>
-                                    <thead>
-                                        <tr class="auto">
-                                            <th>Nome</th>
-                                            <th>Local</th>
-                                            <th>Período de incrição</th>
-                                            <th>Ação</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                                            <tr>
+                                                <td>Palestra - Internet das coisas</td>               
+                                                <td>Auditório 1</td>
+                                                <td>20/08/2019 - 04/09/2019</td>
+                                                <td>
+                                                    <a type="button" class="btn btn-green">Ver mais</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
 
-                                        <tr>
-                                            <td>Palestra - Internet das coisas</td>               
-                                            <td>Auditório 1</td>
-                                            <td>20/08/2019 - 04/09/2019</td>
-                                            <td>
-                                                <a type="button" class="btn btn-green">Ver mais</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-
-                                        <tr class="auto">
-                                            <th>Profissão</th>
-                                            <th>Salário</th>
-                                            <th>Quantidade de Vagas</th>
-                                            <th>Ação</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
+                                            <tr class="auto">
+                                                <th>Profissão</th>
+                                                <th>Salário</th>
+                                                <th>Quantidade de Vagas</th>
+                                                <th>Ação</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
                             </div>
                         </main>
 

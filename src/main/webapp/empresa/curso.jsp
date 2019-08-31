@@ -23,12 +23,9 @@
         <div class="container-fluid">
 
             <div class="row justify-content-center">
+                <jsp:include page="perfil_flutuante.jsp"/>
 
-                <div> 
-                    <jsp:include page="perfil_flutuante.jsp"/>
-                </div>
-
-                <div class="col-8">
+                <div class="col-lg-8">
                     <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
                         <li class="nav-item">
                             <a href="index.jsp" class="nav-link">
@@ -85,62 +82,60 @@
                                             </div>
                                         </div> 
                                     </div>
+                                    <div class="table-responsive-xl">
+                                        <table class="table table-sm table-striped table-bordered table-hover" id="table-cursos">
 
-                                    <table class="table table-sm table-striped table-bordered table-hover" id="table-cursos">
+                                            <caption>Lista de cursos de sua empresa</caption>
+                                            <!--<div class="alert alert-success alert-dismissible fade show"  role="alert">
+                                            <%-- ${mensagem}--%>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"<span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div> -->
 
-                                        <caption>Lista de cursos de sua empresa</caption>
-                                        <!--<div class="alert alert-success alert-dismissible fade show"  role="alert">
-                                        <%-- ${mensagem}--%>
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"<span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div> -->
+                                            <thead>
+                                                <tr class="auto">
+                                                    <th>Nome</th>
+                                                    <th>Nível</th>
+                                                    <th>Quantidade de Vagas</th>
+                                                    <th>Ação</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                        <thead>
-                                            <tr class="auto">
-                                                <th>Nome</th>
-                                                <th>Nível</th>
-                                                <th>Quantidade de Vagas</th>
-                                                <th>Ação</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                                <tr>
+                                                    <td>Informática básica</td>               
+                                                    <td>Subsequente</td>
+                                                    <td>20</td>
+                                                    <td>
+                                                        <a type="button" class="btn btn-green">Ver mais</a>
+                                                    </td>
+                                                </tr>
 
-                                            <tr>
-                                                <td>Informática básica</td>               
-                                                <td>Subsequente</td>
-                                                <td>20</td>
-                                                <td>
-                                                    <a type="button" class="btn btn-green">Ver mais</a>
-                                                </td>
-                                            </tr>
+                                            <script>
 
-                                        <script>
+                                                $('#deletarVaga${trabalho.id}').on('shown.bs.modal', function () {
+                                                    $('#myInput').trigger('focus'); //e.relatedTarget.
+                                                });
 
-                                            $('#deletarVaga${trabalho.id}').on('shown.bs.modal', function () {
-                                                $('#myInput').trigger('focus'); //e.relatedTarget.
-                                            });
+                                                $('#visualizarVaga${trabalho.id}').on('shown.bs.modal', function () {
+                                                    $('#myInput').trigger('focus'); //e.relatedTarget.
+                                                });
+                                            </script>
+                                            </tbody>
+                                            <tfoot>
 
-                                            $('#visualizarVaga${trabalho.id}').on('shown.bs.modal', function () {
-                                                $('#myInput').trigger('focus'); //e.relatedTarget.
-                                            });
-                                        </script>
-                                        </tbody>
-                                        <tfoot>
+                                                <tr class="auto">
+                                                    <th>Profissão</th>
+                                                    <th>Salário</th>
+                                                    <th>Quantidade de Vagas</th>
+                                                    <th>Ação</th>
+                                                </tr>
+                                            </tfoot>
 
-                                            <tr class="auto">
-                                                <th>Profissão</th>
-                                                <th>Salário</th>
-                                                <th>Quantidade de Vagas</th>
-                                                <th>Ação</th>
-                                            </tr>
-                                        </tfoot>
-
-                                    </table>
+                                        </table>
+                                    </div>
                                 </div>
                             </main>
-
-
-
                             <script src="../js/jquery-3.3.1.min.js"></script>
                             <script src="../js/popper.min.js"></script>
                             <script src="../js/bootstrap.js"></script>
@@ -206,7 +201,7 @@
                 </div>
             </div>
         </div>
-                                                
+
         <jsp:include page="../footer.jsp" />
     </body>
 </html>
