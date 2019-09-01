@@ -63,7 +63,7 @@
 
                             <div class="tab-content card px-4 py-4">
                                 <div class="tab-pane fade in show active" id="paginaInicial" role="tabpanel">
-                                    <h1 class="mb-4 font-weight-bold">Bem-vindo <c:out value="${usuario.nome}"></c:out>!</h1>
+                                    <h1 class="mb-4 font-weight-bold">Bem-vindo, <c:out value="${usuario.nome}"></c:out>!</h1>
                                         <section>
                                             <!-- Card deck -->
                                             <div class="row card-deck">

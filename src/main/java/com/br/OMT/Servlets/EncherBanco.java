@@ -214,6 +214,44 @@ public class EncherBanco extends HttpServlet {
 	    fec.setDiscente(d);
 	    fec.setCampus(e);
 	    out.println(fecDAO.salvar(fec));
+            
+            //Cadastro Discente 2
+	    stream = getServletContext().getResourceAsStream("/img/templates/info1.jpg");
+	    d = Discente.getInstance();
+	    d.setNome("Nazareno");
+	    d.setNomeBanco(Criptografia.encrypt(d.getNome()));
+	    d.setCPF("1");
+	    d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
+	    d.setUsuario("1");
+	    d.setUsuarioBanco(Criptografia.encrypt(d.getUsuario()));
+	    d.setRG("1");
+	    d.setRGbanco(Criptografia.encrypt(d.getRG()));
+	    d.setSenha("1");
+	    d.setSenhaBanco(Criptografia.encrypt(d.getSenha()));
+	    d.setSexo("MASCULINO");
+	    d.setEtnia("BRANCA");
+	    d.setEstadoCivil("SOLTEIRO");
+	    d.setEmail("exemplo123@gmail.com");
+
+	    data.set(Calendar.DAY_OF_MONTH, 14);
+	    data.set(Calendar.MONTH, Calendar.JUNE);
+	    data.set(Calendar.YEAR, 2001);
+
+	    d.setDataNascimento(data.getTime());
+
+	    d.setLinkCurriculoLattes("https://wwws.cnpq.br/cvlattesweb/PKG_MENU.menu?f_cod=66443CA9D507B0651D4690F514632E67#");
+	    d.setLinkPerfilLinkedIn("https://www.linkedin.com/in/victor-yan-b4312415b/");
+	    d.setNomePai("Exemplo de Nome do Pai da Silva");
+	    d.setNomeMae("Exemplo de Nome da Mãe da Silva");
+	    //d.setFoto(IOUtils.toByteArray(stream));
+	    out.println(dDAO.salvar(d));
+
+	    fec = FormacaoEmCampus.getInstance();
+	    fec.setNome(cursos[new Random().nextInt(4)]);
+	    fec.setAnoTermino(2018);
+	    fec.setDiscente(d);
+	    fec.setCampus(e);
+	    out.println(fecDAO.salvar(fec));
 
 	    //Cadastro de outros discentes
 	    for (int i = 0; i < 25; i++) {

@@ -5,7 +5,6 @@
 --%>
 <%@page import="com.br.OMT.models.Trabalho"%>
 <%@page import="com.br.OMT.DAO.TrabalhoDAO"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="TrabalhoDAO" class="com.br.OMT.DAO.TrabalhoDAO"/>
@@ -15,7 +14,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ObservatÃ³rio Mundo do Trabalho - Vaga de Trabalho</title>
+        <title>Observatório Mundo do Trabalho - Vaga de Trabalho</title>
         <link rel="stylesheet" href="../css/bootstrap.css"/>
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
@@ -55,7 +54,7 @@
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="profissao">ProfissÃ£o</label>
+                                        <label for="profissao">Profissão</label>
                                         <input class="form-control validate" name="profissao" id="profissao" value="<%=t.getProfissao()%>" type="text">
                                     </div>
                                     <div class="form-group col-md-6">
@@ -66,7 +65,7 @@
 
                                 <div class="row">
                                     <div class="form-group col">
-                                        <label for="salario">SalÃ¡rio</label>
+                                        <label for="salario">Salário</label>
                                         <input class="form-control validate" name="salario" id="salario" value="<%=t.getSalario()%>" type="text"/>
                                     </div>
                                     <div class="form-group col-md-6">
@@ -76,18 +75,18 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="descricao">DescriÃ§Ã£o</label>
+                                    <label for="descricao">Descrição</label>
                                     <textarea class="form-control" name="descricao" id="descricao" rows="5"><%=t.getDescricao()%></textarea>
                                 </div>
 
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label for="inicio">InÃ­cio das inscriÃ§Ãµes</label>
+                                        <label for="inicio">Início das inscrições</label>
                                         <input class="form-control validate data" type="text" id="inicio" name="inicio"
                                                value="<fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="<%=t.getTempoInicio()%>"/>"/> 
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="fim">TÃ©rmino das inscriÃ§Ãµes</label>
+                                        <label for="fim">Término das inscrições</label>
                                         <input class="form-control validate data" type="text" id="fim" name="fim"
                                                value="<fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="<%=t.getTempoFinal()%>"/>"/> 
                                     </div>
