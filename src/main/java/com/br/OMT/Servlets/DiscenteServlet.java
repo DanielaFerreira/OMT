@@ -36,6 +36,7 @@ public class DiscenteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setCharacterEncoding("UTF-8");
         try {
             Discente d;
             DiscenteDAO ddao = new DiscenteDAO();
@@ -89,15 +90,15 @@ public class DiscenteServlet extends HttpServlet {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         df.setLenient(false);
         try { 
-            /* String dateStr = request.getParameter("dataNasc");
-            Date date=df.parse(dateStr);
-            df = new SimpleDateFormat("dd-MM-yyyy");
-            //SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
+            String dateStr = request.getParameter("dataNasc");
+            //Date date = df.parse(dateStr);
+            //df = new SimpleDateFormat("dd-MM-yyyy");
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            //Date date = df.parse(dateStr);
             //Date result = formater.parse(dateStr);
             //SimpleDateFormat AppDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-            //System.out.println(AppDateFormat.format(result))*/
-    //erro 2010-06-10 nao e aceitado por 10-06-2010
-            dataNasc = df.parse(request.getParameter("dataNasc"));
+            //System.out.println(AppDateFormat.format(result))
+            dataNasc = formatter.parse(dateStr);
         } catch (ParseException ex) {
             Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

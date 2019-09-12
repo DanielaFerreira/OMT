@@ -32,6 +32,12 @@
                                 Voltar
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="index.jsp" class="nav-link text-white">
+                                <i class="fa fa-home fa-lg">
+                                </i>Voltar para a página inicial
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 
@@ -85,7 +91,7 @@
                                 </div>
                                 <div class="form-group col-sm-12 col-lg-4">
                                     <label for="dataNasc">Data de nascimento</label>
-                                    <input class="form-control" type="text" id="dataNasc" name="dataNasc" value="<fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="${usuario.dataNascimento}"/>">
+                                    <input class="form-control data" type="text" id="dataNasc" name="dataNasc" value="<fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="${usuario.dataNascimento}"/>">
                                 </div>
                             </div>
                             <div class="form-row">
