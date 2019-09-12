@@ -42,7 +42,7 @@
 
                         <div class="card px-4 py-4">
                             <h3 class="font-weight-bold mb-4">Candidatos para a vaga</h3>
-                            <div class="table-responsive-xl">
+                            <div class="table-responsive">
                                 <table class="table table-sm table-striped table-bordered table-hover" id="filtro">
                                     <caption>Lista de eventos de sua empresa</caption>
                                     <thead>
@@ -50,7 +50,7 @@
                                             <th>Nome<i class="fa fa-sort float-right"></i></th>
                                             <th>Formação<i class="fa fa-sort float-right"></i></th>
                                             <th>Campus<i class="fa fa-sort float-right"></i></th>
-                                            <th>Ano de formação <i class="fa fa-sort float-right"></i></th>
+                                            <!--<th>Ano de formação <i class="fa fa-sort float-right"></i></th>-->
                                             <th class="disabled">Ação<i class="fa fa-sort float-right"></i></th>
                                         </tr>
                                     </thead>
@@ -60,7 +60,7 @@
                                             <td>Eduardo</td>               
                                             <td>Informática</td>
                                             <td>Ifam-CMC</td>
-                                            <td>20/08/2019 - 04/09/2019</td>
+                                          <!--   <td>20/08/2019 - 04/09/2019</td>-->
                                             <td>
                                                 <a class="btn btn-blue"  href="curriculoDiscente.jsp?id=7">Currículo</a>
                                                 <a class="btn btn-green"><i class="fa fa-check"></i> Contratar</a>
@@ -74,7 +74,7 @@
                                             <th>Nome</th>
                                             <th>Formação</th>
                                             <th>Campus</th>
-                                            <th>Ano de formação</th>
+                                            <!-- <th>Ano de formação</th> -->
                                             <th>Ação</th>
                                         </tr>
                                     </tfoot>

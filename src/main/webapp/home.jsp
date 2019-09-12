@@ -76,7 +76,7 @@
                         </form>
 
                         <div class="text-center">
-                            <label>Ainda não possui cadasto?</label>
+                            <label>Ainda não possui cadastro?</label>
                             <a class="link" href="#cadastro-egresso"><b>Registre-se agora</b></a>
                         </div>
                     </div>
