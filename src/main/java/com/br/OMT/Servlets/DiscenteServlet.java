@@ -115,11 +115,11 @@ public class DiscenteServlet extends HttpServlet {
             setDados(d, cpf, foto, rg, nome, email, linkCurriculoLattes, linkPerfilLinkedIn, sexo, estadoCivil, etnia, dataNasc, nomePai, nomeMae);
 
             //Gerando senha aleatória
-            Random r = new Random();
+          /*  Random r = new Random();
             int tam = r.nextInt(4) + 3;
             int senha = r.nextInt(tam * 1000);
             d.setSenha(Integer.toString(senha));
-
+*/
             try {
                 d.setUsuarioBanco(Criptografia.encrypt(d.getUsuario()));
                 d.setNomeBanco(Criptografia.encrypt(d.getNome()));

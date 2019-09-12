@@ -76,6 +76,23 @@
                 </select>
             </div>
         </div>
+        <section>
+            <h4 class="mb-4"><strong>Usuário padrão</strong></h4>
+            
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="senha">Senha</label>
+                    <input class="form-control validate" id="senha" type="password" name="senha" required="">
+                  <small id="infoLogin" class="form-text text-muted">
+                        Senha para entrar no sistema
+                    </small>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="confirmar">Confirmar Senha</label>
+                    <input class="form-control validate" id="confirmar" type="password" name="senha" required="">
+                </div>
+            </div>
+        </section>
         <div class="text-right">
             <button class="btn btn-green waves-effct" name="acao" type="submit" value="Cadastrar">
                 <i class="fa fa-check mr-1"></i>Cadastrar</button>

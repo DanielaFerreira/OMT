@@ -44,7 +44,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="eventos.jsp" class="nav-link" data-toggle="tab" role="tab">
+                                    <a href="evento.jsp" class="nav-link" data-toggle="tab" role="tab">
                                         <i class="fas fa-calendar-check fa-lg"></i>
                                         Eventos
                                     </a>
