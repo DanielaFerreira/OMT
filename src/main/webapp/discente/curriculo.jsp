@@ -5,7 +5,7 @@
 --%>
 <%@page import="java.time.Period"%>
 <%@page pageEncoding="ISO-8859-1"%>
-<%@page language="java" contentType="text/html; charset=UTF-8"%>
+<%-- @page language="java" contentType="text/html; charset=UTF-8"--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -28,10 +28,26 @@
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <jsp:include page="../header.jsp"/>
-        <jsp:include page="../discente/menu.jsp"/>
+        <jsp:include page="../discente/header.jsp"/>
+
         <main>
-            <div class="container">
+            <div class="container-fluid col-md-10">
+                <nav class="navbar navbar-expand-lg navbar-light green darken-1">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="javascript:history.back()" class="nav-link text-white">
+                                <i class="fa fa-arrow-alt-circle-left fa-lg"></i>
+                                Voltar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.jsp" class="nav-link text-white">
+                                <i class="fa fa-home fa-lg">
+                                </i>Voltar para a página inicial
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
                 <div id="to-pdf">
                     <div class="card px-4 py-4">
                         <section>
@@ -270,6 +286,7 @@
                     </div>
                 </div>
             </div>
+
         </main>
         <jsp:include page="../footer.jsp"/>
         <script src="../js/jquery-3.3.1.min.js"></script>

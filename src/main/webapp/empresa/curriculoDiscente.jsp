@@ -48,6 +48,12 @@
                                         Voltar
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                            <a href="index.jsp" class="nav-link text-white">
+                                <i class="fa fa-home fa-lg">
+                                </i>Voltar para a página inicial
+                            </a>
+                        </li>
                             </ul>
                         </nav>
 

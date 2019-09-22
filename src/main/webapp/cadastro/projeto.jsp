@@ -1,4 +1,21 @@
-<div class="container">
+<jsp:include page="../discente/header.jsp"/>
+<div class="container-fluid col-md-10">
+    <nav class="navbar navbar-expand-lg navbar-light green darken-1">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="javascript:history.back()" class="nav-link text-white">
+                    <i class="fa fa-arrow-alt-circle-left fa-lg"></i>
+                    Voltar
+                </a>
+            </li>
+            <li class="nav-item">
+                            <a href="index.jsp" class="nav-link text-white">
+                                <i class="fa fa-home fa-lg">
+                                </i>Voltar para a página inicial
+                            </a>
+                        </li>
+        </ul>
+    </nav>
     <div class="card px-4 py-4">
         <form id="cadastrar-projeto" method="POST" action="/OMT/ProjetoServlet">
             <h1 class="font-weight-bold mb-4">Cadastrar Projeto</h1>

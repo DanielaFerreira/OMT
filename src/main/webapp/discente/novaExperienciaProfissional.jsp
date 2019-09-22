@@ -12,8 +12,6 @@
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <jsp:include page="../header.jsp"/>
-        <jsp:include page="../discente/menu.jsp"/>
         <main>
             <jsp:include page="../cadastro/trabalhoCurriculo.jsp"/>
         </main>

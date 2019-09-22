@@ -69,7 +69,7 @@
                     <div class="card mb-5">
                         <div class="mt-4 mx-4">
                             <h3 class="font-weight-bold mb-4">Lista de egressos</h3>
-                            <div class="table-responsive-lg">
+                            <div class="table-responsive">
                                 <table class="table table-sm table-striped table-bordered table-hover" id="filtro">
                                     <caption>Lista de egressos</caption>
                                     <thead>
@@ -110,7 +110,7 @@
                     </div>
                 </div>
             </div>
-            <jsp:include page="../footer.jsp"/>
+
             <script src="../js/jquery-3.3.1.min.js"></script>
             <script src="../js/popper.min.js"></script>
             <script src="../js/bootstrap.js"></script>
@@ -121,5 +121,6 @@
             <script src="../js/addons/datatables.min.js"></script>
             <script src="../js/filtro/filtro.js"></script>
         </div>
+        <jsp:include page="../footer.jsp"/>
     </body>
 </html>
