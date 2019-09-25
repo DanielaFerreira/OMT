@@ -5,10 +5,14 @@
  */
 package com.br.OMT.Servlets;
 
+import com.br.OMT.DAO.CandidatoVagaDAO;
 import com.br.OMT.DAO.DiscenteDAO;
+import com.br.OMT.DAO.TrabalhoDAO;
 import com.br.OMT.Utils.Criptografia;
+import com.br.OMT.models.CandidatoVaga;
 import com.br.OMT.models.Discente;
 import com.br.OMT.models.Entidade;
+import com.br.OMT.models.Trabalho;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -176,6 +180,15 @@ public class DiscenteServlet extends HttpServlet {
             } catch (Exception ex) {
                 Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
+        } else if(acao.equals("candidatar")) {
+            CandidatoVaga cv = new CandidatoVaga();
+            cv.setDiscente((Discente) request.getSession().getAttribute("discente"));
+            TrabalhoDAO tDAO = new TrabalhoDAO();
+            Trabalho t = new Trabalho();
+            t = tDAO.getById(Long.parseLong(request.getParameter("id")));
+            cv.setTrabalho(t);
+            CandidatoVagaDAO cvDAO = new CandidatoVagaDAO();
+            cvDAO.salvar(cv);
         }
     }
 

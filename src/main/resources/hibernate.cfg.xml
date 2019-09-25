@@ -14,6 +14,7 @@
     <property name="hibernate.hbm2ddl.auto">update</property>
     <mapping class="com.br.OMT.models.CampoFormulario"/>
     <mapping class="com.br.OMT.models.CampoValores"/>
+    <mapping class="com.br.OMT.models.CandidatoVaga"/>
     <mapping class="com.br.OMT.models.CursosEspecializantes"/>
     <mapping class="com.br.OMT.models.Discente"/>
     <mapping class="com.br.OMT.models.DiscenteEstagio"/>

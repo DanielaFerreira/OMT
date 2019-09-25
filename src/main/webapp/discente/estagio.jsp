@@ -30,7 +30,7 @@
             <tr>
                 <th scope="row"><%=t.getProfissao()%></th>
                 <td><%=t.getSalario()%></td>
-                <td class="text-center"><a class="btn btn-green">Candidatar-se</a></td>
+                <td class="text-center"><a class="btn btn-green" href="/OMT/DiscenteServlet?id=<%=t.getId()%>" name="acao" value="candidatar">Candidatar-se</a></td>
             </tr>
             <% }%>
         </tbody>
