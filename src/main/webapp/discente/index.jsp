@@ -54,7 +54,7 @@
                                         <i class="fas fa-briefcase fa-lg"></i> Estágios</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="cursos.jsp" class="nav-link">
+                                    <a href="" class="nav-link">
                                         <i class="fa fa-chalkboard-teacher fa-lg"></i>
                                         Cursos
                                     </a>
