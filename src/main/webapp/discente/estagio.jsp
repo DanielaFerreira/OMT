@@ -4,6 +4,9 @@
     Author     : Aluno
 --%>
 
+<%@page import="com.br.OMT.models.Trabalho"%>
+<%@page import="java.util.List"%>
+<%@page import="com.br.OMT.DAO.TrabalhoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -19,11 +22,17 @@
             </tr>
         </thead>
         <tbody>
+            <%
+                TrabalhoDAO tDAO = new TrabalhoDAO();
+                List<Trabalho> trabalhos = tDAO.listTrabalho();
+                for (Trabalho t : trabalhos) {
+            %>
             <tr>
-                <th scope="row">Auxiliar de informática</th>
-                <td>900,000</td>
-                <td class="text-center"><a class="btn btn-green">Candidatar-se</a></td>
+                <th scope="row"><%=t.getProfissao()%></th>
+                <td><%=t.getSalario()%></td>
+                <td class="text-center"><a class="btn btn-green" href="/OMT/DiscenteServlet?id=<%=t.getId()%>" name="acao" value="candidatar">Candidatar-se</a></td>
             </tr>
+            <% }%>
         </tbody>
         <tfoot>
 

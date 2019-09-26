@@ -50,7 +50,7 @@ public class Trabalho implements Serializable {
     @Transient
     private static Trabalho getInstance;
 
-    private Trabalho() {
+    public Trabalho() {
     }
 
     public static Trabalho getInstance() {
