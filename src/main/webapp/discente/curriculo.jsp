@@ -31,19 +31,13 @@
         <jsp:include page="../discente/header.jsp"/>
 
         <main>
-            <div class="container-fluid col-md-10">
+            <div class="container-fluid col-lg-8">
                 <nav class="navbar navbar-expand-lg navbar-light green darken-1">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="javascript:history.back()" class="nav-link text-white">
+                            <a href="index.jsp" class="nav-link text-white">
                                 <i class="fa fa-arrow-alt-circle-left fa-lg"></i>
                                 Voltar
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.jsp" class="nav-link text-white">
-                                <i class="fa fa-home fa-lg">
-                                </i>Voltar para a página inicial
                             </a>
                         </li>
                     </ul>

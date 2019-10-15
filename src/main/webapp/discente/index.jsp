@@ -34,7 +34,7 @@
                             <jsp:include page="pertil_flutuante.jsp"/>
                             <br>
                         </div>
-                        
+
                         <div class="col-lg-8">
                             <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
                                 <li class="nav-item">
@@ -80,12 +80,12 @@
 
                                                     <!--Card content-->
                                                     <div class="card-body form-group">
-
                                                         <!--Título do evento-->
                                                         <h4 class="card-title"><c:out value="${evento.nome}"></c:out></h4>
                                                             <!--Descrição-->
                                                             <p class="card-text"><c:out value="${evento.descricao}"></c:out></p>
-                                                        <a href="evento.jsp?q=${evento.URL}" class="btn btn-blue btn-sm"><i class="fa fa-pencil-alt left"></i>Saiba mais</a>
+
+                                                            <a href="evento.jsp?q=${evento.URL}" class="btn btn-blue btn-md btn-block">Saiba mais <i class="fa fa-angle-right fa-lg"></i></a>
                                                     </div>
 
 
