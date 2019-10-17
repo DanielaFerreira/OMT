@@ -56,102 +56,107 @@
                 </li>
             </ul>
 
-            <div class="tab-content card mb-5">
-                <div class="tab-pane fade in show active" id="login1" role="tabpanel">
-                    <div class="mt-4 mx-4" role="tablist">
-                        <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
-                            <input type="hidden" name="entidade" value="discente"/>
+            <div class="card mb-5">
+                <div class="mt-4 mx-4">
+                    <%
+                        if (request.getQueryString() != null) {
+                            if (request.getParameter("alt").equals("erroLogin")) {
+                    %>
+                    <label class="col-md-12 text-center text-danger">Usuário ou senha inválidos</label>
+                    <%}%>
+                    <%}%>
 
-                            <label for="matriculaLoginDisc" class="grey-text">Matrícula ou CPF(sem pontuação)</label>
-                            <input class="form-control" id="matriculaLoginDisc" type="text"  name="login">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in show active" id="login1" role="tabpanel">
+                            <div  role="tablist">
+                                <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
+                                    <input type="hidden" name="entidade" value="discente"/>
 
-                            <br>
+                                    <label for="matriculaLoginDisc" class="grey-text">Matrícula ou CPF(sem pontuação)</label>
+                                    <input class="form-control" id="matriculaLoginDisc" type="text"  name="login">
 
-                            <label for="senhaLoginDisc" class="grey-text">Senha</label>
-                            <input class="form-control" id="senhaLoginDisc" type="password" name="senha">
+                                    <br>
 
-                            <div class="text-center my-4">
-                                <button class="btn btn-green" id="buttonLoginDisc" type="submit">Entrar</button>
+                                    <label for="senhaLoginDisc" class="grey-text">Senha</label>
+                                    <input class="form-control" id="senhaLoginDisc" type="password" name="senha">
+
+                                    <div class="text-center my-4">
+                                        <button class="btn btn-green" id="buttonLoginDisc" type="submit">Entrar</button>
+                                    </div>
+                                </form>
+
+                                <div class="text-center">
+                                    <label>Ainda não possui cadastro?</label>
+                                    <a class="link" href="cadastro/egresso.jsp"><b>Registre-se agora</b></a>
+                                </div>
                             </div>
-                        </form>
-
-                        <div class="text-center">
-                            <label>Ainda não possui cadastro?</label>
-                            <a class="link" href="#"><b>Registre-se agora</b></a>
                         </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="login2" role="tabpanel">
-                    <div class="mt-4 mx-4">
-                        <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
-                            <input type="hidden" name="entidade" value="reitoria"/>
+                        <div class="tab-pane fade" id="login2" role="tabpanel">
+                                <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
+                                    <input type="hidden" name="entidade" value="reitoria"/>
 
-                            <label for="acessoLoginRet" class="grey-text">Nome de Acesso</label>
-                            <input class="form-control" id="acessoLoginRet" name="usuario" type="text">
+                                    <label for="acessoLoginRet" class="grey-text">Nome de Acesso</label>
+                                    <input class="form-control" id="acessoLoginRet" name="usuario" type="text">
 
-                            <br>
+                                    <br>
 
-                            <label for="senhaLoginRet" class="grey-text">Senha</label>
-                            <input class="form-control" id="senhaLoginRet" name="senha" type="password">
+                                    <label for="senhaLoginRet" class="grey-text">Senha</label>
+                                    <input class="form-control" id="senhaLoginRet" name="senha" type="password">
 
-                            <div class="text-center my-4">
-                                <button class="btn btn-green" id="buttonLoginRet" type="submit">Entrar</button>
-                            </div>
-                        </form>
-                        <div class="text-center">
-                            <label>Ainda não possui cadastro?</label>
-                            <a class="link" href="#"><b>Registre-se agora</b></a>
+                                    <div class="text-center my-4">
+                                        <button class="btn btn-green" id="buttonLoginRet" type="submit">Entrar</button>
+                                    </div>
+                                </form>
+                                <div class="text-center">
+                                    <label>Ainda não possui cadastro?</label>
+                                    <a class="link" href="cadastro/administrador.jsp"><b>Registre-se agora</b></a>
+                                </div>
                         </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="login3" role="tabpanel">
-                    <div class="mt-4 mx-4">
-                        <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
-                            <input type="hidden" name="entidade" value="campus"/>
+                        <div class="tab-pane fade" id="login3" role="tabpanel">
+                                <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
+                                    <input type="hidden" name="entidade" value="campus"/>
 
-                            <label for="acessoLoginCam" class="grey-text">Nome de Acesso</label>
-                            <input class="form-control" id="acessoLoginCam" name="usuario" type="text">
+                                    <label for="acessoLoginCam" class="grey-text">Nome de Acesso</label>
+                                    <input class="form-control" id="acessoLoginCam" name="usuario" type="text">
 
-                            <br>
+                                    <br>
 
-                            <label for="senhaLoginCam" class="grey-text">Senha</label>
-                            <input class="form-control" id="senhaLoginCam" name="senha" type="password">
+                                    <label for="senhaLoginCam" class="grey-text">Senha</label>
+                                    <input class="form-control" id="senhaLoginCam" name="senha" type="password">
 
-                            <div class="text-center my-4">
-                                <button class="btn btn-green" id="buttonLoginCam" type="submit">Entrar</button>
-                            </div>
-                            <div class="text-center">
-                                <label>Ainda não possui cadastro?</label>
-                                <a class="link" href="#cadastro-egresso"><b>Registre-se agora</b></a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="login4" role="tabpanel">
-                    <div class="mt-4 mx-4">                       
-                        <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
-                            <input type="hidden" name="entidade" value="empresa"/>
+                                    <div class="text-center my-4">
+                                        <button class="btn btn-green" id="buttonLoginCam" type="submit">Entrar</button>
+                                    </div>
+                                    <div class="text-center">
+                                        <label>Ainda não possui cadastro?</label>
+                                        <a class="link" href="cadastro/campus.jsp"><b>Registre-se agora</b></a>
+                                    </div>
+                                </form>
+                        </div>
+                        <div class="tab-pane fade" id="login4" role="tabpanel">                      
+                                <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
+                                    <input type="hidden" name="entidade" value="empresa"/>
 
-                            <label for="acessoLoginEmp" class="grey-text">Nome de Acesso</label>
-                            <input class="form-control" id="acessoLoginEmp" name="usuario" type="text">
+                                    <label for="acessoLoginEmp" class="grey-text">Nome de Acesso</label>
+                                    <input class="form-control" id="acessoLoginEmp" name="usuario" type="text">
 
-                            <br>
+                                    <br>
 
-                            <label for="senhaLoginEmp" class="grey-text">Senha</label>
-                            <input class="form-control" id="senhaLoginEmp" name="senha" type="password">
+                                    <label for="senhaLoginEmp" class="grey-text">Senha</label>
+                                    <input class="form-control" id="senhaLoginEmp" name="senha" type="password">
 
-                            <div class="text-center my-4">
-                                <button class="btn btn-green" id="buttonLoginEmp" type="submit">Entrar</button>
-                            </div>
-                        </form>
-                        <div class="text-center">
-                            <label>Ainda não possui cadastro?</label>
-                            <a class="link" href="#cadastro-egresso"><b>Registre-se agora</b></a>
+                                    <div class="text-center my-4">
+                                        <button class="btn btn-green" id="buttonLoginEmp" type="submit">Entrar</button>
+                                    </div>
+                                </form>
+                                <div class="text-center">
+                                    <label>Ainda não possui cadastro?</label>
+                                    <a class="link" href="cadastro/empresa.jsp"><b>Registre-se agora</b></a>
+                                </div>
                         </div>
                     </div>
                 </div>
             </div>
-
 
             <!--formulÃ¡rio de login Empresas(Emp)-->
             <!--div class="card" id="loginEmp">

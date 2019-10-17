@@ -52,13 +52,7 @@
                                     <caption>Notificações</caption>
                                     <thead>
                                         <tr class="auto">
-                                            <th>
-                                                <div class="form-check">
-                                                    <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                                    <label class="form-check-label" for="inlineRadio1"> Selecionar tudo</label>
-                                                </div>
-                                                <i class="fa fa-sort float-right"></i>
-                                            </th>
+                                            <th>Nome<i class="fa fa-sort float-right"></i></th>
                                             <th>Mensagem<i class="fa fa-sort float-right"></i></th>
                                             <th>Data<i class="fa fa-sort float-right"></i></th>
                                             <th>Opção<i class="fa fa-sort float-right"></i></th>
@@ -66,12 +60,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                                    <label class="form-check-label" for="inlineRadio1"> Samsung</label>
-                                                </div>
-                                            </td>
+                                            <td> <img class="foto-curriculo border border-light rounded-circle" width="50" height="50" src="../img/empresa.png">  Samsung</td>
                                             <td>Venho por meio deste informar que sua...</td>
                                             <td>12/02/2003</td>
                                             <td><a class="btn btn-primary">Ver mais</a></td>
@@ -79,12 +68,7 @@
                                     </tbody>
                                     <tfoot>
                                         <tr class="auto">
-                                            <th>
-                                                <div class="form-check">
-                                                    <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                                    <label class="form-check-label" for="inlineRadio1"> Selecionar tudo</label>
-                                                </div>
-                                            </th>
+                                            <th>Nome</th>
                                             <th>Mensagem</th>
                                             <th>Data</th>
                                             <th>Opção</th>

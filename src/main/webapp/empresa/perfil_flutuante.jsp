@@ -20,14 +20,12 @@
     <br>
     <form id="formAlterar" name="formAlterar" method="post" action="../discente/alterarPerfil.jsp">
         <div class="section">
-
             <div class="form-row">
                 <div class="form-group col">
                     <div class="text-center">
                         <div>
                             <img class="foto-curriculo border border-light rounded z-depth-1 rounded-circle" src="../img/empresa.png"> 
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -37,8 +35,6 @@
                 </div>
             </div>
         </div>
-
-
     </form>
     <br>
     <div class="list-group">

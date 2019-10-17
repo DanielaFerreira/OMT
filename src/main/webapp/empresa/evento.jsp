@@ -23,9 +23,10 @@
         <div class="container-fluid">
 
             <div class="row justify-content-center">
-
-                <jsp:include page="perfil_flutuante.jsp"/>
-
+                <div class="col-lg-2"> 
+                    <jsp:include page="perfil_flutuante.jsp"/>
+                    <br>
+                </div>
                 <div class="col-lg-8">
                     <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
                         <li class="nav-item">
