@@ -44,10 +44,10 @@ public class LoginServlet extends HttpServlet {
                 String senha = request.getParameter("senha");
                 Long resposta = ddao.login(login, senha);
                 if (resposta == null) {
-                    response.getWriter().println("NULL");//erro
+                    response.sendRedirect("/OMT/home.jsp?alt=erroLogin");//erro
 
                 } else if (resposta == -1) {
-                    response.getWriter().println("-1");//erro
+                    response.sendRedirect("/OMT/errors/manutencao.jsp");//erro
 
                 } else {
                     try {
@@ -71,10 +71,10 @@ public class LoginServlet extends HttpServlet {
                 String senha = request.getParameter("senha");
                 Long resposta = udao.login(usuario, senha);
                 if (resposta == null) {
-                    response.getWriter().println("NULL");//erro
+                    response.sendRedirect("/OMT/home.jsp?alt=erroLogin");//erro
 
                 } else if (resposta == -1) {
-                    response.getWriter().println("-1");//erro
+                    response.sendRedirect("/OMT/errors/manutencao.jsp");//erro
 
                 } else {
                     try {

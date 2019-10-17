@@ -25,9 +25,10 @@
         <div class="container-fluid">
 
             <div class="row justify-content-center">
-
-                <jsp:include page="perfil_flutuante.jsp"/>
-
+                <div class="col-lg-2"> 
+                    <jsp:include page="perfil_flutuante.jsp"/>
+                    <br>
+                </div>
                 <div class="col-lg-8">
                     <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
                         <li class="nav-item">
@@ -219,34 +220,34 @@
                             <script src="../js/mascaras.js"></script>
                             <script src="../js/addons/datatables.min.js"></script>
                             <script>
-                                                $("#table-trabalhos").DataTable({
-                                                    initComplete: function () {
-                                                        this.api().columns().every(function () {
-                                                            var column = this;
-                                                            var select = $('<select class="custom-select w-auto"><option value=""></option></select>')
-                                                                    .appendTo($(column.header()))
-                                                                    .on('change', function () {
-                                                                        var val = $.fn.dataTable.util.escapeRegex(
-                                                                                $(this).val()
-                                                                                );
+                                                    $("#table-trabalhos").DataTable({
+                                                        initComplete: function () {
+                                                            this.api().columns().every(function () {
+                                                                var column = this;
+                                                                var select = $('<select class="custom-select w-auto"><option value=""></option></select>')
+                                                                        .appendTo($(column.header()))
+                                                                        .on('change', function () {
+                                                                            var val = $.fn.dataTable.util.escapeRegex(
+                                                                                    $(this).val()
+                                                                                    );
 
-                                                                        column
-                                                                                .search(val ? '^' + val + '$' : '', true, false)
-                                                                                .draw();
-                                                                    });
+                                                                            column
+                                                                                    .search(val ? '^' + val + '$' : '', true, false)
+                                                                                    .draw();
+                                                                        });
 
-                                                            column.data().unique().sort().each(function (d, j) {
-                                                                select.append('<option value="' + d + '">' + d + '</option>')
+                                                                column.data().unique().sort().each(function (d, j) {
+                                                                    select.append('<option value="' + d + '">' + d + '</option>')
+                                                                });
                                                             });
-                                                        });
-                                                    },
-                                                    "language": {
-                                                        "url": "/OMT/js/addons/datatables-pt-br.json"
-                                                    },
-                                                    "order": [[0, "asc"]],
-                                                    "pagingType": "full_numbers"
-                                                });
-                                                $(".datatables_length").addClass("bs-select");
+                                                        },
+                                                        "language": {
+                                                            "url": "/OMT/js/addons/datatables-pt-br.json"
+                                                        },
+                                                        "order": [[0, "asc"]],
+                                                        "pagingType": "full_numbers"
+                                                    });
+                                                    $(".datatables_length").addClass("bs-select");
                             </script>
                         </div>
 

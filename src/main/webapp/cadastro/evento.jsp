@@ -19,9 +19,10 @@
         <div class="container-fluid">
 
             <div class="row justify-content-center">
-
-                <jsp:include page="../empresa/perfil_flutuante.jsp"/>
-
+                <div class="col-lg-2"> 
+                    <jsp:include page="../empresa/perfil_flutuante.jsp"/>
+                    <br>
+                </div>
                 <div class="col-lg-8">
 
                     <div class=" card mb-5">

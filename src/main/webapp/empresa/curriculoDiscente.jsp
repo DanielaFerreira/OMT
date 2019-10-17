@@ -34,12 +34,12 @@
         <div class="container-fluid">
 
             <div class="row justify-content-center">
+                <div class="col-lg-2"> 
                     <jsp:include page="../empresa/perfil_flutuante.jsp"/>
-
+                    <br>
+                </div>
                 <div class="col-lg-8">
-
                     <div class=" card mb-5">
-
                         <nav class="navbar navbar-expand-lg navbar-light green darken-1">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
@@ -49,11 +49,11 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                            <a href="index.jsp" class="nav-link text-white">
-                                <i class="fa fa-home fa-lg">
-                                </i>Voltar para a página inicial
-                            </a>
-                        </li>
+                                    <a href="index.jsp" class="nav-link text-white">
+                                        <i class="fa fa-home fa-lg">
+                                        </i>Página inicial
+                                    </a>
+                                </li>
                             </ul>
                         </nav>
 
