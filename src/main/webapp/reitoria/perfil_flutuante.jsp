@@ -25,7 +25,7 @@
                 <div class="form-group col">
                     <div class="text-center">
                         <div>
-                            <img class="foto-curriculo border border-light rounded z-depth-1 rounded-circle" src="../img/empresa.png"> 
+                            <img class="foto-curriculo z-depth-1 border-light" src="../img/empresa.png"> 
                         </div>
 
                     </div>
@@ -42,7 +42,7 @@
     </form>
     <br>
     <div class="list-group">
-        <a href="notificacao.jsp" class="list-group-item list-group-item-action">
+        <a href="#" class="list-group-item list-group-item-action">
             <i class="fa fa-bell fa-lg mr-1"></i>
             Notificações
             <span class="badge green darken-1 badge-pill">7</span>

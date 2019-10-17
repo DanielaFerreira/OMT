@@ -77,7 +77,7 @@
 
                         <div class="text-center">
                             <label>Ainda não possui cadastro?</label>
-                            <a class="link" href="#cadastro-egresso"><b>Registre-se agora</b></a>
+                            <a class="link" href="#"><b>Registre-se agora</b></a>
                         </div>
                     </div>
                 </div>
@@ -98,6 +98,10 @@
                                 <button class="btn btn-green" id="buttonLoginRet" type="submit">Entrar</button>
                             </div>
                         </form>
+                        <div class="text-center">
+                            <label>Ainda não possui cadastro?</label>
+                            <a class="link" href="#"><b>Registre-se agora</b></a>
+                        </div>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="login3" role="tabpanel">
@@ -115,6 +119,10 @@
 
                             <div class="text-center my-4">
                                 <button class="btn btn-green" id="buttonLoginCam" type="submit">Entrar</button>
+                            </div>
+                            <div class="text-center">
+                                <label>Ainda não possui cadastro?</label>
+                                <a class="link" href="#cadastro-egresso"><b>Registre-se agora</b></a>
                             </div>
                         </form>
                     </div>
@@ -136,7 +144,10 @@
                                 <button class="btn btn-green" id="buttonLoginEmp" type="submit">Entrar</button>
                             </div>
                         </form>
-
+                        <div class="text-center">
+                            <label>Ainda não possui cadastro?</label>
+                            <a class="link" href="#cadastro-egresso"><b>Registre-se agora</b></a>
+                        </div>
                     </div>
                 </div>
             </div>
