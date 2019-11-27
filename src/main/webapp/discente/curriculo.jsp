@@ -45,12 +45,18 @@
                 <div id="to-pdf">
                     <div class="card px-4 py-4">
                         <section>
-                            <h3 class="font-weight-bold mb-4">Dados pessoais
-                                <a href="../discente/alterarPerfil.jsp" class="btn btn-md btn-cyan">
-                                    <i class="fa fa-edit mr-1"></i>Atualizar informações
-                                </a>
-                            </h3>
-                            <div class="row my-4">
+
+                            <div class="form-row">
+                                <div class="col-sm-6">
+                                    <h3 class="font-weight-bold mb-4">Dados pessoais</h3>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="../discente/alterarPerfil.jsp" class="btn btn-primary btn-md float-right">
+                                        <i class="fa fa-edit mr-1"></i>Atualizar informações
+                                    </a>
+                                </div>  
+                            </div>
+                            <div class="form-row mt-2 mb-3">
                                 <div class="col-sm-12 col-md-6 col-lg-3">
                                     <div class="text-center">
                                         <c:choose>
@@ -77,7 +83,7 @@
                                         <i class="fab fa-linkedin-in mr-1"></i>Perfil LinkedIn</a>
                                 </div>
                             </div>
-                            <table class="table table-sm">
+                            <table class="table table-sm table-bordered">
                                 <tbody>
                                     <tr>
                                         <th scope="row">Nome em citações bibliográficas</th>
@@ -136,9 +142,15 @@
                         </section> 
                         <hr class="my-4">
                         <section>
-                            <h3 class="font-weight-bold mb-4">Formação acadêmica/ titulação 
-                                <a href="novaFormacao.jsp" class="btn btn-md btn-cyan"><i class="fa fa-plus mr-1"></i>Adicionar formação</a>
-                            </h3>
+                            <div class="form-row align-items-center">
+                                <div class="col-sm-6">
+                                    <h3 class="font-weight-bold">Formação acadêmica/ titulação </h3>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="novaFormacao.jsp" class="btn btn-primary float-right"><i class="fa fa-plus mr-1"></i>Adicionar formação</a>
+                                </div>
+                            </div>
+
                             <c:if test="${formacoes.size() > 0}">
                                 <table class="table table-sm">
                                     <thead>
