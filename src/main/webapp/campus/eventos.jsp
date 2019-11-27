@@ -23,61 +23,115 @@
     </head>
     <body>
         <jsp:include page="../header.jsp" />
-        <jsp:include page="../campus/menu.jsp" />
         <main>
-            <div class="container">
-                <div class="card px-4 py-4">
-                    <h1 class="font-weight-bold mb-4">Eventos</h1>
-                    <div class="btn-group mb-4">
-                        <a href="../campus/cadastrarEvento.jsp" class="btn btn-md btn-light-green">
-                            <i class="fa fa-plus mr-1"></i>Cadastrar Evento</a>
+            <c:set var="eventos" value="${EventoDAO.listEventos()}"/>
+            <c:if test="${not empty usuario}">
+
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-2"> 
+                            <jsp:include page="pertil_flutuante.jsp"/>
+                            <br>
+                        </div>
+
+                        <div class="col-lg-8">
+                            <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
+                                <li class="nav-item">
+                                    <a href="../campus/index.jsp" class="nav-link" data-toggle="tab" role="tab">
+                                        <i class="fas fa-home fa-lg"></i>
+                                        Página Inicial
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../campus/eventos.jsp" class="nav-link active" data-toggle="tab" role="tab">
+                                        <i class="fas fa-calendar-check fa-lg"></i>
+                                        Eventos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="estagios.jsp" class="nav-link" data-toggle="tab" role="tab">
+                                        <i class="fas fa-briefcase fa-lg"></i> 
+                                        Estágios
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../campus/eventos.jsp" class="nav-link">
+                                        <i class="fa fa-chalkboard-teacher fa-lg"></i>
+                                        Cursos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../campus/manterEgresso.jsp" class="nav-link">
+                                        <i class="fa fa-user-graduate fa-lg"></i>
+                                        Egressos
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <div class="card px-4 py-4">
+                                <div class="form-row align-items-center">
+                                    <div class="col-sm-6">
+                                        <h3 class="font-weight-bold">Eventos de seu campus</h3>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <a href="cadastrarEvento.jsp" class="btn btn-green float-right"><i class="fa fa-plus mr-1"></i>Cadastrar Evento</a>
+                                    </div>
+                                </div>
+
+                                <c:if test="${eventos.size()>0}">
+                                    <table class="table table-striped table-bordered table-hover table-sm" id="filtro">
+                                        <caption>Lista de eventos</caption>
+                                        <thead>
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>Descrição</th>
+                                                <th>Local</th>
+                                                <th>In. Inscrições</th>
+                                                <th>Fim Inscrições</th>
+                                                <th>In. Evento</th>
+                                                <th>Fim Evento</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${eventos}" var="evento">
+                                                <tr>
+                                                    <td>${evento.nome}</td>
+                                                    <td>${evento.descricao}</td>
+                                                    <td>${evento.local}</td>
+                                                    <td>${evento.dataInicioInscricao}</td>
+                                                    <td>${evento.dataFinalInscricao}</td>
+                                                    <td>${evento.dataInicioEvento}</td>
+                                                    <td>${evento.dataFinalEvento}</td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>Descrição</th>
+                                                <th>Local</th>
+                                                <th>In. Inscrições</th>
+                                                <th>Fim Inscrições</th>
+                                                <th>In. Evento</th>
+                                                <th>Fim Evento</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </c:if>
+                                <c:if test="${eventos.size()==0}">
+                                    <h1 class="text-center my-5">Nenhum evento registrado ainda</h1>
+                                </c:if>
+                            </div>
+                        </div>
                     </div>
-                    <c:if test="${eventos.size()>0}">
-                        <table class="table table-striped table-bordered table-hover table-sm table-responsive" id="table-eventos">
-                            <caption>Lista de eventos</caption>
-                            <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Descrição</th>
-                                    <th>Local</th>
-                                    <th>In. Inscrições</th>
-                                    <th>Fim Inscrições</th>
-                                    <th>In. Evento</th>
-                                    <th>Fim Evento</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach items="${eventos}" var="evento">
-                                    <tr>
-                                        <td>${evento.nome}</td>
-                                        <td>${evento.descricao}</td>
-                                        <td>${evento.local}</td>
-                                        <td>${evento.dataInicioInscricao}</td>
-                                        <td>${evento.dataFinalInscricao}</td>
-                                        <td>${evento.dataInicioEvento}</td>
-                                        <td>${evento.dataFinalEvento}</td>
-                                    </tr>
-                                </c:forEach>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Descrição</th>
-                                    <th>Local</th>
-                                    <th>In. Inscrições</th>
-                                    <th>Fim Inscrições</th>
-                                    <th>In. Evento</th>
-                                    <th>Fim Evento</th>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </c:if>
-                    <c:if test="${eventos.size()==0}">
-                        <h1 class="text-center my-5">Nenhum evento registrado ainda</h1>
-                    </c:if>
                 </div>
-            </div>
+
+            </c:if>
+            <c:if test="${empty usuario}">
+                <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
+            </c:if>
         </main>
+
         <jsp:include page="../footer.jsp" />
         <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/popper.min.js"></script>
@@ -85,35 +139,6 @@
         <script src="../js/mdb.min.js"></script>
         <script src="../js/general.js"></script>
         <script src="../js/addons/datatables.min.js"></script>
-        <script>
-            var table = $("#table-eventos").DataTable({
-                initComplete: function () {
-                    this.api().columns().every(function () {
-                        var column = this;
-                        var select = $('<select class="custom-select w-auto"><option value=""></option></select>')
-                                .appendTo($(column.header()))
-                                .on('change', function () {
-                                    var val = $.fn.dataTable.util.escapeRegex(
-                                            $(this).val()
-                                            );
-
-                                    column
-                                            .search(val ? '^' + val + '$' : '', true, false)
-                                            .draw();
-                                });
-
-                        column.data().unique().sort().each(function (d, j) {
-                            select.append('<option value="' + d + '">' + d + '</option>')
-                        });
-                    });
-                },
-                "language": {
-                    "url": "/OMT/js/addons/datatables-pt-br.json"
-                },
-                "order": [[0, "asc"]],
-                "pagingType": "full_numbers"
-            });
-            $(".datatables_length").addClass("bs-select");
-        </script>
+        <script src="../js/filtro/filtro.js"></script>
     </body>
 </html>

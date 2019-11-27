@@ -71,7 +71,7 @@ public class CampusServlet extends HttpServlet {
 			str = udao.salvar(u);
 			if (str.equals("")) {
 			    response.getWriter().println("OK");
-			    response.sendRedirect("../OMT/reitoria/manterCampus.jsp");
+			    response.sendRedirect("/OMT/home.jsp");
 			} else {
 			    response.getWriter().println("ERRO: " + str);
 			}

@@ -46,99 +46,101 @@
                     <div class="card px-4 py-4">
                         <section>
 
-                            <div class="form-row">
+                            <div class="form-row align-items-center">
                                 <div class="col-sm-6">
                                     <h3 class="font-weight-bold mb-4">Dados pessoais</h3>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="../discente/alterarPerfil.jsp" class="btn btn-primary btn-md float-right">
+                                    <a href="../discente/alterarPerfil.jsp" class="btn btn-primary float-right">
                                         <i class="fa fa-edit mr-1"></i>Atualizar informações
                                     </a>
                                 </div>  
                             </div>
-                            <div class="form-row mt-2 mb-3">
-                                <div class="col-sm-12 col-md-6 col-lg-3">
-                                    <div class="text-center">
-                                        <c:choose>
-                                            <c:when test="${fn:length(usuario.foto) > 0}">
-                                                <div>
-                                                    <img class="foto-curriculo border border-light rounded z-depth-1" src="${IOUtils.toString(usuario.foto, 'UTF-8')}">
-                                                </div>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <div>
-                                                    <img class="foto-curriculo border border-light rounded z-depth-1" src="../img/student.png">
-                                                </div>
-                                            </c:otherwise>
-                                        </c:choose>
+                            <div class="mr-3 ml-2">
+                                <div class="form-row mt-2 mb-3">
+                                    <div class="col-auto">
+                                        <div class="">
+                                            <c:choose>
+                                                <c:when test="${fn:length(usuario.foto) > 0}">
+                                                    <div>
+                                                        <img class="foto-curriculo border border-light rounded z-depth-1" src="${IOUtils.toString(usuario.foto, 'UTF-8')}">
+                                                    </div>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <div>
+                                                        <img class="foto-curriculo border border-light rounded z-depth-1" src="../img/student.png">
+                                                    </div>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <h4><c:out value="${usuario.nome}"/></h4>
+                                        <h5><c:out value="${usuario.formacao.nome}"/></h5>
+                                        <h6>Manaus, Amazonas, Brasil</h6>
+                                        <a class="d-block" target="blank" href="${usuario.linkCurriculoLattes}">
+                                            Currículo Lattes</a>
+                                        <a class="d-block" target="blank" href="${usuario.linkPerfilLinkedIn}">
+                                            <i class="fab fa-linkedin-in mr-1"></i>Perfil LinkedIn</a>
                                     </div>
                                 </div>
-                                <div class="col-auto">
-                                    <h4><c:out value="${usuario.nome}"/></h4>
-                                    <h5><c:out value="${usuario.formacao.nome}"/></h5>
-                                    <h6>Manaus, Amazonas, Brasil</h6>
-                                    <a class="d-block" target="blank" href="${usuario.linkCurriculoLattes}">
-                                        Currículo Lattes</a>
-                                    <a class="d-block" target="blank" href="${usuario.linkPerfilLinkedIn}">
-                                        <i class="fab fa-linkedin-in mr-1"></i>Perfil LinkedIn</a>
-                                </div>
+                                <table class="table table-sm table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Nome em citações bibliográficas</th>
+                                            <td>LIMA, V. Y. P.</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Sexo</th>
+                                            <td><c:out value="${usuario.sexo}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Etnia</th>
+                                            <td><c:out value="${usuario.etnia}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Filiação</th>
+                                            <td>${usuario.nomePai} e ${usuario.nomeMae}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Estado Civil</th>
+                                            <td><c:out value="${usuario.estadoCivil}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Idade</th>
+                                            <td>${usuario.idade} anos </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Nascimento</th>
+                                            <td><fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="${usuario.dataNascimento}"/> - Brasil</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Carteira de Identidade</th>
+                                            <td>40028922 SSP - AM - 12/07/2012</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">CPF</th>
+                                            <td class="CPF"><c:out value="${usuario.CPF}"/> </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Endereço residencial</th>
+                                            <td>Av. Djalma Batista</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <i class="fa fa-phone mr-1"></i>Telefone
+                                            </th>
+                                            <td>4002-8922</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <i class="fa fa-at mr-1"></i>Endereço eletrônico
+                                            </th>
+                                            <td>E-mail para contato : ${usuario.email}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <table class="table table-sm table-bordered">
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Nome em citações bibliográficas</th>
-                                        <td>LIMA, V. Y. P.</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Sexo</th>
-                                        <td><c:out value="${usuario.sexo}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Etnia</th>
-                                        <td><c:out value="${usuario.etnia}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Filiação</th>
-                                        <td>${usuario.nomePai} e ${usuario.nomeMae}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Estado Civil</th>
-                                        <td><c:out value="${usuario.estadoCivil}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Idade</th>
-                                        <td>${usuario.idade} anos </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Nascimento</th>
-                                        <td><fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="${usuario.dataNascimento}"/> - Brasil</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Carteira de Identidade</th>
-                                        <td>40028922 SSP - AM - 12/07/2012</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">CPF</th>
-                                        <td class="CPF"><c:out value="${usuario.CPF}"/> </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Endereço residencial</th>
-                                        <td>Av. Djalma Batista</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <i class="fa fa-phone mr-1"></i>Telefone
-                                        </th>
-                                        <td>4002-8922</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <i class="fa fa-at mr-1"></i>Endereço eletrônico
-                                        </th>
-                                        <td>E-mail para contato : ${usuario.email}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
                         </section> 
                         <hr class="my-4">
                         <section>
@@ -147,140 +149,175 @@
                                     <h3 class="font-weight-bold">Formação acadêmica/ titulação </h3>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="novaFormacao.jsp" class="btn btn-primary float-right"><i class="fa fa-plus mr-1"></i>Adicionar formação</a>
+                                    <a href="../cadastro/formacao.jsp" class="btn btn-primary float-right"><i class="fa fa-plus mr-1"></i>Adicionar formação</a>
+                                </div>
+                            </div>
+                            <div class="mr-3 ml-2">
+                                <c:if test="${formacoes.size() > 0}">
+                                    <table class="table table-sm table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>Escola/Instituição</th>
+                                                <th>Ano de término</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${formacoes}" var="formacao">
+                                                <tr>
+                                                    <td><c:out value="${formacao.nome}"/></td>
+                                                    <td><c:out value="${formacao.escola}"/></td>
+                                                    <td><c:out value="${formacao.anoTermino}"/></td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </c:if>
+                                <c:if test="${formacoes.size() == 0}">
+                                    <h4 class="grey-text text-center my-4">
+                                        Nenhuma formação registrada ainda
+                                    </h4>
+                                </c:if>
+                            </div>
+                        </section>
+                        <hr class="my-4">
+                        <section>
+                            <div class="form-row align-items-center">
+                                <div class="col-sm-6">
+                                    <h3 class="font-weight-bold mb-4">Experiências profissionais</h3>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="../cadastro/experienciaProfissional.jsp" class="btn btn-primary float-right"><i class="fa fa-plus mr-1"></i>Adicionar experiência</a>
                                 </div>
                             </div>
 
-                            <c:if test="${formacoes.size() > 0}">
-                                <table class="table table-sm">
-                                    <thead>
-                                        <tr>
-                                            <th>Nome</th>
-                                            <th>Escola/Instituição</th>
-                                            <th>Ano de término</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach items="${formacoes}" var="formacao">
+                            <div class="mr-3 ml-2">
+                                <c:if test="${trabalhosCurriculo.size() > 0}">
+                                    <table class="table table-sm table-bordered">
+                                        <thead>
                                             <tr>
-                                                <td><c:out value="${formacao.nome}"/></td>
-                                                <td><c:out value="${formacao.escola}"/></td>
-                                                <td><c:out value="${formacao.anoTermino}"/></td>
+                                                <th>Profissão</th>
+                                                <th>Descrição</th>
+                                                <th>Início</th>
+                                                <th>Fim</th>
+                                                <th>Duração</th>
                                             </tr>
-                                        </c:forEach>
-                                    </tbody>
-                                </table>
-                            </c:if>
-                            <c:if test="${formacoes.size() == 0}">
-                                <h4 class="grey-text text-center my-4">
-                                    Nenhuma formação registrada ainda
-                                </h4>
-                            </c:if>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${trabalhosCurriculo}" var="trabalhoCurriculo">
+                                                <tr>
+                                                    <td><c:out value="${trabalhoCurriculo.profissao}"/></td>
+                                                    <td><c:out value="${trabalhoCurriculo.descricao}"/></td>
+                                                    <td><fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="${trabalhoCurriculo.tempoInicio}"/></td>
+                                                    <td><fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="${trabalhoCurriculo.tempoFinal}"/></td>
+                                                    <td><fmt:formatNumber type="number" maxFractionDigits="2" value="${trabalhoCurriculo.duracao/1000/60/60/24/365}"/> anos</td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </c:if>
+                                <c:if test="${trabalhosCurriculo.size() == 0}">
+                                    <h4 class="grey-text text-center my-4">
+                                        Sem experiência profissional
+                                    </h4>
+                                </c:if>
+                            </div>
                         </section>
                         <hr class="my-4">
                         <section>
-                            <h3 class="font-weight-bold mb-4">Experiências profissionais
-                                <a href="novaExperienciaProfissional.jsp" class="btn btn-md btn-cyan"><i class="fa fa-plus mr-1"></i>Adicionar experiência</a>
-                            </h3>
-                            <c:if test="${trabalhosCurriculo.size() > 0}">
-                                <table class="table table-sm">
-                                    <thead>
-                                        <tr>
-                                            <th>Profissão</th>
-                                            <th>Descrição</th>
-                                            <th>Início</th>
-                                            <th>Fim</th>
-                                            <th>Duração</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach items="${trabalhosCurriculo}" var="trabalhoCurriculo">
+                            <div class="form-row align-items-center">
+                                <div class="col-sm-6">
+                                    <h3 class="font-weight-bold mb-4">Participação em projetos acadêmicos</h3>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="../cadastro/projeto.jsp" class="btn btn-primary float-right"><i class="fa fa-plus mr-1"></i>Adicionar projeto</a>
+                                </div>
+                            </div>
+                            <div class="mr-3 ml-2">
+                                <c:if test="${projetos.size() > 0}">
+                                    <table class="table table-sm table-bordered">
+                                        <thead>
                                             <tr>
-                                                <td><c:out value="${trabalhoCurriculo.profissao}"/></td>
-                                                <td><c:out value="${trabalhoCurriculo.descricao}"/></td>
-                                                <td><fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="${trabalhoCurriculo.tempoInicio}"/></td>
-                                                <td><fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="${trabalhoCurriculo.tempoFinal}"/></td>
-                                                <td><fmt:formatNumber type="number" maxFractionDigits="2" value="${trabalhoCurriculo.duracao/1000/60/60/24/365}"/> anos</td>
+                                                <th>Nome</th>
+                                                <th>Descrição</th>
+                                                <th>Área</th>
                                             </tr>
-                                        </c:forEach>
-                                    </tbody>
-                                </table>
-                            </c:if>
-                            <c:if test="${trabalhosCurriculo.size() == 0}">
-                                <h4 class="grey-text text-center my-4">
-                                    Sem experiência profissional
-                                </h4>
-                            </c:if>
-                        </section>
-                        <hr class="my-4">
-                        <section>
-                            <h3 class="font-weight-bold mb-4">Participação em projetos acadêmicos:
-                                <a href="novoProjeto.jsp" class="btn btn-md btn-cyan"><i class="fa fa-plus mr-1"></i>Adicionar projeto</a>
-                            </h3>
-                            <c:if test="${projetos.size() > 0}">
-                                <table class="table table-sm">
-                                    <thead>
-                                        <tr>
-                                            <th>Profissão</th>
-                                            <th>Descrição</th>
-                                            <th>Área</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach items="${projetos}" var="projeto">
-                                            <tr>
-                                                <td><c:out value="${projeto.nome}"/></td>
-                                                <td><c:out value="${projeto.descricao}"/></td>
-                                                <td><c:out value="${projeto.area}"/></td>
-                                            </tr>
-                                        </c:forEach>
-                                    </tbody>
-                                </table>
-                            </c:if>
-                            <c:if test="${projetos.size() == 0}">
-                                <h4 class="grey-text text-center my-4">
-                                    Nenhum projeto registrado
-                                </h4>
-                            </c:if>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${projetos}" var="projeto">
+                                                <tr>
+                                                    <td><c:out value="${projeto.nome}"/></td>
+                                                    <td><c:out value="${projeto.descricao}"/></td>
+                                                    <td><c:out value="${projeto.area}"/></td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </c:if>
+                                <c:if test="${projetos.size() == 0}">
+                                    <h4 class="grey-text text-center my-4">
+                                        Nenhum projeto registrado
+                                    </h4>
+                                </c:if>
+                            </div>
                         </section>
                         <hr class="my-4">
                         <div class="row">
                             <section class="col-sm-12 col-lg-6">
-                                <h3 class="font-weight-bold mb-4">Áreas de atuação 
-                                    <a href="#" class="btn btn-md btn-cyan"><i class="fa fa-plus mr-1"></i>Adicionar área de atuação</a>
-                                </h3>
-                                <table class="table table-sm">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nome</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th>1.</th>
-                                            <td>Ciência da Computação</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="form-row align-items-center">
+                                    <div class="col-sm-6">
+                                        <h3 class="font-weight-bold mb-4">Áreas de atuação</h3>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <a href="../cadastro/AreaDeAtuacao.jsp" class="btn btn-primary float-right"><i class="fa fa-plus mr-1"></i>Adicionar área de atuação</a>
+                                    </div>
+                                </div>
+
+                                <div class="mr-3 ml-2">
+                                    <table class="table table-sm table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Nome</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Ciência da Computação</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </section>
                             <hr class="my-4">
                             <section class="col-sm-12 col-lg-6">
-                                <h3 class="font-weight-bold mb-4">Idiomas 
-                                    <a href="#" class="btn btn-md btn-cyan"><i class="fa fa-plus mr-1"></i>Adicionar idioma</a>
-                                </h3>
-                                <table class="table table-sm">
-                                    <tbody>
-                                        <tr>
-                                            <td class="font-weight-bold text-right">Inglês</td>
-                                            <td class="text-left">Compreende Razoavelmente , Fala Pouco , Escreve Razoavelmente , Lê Bem </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-weight-bold text-right">Português</td>
-                                            <td class="text-left">Compreende Bem , Fala Bem , Escreve Bem , Lê Bem </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="form-row align-items-center">
+                                    <div class="col-sm-6">
+                                        <h3 class="font-weight-bold mb-4">Idiomas</h3>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <a href="../cadastro/idioma.jsp" class="btn float-right btn-primary"><i class="fa fa-plus mr-1"></i>Adicionar idioma</a>
+                                    </div>
+                                </div>
+                                <div class="mr-3 ml-2">
+                                    <table class="table table-sm table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>Situação</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Inglês</td>
+                                                <td>Compreende Razoavelmente , Fala Pouco , Escreve Razoavelmente , Lê Bem </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Português</td>
+                                                <td >Compreende Bem , Fala Bem , Escreve Bem , Lê Bem </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </section>
                         </div>
                         <hr>
