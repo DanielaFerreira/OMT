@@ -11,82 +11,79 @@
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
         <link rel="stylesheet" href="../css/style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </head>
-
     <body>
         <c:if test="${not empty usuario}">
-
             <jsp:include page="header.jsp" />
+            <main>
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-2"> 
+                            <jsp:include page="perfil_flutuante.jsp"/>
+                            <br>
+                        </div>
+                        <div class="col-lg-8">
+                            <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link active" data-toggle="tab" role="tab">
+                                        <i class="fas fa-home fa-lg"></i>
+                                        Página Inicial
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="evento.jsp" class="nav-link">
+                                        <i class="fas fa-calendar-check fa-lg"></i>
+                                        Eventos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="vaga_trabalho.jsp" class="nav-link">
+                                        <i class="fas fa-briefcase fa-lg"></i> Vagas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="curso.jsp" class="nav-link">
+                                        <i class="fa fa-chalkboard-teacher fa-lg"></i>
+                                        Cursos
+                                    </a>
+                                </li>
 
-            <div class="container-fluid">
+                                <li class="nav-item">
+                                    <a href="discente.jsp" class="nav-link">
+                                        <i class="fa fa-user-graduate fa-lg"></i>
+                                        Egresso
+                                    </a>
+                                </li>
 
-                <div class="row justify-content-center">
-                    <div class="col-lg-2"> 
-                        <jsp:include page="perfil_flutuante.jsp"/>
-                        <br>
-                    </div>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link" data-toggle="tab" role="tab">
+                                        <i class="fa fa-university fa-lg"></i>
+                                        Campus
+                                    </a>
+                                </li>
+                            </ul>
 
-                    <div class="col-lg-8">
-                        <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link active" data-toggle="tab" role="tab">
-                                    <i class="fas fa-home fa-lg"></i>
-                                    Página Inicial
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="evento.jsp" class="nav-link">
-                                    <i class="fas fa-calendar-check fa-lg"></i>
-                                    Eventos
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="vaga_trabalho.jsp" class="nav-link">
-                                    <i class="fas fa-briefcase fa-lg"></i> Vagas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="curso.jsp" class="nav-link">
-                                    <i class="fa fa-chalkboard-teacher fa-lg"></i>
-                                    Cursos
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="discente.jsp" class="nav-link">
-                                    <i class="fa fa-user-graduate fa-lg"></i>
-                                    Egresso
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="tab" role="tab">
-                                    <i class="fa fa-university fa-lg"></i>
-                                    Campus
-                                </a>
-                            </li>
-                        </ul>
-
-                        <div class="card mb-5">
-                            <div class="mt-4 mx-4">
-                                <h1 class="mb-4 font-weight-bold">Estatísticas</h1>
-                                <div class="row">  
-                                    <div class="col-sm-12 col-md-6 col-xl-4">
-                                        <canvas id="graficoGenero1"></canvas>
-                                    </div> 
-                                    <div class="col-sm-12 col-md-6 col-xl-4">
-                                        <canvas id="graficoGenero3"></canvas>
-                                    </div>       
-                                    <div class="col-sm-12 col-md-6 col-xl-4">
-                                        <canvas id="graficoGenero2"></canvas>
-                                    </div>  
-                                </div>        
+                            <div class="card mb-5"> 
+                                <div class="mt-4 mx-4 mb-4">
+                                    <h3 class="mb-4 font-weight-bold">Estatísticas</h3>
+                                    <div class="mr-3 ml-3 mt-3">
+                                        <div class="form-row">  
+                                            <div class="col-sm-12 col-md-6 col-xl-4">
+                                                <canvas id="graficoGenero1"></canvas>
+                                            </div> 
+                                            <div class="col-sm-12 col-md-6 col-xl-4">
+                                                <canvas id="graficoGenero3"></canvas>
+                                            </div>       
+                                            <div class="col-sm-12 col-md-6 col-xl-4">
+                                                <canvas id="graficoGenero2"></canvas>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </main>
             <jsp:include page="../footer.jsp"/>
         </c:if>
         <c:if test="${empty usuario}">

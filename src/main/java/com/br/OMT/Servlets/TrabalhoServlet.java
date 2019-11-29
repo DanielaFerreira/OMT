@@ -57,14 +57,15 @@ public class TrabalhoServlet extends HttpServlet {
                     if (str.equals("")) {
                         //request.getSession().setAttribute("user", mensagem);
 
-                        response.sendRedirect("empresa/vaga_trabalho.jsp");
+                        response.sendRedirect("../OMT/feedback/sucesso.jsp");
                         mensagem = "<strong>Cadastro realizado!</strong> a vaga de trabalho " + t.getProfissao() + "já está na lista de vagas ofertadas pela sua empresa.";
 
                     } else {
                         mensagem = "<strong>Opa, ocorreu uma falha</strong> A vaga de trabalho " + t.getProfissao() + "não foi possível ser cadastrada por conta do erro" + str;
+                        response.sendRedirect("../OMT/feedback/erro.jsp?erro=" + str);
                     }
                 } catch (ParseException ex) {
-                    System.out.println("Erro: " + ex.getMessage());
+                    response.sendRedirect("../OMT/feedback/sucesso.jsp?erro=" + ex.getMessage());
                 }
 
             } else {
@@ -90,13 +91,12 @@ public class TrabalhoServlet extends HttpServlet {
                     try {
                         str = tdao.atualizar(t);
                         if (str.equals("")) {
-                            response.sendRedirect("empresa/vaga_trabalho.jsp");
+                            response.sendRedirect("../OMT/feedback/atualizado.jsp");
                         } else {
-                            response.getWriter().println("Errado!");
-                            response.getWriter().println(str);
+                            response.sendRedirect("../OMT/feedback/erro.jsp?erro=" +str);
                         }
                     } catch (Exception ex) {
-                        response.getWriter().println("Erro! " + ex.getMessage());
+                        response.sendRedirect("../OMT/feedback/erro.jsp?erro=" +ex.getMessage());
                     }
                 } else {
                     if (butao.equals("deletar")) {
@@ -104,7 +104,7 @@ public class TrabalhoServlet extends HttpServlet {
                         Long idLong = Long.parseLong(id);
                         t = tdao.getById(idLong);
                         tdao.deletar(t);
-                        response.sendRedirect("empresa/vaga_trabalho.jsp");
+                        response.sendRedirect("../OMT/feedback/deletado.jsp");
                     }
                 }
             }

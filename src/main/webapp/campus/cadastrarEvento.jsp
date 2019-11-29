@@ -60,11 +60,11 @@
 
                                     <div class="form-group">
                                         <label for="nome">Nome do Evento</label>
-                                        <input class="form-control" type="text" id="nome" name="nome" required>
+                                        <input class="form-control" type="text" placeholder="Nome do evento" id="nome" name="nome" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="local">Local do Evento</label>
-                                        <input class="form-control" type="text" id="local" name="local">
+                                        <input class="form-control" placeholder="Local do evento" type="text" id="local" name="local">
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
@@ -88,7 +88,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="descricao">Descrição do Evento</label>
-                                        <textarea id="descricao" name="descricao" class="form-control" rows="5"></textarea>
+                                        <textarea id="descricao" name="descricao" placeholder="Descrições do evento" class="form-control" rows="5"></textarea>
                                     </div>
 
 

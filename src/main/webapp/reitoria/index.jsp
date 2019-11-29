@@ -35,63 +35,62 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../errors/manutencao.jsp" class="nav-link">
+                                <a href="trabalho.jsp" class="nav-link">
                                     <i class="fas fa-briefcase fa-lg"></i>
                                     Estágios
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="curso.jsp" class="nav-link">
                                     <i class="fa fa-chalkboard-teacher fa-lg"></i>
                                     Cursos
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="evento.jsp" class="nav-link">
                                     <i class="fa fa-calendar-check fa-lg"></i>
                                     Eventos
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="tab" role="tab">
+                                <a href="egresso.jsp" class="nav-link">
                                     <i class="fa fa-user-graduate fa-lg"></i>
                                     Egressos
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="tab" role="tab">
+                                <a href="campus.jsp" class="nav-link">
                                     <i class="fa fa-university fa-lg"></i>
                                     Campus
                                 </a>
                             </li>
                         </ul>
 
-                        <div class="card px-4 py-4">
-                            <h1 class="mb-4 font-weight-bold">Bem-vindo 
-                                <c:out value="${usuario.nome}"></c:out>!</h1>
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-6 col-xl-4">
-                                        <canvas id="graficoGenero1"></canvas>
-                                    </div> 
-                                    <div class="col-sm-12 col-md-6 col-xl-4">
-                                        <canvas id="graficoGenero3"></canvas>
-                                    </div>       
-                                    <div class="col-sm-12 col-md-6 col-xl-4">
-                                        <canvas id="graficoGenero2"></canvas>
-                                    </div>  
-                                </div>      
-                                <div class="row">   
-                                </div>      
-                                <div class="row">    
-                                </div>        
+                        <div class="card mb-5"> 
+                            <div class="mt-4 mx-4 mb-4">
+                                <h3 class="mb-4 font-weight-bold">Estatísticas</h3>
+                                <div class="mr-3 ml-3 mt-3">
+                                    <div class="form-row">  
+                                        <div class="col-sm-12 col-md-6 col-xl-4">
+                                            <canvas id="graficoGenero1"></canvas>
+                                        </div> 
+                                        <div class="col-sm-12 col-md-6 col-xl-4">
+                                            <canvas id="graficoGenero3"></canvas>
+                                        </div>       
+                                        <div class="col-sm-12 col-md-6 col-xl-4">
+                                            <canvas id="graficoGenero2"></canvas>
+                                        </div>  
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
+        </main>
         <jsp:include page="../footer.jsp"/>
         <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/popper.min.js"></script>

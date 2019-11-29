@@ -65,6 +65,9 @@
                         %>
                         <label class="col-md-12 text-center text-danger">Usuário ou senha inválidos</label>
                         <%}%>
+                        <%if(request.getParameter("alt").equals("certo")){%>
+                        <label class="col-md-12 text-center green-text">Usuário cadastrado com sucesso</label>
+                        <%}%>
                         <%}%>
 
                         <div class="tab-content">

@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
                     response.sendRedirect("/OMT/home.jsp?alt=erroLogin");//erro
 
                 } else if (resposta == -1) {
-                    response.sendRedirect("/OMT/errors/manutencao.jsp");//erro
+                    response.sendRedirect("/OMT/home.jsp?alt=erroLogin");//erro
 
                 } else {
                     try {
@@ -74,7 +74,7 @@ public class LoginServlet extends HttpServlet {
                     response.sendRedirect("/OMT/home.jsp?alt=erroLogin");//erro
 
                 } else if (resposta == -1) {
-                    response.sendRedirect("/OMT/errors/manutencao.jsp");//erro
+                    response.sendRedirect("/OMT/home.jsp?alt=erroLogin");//erro
 
                 } else {
                     try {

@@ -79,6 +79,10 @@
                                     <button class="btn btn-green" id="buttonLoginRet" type="submit">Entrar</button>
                                 </div>
                             </form>
+                            <div class="text-center">
+                                <label>Ainda não possui cadastro?</label>
+                                <a class="link" href="../cadastro/administrador.jsp"><b>Registre-se agora</b></a>
+                            </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="login3" role="tabpanel">
@@ -98,6 +102,10 @@
                                     <button class="btn btn-green" id="buttonLoginCam" type="submit">Entrar</button>
                                 </div>
                             </form>
+                            <div class="text-center">
+                                <label>Ainda não possui cadastro?</label>
+                                <a class="link" href="../cadastro/campus.jsp"><b>Registre-se agora</b></a>
+                            </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="login4" role="tabpanel">
@@ -117,14 +125,17 @@
                                     <button class="btn btn-green" id="buttonLoginEmp" type="submit">Entrar</button>
                                 </div>
                             </form>
-
+                            <div class="text-center">
+                                <label>Ainda não possui cadastro?</label>
+                                <a class="link" href="../cadastro/empresa.jsp"><b>Registre-se agora</b></a>
+                            </div>
                         </div>
                     </div>
-                    
+
                     <div class="tab-pane fade in show active"  role="tabpanel">
                         <div class="mt-4 mx-4" role="tablist">
-                            <h3 class="font-weight-bold mb-4 text-center">Veja nossos Egressos</h3>
-                            <table class="table table-sm table-striped table-bordered table-hover" id="table-egressos">
+                            <h3 class="font-weight-bold mb-4">Lista de egressos</h3>
+                            <table class="table table-sm table-striped table-bordered table-hover" id="filtro">
                                 <caption>Lista de egressos</caption>
                                 <thead>
                                     <tr>
@@ -172,35 +183,6 @@
         <script src="../js/jquery.mask.min.js"></script>
         <script src="../js/mascaras.js"></script>
         <script src="../js/addons/datatables.min.js"></script>
-        <script>
-            $("#table-egressos").DataTable({
-                initComplete: function () {
-                    this.api().columns().every(function () {
-                        var column = this;
-                        var select = $('<select class="custom-select w-auto"><option value=""></option></select>')
-                                .appendTo($(column.header()))
-                                .on('change', function () {
-                                    var val = $.fn.dataTable.util.escapeRegex(
-                                            $(this).val()
-                                            );
-
-                                    column
-                                            .search(val ? '^' + val + '$' : '', true, false)
-                                            .draw();
-                                });
-
-                        column.data().unique().sort().each(function (d, j) {
-                            select.append('<option value="' + d + '">' + d + '</option>')
-                        });
-                    });
-                },
-                "language": {
-                    "url": "/OMT/js/addons/datatables-pt-br.json"
-                },
-                "order": [[0, "asc"]],
-                "pagingType": "full_numbers"
-            });
-            $(".datatables_length").addClass("bs-select");
-        </script>
+        <script src="../js/filtro/filtro.js"></script>
     </body>
 </html>

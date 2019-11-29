@@ -24,54 +24,107 @@
     </head>
     <body>
         <jsp:include page="../header.jsp"/>
-        <jsp:include page="../campus/menu.jsp"/> 
         <main>
-            <div class="container" >
-                <div class="card px-4 py-4">
-                    <h1 class="font-weight-bold mb-4">Egressos</h1>
-                    <div class="btn-group mb-4">
-                        <a class="btn btn-md btn-light-green" href="cadastrarEgresso.jsp">
-                            <i class="fa fa-plus mr-1"></i>Novo egresso</a>
+            <c:set var="eventos" value="${EventoDAO.listEventos()}"/>
+            <c:if test="${not empty usuario}">
+
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-2"> 
+                            <jsp:include page="pertil_flutuante.jsp"/>
+                            <br>
+                        </div>
+                        <div class="col-lg-8">
+                            <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
+                                <li class="nav-item">
+                                    <a href="index.jsp" class="nav-link">
+                                        <i class="fas fa-home fa-lg"></i>
+                                        Página Inicial
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="eventos.jsp" class="nav-link">
+                                        <i class="fas fa-calendar-check fa-lg"></i>
+                                        Eventos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="fas fa-briefcase fa-lg"></i> 
+                                        Estágios
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="fa fa-chalkboard-teacher fa-lg"></i>
+                                        Cursos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="manterEgresso.jsp" class="nav-link active">
+                                        <i class="fa fa-user-graduate fa-lg"></i>
+                                        Egressos
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="card px-4 py-4">
+                                <div class="form-row align-items-center">
+                                    <div class="col-sm-6">
+                                        <h3 class="font-weight-bold">Lista de egressos</h3>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <a class="btn btn-green float-right" href="../cadastro/egresso.jsp">
+                                            <i class="fa fa-plus mr-1"></i>Cadastrar egresso</a>
+                                    </div>
+                                </div>
+                                <div class="mr-3 ml-3 mt-4">
+                                    <table class="table table-striped table-bordered table-hover table-sm" id="filtro">
+                                        <caption>Lista de egressos</caption>
+                                        <thead>
+                                            <tr>
+                                                <th>Nome<i class="fa fa-sort float-right"></i></th>
+                                                <th>Matrícula<i class="fa fa-sort float-right"></i></th>
+                                                <th>Sexo<i class="fa fa-sort float-right"></i></th>
+                                                <th>Formação<i class="fa fa-sort float-right"></i></th>
+                                                <th>Campus<i class="fa fa-sort float-right"></i></th>
+                                                <th>Currículo<i class="fa fa-sort float-right"></i></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${discentes}" var="discente">
+                                                <c:set target="${discente}" property="nome" value="${Criptografia.decrypt(discente.nomeBanco)}"/>
+                                                <c:set target="${discente}" property="usuario" value="${Criptografia.decrypt(discente.usuarioBanco)}"/>
+                                                <tr>
+                                                    <td><c:out value="${discente.nome}"/></td>
+                                                    <td>${discente.usuario}</td>
+                                                    <td>${discente.sexo}</td>                
+                                                    <td>${discente.formacao.nome}</td>
+                                                    <td>${discente.formacao.campus.nome}</td>
+                                                    <td><a class="blue-text" href="curriculoDiscente.jsp?id=${discente.id}">curriculo</a></td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>Matrícula</th>
+                                                <th>Sexo</th>
+                                                <th>Formação</th>
+                                                <th>Campus</th>
+                                                <th>Currículo<i class="fa fa-sort float-right"></i></th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <table class="table table-striped table-bordered table-hover table-sm table-responsive" id="table-egressos">
-                        <caption>Lista de egressos</caption>
-                        <thead>
-                            <tr>
-                                <th>Nome<i class="fa fa-sort float-right"></i></th>
-                                <th>Matrícula<i class="fa fa-sort float-right"></i></th>
-                                <th>Sexo<i class="fa fa-sort float-right"></i></th>
-                                <th>Formação<i class="fa fa-sort float-right"></i></th>
-                                <th>Campus<i class="fa fa-sort float-right"></i></th>
-                                <th>Currículo<i class="fa fa-sort float-right"></i></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach items="${discentes}" var="discente">
-                                <c:set target="${discente}" property="nome" value="${Criptografia.decrypt(discente.nomeBanco)}"/>
-                                <c:set target="${discente}" property="usuario" value="${Criptografia.decrypt(discente.usuarioBanco)}"/>
-                                <tr>
-                                    <td><c:out value="${discente.nome}"/></td>
-                                    <td>${discente.usuario}</td>
-                                    <td>${discente.sexo}</td>                
-                                    <td>${discente.formacao.nome}</td>
-                                    <td>${discente.formacao.campus.nome}</td>
-                                    <td><a class="blue-text" href="curriculoDiscente.jsp?id=${discente.id}">curriculo</a></td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Matrícula</th>
-                                <th>Sexo</th>
-                                <th>Formação</th>
-                                <th>Campus</th>
-                                <th>Currículo<i class="fa fa-sort float-right"></i></th>
-                            </tr>
-                        </tfoot>
-                    </table>
                 </div>
-            </div>
+
+            </c:if>
+            <c:if test="${empty usuario}">
+                <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
+            </c:if>
         </main>
         <jsp:include page="../footer.jsp"/>
         <script src="../js/jquery-3.3.1.min.js"></script>
@@ -82,35 +135,6 @@
         <script src="../js/jquery.mask.min.js"></script>
         <script src="../js/mascaras.js"></script>
         <script src="../js/addons/datatables.min.js"></script>
-        <script>
-            var table = $("#table-egressos").DataTable({
-                initComplete: function () {
-                    this.api().columns().every(function () {
-                        var column = this;
-                        var select = $('<select class="custom-select w-auto"><option value=""></option></select>')
-                                .appendTo($(column.header()))
-                                .on('change', function () {
-                                    var val = $.fn.dataTable.util.escapeRegex(
-                                            $(this).val()
-                                            );
-
-                                    column
-                                            .search(val ? '^' + val + '$' : '', true, false)
-                                            .draw();
-                                });
-
-                        column.data().unique().sort().each(function (d, j) {
-                            select.append('<option value="' + d + '">' + d + '</option>')
-                        });
-                    });
-                },
-                "language": {
-                    "url": "/OMT/js/addons/datatables-pt-br.json"
-                },
-                "order": [[0, "asc"]],
-                "pagingType": "full_numbers"
-            });
-            $(".datatables_length").addClass("bs-select");
-        </script>
+        <script src="../js/filtro/filtro.js"></script>
     </body>
 </html>

@@ -32,7 +32,7 @@
 
             <div class="card mb-5">
                 <div class="mt-4 mx-4 mb-4">
-                    <h4 class="mb-4"><strong>Cadastro do aluno</strong></h4>
+                    <h4 class="mb-4"><strong>Cadastrar egresso</strong></h4>
                     <form id="form-cadastrar" name="form-cadastrar" method="post" action="/OMT/DiscenteServlet" >
                         <div class="form-row">
                             <div class="form-group col-md-6">

@@ -35,9 +35,15 @@
                 <nav class="navbar navbar-expand-lg navbar-light green darken-1">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="index.jsp" class="nav-link text-white">
+                            <a href="javascript:history.back()" class="nav-link text-white">
                                 <i class="fa fa-arrow-alt-circle-left fa-lg"></i>
                                 Voltar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.jsp" class="nav-link text-white">
+                                <i class="fa fa-home fa-lg">
+                                </i>Página inicial
                             </a>
                         </li>
                     </ul>
@@ -45,7 +51,6 @@
                 <div id="to-pdf">
                     <div class="card px-4 py-4">
                         <section>
-
                             <div class="form-row align-items-center">
                                 <div class="col-sm-6">
                                     <h3 class="font-weight-bold mb-4">Dados pessoais</h3>

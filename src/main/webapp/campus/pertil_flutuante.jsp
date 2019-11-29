@@ -20,7 +20,7 @@
             <div class="form-group col">
                 <div class="text-center">
                     <div>
-                        <img class="foto-curriculo border border-light rounded z-depth-1" src="../img/student.png">
+                        <img class="foto-curriculo border border-light rounded z-depth-1" src="../img/empresa.png">
                     </div>
                 </div>
             </div>

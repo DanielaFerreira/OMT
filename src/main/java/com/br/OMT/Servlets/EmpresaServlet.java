@@ -74,11 +74,12 @@ public class EmpresaServlet extends HttpServlet {
 			str = udao.salvar(u);
 			if (str.equals("")) {
 			    response.getWriter().println("OK");
+                            response.sendRedirect("/OMT/feedback/sucesso.jsp");
 			} else {
-			    response.getWriter().println("ERRO: " + str);
+			    response.sendRedirect("/OMT/feedback/erro.jsp?erro=" + str);
 			}
 		    } else {
-			response.getWriter().println("ERRO: " + str);
+			response.sendRedirect("/OMT/feedback/erro.jsp?erro=" + str);
 		    }
 		} catch (Exception ex) {
 		    Logger.getLogger(EmpresaServlet.class.getName()).log(Level.SEVERE, null, ex);
