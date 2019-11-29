@@ -13,7 +13,7 @@
     <body>
         <jsp:include page="../header.jsp"/>
         <div class="container">
-            <ul class="nav nav-tabs green darken-2" role="tablist">
+            <ul class="nav nav-tabs green darken-2 mt-3" role="tablist">
                 <li class="nav-item">
                     <a href="javascript:history.back()" class="nav-link text-white">
                         <i class="fa fa-arrow-alt-circle-left fa-lg"></i>
@@ -26,7 +26,7 @@
                 <div class="mt-4 mx-4 mb-4">
                     <form method="post" name="cadastrar-campus" id="cadastrar-campus" action="/OMT/CampusServlet">
                         <section>
-                            <h4 class="mb-4"><strong>Dados do Campus</strong></h4>
+                            <h3 class="mb-4"><strong>Dados do campus</strong></h3>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="cnpj">CNPJ</label>
@@ -37,33 +37,34 @@
                                     <input class="form-control CNAE" type="text" id="cnae" name="cnae" required>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="nome">Nome do Campus</label>
-                                <input class="form-control" type="text" id="nome" name="nome" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="nomeFantasia">Nome Fantasia do Campus</label>
-                                <input class="form-control" type="text" id="nomeFantasia" name="nomeFantasia" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="cep">CEP</label>
-                                <input class="form-control CEP" type="text" id="cep" name="cep" required aria-describedby="infoCEP">
-                                <small id="infoCEP" class="form-text text-muted">
-                                    Preenchendo o CEP, outros campos relacionados ao endereço serão preenchidos automaticamente
-                                </small>
-                            </div>
-
                             <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="nome">Nome do Campus</label>
+                                    <input class="form-control" type="text" id="nome" name="nome" required>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="nomeFantasia">Nome Fantasia do Campus</label>
+                                    <input class="form-control" type="text" id="nomeFantasia" name="nomeFantasia" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="cep">CEP</label>
+                                    <input class="form-control CEP" type="text" id="cep" name="cep" required aria-describedby="infoCEP">
+                                    <small id="infoCEP" class="form-text text-muted">
+                                        Preenchendo o CEP, outros campos relacionados ao endereço serão preenchidos automaticamente
+                                    </small>
+                                </div>
                                 <div class="form-group col-md-6">
                                     <label for="estado">Estado</label>
                                     <input class="form-control" type="text" id="estado" name="estado" readonly required>
                                 </div>
-                                <div class="form-group col-md-6">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
                                     <label for="cidade">Cidade</label>
                                     <input class="form-control" type="text" id="cidade" name="cidade" readonly required>
                                 </div>
-                            </div>
-                            <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="bairro">Bairro</label>
                                     <input class="form-control" type="text" id="bairro" name="bairro" readonly required>
@@ -72,17 +73,18 @@
                                     <label for="rua">Rua</label>
                                     <input class="form-control" type="text" id="rua" name="rua" readonly required>
                                 </div>
-                                <div class="form-group col-md-4">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
                                     <label for="numero">Número</label>
                                     <input class="form-control" type="text" id="numero" name="numero" >
                                 </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col">
+                                <div class="form-group col-md-6">
                                     <label for="complemento">Complemento</label>
                                     <input class="form-control" type="text" id="complemento" name="complemento" required>
                                 </div>
-                            </div>  
+                            </div>
+
                             <div class="form-row">
                                 <div class="form-group col">
                                     <label for="tipo">Tipo</label>
@@ -94,17 +96,16 @@
                                 </div>
                             </div>
                         </section>
-                        <hr class="my-4">
                         <section>
-                            <h4 class="mb-4"><strong>Usuário padrão</strong></h4> 
+                            <h3 class="mb-3 mt-2"><strong>Usuário padrão</strong></h3> 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="nomeUsuario">Nome</label>
-                                    <input class="form-control" type="text" id="nomeUsuario" name="nomeUsuario" required>
+                                    <input class="form-control" type="text" placeholder="Nome" id="nomeUsuario" name="nomeUsuario" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="login">Usuário</label>
-                                    <input class="form-control" type="text" id="login" name="login" required aria-describedby="infoLogin">
+                                    <input class="form-control" type="text" id="login" placeholder="Usuário" name="login" required aria-describedby="infoLogin">
                                     <small id="infoLogin" class="form-text text-muted">
                                         Nome para entrar no sistema
                                     </small>
@@ -113,11 +114,11 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="senha">Senha</label>
-                                    <input class="form-control validate" id="senha" type="password" name="senha" required>
+                                    <input class="form-control validate" id="senha" placeholder="Senha" type="password" name="senha" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="confirmar">Confirmar Senha</label>
-                                    <input class="form-control validate" id="confirmar" type="password" name="senha" required>
+                                    <input class="form-control validate" id="confirmar" placeholder="Confirmar senha" type="password" name="senha" required>
                                 </div>
                             </div>
                         </section>

@@ -61,9 +61,9 @@ public class AdmistradoresServlet extends HttpServlet {
                     UsuarioDAO udao = new UsuarioDAO();
                     String str = udao.salvar(u);
                     if (str.equals("")) {
-                        response.getWriter().println("Certo");
+                        response.sendRedirect("/OMT/feedback/sucesso.jsp");
                     } else {
-                        response.getWriter().println("Errrado: " + str);
+                        response.sendRedirect("/OMT/feedback/erro.jsp?eroo=" + str);
                     }
                 } catch (Exception ex) {
                 }

@@ -18,10 +18,8 @@
     </head>
     <body>
 
-        <jsp:include page="header.jsp" />
+        <jsp:include page="../header.jsp" />
         <div class="container-fluid">
-
-
             <div class="row justify-content-center">
                 <jsp:include page="perfil_flutuante.jsp"/>
                 <div class="col-lg-8">

@@ -1,4 +1,4 @@
-<header>
+<header class="mb-4">
     <nav class="navbar navbar-expand-lg navbar-dark green darken-3 mb-4">
         <!--Botão home-->
         <a class="navbar-brand" href="/OMT/home.jsp">IFAM - Sistema de Egressos</a>

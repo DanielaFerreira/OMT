@@ -6,7 +6,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Novo Projeto</title>
+        <title>Novo Idioma</title>
         <link rel="stylesheet" href="../css/bootstrap.css"/>
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
@@ -33,23 +33,18 @@
                     </ul>
                 </nav>
                 <div class="card px-4 py-4">
-                    <form id="cadastrar-projeto" method="POST" action="/OMT/ProjetoServlet">
-                        <h3 class="font-weight-bold mb-4">Cadastrar Projeto</h3>
+                    <form id="cadastrar-projeto" method="POST" action="/OMT/lalal">
+                        <h3 class="font-weight-bold mb-4">Cadastrar idioma</h3>
 
                         <div class="form-row">
-                            <div class="col-md-6 form-group">
+                            <div class="col-md-12 form-group">
                                 <label for="nome">Nome</label>
-                                <input name="nome" id="nome" type="text" placeholder="Nome" class="form-control validate">
-                            </div>
-
-                            <div class="col-md-6 form-group">
-                                <label for="area">Área de atuação</label>
-                                <input id="area" name="area" type="text" placeholder="Área de atuação" class="form-control validate"/>
+                                <input name="nome" id="nome" type="text" placeholder="Nome do idoma" class="form-control validate">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="descricao">Descrição</label>
-                            <textarea id="descricao" name="descricao" placeholder="Descrição" class="form-control validate" rows="4"></textarea>
+                            <label for="descricao">Situação</label>
+                            <textarea id="descricao" name="descricao" placeholder="Ex: Compreende Razoavelmente , Fala Pouco , Escreve Razoavelmente , Lê Bem..." class="form-control validate" rows="4"></textarea>
                         </div>
                         <div class="text-right">
                             <button type="submit" name="acao" value="cadastrar" class="btn btn-md btn-green">

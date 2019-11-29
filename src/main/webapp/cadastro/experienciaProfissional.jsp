@@ -1,20 +1,16 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-<jsp:useBean id="EventoDAO" class="com.br.OMT.DAO.EventoDAO" />
-<!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Novo Projeto</title>
+        <title>Cadastrar experiência de trabalho</title>
         <link rel="stylesheet" href="../css/bootstrap.css"/>
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
+        <jsp:include page="../discente/header.jsp"/>
         <main>
-            <jsp:include page="../discente/header.jsp"/>
             <div class="container-fluid col-md-8">
                 <nav class="navbar navbar-expand-lg navbar-light green darken-1">
                     <ul class="navbar-nav">
@@ -33,23 +29,34 @@
                     </ul>
                 </nav>
                 <div class="card px-4 py-4">
-                    <form id="cadastrar-projeto" method="POST" action="/OMT/ProjetoServlet">
-                        <h3 class="font-weight-bold mb-4">Cadastrar Projeto</h3>
-
+                    <form id="cadastrar-trabalho" method="POST" action="/OMT/TrabalhoCurriculoServlet">
+                        <h3 class="font-weight-bold mb-4">Cadastrar Trabalho</h3>
                         <div class="form-row">
-                            <div class="col-md-6 form-group">
-                                <label for="nome">Nome</label>
-                                <input name="nome" id="nome" type="text" placeholder="Nome" class="form-control validate">
+                            <div class="form-group col-md-6">
+                                <label for="profissao">Profissão</label>
+                                <input class="form-control validate" placeholder="Nome da profissão" name="profissao" id="profissao" type="text">
                             </div>
-
-                            <div class="col-md-6 form-group">
-                                <label for="area">Área de atuação</label>
-                                <input id="area" name="area" type="text" placeholder="Área de atuação" class="form-control validate"/>
+                            <div class="form-group col-md-6">
+                                <label for="salario">Nome da empresa/empregador/local de trabalho</label>
+                                <input class="form-control validate" placeholder="Empresa/empregador/local de trabalho" name="empregador" id="empregador" type="text"/>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="inicio">Data de início</label>
+                                <input class="form-control validate data" type="text" id="inicio" name="inicio"/>  
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="fim">Data de fim</label>
+                                <input class="form-control validate data" type="text" id="fim" name="fim"/>  
+                            </div>
+                        </div>
+
+                        
+
                         <div class="form-group">
                             <label for="descricao">Descrição</label>
-                            <textarea id="descricao" name="descricao" placeholder="Descrição" class="form-control validate" rows="4"></textarea>
+                            <textarea class="form-control" placeholder="Descrição" name="descricao" id="descricao" rows="5"></textarea>
                         </div>
                         <div class="text-right">
                             <button type="submit" name="acao" value="cadastrar" class="btn btn-md btn-green">
@@ -68,5 +75,10 @@
         <script src="../js/general.js"></script>
         <script src="../js/jquery.mask.min.js"></script>
         <script src="../js/mascaras.js"></script>
+        <script>
+            $('#cadastrar-evento').submit(function (e) {
+                alert($('#inscricaoInicio').val());
+            });
+        </script>
     </body>
 </html>

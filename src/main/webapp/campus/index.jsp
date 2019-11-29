@@ -19,67 +19,69 @@
     </head>
     <body>
         <jsp:include page="../header.jsp"/>
-        <jsp:include page="../campus/menu.jsp"/> 
         <main>
-            <div class="container" >
-                <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
-                    <li class="nav-item">
-                        <a href="../campus/index.jsp" class="nav-link active" data-toggle="tab" role="tab">
-                            <i class="fas fa-home fa-lg"></i>
-                            Página Inicial
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../campus/eventos.jsp" class="nav-link" data-toggle="tab" role="tab">
-                            <i class="fas fa-calendar-check fa-lg"></i>
-                            Eventos
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="estagios.jsp" class="nav-link" data-toggle="tab" role="tab">
-                            <i class="fas fa-briefcase fa-lg"></i> 
-                            Estágios
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../campus/eventos.jsp" class="nav-link">
-                            <i class="fa fa-chalkboard-teacher fa-lg"></i>
-                            Cursos
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../campus/manterEgresso.jsp" class="nav-link">
-                            <i class="fa fa-user-graduate fa-lg"></i>
-                            Egressos
-                        </a>
-                    </li>
-                </ul>
-                
-                <div class="card px-4 py-4">
+            <c:set var="eventos" value="${EventoDAO.listEventos()}"/>
+            <c:if test="${not empty usuario}">
 
-                    <h1 class="mb-4 font-weight-bold">Bem-vindo 
-                        <c:out value="${usuario.nome}"></c:out>!</h1>
-                        <div class="container">
-                            <div class="row">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-2"> 
+                            <jsp:include page="pertil_flutuante.jsp"/>
+                            <br>
+                        </div>
+                        <div class="col-lg-8">
+                            <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
+                                <li class="nav-item">
+                                    <a href="index.jsp" class="nav-link active" data-toggle="tab" role="tab">
+                                        <i class="fas fa-home fa-lg"></i>
+                                        Página Inicial
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="eventos.jsp" class="nav-link">
+                                        <i class="fas fa-calendar-check fa-lg"></i>
+                                        Eventos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="estagios.jsp" class="nav-link">
+                                        <i class="fas fa-briefcase fa-lg"></i> 
+                                        Estágios
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="egressos.jsp" class="nav-link">
+                                        <i class="fa fa-user-graduate fa-lg"></i>
+                                        Egressos
+                                    </a>
+                                </li>
+                            </ul>
 
-
-                                <div class="col-sm-12 col-md-6 col-xl-4">
-                                    <canvas id="graficoGenero1"></canvas>
-                                </div> 
-                                <div class="col-sm-12 col-md-6 col-xl-4">
-                                    <canvas id="graficoGenero3"></canvas>
-                                </div>       
-                                <div class="col-sm-12 col-md-6 col-xl-4">
-                                    <canvas id="graficoGenero2"></canvas>
+                            <div class="card px-4 py-4">
+                                <h3 class="mb-4 font-weight-bold">Estatísticas</h3>
+                                <div class="mr-3 ml-3 mt-3">
+                                    <div class="form-row">
+                                        <div class="col-sm-12 col-md-6 col-xl-4">
+                                            <canvas id="graficoGenero1"></canvas>
+                                        </div> 
+                                        <div class="col-sm-12 col-md-6 col-xl-4">
+                                            <canvas id="graficoGenero3"></canvas>
+                                        </div>       
+                                        <div class="col-sm-12 col-md-6 col-xl-4">
+                                            <canvas id="graficoGenero2"></canvas>
+                                        </div>  
+                                    </div>
                                 </div>  
-                            </div>      
-                            <div class="row">   
-                            </div>      
-                            <div class="row">    
-                            </div>       
+                            </div>
                         </div>
                     </div>
-            </main>
+                </div>
+
+            </c:if>
+            <c:if test="${empty usuario}">
+                <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
+            </c:if>
+        </main>
         <jsp:include page="../footer.jsp"/>
         <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/popper.min.js"></script>

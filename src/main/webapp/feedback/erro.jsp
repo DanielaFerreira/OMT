@@ -23,12 +23,12 @@
         <jsp:include page="../header.jsp"/>
         <main>
             <div class="container-fluid" >
-                <div class="row justify-content-center">
+                <div class="row justify-content-center mt-3">
                     <div class="col-lg-8">
                         <nav class="navbar navbar-expand-lg navbar-light green darken-1">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a href="../home.jsp" class="nav-link text-white">
+                                    <a href="javascript:history.go(-2)" class="nav-link text-white">
                                         <i class="fa fa-arrow-alt-circle-left fa-lg"></i>
                                         Voltar
                                     </a>
@@ -38,13 +38,15 @@
 
                         <div class="card mb-5"> 
                             <div class="mt-4 mx-4 mb-4">
-                                <h3 class="mb-4 font-weight-bold">Sessão expirada</h3>
+                                <h3 class="mb-4 font-weight-bold">Ocorreu um erro</h3>
                                 <div class="mr-3 ml-3 mt-3">
                                     <!--Conteúdo-->
                                     <div class="col-md-12 text-center mb-5">
-                                        <i class="fa fa-exclamation-circle fa-6x red-text mb-3 animated tada infinite"></i>
                                         <div class="col-md-12">
-                                            <h4 class="mt-4">Sua sessão expirou. <a href="../home.jsp" class="blue-text">Clique aqui</a> e volte a tela de login <br> e entre novamente.</h4>
+                                            <i class="fa fa-exclamation-circle fa-6x red-text mb-3 animated tada infinite"></i>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <h4 class="mt-4">Não foi possível efetuar ação. <a href="javascript:history.go(-2)" class="blue-text">Clique aqui</a> para retornar <br> para página anterior.</h4>
                                         </div>
                                     </div>
                                 </div>
