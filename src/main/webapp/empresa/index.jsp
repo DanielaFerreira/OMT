@@ -14,7 +14,7 @@
     </head>
     <body>
         <c:if test="${not empty usuario}">
-            <jsp:include page="header.jsp" />
+            <jsp:include page="../header.jsp" />
             <main>
                 <div class="container-fluid">
                     <div class="row justify-content-center">
@@ -40,13 +40,6 @@
                                     <a href="vaga_trabalho.jsp" class="nav-link">
                                         <i class="fas fa-briefcase fa-lg"></i> Vagas</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="curso.jsp" class="nav-link">
-                                        <i class="fa fa-chalkboard-teacher fa-lg"></i>
-                                        Cursos
-                                    </a>
-                                </li>
-
                                 <li class="nav-item">
                                     <a href="discente.jsp" class="nav-link">
                                         <i class="fa fa-user-graduate fa-lg"></i>

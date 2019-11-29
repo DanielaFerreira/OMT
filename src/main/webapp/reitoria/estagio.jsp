@@ -1,12 +1,13 @@
 <%-- 
-    Document   : campus
-    Created on : 28/11/2019, 15:28:13
+    Document   : trabalho
+    Created on : 28/11/2019, 15:27:36
     Author     : Paulo Ribeiro
 --%>
+
 <%@page pageEncoding="ISO-8859-1" language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<jsp:useBean id="CampusDAO" class="com.br.OMT.DAO.CampusDAO"/>
-<c:set var="campi" value="${CampusDAO.listarCampus()}"/>
+<jsp:useBean id="TrabalhoDAO" class="com.br.OMT.DAO.TrabalhoDAO"/>
+<c:set var="trabalhos" value="${TrabalhoDAO.listTrabalho()}"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -36,13 +37,13 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="evento.jsp" class="nav-link">
+                                <a href="evento.jsp" class="nav-link ">
                                     <i class="fa fa-calendar-check fa-lg"></i>
                                     Eventos
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="estagio.jsp" class="nav-link">
+                                <a href="estagio.jsp" class="nav-link active">
                                     <i class="fas fa-briefcase fa-lg"></i>
                                     Estágios
                                 </a>
@@ -54,61 +55,57 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="campus.jsp" class="nav-link active">
+                                <a href="campus.jsp" class="nav-link">
                                     <i class="fa fa-university fa-lg"></i>
                                     Campus
                                 </a>
                             </li>
                         </ul>
-
                         <div class="card mb-5"> 
                             <div class="mt-4 mx-4 mb-4">
-                                <div class="form-row align-items-center">
-                                    <div class="col-sm-6">
-                                        <h3 class="font-weight-bold">Lista de campus</h3>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <h3 class="mb-4 font-weight-bold">Estágios</h3>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <a href="../crud_campus/cadastro.jsp" class="btn btn-green float-right"><i class="fa fa-plus mr-1"></i>Cadastrar Campus</a>
-                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row justify-content-end">
+                                            <a class="btn btn-green" href="../crud_vagas/cadastro.jsp"><i class="fa fa-plus"></i> Nova vaga</a>
+                                        </div>
+                                    </div> 
                                 </div>
                                 <div class="mr-3 ml-3 mt-3">
-                                    <c:if test="${campi.size()>0}">
-                                        <table class="table table-striped table-bordered table-hover table-sm" id="filtro">
-                                            <caption>Lista de eventos</caption>
-                                            <thead>
+                                    <table class="table table-sm table-striped table-bordered table-hover" id="filtro">
+                                        <caption>Lista de vagas de emprego</caption>
+                                        <thead>
+                                            <tr class="auto">
+                                                <th>Profissão<i class="fa fa-sort float-right"></i></th>
+                                                <th>Salário<i class="fa fa-sort float-right"></i></th>
+                                                <th>Quantidade de Vagas<i class="fa fa-sort float-right"></i></th>
+                                                <th>Ação<i class="fa fa-sort float-right"></i></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${trabalhos}" var="trabalho">
                                                 <tr>
-                                                    <th>Nome<i class="fa fa-sort float-right"></i></th>
-                                                    <th>Nome Fantasia<i class="fa fa-sort float-right"></i></th>
-                                                    <th>CNPJ<i class="fa fa-sort float-right"></i></th>
-                                                    <th>CNAE<i class="fa fa-sort float-right"></i></th>
-                                                    <th>Estado<i class="fa fa-sort float-right"></i></th>
+                                                    <td><c:out value="${trabalho.profissao}"/></td>               
+                                                    <td>R$${trabalho.salario}</td>
+                                                    <td>${trabalho.quantidadeVagas}</td>
+                                                    <td>
+<!--                                                            <a class="blue-text" href="" data-toggle="modal" data-target="#visualizarVaga${trabalho.id}">Ver mais</a>-->
+                                                        <a class="blue-text" href="../crud_vagas/verVaga.jsp?id=${trabalho.id}">Ver mais</a>
+                                                    </td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                                <c:forEach items="${campi}" var="campus">
-                                                    <tr>
-                                                        <td>${campus.nome}</td>
-                                                        <td>${campus.nomeFantasia}</td>
-                                                        <td>${campus.CNPJ}</td>
-                                                        <td>${campus.CNAE}</td>    
-                                                        <td>${campus.estado}</td>
-                                                    </tr>
-                                                </c:forEach>
-                                            </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <th>Nome</th>
-                                                    <th>Nome Fantasia</th>
-                                                    <th>CNPJ</th>
-                                                    <th>CNAE</th>
-                                                    <th>Estado</th>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
-                                    </c:if>
-                                    <c:if test="${eventos.size()==0}">
-                                        <h1 class="text-center my-5">Nenhum campus registrado ainda</h1>
-                                    </c:if>
+                                            </c:forEach>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr class="auto">
+                                                <th>Profissão</th>
+                                                <th>Salário</th>
+                                                <th>Quantidade de Vagas</th>
+                                                <th>Ação</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -129,4 +126,3 @@
         <script src="../js/funcao_back/volta_atualiza.js"></script>
     </body>
 </html>
-

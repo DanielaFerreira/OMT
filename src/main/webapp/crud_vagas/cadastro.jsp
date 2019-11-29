@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <jsp:include page="../empresa/header.jsp" />
+        <jsp:include page="../header.jsp" />
         <main>
             <div class="container-fluid">
                 <div class="row justify-content-center">

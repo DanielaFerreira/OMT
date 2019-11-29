@@ -20,8 +20,7 @@
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <jsp:include page="header.jsp" />
-
+        <jsp:include page="../header.jsp" />
         <main>
             <div class="container-fluid">
 
@@ -47,12 +46,6 @@
                             <li class="nav-item">
                                 <a href="vaga_trabalho.jsp" class="nav-link active">
                                     <i class="fas fa-briefcase fa-lg"></i> Vagas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="curso.jsp" class="nav-link">
-                                    <i class="fa fa-chalkboard-teacher fa-lg"></i>
-                                    Cursos
-                                </a>
                             </li>
 
                             <li class="nav-item">

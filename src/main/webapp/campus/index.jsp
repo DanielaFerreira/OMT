@@ -44,19 +44,13 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="estagios.jsp" class="nav-link">
                                         <i class="fas fa-briefcase fa-lg"></i> 
                                         Estágios
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="fa fa-chalkboard-teacher fa-lg"></i>
-                                        Cursos
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="manterEgresso.jsp" class="nav-link">
+                                    <a href="egressos.jsp" class="nav-link">
                                         <i class="fa fa-user-graduate fa-lg"></i>
                                         Egressos
                                     </a>

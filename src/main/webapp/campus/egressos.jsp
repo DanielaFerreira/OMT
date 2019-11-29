@@ -23,9 +23,10 @@
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-lg-2"> 
-                        <jsp:include page="perfil_flutuante.jsp"/>
+                        <jsp:include page="pertil_flutuante.jsp"/>
                         <br>
                     </div>
+
                     <div class="col-lg-8">
                         <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
                             <li class="nav-item">
@@ -35,26 +36,21 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="evento.jsp" class="nav-link">
+                                <a href="eventos.jsp" class="nav-link">
                                     <i class="fas fa-calendar-check fa-lg"></i>
                                     Eventos
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="vaga_trabalho.jsp" class="nav-link">
-                                    <i class="fas fa-briefcase fa-lg"></i> Vagas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="discente.jsp" class="nav-link active">
-                                    <i class="fa fa-user-graduate fa-lg"></i>
-                                    Egresso
+                                <a href="estagios.jsp" class="nav-link">
+                                    <i class="fas fa-briefcase fa-lg"></i> 
+                                    Estágios
                                 </a>
                             </li>
-
                             <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="tab" role="tab">
-                                    <i class="fa fa-university fa-lg"></i>
-                                    Campus
+                                <a href="egressos.jsp" class="nav-link active">
+                                    <i class="fa fa-user-graduate fa-lg"></i>
+                                    Egressos
                                 </a>
                             </li>
                         </ul>

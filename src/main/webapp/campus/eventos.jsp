@@ -43,25 +43,19 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../campus/eventos.jsp" class="nav-link active">
+                                    <a href="eventos.jsp" class="nav-link active">
                                         <i class="fas fa-calendar-check fa-lg"></i>
                                         Eventos
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="estagios.jsp" class="nav-link">
                                         <i class="fas fa-briefcase fa-lg"></i> 
                                         Estágios
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="fa fa-chalkboard-teacher fa-lg"></i>
-                                        Cursos
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="manterEgresso.jsp" class="nav-link">
+                                    <a href="egressos.jsp" class="nav-link">
                                         <i class="fa fa-user-graduate fa-lg"></i>
                                         Egressos
                                     </a>
@@ -74,7 +68,7 @@
                                         <h3 class="font-weight-bold">Eventos de seu campus</h3>
                                     </div>
                                     <div class="col-sm-6">
-                                        <a href="../cadastro/evento.jsp" class="btn btn-green float-right"><i class="fa fa-plus mr-1"></i>Cadastrar Evento</a>
+                                        <a href="../crud_eventos/cadastro.jsp" class="btn btn-green float-right"><i class="fa fa-plus mr-1"></i>Cadastrar Evento</a>
                                     </div>
                                 </div>
                                 <div class="mr-3 ml-3 mt-4">
@@ -97,7 +91,7 @@
                                                         <td>${evento.local}</td>
                                                         <td>${evento.dataInicioEvento}</td>
                                                         <td>${evento.dataFinalEvento}</td>
-                                                        <td><a class="blue-text" href="verEvento.jsp?q=${evento.URL}">Ver mais</a></td>
+                                                        <td><a class="blue-text" href="../crud_eventos/verEvento.jsp?q=${evento.URL}">Ver mais</a></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>

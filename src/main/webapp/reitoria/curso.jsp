@@ -87,6 +87,10 @@
         <script src="../js/bootstrap.js"></script>
         <script src="../js/mdb.min.js"></script>
         <script src="../js/general.js"></script>
-        <script src="../js/graficos/graficoGenero.js" charset="UTF-8"></script>
+        <script src="../js/jquery.mask.min.js"></script>
+        <script src="../js/mascaras.js"></script>
+        <script src="../js/addons/datatables.min.js"></script>
+        <script src="../js/filtro/filtro.js"></script>
+        <script src="../js/funcao_back/volta_atualiza.js"></script>
     </body>
 </html>

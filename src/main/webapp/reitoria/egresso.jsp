@@ -38,39 +38,30 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="trabalho.jsp" class="nav-link">
-                                    <i class="fas fa-briefcase fa-lg"></i>
-                                    Estágios
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="curso.jsp" class="nav-link">
-                                    <i class="fa fa-chalkboard-teacher fa-lg"></i>
-                                    Cursos
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="evento.jsp" class="nav-link">
+                                <a href="evento.jsp" class="nav-link ">
                                     <i class="fa fa-calendar-check fa-lg"></i>
                                     Eventos
                                 </a>
                             </li>
-
+                            <li class="nav-item">
+                                <a href="estagio.jsp" class="nav-link">
+                                    <i class="fas fa-briefcase fa-lg"></i>
+                                    Estágios
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="egresso.jsp" class="nav-link active">
                                     <i class="fa fa-user-graduate fa-lg"></i>
                                     Egressos
                                 </a>
                             </li>
-
                             <li class="nav-item">
                                 <a href="campus.jsp" class="nav-link">
                                     <i class="fa fa-university fa-lg"></i>
                                     Campus
                                 </a>
                             </li>
-                        </ul>   
+                        </ul> 
 
                         <div class="card mb-5"> 
                             <div class="mt-4 mx-4 mb-4">
@@ -79,7 +70,7 @@
                                         <h3 class="font-weight-bold">Lista de egressos</h3>
                                     </div>
                                     <div class="col-sm-6">
-                                        <a class="btn btn-green float-right" href="../cadastro/egresso.jsp"><i class="fa fa-plus mr-1"></i>Cadastrar egresso</a>
+                                        <a class="btn btn-green float-right" href="../crud_egressos/cadastro.jsp"><i class="fa fa-plus mr-1"></i>Cadastrar egresso</a>
                                     </div>
                                 </div>
                                 <div class="mr-3 ml-3 mt-3">
@@ -103,7 +94,7 @@
                                                     <td>${discente.formacao.nome}</td>
                                                     <td>${discente.formacao.campus.nome}</td>
                                                     <td>${discente.formacao.anoTermino}</td>
-                                                    <td><a class="blue-text" href="curriculoDiscente.jsp?id=${discente.id}">Ver currículo</a></td>
+                                                    <td><a class="blue-text" href="../crud_egressos/verDiscente.jsp?id=${discente.id}">Ver currículo</a></td>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>
@@ -133,6 +124,7 @@
         <script src="../js/jquery.mask.min.js"></script>
         <script src="../js/mascaras.js"></script>
         <script src="../js/addons/datatables.min.js"></script>
-        <script src="../js/filtro/filtro.js"></script>  
+        <script src="../js/filtro/filtro.js"></script>
+        <script src="../js/funcao_back/volta_atualiza.js"></script>
     </body>
 </html>

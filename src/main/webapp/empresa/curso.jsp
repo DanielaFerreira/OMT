@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <jsp:include page="header.jsp" />
+        <jsp:include page="../header.jsp" />
 
         <main>
             <div class="container-fluid">
