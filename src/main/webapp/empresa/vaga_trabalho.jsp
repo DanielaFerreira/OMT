@@ -49,13 +49,6 @@
                             </li>
 
                             <li class="nav-item">
-                                <a href="discente.jsp" class="nav-link">
-                                    <i class="fa fa-user-graduate fa-lg"></i>
-                                    Egresso
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
                                 <a href="#" class="nav-link" data-toggle="tab" role="tab">
                                     <i class="fa fa-university fa-lg"></i>
                                     Campus

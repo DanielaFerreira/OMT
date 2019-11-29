@@ -43,7 +43,7 @@
                                     <!--Conteúdo-->
                                     <div class="col-md-12 text-center mb-5">
                                         <div class="col-md-12">
-                                            <i class="fa fa-edit fa-7x text-warning animated tada infinite"></i>
+                                            <i class="fa fa-edit fa-7x green-text animated tada infinite"></i>
                                         </div>
                                         <div class="col-md-12">
                                             <h4 class="mt-4">Os dados foram atualizados com sucesso. <a href="javascript:history.go(-2)" class="blue-text">Clique aqui</a> para <br> retornar para página anterior.</h4>
