@@ -8,6 +8,8 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="EventoDAO" class="com.br.OMT.DAO.EventoDAO" />
 <jsp:useBean id="FotosEventosDAO" class="com.br.OMT.DAO.FotosEventosDAO" />
+<jsp:useBean id="TrabalhoDAO" class="com.br.OMT.DAO.TrabalhoDAO"/>
+<c:set var="trabalhos" value="${TrabalhoDAO.listTrabalho()}"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -20,93 +22,142 @@
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <jsp:include page="header.jsp"/>
+        <jsp:include page="../header.jsp"/>
         <main>
             <c:set var="eventos" value="${EventoDAO.listEventos()}"/>
             <c:if test="${not empty usuario}">
-
                 <div class="container-fluid">
-
                     <div class="row justify-content-center">
-                        <div class="col-lg-2"> 
-                            <jsp:include page="pertil_flutuante.jsp"/>
-                            <br>
+                        <div class="col-lg-3">
+                            <div class="form-row justify-content-end">
+                                <div class="col-lg-12">
+                                    <jsp:include page="pertil_flutuante.jsp"/>
+                                </div>
+                            </div>
                         </div>
-
                         <div class="col-lg-8">
                             <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
                                 <li class="nav-item">
-                                    <a href="#paginaInicial" class="nav-link active" data-toggle="tab" role="tab">
+                                    <a href="index.jsp" class="nav-link active">
                                         <i class="fas fa-home fa-lg"></i>
                                         Página Inicial
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="evento.jsp" class="nav-link" data-toggle="tab" role="tab">
+                                    <a href="evento.jsp" class="nav-link">
                                         <i class="fas fa-calendar-check fa-lg"></i>
                                         Eventos
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#estagios" class="nav-link" data-toggle="tab" role="tab">
+                                    <a href="estagio.jsp" class="nav-link">
                                         <i class="fas fa-briefcase fa-lg"></i> Estágios</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="fa fa-chalkboard-teacher fa-lg"></i>
-                                        Cursos
-                                    </a>
                                 </li>
                             </ul>
 
-                            <div class="tab-content card px-4 py-4">
-                                <div class="tab-pane fade in show active" id="paginaInicial" role="tabpanel">
-                                    <h1 class="mb-4 font-weight-bold">Bem-vindo, <c:out value="${usuario.nome}"></c:out>!</h1>
-                                        <section>
-                                            <!-- Card deck -->
-                                            <div class="row card-deck">
-                                            <c:forEach items="${eventos}" var="evento">
-                                                <c:set property="fotos" target="${evento}" value="${FotosEventosDAO.getSingleFotosEventos(evento.id)}"/>
-                                                <div class="card form-group col-md-3 mb-4 px-0 ">
-                                                    <!--Card image-->
-                                                    <div class="view overlay">
-                                                        <img class="card-img-top" src="/OMT/EventoServlet?id=<c:out value="${evento.fotos[0]}"></c:out>" alt="Card image cap">
-                                                        <a href="evento.jsp?q=${evento.URL}">
-                                                            <div class="mask rgba-white-light"></div>
-                                                        </a>
-                                                    </div>
-
-                                                    <!--Card content-->
-                                                    <div class="card-body form-group">
-                                                        <!--Título do evento-->
-                                                        <h4 class="card-title"><c:out value="${evento.nome}"></c:out></h4>
-                                                            <!--Descrição-->
-                                                            <p class="card-text"><c:out value="${evento.descricao}"></c:out></p>
-
-                                                            <a href="evento.jsp?q=${evento.URL}" class="btn btn-blue btn-md btn-block">Saiba mais <i class="fa fa-angle-right fa-lg"></i></a>
-                                                    </div>
-
-
-                                                    <!-- Card footer -->
-                                                    <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
-                                                        <ul class="list-unstyled list-inline font-small">
-                                                            <li class="list-inline-item pr-2 white-text"><i class="fa fa-clock pr-1"></i>
-                                                                <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value="${evento.dataFinalEvento}"/>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                </div>
-                                            </c:forEach>
+                            <div class="card mb-5"> 
+                                <div class="mt-4 mx-4 mb-4">
+                                    <section>
+                                        <div class="form-row align-items-center">
+                                            <div class="col-sm-6">
+                                                <h3 class="font-weight-bold">Últimos eventos</h3>
+                                            </div>
                                         </div>
-                                        <!-- Card deck -->
+                                        <div class="mr-3 ml-3 mt-3">
+                                            <div class="col-lg-12">
+                                                <div class="form-row">
+                                                    <c:forEach items="${eventos}" var="evento">
+                                                        <c:set var="i" value="${i + 1}"></c:set>
+                                                        <c:if test="${i < 4}">
+                                                            <c:set property="fotos" target="${evento}" value="${FotosEventosDAO.getSingleFotosEventos(evento.id)}"/>
+                                                            <div class="col-md-4 px-3">
+                                                                <div class="card form-group px-0">
+                                                                    <!--Card image-->
+                                                                    <div class="view overlay">
+                                                                        <img class="card-img-top" width="100px" height="120px" src="/OMT/EventoServlet?id=<c:out value="${evento.fotos[0]}"></c:out>" alt="Card image cap">
+                                                                        <a href="verEvento.jsp?q=${evento.URL}">
+                                                                            <div class="mask rgba-white-light"></div>
+                                                                        </a>
+                                                                    </div>
+                                                                    <!--Card content-->
+                                                                    <div class="card-body form-group">
+                                                                        <!--Título do evento-->
+                                                                        <h4 class="card-title d-inline-block text-truncate w-100"><c:out value="${evento.nome}"></c:out></h4>
+                                                                            <!--Descrição-->
+                                                                            <p class="card-text d-inline-block text-truncate w-100"><c:out value="${evento.descricao}"></c:out></p>
+                                                                        <a href="verEvento.jsp?q=${evento.URL}" class="btn btn-blue btn-md btn-block">Saiba mais <i class="fa fa-angle-right fa-lg"></i></a>
+                                                                    </div>
+                                                                    <!-- Card footer -->
+                                                                    <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                                                        <ul class="list-unstyled list-inline font-small">
+                                                                            <li class="list-inline-item pr-2 white-text"><i class="fa fa-clock pr-1"></i>
+                                                                                <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value="${evento.dataFinalEvento}"/>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </c:if>
+                                                    </c:forEach>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </section>
-                                </div>
-
-                                <div class="tab-pane fade" id="estagios" role="tabpanel">
-                                    <div class="form-row">
-                                        <jsp:include page="estagio.jsp"/>
+                                    <div class="col-md-12 text-center mt-3">
+                                        <a href="evento.jsp">Mais eventos <i class="fa fa-angle-right"></i></a>
                                     </div>
+                                    <hr class="my-4">
+                                    <section>
+                                        <div class="form-row align-items-center">
+                                            <div class="col-sm-6">
+                                                <h3 class="font-weight-bold">Estágios disponíveis</h3>
+                                            </div>
+                                        </div>
+                                        <div class="mr-3 ml-3 mt-3">
+                                            <div class="col-lg-12">
+                                                <div class="form-row">
+                                                    <c:forEach items="${trabalhos}" var="trabalho">
+                                                        <c:set var="a" value="${a + 1}"></c:set>
+                                                        <c:if test="${a < 4}">
+                                                            <div class="col-md-4 px-3 mb-3">
+                                                                <div class="card px-0">
+                                                                    <div class="grey text-white">
+                                                                        <div class="view overlay">
+                                                                            <a href="#">
+                                                                                <div class="mask rgba-white-light"></div>
+                                                                            </a>
+                                                                            <i class="card-img-top fa fa-handshake text-center fa-4x mt-3 mb-3"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="card-body py-0">
+                                                                        <div class="py-3">
+                                                                            <h5 class="card-title">${trabalho.profissao}</h5>
+                                                                            <p class="card-text d-inline-block text-truncate w-100">${trabalho.descricao}</p>
+                                                                        </div>
+                                                                        <h5 class="float-right">R$${trabalho.salario}</h5>
+                                                                        <div class="py-4 mt-3">
+                                                                            <a href="#" class="btn btn-blue btn-md btn-block">Saiba mais <i class="fa fa-angle-right fa-lg"></i></a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                                                        <ul class="list-unstyled list-inline font-small">
+                                                                            <li class="list-inline-item pr-2 white-text"><i class="fa fa-clock pr-1"></i>
+                                                                                <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value="${trabalho.tempoFinal}"/>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </c:if>
+                                                    </c:forEach>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <div class="col-md-12 text-center mt-4">
+                                        <a href="estagio.jsp">Mais vagas <i class="fa fa-angle-right"></i></a>
+                                    </div>
+                                    <hr class="my-4">
                                 </div>
                             </div>
                         </div>

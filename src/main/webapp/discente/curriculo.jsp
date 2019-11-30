@@ -28,7 +28,7 @@
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <jsp:include page="../discente/header.jsp"/>
+        <jsp:include page="../header.jsp"/>
 
         <main>
             <div class="container-fluid col-lg-8">

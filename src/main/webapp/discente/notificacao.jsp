@@ -22,7 +22,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <jsp:include page="header.jsp"/>
+        <jsp:include page="../header.jsp"/>
         <main>
             <c:set var="eventos" value="${EventoDAO.listEventos()}"/>
             <c:if test="${not empty usuario}">
@@ -30,11 +30,6 @@
                 <div class="container-fluid">
 
                     <div class="row justify-content-center">
-
-                        <div class="col-2"> 
-                            <jsp:include page="pertil_flutuante.jsp"/>
-                        </div>
-
                         <div class="col-8">
                             <nav class="navbar navbar-expand-lg navbar-light green darken-1">
                                 <ul class="navbar-nav">
