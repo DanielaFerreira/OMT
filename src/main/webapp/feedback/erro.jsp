@@ -3,10 +3,6 @@
     Created on : 29/11/2019, 07:58:27
     Author     : Paulo Ribeiro
 --%>
-<%@page import="com.br.OMT.models.Discente"%>
-<%@page pageEncoding="ISO-8859-1"%>
-<%@page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>

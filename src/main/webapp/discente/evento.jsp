@@ -1,22 +1,21 @@
 <%-- 
-    Document   : pagina_inicial
-    Created on : 07/06/2018, 15:17:41
-    Author     : Natan S. dos Santos
+    Document   : evento
+    Created on : 30/11/2019, 17:20:40
+    Author     : paulo
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-<jsp:useBean id="EventoDAO" class="com.br.OMT.DAO.EventoDAO"/>
-<jsp:useBean id="FotosEventosDAO" class="com.br.OMT.DAO.FotosEventosDAO"/>
-<jsp:useBean id="URLDecoder" class="java.net.URLDecoder"/>
-<c:set var="evento" value="${EventoDAO.buscarPorURL(param.q)}"/>
-<c:set target="${evento}" property="fotos" value="${FotosEventosDAO.listFotosEventos(evento.id)}"/>
+<jsp:useBean id="EventoDAO" class="com.br.OMT.DAO.EventoDAO" />
+<jsp:useBean id="FotosEventosDAO" class="com.br.OMT.DAO.FotosEventosDAO" />
+<jsp:useBean id="TrabalhoDAO" class="com.br.OMT.DAO.TrabalhoDAO"/>
+<c:set var="trabalhos" value="${TrabalhoDAO.listTrabalho()}"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>${evento.nome}</title>
+        <title>Observatório Mundo do Trabalho</title>
         <link rel="stylesheet" href="../css/bootstrap.css"/>
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
@@ -25,67 +24,84 @@
     <body>
         <jsp:include page="../header.jsp"/>
         <main>
+            <c:set var="eventos" value="${EventoDAO.listEventos()}"/>
             <c:if test="${not empty usuario}">
-                <div class="container-fluid col-lg-8">
-                    <nav class="navbar navbar-expand-lg navbar-light green darken-1">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a href="index.jsp" class="nav-link text-white">
-                                    <i class="fa fa-arrow-alt-circle-left fa-lg"></i>
-                                    Voltar
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="card px-4 py-4">
-                        <section>
-                            <h3> 
-                                <a class="font-weight-bold mb-4"> ${evento.nome} 
-                                    - <fmt:formatDate pattern="dd/MM/yyyy" value="${evento.dataInicioEvento}"/> <i class="far fa-calendar-check"></i></a>
-                            </h3>
-
-                            <div class="row justify-content-center">
-                                <!--Slides-->
-                                <c:forEach items="${evento.fotos}" var="foto">
-                                    <div class="form-row align-items-center col-sm-12 col-md-6 col-lg-3 mb-4">
-                                        <img class="d-block w-100 rounded" src="/OMT/EventoServlet?id=${foto.id}" alt="First slide">
-                                    </div>
-                                </c:forEach>
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3">
+                            <div class="form-row justify-content-end">
+                                <div class="col-lg-12">
+                                    <jsp:include page="pertil_flutuante.jsp"/>
+                                </div>
                             </div>
-                            <p class="text-justify">
-                                <c:out value="${evento.descricao}"/>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec.
-                            </p>
-                            <br>
-                            <h5><b>Mais informações</b></h5>
-                            <br>
-
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th scope="row">Data evento</th>
-                                        <th scope="row">Data inscrições</th>
-                                        <th scope="row">Inscrever-se</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th>
-                                            <fmt:formatDate type = "both"  dateStyle = "short" timeStyle = "short" value="${evento.dataInicioEvento}"/>
-                                            -
-                                            <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value="${evento.dataFinalEvento}"/>
-                                        </th>
-                                        <td>
-                                            <fmt:formatDate type = "both" dateStyle = "short" pattern="dd/MM/yyyy" value="${evento.dataInicioInscricao}"/>
-                                            -
-                                            <fmt:formatDate type = "both" dateStyle = "short" pattern="dd/MM/yyyy" value="${evento.dataFinalInscricao}"/>
-                                        </td>
-                                        <td> <a class="btn btn-default">Realizar Inscrição</a></td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </section>
+                        </div>
+                        <div class="col-lg-8">
+                            <ul class="nav nav-tabs nav-justified green darken-1" role="tablist">
+                                <li class="nav-item">
+                                    <a href="index.jsp" class="nav-link">
+                                        <i class="fas fa-home fa-lg"></i>
+                                        Página Inicial
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="evento.jsp" class="nav-link active">
+                                        <i class="fas fa-calendar-check fa-lg"></i>
+                                        Eventos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="estagio.jsp" class="nav-link">
+                                        <i class="fas fa-briefcase fa-lg"></i> Estágios</a>
+                                </li>
+                            </ul>
+                            <div class="card mb-5"> 
+                                <div class="mt-4 mx-4 mb-4">
+                                    <section>
+                                        <div class="form-row align-items-center">
+                                            <div class="col-sm-6">
+                                                <h3 class="font-weight-bold">Lista de eventos</h3>
+                                            </div>
+                                        </div>
+                                        <div class="mr-3 ml-3 mt-3">
+                                            <div class="col-lg-12">
+                                                <div class="form-row">
+                                                    <c:forEach items="${eventos}" var="evento">
+                                                            <c:set property="fotos" target="${evento}" value="${FotosEventosDAO.getSingleFotosEventos(evento.id)}"/>
+                                                            <div class="col-md-4 px-3 mb-3">
+                                                                <div class="card form-group px-0">
+                                                                    <!--Card image-->
+                                                                    <div class="view overlay">
+                                                                        <img class="card-img-top" width="100px" height="120px" src="/OMT/EventoServlet?id=<c:out value="${evento.fotos[0]}"></c:out>" alt="Card image cap">
+                                                                        <a href="verEvento.jsp?q=${evento.URL}">
+                                                                            <div class="mask rgba-white-light"></div>
+                                                                        </a>
+                                                                    </div>
+                                                                    <!--Card content-->
+                                                                    <div class="card-body form-group">
+                                                                        <!--Título do evento-->
+                                                                        <h4 class="card-title d-inline-block text-truncate w-100"><c:out value="${evento.nome}"></c:out></h4>
+                                                                            <!--Descrição-->
+                                                                            <p class="card-text d-inline-block text-truncate w-100"><c:out value="${evento.descricao}"></c:out></p>
+                                                                        <a href="verEvento.jsp?q=${evento.URL}" class="btn btn-blue btn-md btn-block">Saiba mais <i class="fa fa-angle-right fa-lg"></i></a>
+                                                                    </div>
+                                                                    <!-- Card footer -->
+                                                                    <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                                                        <ul class="list-unstyled list-inline font-small">
+                                                                            <li class="list-inline-item pr-2 white-text"><i class="fa fa-clock pr-1"></i>
+                                                                                <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value="${evento.dataFinalEvento}"/>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                    </c:forEach>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </c:if>

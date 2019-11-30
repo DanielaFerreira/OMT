@@ -132,7 +132,7 @@ public class EventoServlet extends HttpServlet {
                     response.sendRedirect("../OMT/feedback/erro.jsp?erro=semFoto");
                 }
             } else {
-                response.sendRedirect("../OMT/feedback/errro.jsp?erro=" + str);
+                response.sendRedirect("../OMT/feedback/erro.jsp?erro=" + str);
             }
         } else {
             String butao = request.getParameter("acao");

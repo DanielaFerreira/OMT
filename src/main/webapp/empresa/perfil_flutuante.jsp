@@ -3,40 +3,18 @@
     Created on : 21/06/2019, 14:19:18
     Author     : Paulo
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="card">
-
     <nav class="navbar navbar-expand-lg green darken-1">
-
         <div class="nav-tabs justify-content-center border-0">
-            <div class="col-12">
-                <a class="text-white col-12 text-center">
-                    <b>Seu perfil</b>
-                </a>
-            </div>
+            <a class="text-white text-center"><b>Seu perfil</b></a>
         </div>
     </nav>
-    <br>
-    <form id="formAlterar" name="formAlterar" method="post" action="../discente/alterarPerfil.jsp">
-        <div class="section">
-            <div class="form-row">
-                <div class="form-group col">
-                    <div class="text-center">
-                        <div>
-                            <img class="foto-curriculo border border-light rounded z-depth-1 rounded-circle" src="../img/empresa.png"> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class=" col-sm-12 text-center">
-                    <h3 for="nome"><c:out value=""/>Nome</h3>
-                </div>
-            </div>
-        </div>
-    </form>
-    <br>
+    <div class="text-center mt-2">
+        <img class="foto-curriculo border border-light rounded z-depth-1" src="../img/empresa.png"> 
+        <h6 class="mt-2">Empresa</h6>
+        <h3 for="nome">${usuario.nome}</h3>
+    </div>
     <div class="list-group">
         <a href="notificacao.jsp" class="list-group-item list-group-item-action">
             <i class="fa fa-bell fa-lg mr-1"></i>
