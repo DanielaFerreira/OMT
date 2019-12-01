@@ -89,8 +89,9 @@
                                         <input class="form-control" id="id" type="hidden" name="id" value="<%= t.getId()%>" readonly>
                                     </div>
                                     <div class="text-right">
-                                        <button type="submit" name="acao" value="alterar" class="btn btn-green waves-effct">
+                                        <button type="submit" name="acao" value="alterar" class="btn btn-green waves-effct btn-md">
                                             <i class="fa fa-check mr-1"></i>Alterar</button>
+                                        <button type="reset" class="btn btn-grey waves-effect btn-md"><i class="fas fa-eraser mr-1"></i>Limpar</button>
                                     </div>
                                     <br>
                                 </form>

@@ -60,10 +60,9 @@ public class ProjetoServlet extends HttpServlet {
                 String str = pdao.salvar(p);
                 ddao.atualizar(d);
                 if (str.equals("")) {
-                    response.getWriter().println("Certo!");
-                    response.sendRedirect("discente/curriculo.jsp");
+                    response.sendRedirect("../OMT/feedback/sucesso.jsp");
                 } else {
-                    response.getWriter().println("Errado:: " + str);
+                    response.sendRedirect("../OMT/feedback/erro.jsp?erro=" +str);
                 }
             }
         }

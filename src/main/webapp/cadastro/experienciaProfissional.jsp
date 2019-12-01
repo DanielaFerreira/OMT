@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <jsp:include page="../discente/header.jsp"/>
+        <jsp:include page="../header.jsp"/>
         <main>
             <div class="container-fluid col-md-8">
                 <nav class="navbar navbar-expand-lg navbar-light green darken-1">
@@ -20,17 +20,11 @@
                                 Voltar
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="index.jsp" class="nav-link text-white">
-                                <i class="fa fa-home fa-lg">
-                                </i>Página inicial
-                            </a>
-                        </li>
                     </ul>
                 </nav>
                 <div class="card px-4 py-4">
                     <form id="cadastrar-trabalho" method="POST" action="/OMT/TrabalhoCurriculoServlet">
-                        <h3 class="font-weight-bold mb-4">Cadastrar Trabalho</h3>
+                        <h3 class="font-weight-bold mb-4">Cadastrar experiência profissional</h3>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="profissao">Profissão</label>

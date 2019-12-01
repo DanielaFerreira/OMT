@@ -49,9 +49,9 @@ public class FormacaoServlet extends HttpServlet {
                     String str = fdao.salvar(f);
                     if (str.equals("")) {
                         response.getWriter().println("Certo!");
-                        response.sendRedirect("discente/curriculo.jsp");
+                        response.sendRedirect("../OMT/feedback/sucesso.jsp");
                     } else {
-                        response.getWriter().println("Errado:: " + str);
+                        response.sendRedirect("../OMT/feedback/erro.jsp?erro=" + str);
                     }
                 } catch (Exception ex) {
                     Logger.getLogger(FormacaoServlet.class.getName()).log(Level.SEVERE, null, ex);

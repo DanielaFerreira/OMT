@@ -19,7 +19,7 @@
         <jsp:include page="../header.jsp"/>
         <main>
             <div class="container-fluid" >
-                <div class="row justify-content-center mt-3">
+                <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <nav class="navbar navbar-expand-lg navbar-light green darken-1">
                             <ul class="navbar-nav">

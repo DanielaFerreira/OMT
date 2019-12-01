@@ -50,13 +50,6 @@
                                     Vagas
                                 </a>
                             </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="tab" role="tab">
-                                    <i class="fa fa-university fa-lg"></i>
-                                    Campus
-                                </a>
-                            </li>
                         </ul>
                         <div class="card mb-5">
                             <div class="card px-4 py-4">

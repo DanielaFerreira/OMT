@@ -80,7 +80,7 @@
                                             -
                                             <fmt:formatDate type = "both" dateStyle = "short" pattern="dd/MM/yyyy" value="${evento.dataFinalInscricao}"/>
                                         </td>
-                                        <td> <a class="btn btn-default">Realizar Inscrição</a></td>
+                                        <td> <a class="btn btn-default btn-md">Realizar Inscrição</a></td>
                                     </tr>
 
                                 </tbody>

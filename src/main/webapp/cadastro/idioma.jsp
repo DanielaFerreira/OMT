@@ -14,7 +14,7 @@
     </head>
     <body>
         <main>
-            <jsp:include page="../discente/header.jsp"/>
+            <jsp:include page="../header.jsp"/>
             <div class="container-fluid col-md-8">
                 <nav class="navbar navbar-expand-lg navbar-light green darken-1">
                     <ul class="navbar-nav">
@@ -22,12 +22,6 @@
                             <a href="javascript:history.back()" class="nav-link text-white">
                                 <i class="fa fa-arrow-alt-circle-left fa-lg"></i>
                                 Voltar
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.jsp" class="nav-link text-white">
-                                <i class="fa fa-home fa-lg">
-                                </i>Página inicial
                             </a>
                         </li>
                     </ul>

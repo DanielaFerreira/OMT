@@ -38,12 +38,12 @@
 
                         <div class="card mb-5"> 
                             <div class="mt-4 mx-4 mb-4">
-                                <h3 class="mb-4 font-weight-bold">Sucesso ao efetuar ação</h3>
+                                <h3 class="mb-4 font-weight-bold">Indicação concluida</h3>
                                 <div class="mr-3 ml-3 mt-3">
                                     <!--Conteúdo-->
                                     <div class="col-md-12 text-center mb-5">
                                         <div class="col-md-12">
-                                            <i class="fa fa-check-circle fa-7x green-text animated tada infinite"></i>
+                                            <i class="fa fa-paper-plane fa-7x green-text animated tada infinite"></i>
                                         </div>
                                         <div class="col-md-12">
                                             <h4 class="mt-4">Parabéns, a operação foi efetuada com sucesso. <a href="javascript:history.go(-2)" class="blue-text">Clique aqui</a> para <br> retornar para página anterior.</h4>

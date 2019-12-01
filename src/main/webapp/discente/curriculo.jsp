@@ -40,12 +40,6 @@
                                 Voltar
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="index.jsp" class="nav-link text-white">
-                                <i class="fa fa-home fa-lg">
-                                </i>Página inicial
-                            </a>
-                        </li>
                     </ul>
                 </nav>
                 <div id="to-pdf">
@@ -56,7 +50,7 @@
                                     <h3 class="font-weight-bold mb-4">Dados pessoais</h3>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="../discente/alterarPerfil.jsp" class="btn btn-primary float-right">
+                                    <a href="../discente/alterarPerfil.jsp" class="btn btn-primary btn-md float-right">
                                         <i class="fa fa-edit mr-1"></i>Atualizar informações
                                     </a>
                                 </div>  
@@ -151,10 +145,10 @@
                         <section>
                             <div class="form-row align-items-center">
                                 <div class="col-sm-6">
-                                    <h3 class="font-weight-bold">Formação acadêmica/ titulação </h3>
+                                    <h3 class="font-weight-bold">Formação acadêmica/titulação </h3>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="../cadastro/formacao.jsp" class="btn btn-primary float-right"><i class="fa fa-plus mr-1"></i>Adicionar formação</a>
+                                    <a href="../cadastro/formacao.jsp" class="btn btn-primary btn-md float-right"><i class="fa fa-plus mr-1"></i>Adicionar formação</a>
                                 </div>
                             </div>
                             <div class="mr-3 ml-2">
@@ -192,7 +186,7 @@
                                     <h3 class="font-weight-bold mb-4">Experiências profissionais</h3>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="../cadastro/experienciaProfissional.jsp" class="btn btn-primary float-right"><i class="fa fa-plus mr-1"></i>Adicionar experiência</a>
+                                    <a href="../cadastro/experienciaProfissional.jsp" class="btn btn-primary btn-md float-right"><i class="fa fa-plus mr-1"></i>Adicionar experiência</a>
                                 </div>
                             </div>
 
@@ -235,7 +229,7 @@
                                     <h3 class="font-weight-bold mb-4">Participação em projetos acadêmicos</h3>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="../cadastro/projeto.jsp" class="btn btn-primary float-right"><i class="fa fa-plus mr-1"></i>Adicionar projeto</a>
+                                    <a href="../cadastro/projeto.jsp" class="btn btn-primary btn-md float-right"><i class="fa fa-plus mr-1"></i>Adicionar projeto</a>
                                 </div>
                             </div>
                             <div class="mr-3 ml-2">
@@ -274,7 +268,7 @@
                                         <h3 class="font-weight-bold mb-4">Áreas de atuação</h3>
                                     </div>
                                     <div class="col-sm-6">
-                                        <a href="../cadastro/AreaDeAtuacao.jsp" class="btn btn-primary float-right"><i class="fa fa-plus mr-1"></i>Adicionar área de atuação</a>
+                                        <a href="../cadastro/AreaDeAtuacao.jsp" class="btn btn-primary btn-md float-right"><i class="fa fa-plus mr-1"></i>Adicionar área de atuação</a>
                                     </div>
                                 </div>
 
@@ -300,7 +294,7 @@
                                         <h3 class="font-weight-bold mb-4">Idiomas</h3>
                                     </div>
                                     <div class="col-sm-6">
-                                        <a href="../cadastro/idioma.jsp" class="btn float-right btn-primary"><i class="fa fa-plus mr-1"></i>Adicionar idioma</a>
+                                        <a href="../cadastro/idioma.jsp" class="btn float-right btn-md btn-primary"><i class="fa fa-plus mr-1"></i>Adicionar idioma</a>
                                     </div>
                                 </div>
                                 <div class="mr-3 ml-2">
@@ -329,7 +323,7 @@
 
                         <div class="text-right">
                             <!--button id="btnBaixarCurriculo" class="btn btn-md btn-cyan"><i class="fa fa-download mr-1"></i>Baixar</button-->
-                            <button id="btnImprimirCurriculo" class="btn btn-md btn-mdb-color"><i class="fa fa-print mr-1"></i>Imprimir</button>
+                            <button id="btnImprimirCurriculo" class="btn btn-md btn-md btn-mdb-color"><i class="fa fa-print mr-1"></i>Imprimir</button>
                         </div>
                     </div>
                 </div>
@@ -347,6 +341,7 @@
         <script src="../js/jspdf.min.js"></script>
         <script src="../js/html2canvas.min.js"></script>
         <script src="../js/general.js"></script>
+        <script src="../js/funcao_back/volta_atualiza.js"></script>
         <script type="text/javascript">
             $("#btnBaixarCurriculo").click(function () {
                 var pdf = new jsPDF('p', 'pt', 'a4');

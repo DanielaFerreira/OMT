@@ -50,13 +50,13 @@
                                 <a href="vaga_trabalho.jsp" class="nav-link active">
                                     <i class="fas fa-briefcase fa-lg"></i> Vagas</a>
                             </li>
-
+<!--
                             <li class="nav-item">
                                 <a href="#" class="nav-link" data-toggle="tab" role="tab">
                                     <i class="fa fa-university fa-lg"></i>
                                     Campus
                                 </a>
-                            </li>
+                            </li>-->
                         </ul>
 
                         <div class="tab-content card mb-5">

@@ -90,10 +90,10 @@
 
 
                                     <div class="text-right">
-                                        <button type="submit" name="acao" value="cadastrar" class="btn btn-green waves-effct">
+                                        <button type="submit" name="acao" value="cadastrar" class="btn btn-green waves-effct btn-md">
                                             <i class="fa fa-check mr-1"></i>Alterar</button>
 
-                                        <button type="reset" class="btn btn-grey waves-effct">
+                                        <button type="reset" class="btn btn-grey waves-effct btn-md">
                                             <i class="fas fa-eraser mr-1"></i>Limpar</button>
                                     </div>
                                 </form>

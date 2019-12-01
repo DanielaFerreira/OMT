@@ -72,7 +72,7 @@
                                         <h3 class="font-weight-bold">Lista de eventos</h3>
                                     </div>
                                     <div class="col-sm-6">
-                                        <a href="../crud_eventos/cadastro.jsp" class="btn btn-green float-right"><i class="fa fa-plus mr-1"></i>Cadastrar Evento</a>
+                                        <a href="../crud_eventos/cadastro.jsp" class="btn btn-green float-right btn-md"><i class="fa fa-plus mr-1"></i>Cadastrar Evento</a>
                                     </div>
                                 </div>
                                 <div class="mr-3 ml-3 mt-3">

@@ -43,12 +43,6 @@
                                     <a href="vaga_trabalho.jsp" class="nav-link">
                                         <i class="fas fa-briefcase fa-lg"></i> Vagas</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link" data-toggle="tab" role="tab">
-                                        <i class="fa fa-university fa-lg"></i>
-                                        Campus
-                                    </a>
-                                </li>
                             </ul>
 
                             <div class="card mb-5"> 

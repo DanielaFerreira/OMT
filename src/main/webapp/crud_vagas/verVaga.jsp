@@ -49,6 +49,9 @@
                                 <div class="col-sm-6">
                                     <h3 class="font-weight-bold">${vaga.profissao}</h3>
                                 </div>
+                                <div class="col-sm-6">
+                                    <a href="indicarVaga.jsp" class="btn btn-green float-right btn-md"><i class="fa fa-paper-plane"></i> Indicar vaga</a>
+                                </div>
                             </div>
                             <div class="mr-3 ml-3 mt-4">
                                 <table class="table table-sm table-bordered">
@@ -100,8 +103,8 @@
                                                     Esta é uma ação que não pode ser desfeita, pois os dados não poderão ser recuperados.
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="submit" name="acao" value="deletar" class="btn btn-danger">Sim, delete</button>
-                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                                                    <button type="submit" name="acao" value="deletar" class="btn btn-danger btn-md">Sim, delete</button>
+                                                    <button type="button" class="btn btn-primary btn-md" data-dismiss="modal">Cancelar</button>
                                                 </div>
                                             </form>
                                         </div>
