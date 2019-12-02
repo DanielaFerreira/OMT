@@ -3,12 +3,6 @@
     Created on : 28/11/2019, 08:53:25
     Author     : Paulo Ribeiro
 --%>
-
-<%-- 
-    Document   : pagina_inicial
-    Created on : 07/06/2018, 15:17:41
-    Author     : Natan S. dos Santos
---%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
@@ -116,8 +110,8 @@
                                                 Esta é uma ação que não pode ser desfeita, pois os dados não poderão ser recuperados.
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="submit" name="acao" value="deletar" class="btn btn-danger">Sim, delete</button>
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                                                <button type="submit" name="acao" value="deletar" class="btn btn-danger btn-md">Sim, delete</button>
+                                                <button type="button" class="btn btn-primary btn-md" data-dismiss="modal">Cancelar</button>
                                             </div>
                                         </form>
                                     </div>

@@ -169,10 +169,9 @@ public class DiscenteServlet extends HttpServlet {
                 try {
                     str = ddao.atualizar(d);
                     if (str.equals("")) {
-                        response.sendRedirect("discente/alterarPerfil.jsp");
+                        response.sendRedirect("../OMT/feedback/atualizado.jsp");
                     } else {
-                        response.getWriter().println("Errado!");
-                        response.getWriter().println(str);
+                        response.sendRedirect("../OMT/feedback/erro.jsp?erro=" + str);
                     }
                 } catch (Exception ex) {
                     response.getWriter().println("Erro! " + ex.getMessage());

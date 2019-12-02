@@ -22,7 +22,7 @@
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <jsp:include page="../discente/header.jsp"/>
+        <jsp:include page="../header.jsp"/>
         <main>
 
             <div class="container-fluid col-lg-8">
@@ -178,7 +178,7 @@
                         </div>
                         <div class="mt-4">
                             <div class="text-right">
-                                <button  name="acao" value="alterar" class="btn  btn-green">
+                                <button  name="acao" value="alterar" class="btn  btn-green btn-md">
                                     <i class="fa fa-check mr-1"></i>Alterar</button>
                                 <!--button type="reset" class="btn btn-md btn-grey">
                                     <i class="fa fa-eraser mr-1"></i>Limpar</button-->

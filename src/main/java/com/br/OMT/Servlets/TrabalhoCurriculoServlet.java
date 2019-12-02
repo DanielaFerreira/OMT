@@ -51,9 +51,9 @@ public class TrabalhoCurriculoServlet extends HttpServlet {
                     String str = tcdao.salvar(tc);
                     if (str.equals("")) {
                         response.getWriter().println("Certo");
-                        response.sendRedirect("discente/curriculo.jsp");
+                        response.sendRedirect("../OMT/feedback/sucesso.jsp");
                     } else {
-                        response.getWriter().println("Errrado: " + str);
+                        response.sendRedirect("../OMT/feedback/erro.jsp?erro=" + str);
                     }
                 } catch (ParseException ex) {
                     System.out.println("Erro: "+ex.getMessage());

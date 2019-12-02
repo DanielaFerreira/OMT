@@ -30,12 +30,6 @@
                                 Voltar
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="index.jsp" class="nav-link text-white">
-                                <i class="fa fa-home fa-lg">
-                                </i>Página inicial
-                            </a>
-                        </li>
                     </ul>
                 </nav>
                 <div class="card px-4 py-4">

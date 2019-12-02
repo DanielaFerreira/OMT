@@ -27,7 +27,7 @@
                 <nav class="navbar navbar-expand-lg navbar-light green darken-1">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="index.jsp" class="nav-link text-white">
+                            <a href="javascript:history.back()" class="nav-link text-white">
                                 <i class="fa fa-arrow-alt-circle-left fa-lg"></i>
                                 Voltar
                             </a>
@@ -176,7 +176,7 @@
                         </div>
                         <div class="mt-4">
                             <div class="text-right">
-                                <button type="submit" name="acao" value="alterar" class="btn btn-md btn-light-green">
+                                <button type="submit" name="acao" value="alterar" class="btn btn-md btn-green">
                                     <i class="fa fa-check mr-1"></i>Alterar</button>
                                 <!--button type="reset" class="btn btn-md btn-grey">
                                     <i class="fa fa-eraser mr-1"></i>Limpar</button-->

@@ -56,7 +56,11 @@
                         <section>
                             <div class="form-row align-items-center">
                                 <div class="col-sm-6">
-                                    <h3 class="font-weight-bold mb-4">Dados pessoais</h3>
+                                    <h3 class="font-weight-bold mb-4">Dados pessoais 
+                                        <a href="validar.jsp?id=${discente.id}" data-toggle="tooltip" data-placement="top" title="Validar egresso"> 
+                                            <i class="fa fa-exclamation-triangle yellow-text z animated tada infinite"></i> 
+                                        </a>
+                                    </h3>
                                 </div>
                             </div>
                             <div class="mr-3 ml-2">
@@ -323,15 +327,15 @@
                                                 Esta é uma ação que não pode ser desfeita, pois os dados não poderão ser recuperados.
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="submit" name="acao" value="deletar" class="btn btn-danger"> Sim, delete</button>
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal"> Cancelar</button>
+                                                <button type="submit" name="acao" value="deletar" class="btn btn-danger btn-md"> Sim, delete</button>
+                                                <button type="button" class="btn btn-primary btn-md" data-dismiss="modal"> Cancelar</button>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <a id="btnImprimirCurriculo" class="btn btn-primary float-right"><i class="fa fa-print mr-1"></i>Imprimir</a>
+                                <a id="btnImprimirCurriculo" class="btn btn-primary float-right btn-md"><i class="fa fa-print mr-1"></i>Imprimir</a>
                             </div>
                         </div>
                     </div>

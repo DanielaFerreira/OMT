@@ -55,10 +55,10 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td> <img class="foto-curriculo border border-light rounded-circle" width="50" height="50" src="../img/empresa.png">  Samsung</td>
+                                            <td>Samsung</td>
                                             <td>Venho por meio deste informar que sua...</td>
                                             <td>12/02/2003</td>
-                                            <td><a class="btn btn-primary">Ver mais</a></td>
+                                            <td><a class="blue-text">Ver mais</a></td>
                                         </tr>
                                     </tbody>
                                     <tfoot>

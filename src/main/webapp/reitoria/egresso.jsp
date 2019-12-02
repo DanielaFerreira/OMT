@@ -73,7 +73,7 @@
                                         <h3 class="font-weight-bold">Lista de egressos</h3>
                                     </div>
                                     <div class="col-sm-6">
-                                        <a class="btn btn-green float-right" href="../crud_egressos/cadastro.jsp"><i class="fa fa-plus mr-1"></i>Cadastrar egresso</a>
+                                        <a class="btn btn-green float-right btn-md" href="../crud_egressos/cadastro.jsp"><i class="fa fa-plus mr-1"></i>Cadastrar egresso</a>
                                     </div>
                                 </div>
                                 <div class="mr-3 ml-3 mt-3">

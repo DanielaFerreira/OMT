@@ -174,5 +174,6 @@
         <script src="../js/bootstrap.js"></script>
         <script src="../js/mdb.min.js"></script>
         <script src="../js/general.js"></script>
+        <script src="../js/funcao_back/volta_atualiza.js"></script>
     </body>
 </html>
