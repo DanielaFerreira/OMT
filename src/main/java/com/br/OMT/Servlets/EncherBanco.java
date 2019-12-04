@@ -23,8 +23,11 @@ import com.br.OMT.models.Usuario;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.text.DateFormat;
 import java.text.Normalizer;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -57,9 +60,10 @@ public class EncherBanco extends HttpServlet {
 	    Usuario u;
 	    Entidade e, entTeste1, entTeste2;
 	    Evento ev;
-	    Trabalho t;
+	    Trabalho t, t2, t3;
 	    FotosEventos fe;
 	    FormacaoEmCampus fec;
+            
 
 	    InputStream stream;
 
@@ -70,6 +74,7 @@ public class EncherBanco extends HttpServlet {
 	    TrabalhoDAO tDAO = new TrabalhoDAO();
 	    FotosEventosDAO feDAO = new FotosEventosDAO();
 	    FormacaoEmCampusDAO fecDAO = new FormacaoEmCampusDAO();
+            
 
 	    //Cadastro de Reitoria
 	    e = Entidade.getInstance();
@@ -167,6 +172,8 @@ public class EncherBanco extends HttpServlet {
 	    e.setTipo('E');
 	    out.println(cDAO.salvar(e));
 
+          
+            
 	    u = Usuario.getInstance();
 	    u.setNome("Empresa Teste");
 	    u.setNomeBanco(Criptografia.encrypt(u.getNome()));
@@ -177,6 +184,52 @@ public class EncherBanco extends HttpServlet {
 	    u.setEntidade(e);
 	    out.println(uDAO.salvar(u));
 
+              //Cadastro de Trabalho
+            
+            //Trabalho 1
+            t = Trabalho.getInstance();
+            t.setSalario(1500.0);
+            t.setProfissao("Técnico em Edificações");
+            t.setDescricao("Verificar a consistência de massas");
+            t.setEntidade(e);
+            t.setTipo("Estágio");
+            t.setQuantidadeVagas(4);
+            
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            df.setLenient(false);
+            t.setTempoFinal(df.parse("12/12/2019"));
+            t.setTempoInicio(df.parse("15/12/2019"));
+            out.println(tDAO.salvar(t));
+            
+               //Trabalho 2
+            t2 = Trabalho.getInstance();
+            t2.setSalario(2500.0);
+            t2.setProfissao("Técnico em Info");
+            t2.setDescricao("Verificar a consistência de computadores");
+            t2.setEntidade(e);
+            t2.setTipo("Efetivo");
+            t2.setQuantidadeVagas(2);
+
+            t2.setTempoFinal(df.parse("12/12/2019"));
+            t2.setTempoInicio(df.parse("15/12/2019"));
+            out.println(tDAO.salvar(t2));
+            
+             //Trabalho 3
+            t3 = Trabalho.getInstance();
+            t3.setSalario(1000.0);
+            t3.setProfissao("Técnico em Mecânica");
+            t3.setDescricao("Verificar a consistência de pneus");
+            t3.setEntidade(e);
+            t3.setTipo("Efetivo");
+            t3.setQuantidadeVagas(2);
+
+            t3.setTempoFinal(df.parse("12/12/2019"));
+            t3.setTempoInicio(df.parse("15/12/2019"));
+            out.println(tDAO.salvar(t3));
+            
+            
+            
+            
 	    //Cadastro Discente
 	    stream = getServletContext().getResourceAsStream("/img/templates/info1.jpg");
 	    d = Discente.getInstance();
@@ -313,6 +366,7 @@ public class EncherBanco extends HttpServlet {
 	    System.out.println(ev.getURL());
 	    ev.setLocal("IFAM-CMC");
 	    ev.setEntidade(e);
+            
 	    out.println(evDAO.salvar(ev));
 
 	    fe = FotosEventos.getInstance();

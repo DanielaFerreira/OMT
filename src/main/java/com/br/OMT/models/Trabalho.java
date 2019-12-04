@@ -38,10 +38,10 @@ public class Trabalho implements Serializable {
     private Date tempoFinal;
 
     @Column(name = "tipo")
-    private char tipo;
+    private String tipo;
 
     @OneToOne(mappedBy = "trabalho")
-    private DiscenteEstagio discenteEstagio;
+    private CandidatoVaga candidatoVaga;
 
     @ManyToOne
     @JoinColumn(name = "entidade")
@@ -117,12 +117,12 @@ public class Trabalho implements Serializable {
         this.tempoFinal = tempoFinal;
     }
 
-    public DiscenteEstagio getDiscenteEstagio() {
-        return discenteEstagio;
+    public CandidatoVaga getCandidatoVaga() {
+        return candidatoVaga;
     }
 
-    public void setDiscenteEstagio(DiscenteEstagio discenteEstagio) {
-        this.discenteEstagio = discenteEstagio;
+    public void setCandidatoVaga(CandidatoVaga candidatoVaga) {
+        this.candidatoVaga = candidatoVaga;
     }
 
     public Entidade getEntidade() {
@@ -133,11 +133,11 @@ public class Trabalho implements Serializable {
         this.entidade = entidade;
     }
 
-    public char getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(char tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 

@@ -43,7 +43,7 @@ public class TrabalhoServlet extends HttpServlet {
             if (butao.equals("cadastrar")) {
                 t.setEntidade((Entidade) request.getSession().getAttribute("entidade"));
                 t.setProfissao(request.getParameter("profissao"));
-                t.setTipo(request.getParameter("tipo").charAt(0));
+                t.setTipo(request.getParameter("tipo"));
                 t.setQuantidadeVagas(Integer.parseInt(request.getParameter("quantidadeVagas")));
                 t.setSalario(Double.parseDouble(request.getParameter("salario")));
                 t.setDescricao(request.getParameter("descricao"));
@@ -74,7 +74,7 @@ public class TrabalhoServlet extends HttpServlet {
                     Long idLong = Long.parseLong(id);
                     t = tdao.getById(idLong);
                     t.setProfissao(request.getParameter("profissao"));
-                    t.setTipo(request.getParameter("tipo").charAt(0));
+                    t.setTipo(request.getParameter("tipo"));
                     t.setQuantidadeVagas(Integer.parseInt(request.getParameter("quantidadeVagas")));
                     t.setSalario(Double.parseDouble(request.getParameter("salario")));
                     t.setDescricao(request.getParameter("descricao"));

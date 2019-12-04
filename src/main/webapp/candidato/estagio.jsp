@@ -79,7 +79,7 @@
                                                                     </div>
                                                                     <h5 class="float-right">R$${trabalho.salario}</h5>
                                                                     <div class="py-4 mt-3">
-                                                                        <a href="#" class="btn btn-blue btn-md btn-block">Saiba mais <i class="fa fa-angle-right fa-lg"></i></a>
+                                                                        <a href="../crud_vagas/candidatoVerVaga.jsp?id=${trabalho.id}" class="btn btn-blue btn-md btn-block">Saiba mais <i class="fa fa-angle-right fa-lg"></i></a>
                                                                     </div>
                                                                 </div>
                                                                 <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">

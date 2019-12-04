@@ -12,6 +12,7 @@
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
+    <mapping class="com.br.OMT.models.AreadeAtuacao"/>
     <mapping class="com.br.OMT.models.CampoFormulario"/>
     <mapping class="com.br.OMT.models.CampoValores"/>
     <mapping class="com.br.OMT.models.CandidatoVaga"/>
@@ -26,7 +27,8 @@
     <mapping class="com.br.OMT.models.FormacaoEmCampus"/>
     <mapping class="com.br.OMT.models.Formulario"/>
     <mapping class="com.br.OMT.models.FotosEventos"/>
-    <mapping class="com.br.OMT.models.Projetos"/>
+    <mapping class="com.br.OMT.models.Idioma"/>
+    <mapping class="com.br.OMT.models.Projeto"/>
     <mapping class="com.br.OMT.models.Sexo"/>
     <mapping class="com.br.OMT.models.Trabalho"/>
     <mapping class="com.br.OMT.models.TrabalhoCurriculo"/>

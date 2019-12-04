@@ -11,11 +11,15 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <jsp:useBean id="FormacaoDAO" class="com.br.OMT.DAO.FormacaoDAO"/>
 <jsp:useBean id="TrabalhoCurriculoDAO" class="com.br.OMT.DAO.TrabalhoCurriculoDAO"/>
-<jsp:useBean id="ProjetosDAO" class="com.br.OMT.DAO.ProjetosDAO"/>
+<jsp:useBean id="ProjetoDAO" class="com.br.OMT.DAO.ProjetoDAO"/>
+<jsp:useBean id="IdiomaDAO" class="com.br.OMT.DAO.IdiomaDAO"/>
+<jsp:useBean id="AreadeAtuacaoDAO" class="com.br.OMT.DAO.AreadeAtuacaoDAO"/>
 <jsp:useBean id="IOUtils" class="org.apache.commons.io.IOUtils"/>
 <c:set var="formacoes" value="${FormacaoDAO.listarPorID(usuario.id)}"/>
+<c:set var="idiomas" value="${IdiomaDAO.listarPorID(usuario.id)}"/>
+<c:set var="areas_atuacao" value="${AreadeAtuacaoDAO.listarPorID(usuario.id)}"/>
 <c:set var="trabalhosCurriculo" value="${TrabalhoCurriculoDAO.listTrabalhoCurriculoByDiscente(usuario.id)}"/>
-<c:set var="projetos" value="${ProjetosDAO.listByDiscente(usuario.id)}"/>
+<c:set var="projetos" value="${ProjetoDAO.listByDiscente(usuario.id)}"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -50,7 +54,7 @@
                                     <h3 class="font-weight-bold mb-4">Dados pessoais</h3>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="../discente/alterarPerfil.jsp" class="btn btn-primary btn-md float-right">
+                                    <a href="candidato/alterarPerfil.jsp" class="btn btn-primary btn-md float-right">
                                         <i class="fa fa-edit mr-1"></i>Atualizar informações
                                     </a>
                                 </div>  
@@ -148,7 +152,7 @@
                                     <h3 class="font-weight-bold">Formação acadêmica/titulação </h3>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="../cadastro/formacao.jsp" class="btn btn-primary btn-md float-right"><i class="fa fa-plus mr-1"></i>Adicionar formação</a>
+                                    <a href="curriculo/crud_formacao/cadastro_formacao.jsp" class="btn btn-primary btn-md float-right"><i class="fa fa-plus mr-1"></i>Adicionar formação</a>
                                 </div>
                             </div>
                             <div class="mr-3 ml-2">
@@ -167,10 +171,37 @@
                                                     <td><c:out value="${formacao.nome}"/></td>
                                                     <td><c:out value="${formacao.escola}"/></td>
                                                     <td><c:out value="${formacao.anoTermino}"/></td>
+                                                    <td><a href="curriculo/crud_formacao/alteracao_de_formacao.jsp?id=${formacao.id}" class="nav-link text-success"><i class="fa fa-edit fa-1x"></i>Alterar</a>
+                                                        <a class="nav-link  text-danger" href="#" data-toggle="modal" data-target="#excluir_formacao${formacao.id}"><i class="fa fa-trash fa-1x"></i> Excluir</td>
                                                 </tr>
+                                                
+                                                
+                                                      <!--modal excluir-->
+                                <div class="modal fade" id="excluir_formacao${formacao.id}" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <form name="formDeletarFormacao" method="post" action="/OMT/FormacaoServlet">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Você tem certeza que deseja excluir a formação <b><c:out value="${formacao.nome}"/></b>?</h5>
+                                                    <a href="" class="close text-white" data-dismiss="modal" aria-label="Cancelar">
+                                                        <i class="fas fa-times-circle fa-lg"></i>
+                                                    </a> 
+                                                </div>
+                                                <div class="modal-body alert-danger">
+                                                    <input class="form-control" type="hidden" name="id_formacao"  value="${formacao.id}" readonly>
+                                                    Esta é uma ação que não pode ser desfeita, pois os dados não poderão ser recuperados.
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" name="acao" value="deletar" class="btn btn-danger btn-md">Sim, delete</button>
+                                                    <button type="button" class="btn btn-primary btn-md" data-dismiss="modal">Cancelar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                                             </c:forEach>
                                         </tbody>
-                                    </table>
+                                    </table>                   
                                 </c:if>
                                 <c:if test="${formacoes.size() == 0}">
                                     <h4 class="grey-text text-center my-4">
@@ -186,7 +217,7 @@
                                     <h3 class="font-weight-bold mb-4">Experiências profissionais</h3>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="../cadastro/experienciaProfissional.jsp" class="btn btn-primary btn-md float-right"><i class="fa fa-plus mr-1"></i>Adicionar experiência</a>
+                                    <a href="curriculo/crud_experiencia/cadastro_experiencia_profissional.jsp" class="btn btn-primary btn-md float-right"><i class="fa fa-plus mr-1"></i>Adicionar experiência</a>
                                 </div>
                             </div>
 
@@ -209,8 +240,34 @@
                                                     <td><c:out value="${trabalhoCurriculo.descricao}"/></td>
                                                     <td><fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="${trabalhoCurriculo.tempoInicio}"/></td>
                                                     <td><fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="${trabalhoCurriculo.tempoFinal}"/></td>
-                                                    <td><fmt:formatNumber type="number" maxFractionDigits="2" value="${trabalhoCurriculo.duracao/1000/60/60/24/365}"/> anos</td>
+                                                    <td><fmt:formatNumber type="number" maxFractionDigits="2" value="${trabalhoCurriculo.duracao/1000/60/60/24/365}"/> anos</td>      
+                                                    <td><a href="curriculo/crud_experiencia/alteracao_experiencia.jsp?id=${trabalhoCurriculo.id}" class="nav-link text-success"><i class="fa fa-edit fa-1x"></i>Alterar</a>
+                                                        <a class="nav-link  text-danger" href="#" data-toggle="modal" data-target="#excluir_trabalho${trabalhoCurriculo.id}"><i class="fa fa-trash fa-1x"></i> Excluir</td>
                                                 </tr>
+                                                
+                                                  <!--modal excluir-->
+                                <div class="modal fade" id="excluir_trabalho${trabalhoCurriculo.id}" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <form name="formDeletarTrabalho" method="post" action="/OMT/TrabalhoCurriculoServlet">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Você tem certeza que deseja excluir a experiência profissional <b><c:out value="${trabalhoCurriculo.profissao}"/></b>?</h5>
+                                                    <a href="" class="close text-white" data-dismiss="modal" aria-label="Cancelar">
+                                                        <i class="fas fa-times-circle fa-lg"></i>
+                                                    </a> 
+                                                </div>
+                                                <div class="modal-body alert-danger">
+                                                    <input class="form-control" type="hidden" name="id_trabalho_curriculo"  value="${trabalhoCurriculo.id}" readonly>
+                                                    Esta é uma ação que não pode ser desfeita, pois os dados não poderão ser recuperados.
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" name="acao" value="deletar" class="btn btn-danger btn-md">Sim, delete</button>
+                                                    <button type="button" class="btn btn-primary btn-md" data-dismiss="modal">Cancelar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                                             </c:forEach>
                                         </tbody>
                                     </table>
@@ -229,7 +286,7 @@
                                     <h3 class="font-weight-bold mb-4">Participação em projetos acadêmicos</h3>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="../cadastro/projeto.jsp" class="btn btn-primary btn-md float-right"><i class="fa fa-plus mr-1"></i>Adicionar projeto</a>
+                                    <a href="curriculo/crud_projeto/cadastro_projeto.jsp" class="btn btn-primary btn-md float-right"><i class="fa fa-plus mr-1"></i>Adicionar projeto</a>
                                 </div>
                             </div>
                             <div class="mr-3 ml-2">
@@ -248,7 +305,34 @@
                                                     <td><c:out value="${projeto.nome}"/></td>
                                                     <td><c:out value="${projeto.descricao}"/></td>
                                                     <td><c:out value="${projeto.area}"/></td>
+                                                    <td><a href="curriculo/crud_projeto/alteracao_de_projeto.jsp?id=${projeto.id}" class="nav-link text-success"><i class="fa fa-edit fa-1x"></i>Alterar</a>
+                                                        <a class="nav-link  text-danger" href="#" data-toggle="modal" data-target="#excluir_projeto${projeto.id}"><i class="fa fa-trash fa-1x"></i> Excluir</td>
+                                              
                                                 </tr>
+                                                
+                                                  <!--modal excluir-->
+                                <div class="modal fade" id="excluir_projeto${projeto.id}" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <form name="formDeletarProjeto" method="post" action="/OMT/ProjetoServlet">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Você tem certeza que deseja excluir o projeto <b><c:out value="${projeto.nome}"/></b>?</h5>
+                                                    <a href="" class="close text-white" data-dismiss="modal" aria-label="Cancelar">
+                                                        <i class="fas fa-times-circle fa-lg"></i>
+                                                    </a> 
+                                                </div>
+                                                <div class="modal-body alert-danger">
+                                                    <input class="form-control" type="hidden" name="id_projeto"  value="${projeto.id}" readonly>
+                                                    Esta é uma ação que não pode ser desfeita, pois os dados não poderão ser recuperados.
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" name="acao" value="deletar" class="btn btn-danger btn-md">Sim, delete</button>
+                                                    <button type="button" class="btn btn-primary btn-md" data-dismiss="modal">Cancelar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                                             </c:forEach>
                                         </tbody>
                                     </table>
@@ -268,11 +352,13 @@
                                         <h3 class="font-weight-bold mb-4">Áreas de atuação</h3>
                                     </div>
                                     <div class="col-sm-6">
-                                        <a href="../cadastro/AreaDeAtuacao.jsp" class="btn btn-primary btn-md float-right"><i class="fa fa-plus mr-1"></i>Adicionar área de atuação</a>
+                                        <a href="curriculo/crud_area_de_atuacao/cadastro_area_de_atuacao.jsp" class="btn btn-primary btn-md float-right"><i class="fa fa-plus mr-1"></i>Adicionar área de atuação</a>
                                     </div>
                                 </div>
 
                                 <div class="mr-3 ml-2">
+                                    <c:if test="${areas_atuacao.size() > 0}">
+                                
                                     <table class="table table-sm table-bordered">
                                         <thead>
                                             <tr>
@@ -281,10 +367,45 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Ciência da Computação</td>
+                                                <c:forEach items="${areas_atuacao}" var="area_atuacao">
+                                            
+                                                <td><c:out value="${area_atuacao.nome}"/></td>
+                                                <td><a href="curriculo/crud_area_de_atuacao/alteracao_area_de_atuacao.jsp?id=${area_atuacao.id}" class="nav-link text-success"><i class="fa fa-edit fa-1x"></i>Alterar</a>
+                                                        <a class="nav-link  text-danger" href="#" data-toggle="modal" data-target="#excluir_area${area_atuacao.id}"><i class="fa fa-trash fa-1x"></i> Excluir</td>
+                                                
+                                                                       <!--modal excluir-->
+                                <div class="modal fade" id="excluir_area${area_atuacao.id}" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <form name="formDeletarArea" method="post" action="/OMT/AreadeAtuacaoServlet">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Você tem certeza que deseja excluir a área de atuação <b><c:out value="${area_atuacao.nome}"/></b>?</h5>
+                                                    <a href="" class="close text-white" data-dismiss="modal" aria-label="Cancelar">
+                                                        <i class="fas fa-times-circle fa-lg"></i>
+                                                    </a> 
+                                                </div>
+                                                <div class="modal-body alert-danger">
+                                                    <input class="form-control" type="hidden" name="id_area_atuacao"  value="${area_atuacao.id}" readonly>
+                                                    Esta é uma ação que não pode ser desfeita, pois os dados não poderão ser recuperados.
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" name="acao" value="deletar" class="btn btn-danger btn-md">Sim, delete</button>
+                                                    <button type="button" class="btn btn-primary btn-md" data-dismiss="modal">Cancelar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                                </c:forEach>
                                             </tr>
                                         </tbody>
                                     </table>
+                                </c:if>
+                                <c:if test="${areas_atuacao.size() == 0}">
+                                    <h4 class="grey-text text-center my-4">
+                                        Nenhuma área de atuação registrada
+                                    </h4>
+                                </c:if>
                                 </div>
                             </section>
                             <hr class="my-4">
@@ -294,10 +415,12 @@
                                         <h3 class="font-weight-bold mb-4">Idiomas</h3>
                                     </div>
                                     <div class="col-sm-6">
-                                        <a href="../cadastro/idioma.jsp" class="btn float-right btn-md btn-primary"><i class="fa fa-plus mr-1"></i>Adicionar idioma</a>
+                                        <a href="curriculo/crud_idioma/cadastro_idioma.jsp" class="btn float-right btn-md btn-primary"><i class="fa fa-plus mr-1"></i>Adicionar idioma</a>
                                     </div>
                                 </div>
                                 <div class="mr-3 ml-2">
+                                     <c:if test="${idiomas.size() > 0}">
+                                
                                     <table class="table table-sm table-bordered">
                                         <thead>
                                             <tr>
@@ -306,16 +429,52 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                          <!--  <tr>
                                                 <td>Inglês</td>
                                                 <td>Compreende Razoavelmente , Fala Pouco , Escreve Razoavelmente , Lê Bem </td>
-                                            </tr>
+                                            </tr>-->
+                                          <c:forEach items="${idiomas}" var="idioma">
                                             <tr>
-                                                <td>Português</td>
-                                                <td >Compreende Bem , Fala Bem , Escreve Bem , Lê Bem </td>
+                                                <td><c:out value="${idioma.nome}"/></td>
+                                                <td><c:out value="${idioma.situacao}"/></td>
+                                                <td><a href="curriculo/crud_idioma/alteracao_idioma.jsp?id=${idioma.id}" class="nav-link text-success"><i class="fa fa-edit fa-1x"></i>Alterar</a>
+                                                        <a class="nav-link  text-danger" href="#" data-toggle="modal" data-target="#excluir_idioma${idioma.id}"><i class="fa fa-trash fa-1x"></i> Excluir</td>
+                                                
                                             </tr>
+                                                                   <!--modal excluir-->
+                                <div class="modal fade" id="excluir_idioma${idioma.id}" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <form name="formDeletarIdioma" method="post" action="/OMT/IdiomaServlet">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Você tem certeza que deseja excluir o idioma <b><c:out value="${idioma.nome}"/></b>?</h5>
+                                                    <a href="" class="close text-white" data-dismiss="modal" aria-label="Cancelar">
+                                                        <i class="fas fa-times-circle fa-lg"></i>
+                                                    </a> 
+                                                </div>
+                                                <div class="modal-body alert-danger">
+                                                    <input class="form-control" type="hidden" name="id_idioma"  value="${idioma.id}" readonly>
+                                                    Esta é uma ação que não pode ser desfeita, pois os dados não poderão ser recuperados.
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" name="acao" value="deletar" class="btn btn-danger btn-md">Sim, delete</button>
+                                                    <button type="button" class="btn btn-primary btn-md" data-dismiss="modal">Cancelar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                                
+                                                </c:forEach>
                                         </tbody>
                                     </table>
+                                    
+                                </c:if>
+                                <c:if test="${idiomas.size() == 0}">
+                                    <h4 class="grey-text text-center my-4">
+                                        Nenhuma idioma registrado
+                                    </h4>
+                                </c:if>
                                 </div>
                             </section>
                         </div>

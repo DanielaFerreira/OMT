@@ -30,7 +30,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-3">
                             <div class="form-row justify-content-end">
-                                <div class="col-lg-12">
+                                <div class="col-lg-10">
                                     <jsp:include page="pertil_flutuante.jsp"/>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                                                                 <div class="card form-group px-0">
                                                                     <!--Card image-->
                                                                     <div class="view overlay">
-                                                                        <img class="card-img-top" width="100px" height="120px" src="/OMT/EventoServlet?id=<c:out value="${evento.fotos[0]}"></c:out>" alt="Card image cap">
+                                                                        <img class="card-img-top" src="/OMT/EventoServlet?id=<c:out value="${evento.fotos[0]}"></c:out>" alt="Card image cap">
                                                                         <a href="verEvento.jsp?q=${evento.URL}">
                                                                             <div class="mask rgba-white-light"></div>
                                                                         </a>
@@ -126,12 +126,12 @@
                                                                             <a href="#">
                                                                                 <div class="mask rgba-white-light"></div>
                                                                             </a>
-                                                                            <i class="card-img-top fa fa-handshake text-center fa-4x mt-3 mb-3"></i>
+                                                                            <i class="card-img-top fa fa-handshake text-center fa-4x py-5"></i>
                                                                         </div>
                                                                     </div>
                                                                     <div class="card-body py-0">
                                                                         <div class="py-3">
-                                                                            <h5 class="card-title">${trabalho.profissao}</h5>
+                                                                            <h5 class="card-title d-inline-block text-truncate w-100">${trabalho.profissao}</h5>
                                                                             <p class="card-text d-inline-block text-truncate w-100">${trabalho.descricao}</p>
                                                                         </div>
                                                                         <h5 class="float-right">R$${trabalho.salario}</h5>

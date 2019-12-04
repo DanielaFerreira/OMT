@@ -10,7 +10,7 @@
     </filter>
     <filter-mapping>
         <filter-name>AuthenFilter</filter-name>
-        <url-pattern>/discente/*</url-pattern>
+        <url-pattern>/candidato/*</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>AuthenFilter</filter-name>
@@ -76,6 +76,18 @@
         <servlet-name>EnviaPDFFormEgresso</servlet-name>
         <servlet-class>com.br.OMT.Servlets.EnviaPDFFormEgresso</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CandidatoVagaServlet</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.CandidatoVagaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AreadeAtuacaoServlet</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.AreadeAtuacaoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>IdiomaServlet</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.IdiomaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EmpresaServlet</servlet-name>
         <url-pattern>/EmpresaServlet</url-pattern>
@@ -131,6 +143,18 @@
     <servlet-mapping>
         <servlet-name>EnviaPDFFormEgresso</servlet-name>
         <url-pattern>/EnviaPDFFormEgresso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CandidatoVagaServlet</servlet-name>
+        <url-pattern>/CandidatoVagaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AreadeAtuacaoServlet</servlet-name>
+        <url-pattern>/AreadeAtuacaoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IdiomaServlet</servlet-name>
+        <url-pattern>/IdiomaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

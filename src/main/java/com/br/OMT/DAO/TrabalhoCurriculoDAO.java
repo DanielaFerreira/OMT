@@ -39,6 +39,24 @@ public class TrabalhoCurriculoDAO {
         return hut.deletar(tc);
     }
 
+    public TrabalhoCurriculo getById(Long id) {
+        TrabalhoCurriculo t;
+        try {
+            s = HibernateFactory.getSessionFactory().openSession();
+            s.beginTransaction();
+            Query query = s.createQuery("from TrabalhoCurriculo tc where tc.id =:id")
+                    .setParameter("id", id);
+            t = (TrabalhoCurriculo) query.getSingleResult();
+            s.getTransaction().commit();
+            return t;
+        } catch (HibernateException ex) {
+            s.getTransaction().rollback();
+            return null;
+        } finally {
+            s.close();
+        }
+    }
+
     public List<TrabalhoCurriculo> listTrabalhoCurriculo() {
         List<TrabalhoCurriculo> trabalhosCurriculo = null;
         try {

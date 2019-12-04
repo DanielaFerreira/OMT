@@ -27,7 +27,7 @@
         <jsp:include page="../header.jsp"/>
         <c:if test="${not empty usuario}">
             <c:if test="${usuario['class'].name eq 'com.br.OMT.models.Discente'}">
-                <jsp:include page="/discente/menu.jsp"/>
+                <jsp:include page="/candidato/menu.jsp"/>
             </c:if>
             <c:if test="${usuario['class'].name eq 'com.br.OMT.models.Usuario'}">
                 <c:if test="${entidade.tipo eq 'R'.charAt(0)}">

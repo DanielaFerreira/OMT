@@ -49,8 +49,9 @@
                                             <input class="form-control validate" name="profissao" id="profissao" type="text">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="tipo">Tipo</label>
-                                            <input class="form-control validate" name="tipo" id="tipo" type="text">
+                                            <label for="tipo">Tipo de Vínculo</label>
+                                            <input  name="tipo" id="efetivo" value="efetivo" type="radio"> Efetivo
+                                            <input  name="tipo" id="estagio" value="estagio" type="radio"> Estágio
                                         </div>
                                     </div>
                                     <div class="row">

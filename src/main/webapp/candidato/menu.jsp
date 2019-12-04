@@ -3,7 +3,7 @@
         <ul class="navbar-nav">
             <!--Pefil do Usuário-->
             <li class="nav-item">
-                <a class="nav-link" href="../discente/alterarPerfil.jsp">
+                <a class="nav-link" href="candidato/alterarPerfil.jsp">
                     <img id="icone" src="/OMT/img/Icons/icones/png/edit.png" title="Editar informações">Editar perfil</a>
             </li>
             <!--Caixa de Mensagens-->
@@ -19,7 +19,7 @@
             
             <!--Currículo do Aluno-->
             <li class="nav-item">
-                <a class="nav-link" href="../discente/curriculo.jsp">
+                <a class="nav-link" href="candidato/curriculo.jsp">
                     <img id="icone" src="/OMT/img/Icons/icones/png/diploma.png" title="Seu Currículo">Seu currículo</a>
             </li>
             <!--Voltar para Página de Login-->

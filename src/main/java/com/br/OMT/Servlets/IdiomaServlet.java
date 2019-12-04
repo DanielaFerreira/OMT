@@ -6,9 +6,9 @@
 package com.br.OMT.Servlets;
 
 import com.br.OMT.DAO.DiscenteDAO;
-import com.br.OMT.DAO.FormacaoDAO;
+import com.br.OMT.DAO.IdiomaDAO;
 import com.br.OMT.models.Discente;
-import com.br.OMT.models.Formacao;
+import com.br.OMT.models.Idioma;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,9 +19,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author vinic
+ * @author daniela
  */
-public class FormacaoServlet extends HttpServlet {
+public class IdiomaServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -32,21 +32,25 @@ public class FormacaoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setCharacterEncoding("ISO-8859-1");
-        Formacao f = Formacao.getInstance();
-        FormacaoDAO fdao = new FormacaoDAO();
-                   
+        Idioma i = Idioma.getInstance();
+        IdiomaDAO idao = new IdiomaDAO();
+         Discente d = (Discente) request.getSession().getAttribute("usuario");
+            
         if (request != null) {
             String butao = request.getParameter("acao");
             if (butao.equals("cadastrar")) {
-                f.setNome(request.getParameter("nome"));
-                f.setEscola(request.getParameter("escola"));
-                f.setAnoTermino(Integer.parseInt(request.getParameter("anofinalizacao")));
-                Discente d = (Discente) request.getSession().getAttribute("usuario");
+                i.setNome(request.getParameter("nome"));
+                i.setSituacao(request.getParameter("situacao"));
                 DiscenteDAO ddao = new DiscenteDAO();
+               
                 try {
-                    d = ddao.buscarById(new Long(d.getId()));
-                    f.setDiscente(d);
-                    String str = fdao.salvar(f);
+                    d = ddao.buscarById(d.getId());
+                } catch (Exception ex) {
+                    Logger.getLogger(IdiomaServlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                i.setDiscente(d);
+                try {
+                    String str = idao.salvar(i);
                     if (str.equals("")) {
                         response.getWriter().println("Certo!");
                         response.sendRedirect("../OMT/feedback/sucesso.jsp");
@@ -54,22 +58,22 @@ public class FormacaoServlet extends HttpServlet {
                         response.sendRedirect("../OMT/feedback/erro.jsp?erro=" + str);
                     }
                 } catch (Exception ex) {
-                    Logger.getLogger(FormacaoServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(IdiomaServlet.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             } else if(butao.equals("alterar")){
                     String id = request.getParameter("id");
-                    //id tá nulo
-                    System.out.println("o id da formacao:" + id);
                     Long idLong = Long.parseLong(id);
-                    f = fdao.getById(idLong);
-                    f.setNome(request.getParameter("nome"));
-                    f.setEscola(request.getParameter("escola"));
-                    
-                    f.setAnoTermino(Integer.parseInt(request.getParameter("anofinalizacao")));
+                try {
+                    i = idao.getById(idLong);
+                } catch (Exception ex) {
+                    Logger.getLogger(IdiomaServlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                    i.setNome(request.getParameter("nome"));
+                i.setSituacao(request.getParameter("situacao"));
                     String str;
                     try {
-                        str = fdao.atualizar(f);
+                        str = idao.atualizar(i);
                         if (str.equals("")) {
                             response.sendRedirect("../OMT/feedback/atualizado.jsp");
                         } else {
@@ -80,10 +84,14 @@ public class FormacaoServlet extends HttpServlet {
                     }
                 } else {
                     if (butao.equals("deletar")) {
-                        String id = request.getParameter("id_formacao");
+                        String id = request.getParameter("id_idioma");
                         Long idLong = Long.parseLong(id);
-                        f = fdao.getById(idLong);
-                        fdao.deletar(f);
+                        try {
+                            i = idao.getById(idLong);
+                        } catch (Exception ex) {
+                            Logger.getLogger(IdiomaServlet.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        idao.deletar(i);
                         response.sendRedirect("../OMT/feedback/deletado.jsp");
                     }
                 }

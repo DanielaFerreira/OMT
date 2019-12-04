@@ -5,10 +5,10 @@
  */
 package com.br.OMT.Servlets;
 
+import com.br.OMT.DAO.AreadeAtuacaoDAO;
 import com.br.OMT.DAO.DiscenteDAO;
-import com.br.OMT.DAO.FormacaoDAO;
+import com.br.OMT.models.AreadeAtuacao;
 import com.br.OMT.models.Discente;
-import com.br.OMT.models.Formacao;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,11 +19,11 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author vinic
+ * @author daniela
  */
-public class FormacaoServlet extends HttpServlet {
+public class AreadeAtuacaoServlet extends HttpServlet {
 
-    @Override
+      @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     }
@@ -32,21 +32,20 @@ public class FormacaoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setCharacterEncoding("ISO-8859-1");
-        Formacao f = Formacao.getInstance();
-        FormacaoDAO fdao = new FormacaoDAO();
-                   
-        if (request != null) {
+        AreadeAtuacao aa = AreadeAtuacao.getInstance();
+        AreadeAtuacaoDAO aadao = new AreadeAtuacaoDAO();
+        
+         if (request != null) {
             String butao = request.getParameter("acao");
             if (butao.equals("cadastrar")) {
-                f.setNome(request.getParameter("nome"));
-                f.setEscola(request.getParameter("escola"));
-                f.setAnoTermino(Integer.parseInt(request.getParameter("anofinalizacao")));
+                aa.setNome(request.getParameter("nome"));
+              
                 Discente d = (Discente) request.getSession().getAttribute("usuario");
                 DiscenteDAO ddao = new DiscenteDAO();
                 try {
-                    d = ddao.buscarById(new Long(d.getId()));
-                    f.setDiscente(d);
-                    String str = fdao.salvar(f);
+                    d = ddao.buscarById(d.getId());
+                    aa.setDiscente(d);
+                    String str = aadao.salvar(aa);
                     if (str.equals("")) {
                         response.getWriter().println("Certo!");
                         response.sendRedirect("../OMT/feedback/sucesso.jsp");
@@ -59,17 +58,14 @@ public class FormacaoServlet extends HttpServlet {
 
             } else if(butao.equals("alterar")){
                     String id = request.getParameter("id");
-                    //id tá nulo
-                    System.out.println("o id da formacao:" + id);
-                    Long idLong = Long.parseLong(id);
-                    f = fdao.getById(idLong);
-                    f.setNome(request.getParameter("nome"));
-                    f.setEscola(request.getParameter("escola"));
                     
-                    f.setAnoTermino(Integer.parseInt(request.getParameter("anofinalizacao")));
+                    Long idLong = Long.parseLong(id);
+                    aa = aadao.getById(idLong);
+                    aa.setNome(request.getParameter("nome"));
+                    
                     String str;
                     try {
-                        str = fdao.atualizar(f);
+                        str = aadao.atualizar(aa);
                         if (str.equals("")) {
                             response.sendRedirect("../OMT/feedback/atualizado.jsp");
                         } else {
@@ -80,14 +76,14 @@ public class FormacaoServlet extends HttpServlet {
                     }
                 } else {
                     if (butao.equals("deletar")) {
-                        String id = request.getParameter("id_formacao");
+                        String id = request.getParameter("id_area_atuacao");
                         Long idLong = Long.parseLong(id);
-                        f = fdao.getById(idLong);
-                        fdao.deletar(f);
+                        aa = aadao.getById(idLong);
+                        aadao.deletar(aa);
                         response.sendRedirect("../OMT/feedback/deletado.jsp");
                     }
                 }
             }
-        }
-    
+    }
+               
 }

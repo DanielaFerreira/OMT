@@ -7,7 +7,7 @@ package com.br.OMT.DAO;
 
 import com.br.OMT.Hibernate.HibernateFactory;
 import com.br.OMT.Hibernate.HibernateUtil;
-import com.br.OMT.models.Formacao;
+import com.br.OMT.models.AreadeAtuacao;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -15,38 +15,38 @@ import org.hibernate.query.Query;
 
 /**
  *
- * @author vinic e Daniela
+ * @author daniela
  */
-public class FormacaoDAO {
-
-    HibernateUtil<Formacao> huf;
+public class AreadeAtuacaoDAO {
+    
+    HibernateUtil<AreadeAtuacao> huf;
     Session s;
 
-    public FormacaoDAO() {
+    public AreadeAtuacaoDAO() {
         HibernateFactory.initSessionFactory();
         huf = new HibernateUtil<>();
     }
 
-    public String salvar(Formacao f) {
-        return huf.salvar(f);
+    public String salvar(AreadeAtuacao aa) {
+        return huf.salvar(aa);
     }
 
-    public String atualizar(Formacao f) {
-        return huf.atualizar(f);
+    public String atualizar(AreadeAtuacao aa) {
+        return huf.atualizar(aa);
     }
 
-    public String deletar(Formacao f) {
-        return huf.deletar(f);
+    public String deletar(AreadeAtuacao aa) {
+        return huf.deletar(aa);
     }
     
-    public Formacao getById(Long id) {
-        Formacao t;
+    public AreadeAtuacao getById(Long id) {
+        AreadeAtuacao t;
         try {
             s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
-            Query query = s.createQuery("from Formacao f where f.id =:id")
+            Query query = s.createQuery("from AreadeAtuacao aa where aa.id =:id")
                     .setParameter("id", id);
-            t = (Formacao) query.getSingleResult();
+            t = (AreadeAtuacao) query.getSingleResult();
             s.getTransaction().commit();
             return t;
         } catch (HibernateException ex) {
@@ -57,12 +57,12 @@ public class FormacaoDAO {
         }
     }
     
-    public List<Formacao> listarPorID(Long id){
-        List<Formacao> le = null;
+     public List<AreadeAtuacao> listarPorID(Long id){
+        List<AreadeAtuacao> le = null;
         try {
             s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
-            Query query = s.createQuery("from Formacao f where f.discente.id =:id");
+            Query query = s.createQuery("from AreadeAtuacao aa where aa.discente.id =:id");
             query.setParameter("id", id);
             le = query.getResultList();
             s.getTransaction().commit();
@@ -74,4 +74,5 @@ public class FormacaoDAO {
             s.close();
         }
     }
+    
 }

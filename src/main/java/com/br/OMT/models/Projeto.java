@@ -13,8 +13,8 @@ import javax.persistence.*;
  * @author vinic
  */
 @Entity
-@Table(name = "projetos")
-public class Projetos implements Serializable {
+@Table(name = "projeto")
+public class Projeto implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,14 +31,14 @@ public class Projetos implements Serializable {
     private Discente discente;
 
     @Transient
-    private static Projetos getInstance;
+    private static Projeto getInstance;
 
-    private Projetos() {
+    public Projeto() {
     }
 
-    public static Projetos getInstance() {
+    public static Projeto getInstance() {
         if (getInstance == null) {
-            getInstance = new Projetos();
+            getInstance = new Projeto();
         }
         return getInstance;
     }

@@ -7,14 +7,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Novo Projeto</title>
-        <link rel="stylesheet" href="../css/bootstrap.css"/>
-        <link rel="stylesheet" href="../css/mdb.css"/>
-        <link rel="stylesheet" href="../css/fontawesome-all.css">
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../../../css/bootstrap.css"/>
+        <link rel="stylesheet" href="../../../css/mdb.css"/>
+        <link rel="stylesheet" href="../../../css/fontawesome-all.css">
+        <link rel="stylesheet" href="../../../css/style.css">
     </head>
     <body>
         <main>
-            <jsp:include page="../header.jsp"/>
+            <jsp:include page="../../../header.jsp"/>
             <div class="container-fluid col-md-8">
                 <nav class="navbar navbar-expand-lg navbar-light green darken-1">
                     <ul class="navbar-nav">
@@ -27,7 +27,7 @@
                     </ul>
                 </nav>
                 <div class="card px-4 py-4">
-                    <form id="cadastrar-projeto" method="POST" action="/OMT/ProjetoServlet">
+                    <form method="POST" action="/OMT/ProjetoServlet">
                         <h3 class="font-weight-bold mb-4">Cadastrar Projeto</h3>
 
                         <div class="form-row">
@@ -54,13 +54,13 @@
                 </div>
             </div>
         </main>
-        <jsp:include page="../footer.jsp"/>
-        <script src="../js/jquery-3.3.1.min.js"></script>
-        <script src="../js/popper.min.js"></script>
-        <script src="../js/bootstrap.js"></script>
-        <script src="../js/mdb.min.js"></script>
-        <script src="../js/general.js"></script>
-        <script src="../js/jquery.mask.min.js"></script>
-        <script src="../js/mascaras.js"></script>
+        <jsp:include page="../../../footer.jsp"/>
+        <script src="../../../js/jquery-3.3.1.min.js"></script>
+        <script src="../../../js/popper.min.js"></script>
+        <script src="../../../js/bootstrap.js"></script>
+        <script src="../../../js/mdb.min.js"></script>
+        <script src="../../../js/general.js"></script>
+        <script src="../../../js/jquery.mask.min.js"></script>
+        <script src="../../../js/mascaras.js"></script>
     </body>
 </html>
