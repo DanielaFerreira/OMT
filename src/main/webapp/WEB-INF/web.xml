@@ -68,6 +68,11 @@
         <servlet-name>EncherBanco</servlet-name>
         <servlet-class>com.br.OMT.Servlets.EncherBanco</servlet-class>
     </servlet>
+    
+    <servlet>
+        <servlet-name>NotificacaoServlet</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.NotificacaoServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>TrabalhoCurriculoServlet</servlet-name>
         <servlet-class>com.br.OMT.Servlets.TrabalhoCurriculoServlet</servlet-class>
@@ -87,6 +92,10 @@
     <servlet>
         <servlet-name>IdiomaServlet</servlet-name>
         <servlet-class>com.br.OMT.Servlets.IdiomaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VagaReservadaCandidatoServlet</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.VagaReservadaCandidatoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EmpresaServlet</servlet-name>
@@ -155,6 +164,10 @@
     <servlet-mapping>
         <servlet-name>IdiomaServlet</servlet-name>
         <url-pattern>/IdiomaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VagaReservadaCandidatoServlet</servlet-name>
+        <url-pattern>/VagaReservadaCandidatoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

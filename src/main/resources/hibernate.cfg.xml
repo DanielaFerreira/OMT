@@ -28,10 +28,12 @@
     <mapping class="com.br.OMT.models.Formulario"/>
     <mapping class="com.br.OMT.models.FotosEventos"/>
     <mapping class="com.br.OMT.models.Idioma"/>
+    <mapping class="com.br.OMT.models.Notificacao"/>
     <mapping class="com.br.OMT.models.Projeto"/>
     <mapping class="com.br.OMT.models.Sexo"/>
     <mapping class="com.br.OMT.models.Trabalho"/>
     <mapping class="com.br.OMT.models.TrabalhoCurriculo"/>
     <mapping class="com.br.OMT.models.Usuario"/>
+    <mapping class="com.br.OMT.models.VagaReservadaCandidato"/>
   </session-factory>
 </hibernate-configuration>

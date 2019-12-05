@@ -5,13 +5,25 @@
  */
 package com.br.OMT.Servlets;
 
+import com.br.OMT.DAO.DiscenteDAO;
 import com.br.OMT.DAO.TrabalhoDAO;
+
+import com.br.OMT.DAO.NotificacaoDAO;
+
+import com.br.OMT.DAO.VagaReservadaCandidatoDAO;
+import com.br.OMT.models.Discente;
 import com.br.OMT.models.Entidade;
+import com.br.OMT.models.Notificacao;
+
+import com.br.OMT.models.VagaReservadaCandidato;
 import com.br.OMT.models.Trabalho;
+import com.br.OMT.models.Usuario;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -105,6 +117,57 @@ public class TrabalhoServlet extends HttpServlet {
                         t = tdao.getById(idLong);
                         tdao.deletar(t);
                         response.sendRedirect("../OMT/feedback/deletado.jsp");
+                    }  else if(butao.equals("indicar")){
+                        String idt = request.getParameter("idTrabalho");
+                        String idd = request.getParameter("idDiscente");
+                        Long idtLong = Long.parseLong(idt);
+                        Long iddLong = Long.parseLong(idd);
+                        
+                        
+                        Discente d = new Discente();
+                        DiscenteDAO ddao =  new DiscenteDAO();
+                        VagaReservadaCandidato vrc = new VagaReservadaCandidato();
+                        VagaReservadaCandidatoDAO vrcdao = new VagaReservadaCandidatoDAO();
+                        
+                        
+                        t = tdao.getById(idtLong);
+                        
+                       
+                        
+                        try {
+                            d = ddao.buscarById(iddLong);
+                            System.out.println("Nome discente " + d.getNome() + " trabalho " + t.getProfissao());
+                        } catch (Exception ex) {
+                            Logger.getLogger(TrabalhoServlet.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        
+                        vrc.setDiscente(d);
+                        vrc.setTrabalho(t);
+                        
+                        
+                        Notificacao notificacao = new Notificacao();
+                        NotificacaoDAO notificacaoDao = new NotificacaoDAO();
+                        notificacao.setDestinatario((Usuario) d);
+                        notificacao.setStatus("Não lida");
+                       
+                        notificacao.setTituloDestinatario(request.getParameter("titulo"));
+                        notificacao.setMensagemdoDestinatario(request.getParameter("mensagem") + " " + " <a class='d-block' target='blank' href='candidatoVerVaga.jsp?id=" + t.getId()  + "> Ver vaga</a>");
+                        
+                        
+                        
+                    String str;
+                    try {
+                        str = vrcdao.salvar(vrc);
+                        str += notificacaoDao.salvar(notificacao);
+                        if (str.equals("")) {
+                            response.sendRedirect("../OMT/feedback/vagaIndicada.jsp");
+                        } else {
+                            response.sendRedirect("../OMT/feedback/erro.jsp?erro=" +str);
+                        }
+                    } catch (Exception ex) {
+                        response.sendRedirect("../OMT/feedback/erro.jsp?erro=" +ex.getMessage());
+                    }
+                                
                     }
                 }
             }

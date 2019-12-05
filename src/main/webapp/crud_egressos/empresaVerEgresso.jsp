@@ -4,7 +4,7 @@
     Author     : Natan S. dos Santos
 --%>
 <%@page pageEncoding="ISO-8859-1"%>
-<%@page language="java" contentType="text/html; charset=UTF-8"%>
+<%@page language="java" contentType="text/html"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -14,6 +14,7 @@
 <jsp:useBean id="ProjetosDAO" class="com.br.OMT.DAO.ProjetoDAO"/>
 <jsp:useBean id="IOUtils" class="org.apache.commons.io.IOUtils"/>
 <c:set var="discente" value="${DiscenteDAO.buscarById(param['id'])}"/>
+<c:set var="trabalho" value="${param['t']}"/>
 <c:set var="formacoes" value="${FormacaoDAO.listarPorID(discente.id)}"/>
 <c:set var="trabalhosCurriculo" value="${TrabalhoCurriculoDAO.listTrabalhoCurriculoByDiscente(discente.id)}"/>
 <c:set var="projetos" value="${ProjetoDAO.listByDiscente(discente.id)}"/>
@@ -41,28 +42,64 @@
                             </a>
                         </li>
                     </ul>
-                    <a class="mx-auto"></a>
-                    <a class="nav-link text-white" href="#" data-toggle="modal" data-target="#excluir"> 
-                        <i class="fa fa-trash fa-lg"></i> 
-                        Excluir
-                    </a>
-                    <a href="alterar.jsp?id=${discente.id}" class="nav-link text-white">
-                        <i class="fa fa-edit fa-lg"></i>
-                        Alterar 
-                    </a>
                 </nav>
+                
+                              
                 <div id="to-pdf">
+                    <input type="text" name="idTrabalho" hidden value="${trabalho}"/>
+                    <input type="text" name="idDiscente" hidden value="${discente.id}"/>
+                    
                     <div class="card px-4 py-4">
                         <section>
                             <div class="form-row align-items-center">
                                 <div class="col-sm-6">
-                                    <h3 class="font-weight-bold mb-4">Dados pessoais 
-                                        <a href="validar.jsp?id=${discente.id}" data-toggle="tooltip" data-placement="top" title="Validar egresso"> 
-                                            <i class="fa fa-exclamation-triangle yellow-text z animated tada infinite"></i> 
-                                        </a>
-                                    </h3>
+                                    <h3 class="font-weight-bold mb-4">Dados pessoais </h3>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="" data-toggle="modal" data-target="#indicar" class="btn btn-green btn-md float-right"><i class="fa fa-paper-plane"></i> Enviar indicação</a>
                                 </div>
                             </div>
+                            
+                           
+                            <!--modal indicar-->
+                            <div class="modal fade" id="indicar" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <form id="indicar-trabalho" method="POST" action="/OMT/TrabalhoServlet">
+                                            <input type="text" name="idTrabalho" hidden value="${trabalho}"/>
+                                            <input type="text" name="idDiscente" hidden value="${discente.id}"/>
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Mensagem de indicação para <b><c:out value="${discente.nome}"/></b></h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+
+                                            <div class="modal-body">
+
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Título da indicação</label>
+                                                    <input type="text" class="form-control" value="Vaga reservada para você!" name="titulo">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message-text" class="col-form-label">Mensagem</label>
+                                                    <textarea class="form-control" id="message-text" name="mensagem">${usuario.nome} enviou uma indicação de reserva de vaga</textarea>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="submit" name="acao" value="indicar" class="btn btn-green btn-md float-right"><i class="fa fa-paper-plane"></i> Indicar</button>
+                                                <button type="button" class="btn btn-grey btn-md" data-dismiss="modal">Fechar</button>
+                                                
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            
                             <div class="mr-3 ml-2">
                                 <div class="form-row mt-2 mb-3">
                                     <div class="col-auto">

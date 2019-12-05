@@ -7,7 +7,9 @@ package com.br.OMT.models;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
+import static javax.persistence.CascadeType.ALL;
 
 @Entity
 @Table(name = "trabalho")
@@ -40,13 +42,10 @@ public class Trabalho implements Serializable {
     @Column(name = "tipo")
     private String tipo;
 
-    @OneToOne(mappedBy = "trabalho")
-    private CandidatoVaga candidatoVaga;
-
     @ManyToOne
     @JoinColumn(name = "entidade")
     private Entidade entidade;
-
+    
     @Transient
     private static Trabalho getInstance;
 
@@ -116,15 +115,7 @@ public class Trabalho implements Serializable {
     public void setTempoFinal(Date tempoFinal) {
         this.tempoFinal = tempoFinal;
     }
-
-    public CandidatoVaga getCandidatoVaga() {
-        return candidatoVaga;
-    }
-
-    public void setCandidatoVaga(CandidatoVaga candidatoVaga) {
-        this.candidatoVaga = candidatoVaga;
-    }
-
+    
     public Entidade getEntidade() {
         return entidade;
     }

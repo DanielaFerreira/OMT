@@ -50,7 +50,7 @@
                                     <h3 class="font-weight-bold">${vaga.profissao}</h3>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="indicarVaga.jsp" class="btn btn-green float-right btn-md"><i class="fa fa-paper-plane"></i> Indicar vaga</a>
+                                    <a href="indicarVaga.jsp?id=${vaga.id}" class="btn btn-green float-right btn-md"><i class="fa fa-paper-plane"></i> Indicar vaga</a>
                                 </div>
                             </div>
                             <div class="mr-3 ml-3 mt-4">

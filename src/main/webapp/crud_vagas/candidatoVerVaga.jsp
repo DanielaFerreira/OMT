@@ -33,7 +33,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <a class="mx-auto"></a>
+                        <a class="mx-auto"></a>[
                         <a class="nav-link text-white" href="#" data-toggle="modal" data-target="#candidatar-se"> 
                             <i class="fas fa-briefcase fa-lg"></i> 
                             Candidatar-se

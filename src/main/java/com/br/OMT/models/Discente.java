@@ -70,10 +70,7 @@ public class Discente extends Usuario implements Serializable {
 
     @OneToOne(fetch = FetchType.EAGER, mappedBy = "discente")
     private FormacaoEmCampus formacaoEmCampus;
-
-    @OneToOne(mappedBy = "discente")
-    private CandidatoVaga candidatoVaga;
-
+    
     @OneToMany(fetch = FetchType.EAGER, cascade = ALL, mappedBy = "discente")
     private List<Projeto> projetos;
 
@@ -83,10 +80,14 @@ public class Discente extends Usuario implements Serializable {
     @OneToMany(cascade = ALL, mappedBy = "discente")
     private List<Formacao> formacoesExtras;
 
+    @ManyToOne
+    @JoinColumn(name = "trabalho", nullable = true)
+    private Trabalho trabalho;
+        
     @Transient
     private static Discente getInstance;
 
-    private Discente() {
+    public Discente() {
     }
 
     public static Discente getInstance() {
@@ -150,14 +151,6 @@ public class Discente extends Usuario implements Serializable {
 
     public void setCursos(List<CursosEspecializantes> cursos) {
         this.cursos = cursos;
-    }
-
-    public CandidatoVaga getCandidatoVaga() {
-        return candidatoVaga;
-    }
-
-    public void setDiscenteEstagio(CandidatoVaga candidatoVaga) {
-        this.candidatoVaga = candidatoVaga;
     }
 
     public byte[] getRGbanco() {

@@ -8,6 +8,10 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="EventoDAO" class="com.br.OMT.DAO.EventoDAO" />
 <jsp:useBean id="FotosEventosDAO" class="com.br.OMT.DAO.FotosEventosDAO" />
+
+<jsp:useBean id="NotificacaoDAO" class="com.br.OMT.DAO.NotificacaoDAO"/>
+
+<c:set var="notificacoes" value="${NotificacaoDAO.listarNotificacaoUsuario(id)}"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -43,33 +47,50 @@
                             </nav>
                             <div class="tab-content card px-4 py-4">
                                 <h4 href="#"><strong> Notificações</strong></h4>
-                                <table class="table table-sm table-striped table-bordered table-hover" id="filtro">
-                                    <caption>Notificações</caption>
-                                    <thead>
-                                        <tr class="auto">
-                                            <th>Nome<i class="fa fa-sort float-right"></i></th>
-                                            <th>Mensagem<i class="fa fa-sort float-right"></i></th>
-                                            <th>Data<i class="fa fa-sort float-right"></i></th>
-                                            <th>Opção<i class="fa fa-sort float-right"></i></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Samsung</td>
-                                            <td>Venho por meio deste informar que sua...</td>
-                                            <td>12/02/2003</td>
-                                            <td><a class="blue-text">Ver mais</a></td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr class="auto">
-                                            <th>Nome</th>
-                                            <th>Mensagem</th>
-                                            <th>Data</th>
-                                            <th>Opção</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
+                                <c:if test="${trabalhosCurriculo.size() > 0}">
+
+                                    <table class="table table-sm table-striped table-bordered table-hover" id="filtro">
+                                        <caption>Notificações</caption>
+                                        <thead>
+                                            <tr class="auto">
+                                                <th>Título<i class="fa fa-sort float-right"></i></th>
+                                                <th>Mensagem<i class="fa fa-sort float-right"></i></th>
+                                                <th>Data<i class="fa fa-sort float-right"></i></th>
+                                                <th>Opção<i class="fa fa-sort float-right"></i></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${notificacoes}" var="trabalhoCurriculo">
+
+                                                <tr>
+                                                    <td><c:out value="${notificacao.tituloRemetente}"/></td>
+                                                    <td><c:out value="${notificacao.mensagemRemetente}"/></td>
+                                                    <td>12/02/2003</td>
+                                                    <td><a class="blue-text">Ver mais</a></td>
+                                                  <!--  <a href="curriculo/crud_experiencia/alteracao_experiencia.jsp?id=${trabalhoCurriculo.id}" class="nav-link text-success"><i class="fa fa-edit fa-1x"></i>Alterar</a>
+                                                        <a class="nav-link  text-danger" href="#" data-toggle="modal" data-target="#excluir_trabalho${trabalhoCurriculo.id}"><i class="fa fa-trash fa-1x"></i> Excluir</td>
+                                                -->
+                                                </tr>
+
+                                            </c:forEach>
+
+
+
+                                        </tbody>
+                                        <tfoot>
+                                            <tr class="auto">
+                                                <th>Título</th>
+                                                <th>Mensagem</th>
+                                                <th>Data</th>
+                                                <th>Opção</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </c:if>
+                                <c:if test="${notificacoes.size() == 0}">
+                                    <h4 class="grey-text text-center my-4">
+                                        Sem  Notificações</h4>
+                                    </c:if>
                             </div>
                         </div>
                     </div>

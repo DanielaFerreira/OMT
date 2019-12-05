@@ -11,12 +11,12 @@
 <jsp:useBean id="DiscenteDAO" class="com.br.OMT.DAO.DiscenteDAO"/>
 <jsp:useBean id="FormacaoDAO" class="com.br.OMT.DAO.FormacaoDAO"/>
 <jsp:useBean id="TrabalhoCurriculoDAO" class="com.br.OMT.DAO.TrabalhoCurriculoDAO"/>
-<jsp:useBean id="ProjetosDAO" class="com.br.OMT.DAO.ProjetosDAO"/>
+<jsp:useBean id="ProjetosDAO" class="com.br.OMT.DAO.ProjetoDAO"/>
 <jsp:useBean id="IOUtils" class="org.apache.commons.io.IOUtils"/>
 <c:set var="discente" value="${DiscenteDAO.buscarById(param['id'])}"/>
 <c:set var="formacoes" value="${FormacaoDAO.listarPorID(discente.id)}"/>
 <c:set var="trabalhosCurriculo" value="${TrabalhoCurriculoDAO.listTrabalhoCurriculoByDiscente(discente.id)}"/>
-<c:set var="projetos" value="${ProjetosDAO.listByDiscente(discente.id)}"/>
+<c:set var="projetos" value="${ProjetoDAO.listByDiscente(discente.id)}"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>

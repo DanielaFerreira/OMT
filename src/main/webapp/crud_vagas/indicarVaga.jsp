@@ -8,6 +8,7 @@
 <jsp:useBean id="DiscenteDAO" class="com.br.OMT.DAO.DiscenteDAO"/>
 <jsp:useBean id="Criptografia" class="com.br.OMT.Utils.Criptografia"/>
 <c:set var="discentes" value="${DiscenteDAO.listar()}"/>
+<c:set var="trabalho" value="${param['id']}"/>
 <html lang="pt-br">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -38,10 +39,7 @@
                             <div class="form-row align-items-center">
                                 <div class="col-sm-6">
                                     <h3 class="font-weight-bold">Indicar vaga</h3>
-                                </div>
-                                <div class="col-md-6">
-                                    <a href="../feedback/vagaIndicada.jsp" class="btn btn-green btn-md float-right"><i class="fa fa-paper-plane"></i> Enviar vaga</a>
-                                </div>
+                                </div> 
                             </div>
                             <div class="mr-3 ml-3 mt-4">
                                 <table class="table table-sm table-striped table-bordered table-hover" id="filtro">
@@ -59,17 +57,10 @@
                                             <c:set target="${discente}" property="nome" value="${Criptografia.decrypt(discente.nomeBanco)}"/>
                                             <c:set target="${discente}" property="usuario" value="${Criptografia.decrypt(discente.usuarioBanco)}"/>
                                             <tr>
-                                                <td>
-                                                    <div class="form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                                        <label class="form-check-label" for="check">
-                                                            <c:out value="${discente.nome}"/>
-                                                        </label>
-                                                    </div>
-                                                </td>               
+                                                <td><c:out value="${discente.nome}"/></td>               
                                                 <td>${discente.formacao.nome}</td>
                                                 <td>${discente.formacao.campus.nome}</td>
-                                                <td><a class="blue-text" href="../crud_egressos/verDiscente.jsp?id=${discente.id}">Ver currículo</a></td>
+                                                <td><a class="blue-text" href="../crud_egressos/empresaVerEgresso.jsp?id=${discente.id}&t=${trabalho}">Ver currículo</a></td>
                                             </tr>
                                         </c:forEach>
                                     </tbody>
