@@ -2,47 +2,29 @@ package com.br.OMT.Utils;
 
 import java.net.MalformedURLException;
 import org.apache.commons.mail.EmailException;
-import org.apache.commons.mail.HtmlEmail;
+import org.apache.commons.mail.MultiPartEmail;
+
+// eddunic
 
 public class CommonsMail {
 
-    public static void enviarEmail(String endereco) throws EmailException, MalformedURLException {
-        // Cria o e-mail
-        HtmlEmail email = new HtmlEmail();
-        
-        // Utilize o hostname do seu provedor de email
-        email.setHostName("smtp.gmail.com");
-        
-        // Quando a porta utilizada não é a padrão (gmail = 465)
-        email.setSmtpPort(465);
-        
-        // Adiciona os destinatários
-        email.addTo(endereco);
-        
-        // Configura o seu email do qual enviará
-        email.setFrom("ifam.noreply@ifam.edu.br", "Instituto Federal do Amazonas");
-        
-        // Adiciona um assunto
-        email.setSubject("IFAM - Pesquisa de Egresso");
+    public static void enviarEmail(String endereco, String empresa) throws EmailException, MalformedURLException {
 
-        // adiciona uma imagem ao corpo da mensagem e retorna seu id
-        // URL url = new URL("http://www.apache.org/images/asf_logo_wide.gif");
-        // String cid = email.embed(url, "Apache logo");
+        try {
+            MultiPartEmail email = new MultiPartEmail();
+            email.setDebug(true);
+            email.setHostName("smtp.gmail.com");
+            email.setFrom("adopets.foundation@gmail.com", "IFAM");
+            email.setAuthentication("adopets.foundation@gmail.com", "stephoda");
+            email.setSSL(true);
+            email.addTo(endereco);
+            email.setFrom("adopets.foundation@gmail.com");
+            email.setSubject("Indicação de Vaga");
+            email.setMsg(empresa + " enviou uma indicação de reserva de vaga para você!");
 
-        // Adiciona a mensagem do email e configura a mensagem para o formato HTML
-        // email.setHtmlMsg("<html>The apache logo - <img src=\"cid:" + cid + "\"></html>");
-        email.setHtmlMsg("Acesse este <a href=\"http://localhost:8084/OMT/formEgresso.jsp\">link</a> para preencher o questionário e ter acesso ao sistema");
-
-        // configura uma mensagem alternativa caso o servidor não suporte HTML
-        email.setTextMsg("Seu servidor de e-mail não suporta mensagem HTML.");
-        
-        // Para autenticar no servidor é necessário chamar os dois métodos abaixo
-        email.setSSL(true);
-        email.setAuthentication("adopets.foundation@gmail.com", "stephoda");
-        
-        // envia o e-mail
-        email.send();
-        
-        System.out.println("Email enviado!");
+            email.send();
+        } catch (EmailException e) {
+            e.printStackTrace();
+        }
     }
 }
