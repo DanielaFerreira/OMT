@@ -93,10 +93,10 @@
                                 </div>
                                 <table class="table table-sm table-bordered">
                                     <tbody>
-                                        <tr>
+                                       <!-- <tr>
                                             <th scope="row">Nome em citações bibliográficas</th>
                                             <td>LIMA, V. Y. P.</td>
-                                        </tr>
+                                        </tr>-->
                                         <tr>
                                             <th scope="row">Sexo</th>
                                             <td><c:out value="${discente.sexo}"/></td>
@@ -143,7 +143,7 @@
                                             <th scope="row">
                                                 <i class="fa fa-at mr-1"></i>Endereço eletrônico
                                             </th>
-                                            <td>E-mail para contato : ${discente.email}</td>
+                                            <td>${discente.email}</td>
                                         </tr>
                                     </tbody>
                                 </table>

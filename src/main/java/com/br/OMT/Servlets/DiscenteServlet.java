@@ -73,7 +73,7 @@ public class DiscenteServlet extends HttpServlet {
         DiscenteDAO ddao = new DiscenteDAO();
         String usuario = "", rg = "", cpf = "", nome = "", sexo = "", estadoCivil = "",
                 etnia = "", acao = "", email = "", linkCurriculoLattes = "", linkPerfilLinkedIn = "",
-                nomePai = "", nomeMae = "";
+                nomePai = "", nomeMae = "", telefone = "";
         Date dataNasc = null;
         byte[] foto = null;
 
@@ -90,6 +90,7 @@ public class DiscenteServlet extends HttpServlet {
         estadoCivil = request.getParameter("estadoCivil");
         etnia = request.getParameter("etnia");
         usuario = request.getParameter("usuario");
+        telefone = request.getParameter("telefone");
 
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         df.setLenient(false);
@@ -117,7 +118,7 @@ public class DiscenteServlet extends HttpServlet {
 
         if (acao.equals("cadastrar")) {
             d.setUsuario(usuario);
-            setDados(d, cpf, foto, rg, nome, email, linkCurriculoLattes, linkPerfilLinkedIn, sexo, estadoCivil, etnia, dataNasc, nomePai, nomeMae);
+            setDados(d, cpf, foto, rg, nome, email, linkCurriculoLattes, linkPerfilLinkedIn, sexo, estadoCivil, etnia, dataNasc, nomePai, nomeMae, telefone);
 
             //Gerando senha aleatória
           /*  Random r = new Random();
@@ -160,7 +161,7 @@ public class DiscenteServlet extends HttpServlet {
             } catch (Exception ex) {
                 Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-            setDados(d, cpf, foto, rg, nome, email, linkCurriculoLattes, linkPerfilLinkedIn, sexo, estadoCivil, etnia, dataNasc, nomePai, nomeMae);
+            setDados(d, cpf, foto, rg, nome, email, linkCurriculoLattes, linkPerfilLinkedIn, sexo, estadoCivil, etnia, dataNasc, nomePai, nomeMae, telefone);
             try {
                 d.setNomeBanco(Criptografia.encrypt(d.getNome()));
                 d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
@@ -196,7 +197,7 @@ public class DiscenteServlet extends HttpServlet {
             String nome, String email,
             String linkCurriculoLattes, String linkPerfilLinkedIn,
             String sexo, String estadoCivil, String etnia, Date dataNasc,
-            String nomePai, String nomeMae) {
+            String nomePai, String nomeMae, String telefone) {
         d.setCPF(cpf);
         d.setFoto(foto);
         d.setRG(rg);

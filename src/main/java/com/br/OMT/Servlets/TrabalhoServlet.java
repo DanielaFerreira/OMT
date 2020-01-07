@@ -149,7 +149,8 @@ public class TrabalhoServlet extends HttpServlet {
                         notificacao.setStatus("Não lida");
 
                         notificacao.setTituloDestinatario(request.getParameter("titulo"));
-                        notificacao.setMensagemdoDestinatario(request.getParameter("mensagem") + " " + " <a class='d-block' target='blank' href='candidatoVerVaga.jsp?id=" + t.getId() + "> Ver vaga</a>");
+                        notificacao.setMensagemdoDestinatario(request.getParameter("mensagem"));
+                        notificacao.setLink(" <a class='d-block' target='blank' href='candidatoVerVaga.jsp?id=" + t.getId() + "> Ver vaga</a>");
 
                         String str;
                         try {

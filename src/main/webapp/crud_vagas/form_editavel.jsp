@@ -52,7 +52,7 @@
                                         <h5>Arraste os campos para a área abaixo</h5>
                                     </div>
                                     <div class="col-sm-5 text-center">
-                                        <h5>Preview</h5>
+                                        <h5>Visualização</h5>
                                     </div>
                                 </div>
                                 <div class="form-row justify-content-center">

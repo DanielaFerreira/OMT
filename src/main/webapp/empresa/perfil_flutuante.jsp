@@ -16,10 +16,10 @@
         <h3 for="nome">${usuario.nome}</h3>
     </div>
     <div class="list-group">
-        <a href="notificacao.jsp" class="list-group-item list-group-item-action">
+        <a href="notificacao.jsp?id=${usuario.id}" class="list-group-item list-group-item-action">
             <i class="fa fa-bell fa-lg mr-1"></i>
             Notificações
-            <span class="badge green darken-1 badge-pill">7</span>
+          <!--  <span class="badge green darken-1 badge-pill">7</span>-->
         </a>
         <a href="#" class="list-group-item list-group-item-action">
             <i class="fa fa-edit fa-lg mr-1"></i> 

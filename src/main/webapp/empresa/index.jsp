@@ -40,7 +40,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="vaga_trabalho.jsp" class="nav-link">
+                                    <a href="vaga_trabalho.jsp?id=${usuario.id}" class="nav-link">
                                         <i class="fas fa-briefcase fa-lg"></i> Vagas</a>
                                 </li>
                             </ul>

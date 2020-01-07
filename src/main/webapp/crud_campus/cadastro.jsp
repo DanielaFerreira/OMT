@@ -1,7 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="pt-br">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Observatório Mundo do Trabalho</title>
         <link rel="stylesheet" href="../css/bootstrap.css"/>
@@ -28,7 +27,7 @@
                         <div class="mt-4 mx-4 mb-4">
                             <form method="post" name="cadastrar-campus" id="cadastrar-campus" action="/OMT/CampusServlet">
                                 <section>
-                                    <h3 class="mb-4"><strong>Dados do campus</strong></h3>
+                                    <h3 class="mb-4"><strong>Cadastro de Campus</strong></h3>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="cnpj">CNPJ</label>

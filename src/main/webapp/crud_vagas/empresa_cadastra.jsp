@@ -1,3 +1,8 @@
+<%-- 
+    Document   : empresa_cadastra
+    Created on : 04/01/2020, 18:47:28
+    Author     : daniela
+--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="TrabalhoDAO" class="com.br.OMT.DAO.TrabalhoDAO"/>
@@ -37,11 +42,7 @@
                                         <div class="col-md-9">
                                             <h3 class="font-weight-bold mb-4">Nova vaga de emprego</h3>
                                         </div>
-                                        <div class="col-md2">
-                                            <div class=" align-self-end"> 
-                                                <a class="btn btn-green" href="form_editavel.jsp">Formulário</a>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">

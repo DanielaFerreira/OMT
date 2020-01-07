@@ -32,7 +32,7 @@
 
             <div class="card mb-5">
                 <div class="mt-4 mx-4 mb-4">
-                    <h4 class="mb-4"><strong>Cadastrar egresso</strong></h4>
+                    <h4 class="mb-4"><strong>Cadastrar Egresso</strong></h4>
                     <form id="form-cadastrar" name="form-cadastrar" method="post" action="/OMT/DiscenteServlet" >
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -59,7 +59,11 @@
                                 <label for="email">E-mail</label>
                                 <input class="form-control" type="email" name="email" id="email" maxlength="40">
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-3">
+                                <label for="email">Telefone</label>
+                                <input class="form-control" type="text" name="telefone" id="telefone" maxlength="11">
+                            </div>
+                            <div class="form-group col-md-3">
                                 <label for="dataNasc">Data de Nascimento</label>
                                 <input class="form-control" type="date" name="dataNasc" id="dataNasc" maxlength="40">
                             </div>

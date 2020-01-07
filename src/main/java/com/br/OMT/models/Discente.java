@@ -28,6 +28,7 @@ public class Discente extends Usuario implements Serializable {
     private byte[] RGbanco;
     @Transient
     private String RG;
+    
     @Lob
     @Column(name = "cpf", nullable = false, length = 255, columnDefinition = "BLOB")
     private byte[] CPFbanco;
@@ -37,6 +38,9 @@ public class Discente extends Usuario implements Serializable {
     @Column(length = 40)
     private String email;
     
+    @Column(length = 11)
+    private String telefone;
+
     @Column(length = 128)
     private String linkCurriculoLattes;
     
@@ -119,6 +123,14 @@ public class Discente extends Usuario implements Serializable {
 
     public void setFoto(byte[] foto) {
         this.foto = foto;
+    }
+    
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public FormacaoEmCampus getFormacao() {

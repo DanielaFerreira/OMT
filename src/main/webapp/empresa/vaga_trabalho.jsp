@@ -68,7 +68,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="row justify-content-end">
-                                                <a class="btn btn-green" href="../crud_vagas/cadastro.jsp"><i class="fa fa-plus"></i> Nova vaga</a>
+                                                <a class="btn btn-green" href="../crud_vagas/empresa_cadastra.jsp"><i class="fa fa-plus"></i> Nova vaga</a>
                                             </div>
                                         </div> 
                                     </div>

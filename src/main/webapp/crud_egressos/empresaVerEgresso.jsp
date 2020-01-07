@@ -174,7 +174,7 @@
                                             <th scope="row">
                                                 <i class="fa fa-phone mr-1"></i>Telefone
                                             </th>
-                                            <td>4002-8922</td>
+                                            <td><c:out value="${discente.telefone}"/></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">

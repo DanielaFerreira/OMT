@@ -8,6 +8,7 @@ package com.br.OMT.DAO;
 import com.br.OMT.Hibernate.HibernateFactory;
 import com.br.OMT.Hibernate.HibernateUtil;
 import com.br.OMT.models.Notificacao;
+import com.br.OMT.models.Usuario;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -50,12 +51,12 @@ public class NotificacaoDAO {
         }
     }
     
-    public List<Notificacao> listarNotificacaoUsuario(Long id) {
+    public List<Notificacao> listarNotificacaoUsuario(Usuario u) {
         List<Notificacao> le = null;
         try {
             s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
-            Query query = s.createQuery("from Notificacao n where n.destinatario =:id").setParameter("id", id);
+            Query query = s.createQuery("from Notificacao n where n.destinatario =:u").setParameter("u", u);
             le = query.getResultList();
             s.getTransaction().commit();
             return le;

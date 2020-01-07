@@ -19,9 +19,11 @@
         <div class="container">
             <!--cabeçalho da página de menu logins-->
 
-            <!--mensagem de boas vindas-->
+
+            <!--marca nas boas vindas-->
             <h4 class="text-center my-4">
-                <img src="../img/logoInicial.png" alt="Logotipo do OMT" height="175" width="270">
+                <img src="img/logoInicial.png" alt="Logotipo do OMT" height="175" width="270">
+                <p>Observatório Mundo do Trabalho</p>
             </h4>
 
             <!--Nav Tabs-->
@@ -52,7 +54,7 @@
                     </a>
                 </li>
             </ul>
-            
+
             <div class="tab-content card mb-5">
                 <div class="tab-pane fade in show active" id="login1" role="tabpanel">
                     <div class="mt-4 mx-4">

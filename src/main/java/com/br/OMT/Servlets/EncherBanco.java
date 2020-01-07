@@ -48,8 +48,16 @@ public class EncherBanco extends HttpServlet {
 	    throws ServletException, IOException {
 	PrintWriter out = response.getWriter();
 
-	String[] cursos = new String[]{"Licenciatura em Teatro", "Licentuara em Matemática", "Bacharelado em Sistemas de Informaação", "Bacharelado em Engenharia Civil"};
-	Calendar data = Calendar.getInstance();
+	String[] cursos = new String[]{"Técnico na forma integrada em informática", "Técnico na forma integrada em Edificações", "Técnico na forma integrada em Mecânica", "Técnico na forma integrada em Química", "Técnico na forma integrada em Eletrotécnica"};
+	
+        String[] nomesFemininos = new String[]{"Beatriz Lopes Albuquerque", "Jennifer Geovana Tavares do Amaral",
+        "Tarsila Fontosa Sousa", "Ágata Citrine Cardoso de Jesus", "Josiane da Paz Fonseca", "Tábata do Amaral da Silva",
+        "Lana Nicolas Manoel Assis", "Josiana Anderson Feitosa Neves", 
+            "Gregória Cassiano Hermes", "Rana Hermes Júnior", 
+            "Fausta Giovanne Fanti Santanna", "Otávia Bilac Araújo Pepes",
+         "Tammires Diógenes Afonso Pereira", "Antônia Ledesma Magalhães"};
+                
+        Calendar data = Calendar.getInstance();
 
 	out.println(getServletContext().getContextPath() + "\n"
 		+ getServletContext().getRealPath("/index.jsp") + "\n"
@@ -79,25 +87,27 @@ public class EncherBanco extends HttpServlet {
 	    //Cadastro de Reitoria
 	    e = Entidade.getInstance();
 	    e.setBairro("Centro");
-	    e.setCEP("690977123");
+	    e.setCEP("69025010");
 	    e.setCNAE("1234567");
-	    e.setCNPJ("1234567891234");
+	    e.setCNPJ("10792928000533");
 	    e.setCidade("Manaus");
-	    e.setComplemento("Próximo a Algum Lugar");
+	    e.setComplemento("Na avenida Ferreira Pena");
 	    e.setEstado("AM");
 	    e.setNome("IFAM - Reitoria");
 	    e.setNomeFantasia("Reitoria");
-	    e.setNumero("401");
-	    e.setRua("Av. 7 de setembro");
+	    e.setNumero("1109");
+	    e.setRua("Av. Ferreira Pena");
 	    e.setTipo('R');
 	    out.println(cDAO.salvar(e));
 
+            
+             //Coordenador Geral de Relações Institucionais e Cooperações
 	    u = Usuario.getInstance();
-	    u.setNome("Usuário Teste");
+	    u.setNome("Estanislau Santanna");
 	    u.setNomeBanco(Criptografia.encrypt(u.getNome()));
-	    u.setUsuario("reitor");
+	    u.setUsuario("estanis");
 	    u.setUsuarioBanco(Criptografia.encrypt(u.getUsuario()));
-	    u.setSenha("789");
+	    u.setSenha("123");
 	    u.setSenhaBanco(Criptografia.encrypt(u.getSenha()));
 	    u.setEntidade(e);
 	    out.println(uDAO.salvar(u));
@@ -105,11 +115,11 @@ public class EncherBanco extends HttpServlet {
 	    //Cadastro de Campus 1
 	    e = Entidade.getInstance();
 	    e.setBairro("Centro");
-	    e.setCEP("69097781");
+	    e.setCEP("69020120");
 	    e.setCNAE("1234567");
 	    e.setCNPJ("1234567891235");
 	    e.setCidade("Manaus");
-	    e.setComplemento("Próximo a penitenciária");
+	    e.setComplemento("Próximo ao Museu do Índio");
 	    e.setEstado("AM");
 	    e.setNome("IFAM - Campus Manaus Centro");
 	    e.setNomeFantasia("IFAM - CMC");
@@ -120,66 +130,66 @@ public class EncherBanco extends HttpServlet {
 	    entTeste1 = e;
 
 	    u = Usuario.getInstance();
-	    u.setNome("Yan2");
+	    u.setNome("IFAM - Campus Manaus Centro");
 	    u.setNomeBanco(Criptografia.encrypt(u.getNome()));
-	    u.setUsuario("campus1");
+	    u.setUsuario("cmc");
 	    u.setUsuarioBanco(Criptografia.encrypt(u.getUsuario()));
-	    u.setSenha("123");
+	    u.setSenha("cmc");
 	    u.setSenhaBanco(Criptografia.encrypt(u.getSenha()));
 	    u.setEntidade(e);
 	    out.println(uDAO.salvar(u));
 
 	    //Cadastro de Campus 2
 	    e = Entidade.newInstance();
-	    e.setBairro("São José Operário");
-	    e.setCEP("69086486");
+	    e.setBairro("Gilberto Mestrinho");
+	    e.setCEP("69086475");
 	    e.setCNAE("1234568");
 	    e.setCNPJ("1234567891236");
 	    e.setCidade("Manaus");
-	    e.setComplemento("Próximo a Lugar 2");
+	    e.setComplemento("Próximo ao São José");
 	    e.setEstado("AM");
 	    e.setNome("IFAM - Campus Manaus Zona Leste");
 	    e.setNomeFantasia("IFAM - CMZL");
-	    e.setNumero("123");
-	    e.setRua("Av. 8 de setembro");
+	    e.setNumero("8045");
+	    e.setRua(" Av. Cosme Ferreira");
 	    e.setTipo('C');
 	    out.println(cDAO.salvar(e));
 	    entTeste2 = e;
 
 	    u = Usuario.getInstance();
-	    u.setNome("Yan3");
+	    u.setNome("IFAM - Campus Manaus Zona Leste");
 	    u.setNomeBanco(Criptografia.encrypt(u.getNome()));
-	    u.setUsuario("teste2");
+	    u.setUsuario("cmzl");
 	    u.setUsuarioBanco(Criptografia.encrypt(u.getUsuario()));
-	    u.setSenha("333");
+	    u.setSenha("cmzl");
 	    u.setSenhaBanco(Criptografia.encrypt(u.getSenha()));
 	    u.setEntidade(e);
 	    out.println(uDAO.salvar(u));
 
 	    //Cadastro de Empresa
 	    e = Entidade.getInstance();
-	    e.setBairro("Centro");
-	    e.setCEP("690977122");
+	    e.setBairro("Praça 14 de Janeiro");
+	    e.setCEP("69020130");
 	    e.setCNAE("1234569");
 	    e.setCNPJ("1234567891239");
 	    e.setCidade("Manaus");
-	    e.setComplemento("Próximo a Algum Lugar");
+	    e.setComplemento("Próximo ao IFAM-CMC");
 	    e.setEstado("AM");
-	    e.setNome("ITN");
+	    e.setNome("ITN - Instituto de Tecnologia e Negócios do Norte");
 	    e.setNomeFantasia("ITN");
-	    e.setNumero("400");
-	    e.setRua("Av. 7 de setembro");
+	    e.setNumero("1680");
+	    e.setRua("Avenida Visconde de Porto Alegre");
 	    e.setTipo('E');
 	    out.println(cDAO.salvar(e));
 
           
             
 	    u = Usuario.getInstance();
-	    u.setNome("Empresa Teste");
+	    u.setNome("ITN");
 	    u.setNomeBanco(Criptografia.encrypt(u.getNome()));
-	    u.setUsuario("empresa");
+	    u.setUsuario("itn");
 	    u.setUsuarioBanco(Criptografia.encrypt(u.getUsuario()));
-	    u.setSenha("empresa");
+	    u.setSenha("itn");
 	    u.setSenhaBanco(Criptografia.encrypt(u.getSenha()));
 	    u.setEntidade(e);
 	    out.println(uDAO.salvar(u));
@@ -204,7 +214,7 @@ public class EncherBanco extends HttpServlet {
                //Trabalho 2
             t2 = Trabalho.getInstance();
             t2.setSalario(2500.0);
-            t2.setProfissao("Técnico em Info");
+            t2.setProfissao("Técnico em Informática");
             t2.setDescricao("Verificar a consistência de computadores");
             t2.setEntidade(e);
             t2.setTipo("Efetivo");
@@ -233,7 +243,8 @@ public class EncherBanco extends HttpServlet {
 	    //Cadastro Discente
 	    stream = getServletContext().getResourceAsStream("/img/templates/info1.jpg");
 	    d = Discente.getInstance();
-	    d.setNome("Yan");
+	    d.setNome("Daniela");
+            d.setTelefone("92997548125");
 	    d.setNomeBanco(Criptografia.encrypt(d.getNome()));
 	    d.setCPF("02546569279");
 	    d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
@@ -241,12 +252,12 @@ public class EncherBanco extends HttpServlet {
 	    d.setUsuarioBanco(Criptografia.encrypt(d.getUsuario()));
 	    d.setRG("123456789");
 	    d.setRGbanco(Criptografia.encrypt(d.getRG()));
-	    d.setSenha("456");
+	    d.setSenha("123");
 	    d.setSenhaBanco(Criptografia.encrypt(d.getSenha()));
 	    d.setSexo("MASCULINO");
 	    d.setEtnia("BRANCA");
 	    d.setEstadoCivil("SOLTEIRO");
-	    d.setEmail("exemplo123@gmail.com");
+	    d.setEmail("danielaferreira1133@gmail.com");
 
 	    data.set(Calendar.DAY_OF_MONTH, 14);
 	    data.set(Calendar.MONTH, Calendar.JUNE);
@@ -256,8 +267,47 @@ public class EncherBanco extends HttpServlet {
 
 	    d.setLinkCurriculoLattes("https://wwws.cnpq.br/cvlattesweb/PKG_MENU.menu?f_cod=66443CA9D507B0651D4690F514632E67#");
 	    d.setLinkPerfilLinkedIn("https://www.linkedin.com/in/victor-yan-b4312415b/");
-	    d.setNomePai("Exemplo de Nome do Pai da Silva");
-	    d.setNomeMae("Exemplo de Nome da Mãe da Silva");
+	    d.setNomePai("Raimundo Silva Feitosa");
+	    d.setNomeMae("Fernanda Cipriano Ferreira");
+	    //d.setFoto(IOUtils.toByteArray(stream));
+	    out.println(dDAO.salvar(d));
+
+	    fec = FormacaoEmCampus.getInstance();
+	    fec.setNome(cursos[new Random().nextInt(4)]);
+	    fec.setAnoTermino(2019);
+	    fec.setDiscente(d);
+	    fec.setCampus(e);
+	    out.println(fecDAO.salvar(fec));
+            
+            //Cadastro Discente 2
+	    stream = getServletContext().getResourceAsStream("/img/templates/info1.jpg");
+	    d = Discente.getInstance();
+	    d.setNome("Nazareno Amorim Borges");
+            d.setTelefone("92994652147");
+	    d.setNomeBanco(Criptografia.encrypt(d.getNome()));
+	    d.setCPF("02643782303");
+	    d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
+	    d.setUsuario("nazareno");
+	    d.setUsuarioBanco(Criptografia.encrypt(d.getUsuario()));
+	    d.setRG("27364582");
+	    d.setRGbanco(Criptografia.encrypt(d.getRG()));
+	    d.setSenha("123");
+	    d.setSenhaBanco(Criptografia.encrypt(d.getSenha()));
+	    d.setSexo("MASCULINO");
+	    d.setEtnia("BRANCA");
+	    d.setEstadoCivil("SOLTEIRO");
+	    d.setEmail("eduardo.bitencourt007@gmail.com");
+
+	    data.set(Calendar.DAY_OF_MONTH, 14);
+	    data.set(Calendar.MONTH, Calendar.JUNE);
+	    data.set(Calendar.YEAR, 2001);
+
+	    d.setDataNascimento(data.getTime());
+
+	    d.setLinkCurriculoLattes("https://wwws.cnpq.br/cvlattesweb/PKG_MENU.menu?f_cod=66443CA9D507B0651D4690F514632E67#");
+	    d.setLinkPerfilLinkedIn("https://www.linkedin.com/in/victor-yan-b4312415b/");
+	    d.setNomePai("Adalberto Furtado Borges");
+	    d.setNomeMae("Maria da Silva Amorim");
 	    //d.setFoto(IOUtils.toByteArray(stream));
 	    out.println(dDAO.salvar(d));
 
@@ -268,95 +318,11 @@ public class EncherBanco extends HttpServlet {
 	    fec.setCampus(e);
 	    out.println(fecDAO.salvar(fec));
             
-            //Cadastro Discente 2
-	    stream = getServletContext().getResourceAsStream("/img/templates/info1.jpg");
-	    d = Discente.getInstance();
-	    d.setNome("Nazareno");
-	    d.setNomeBanco(Criptografia.encrypt(d.getNome()));
-	    d.setCPF("1");
-	    d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
-	    d.setUsuario("1");
-	    d.setUsuarioBanco(Criptografia.encrypt(d.getUsuario()));
-	    d.setRG("1");
-	    d.setRGbanco(Criptografia.encrypt(d.getRG()));
-	    d.setSenha("1");
-	    d.setSenhaBanco(Criptografia.encrypt(d.getSenha()));
-	    d.setSexo("MASCULINO");
-	    d.setEtnia("BRANCA");
-	    d.setEstadoCivil("SOLTEIRO");
-	    d.setEmail("exemplo123@gmail.com");
-
-	    data.set(Calendar.DAY_OF_MONTH, 14);
-	    data.set(Calendar.MONTH, Calendar.JUNE);
-	    data.set(Calendar.YEAR, 2001);
-
-	    d.setDataNascimento(data.getTime());
-
-	    d.setLinkCurriculoLattes("https://wwws.cnpq.br/cvlattesweb/PKG_MENU.menu?f_cod=66443CA9D507B0651D4690F514632E67#");
-	    d.setLinkPerfilLinkedIn("https://www.linkedin.com/in/victor-yan-b4312415b/");
-	    d.setNomePai("Exemplo de Nome do Pai da Silva");
-	    d.setNomeMae("Exemplo de Nome da Mãe da Silva");
-	    //d.setFoto(IOUtils.toByteArray(stream));
-	    out.println(dDAO.salvar(d));
-
-	    fec = FormacaoEmCampus.getInstance();
-	    fec.setNome(cursos[new Random().nextInt(4)]);
-	    fec.setAnoTermino(2018);
-	    fec.setDiscente(d);
-	    fec.setCampus(e);
-	    out.println(fecDAO.salvar(fec));
-
-	    //Cadastro de outros discentes
-	    for (int i = 0; i < 25; i++) {
-		d = Discente.getInstance();
-		d.setNome("Aluno Teste " + i);
-		d.setNomeBanco(Criptografia.encrypt(d.getNome()));
-		d.setCPF("025465692" + i);
-		d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
-		d.setUsuario("2016114403" + i);
-		d.setUsuarioBanco(Criptografia.encrypt(d.getUsuario()));
-		d.setRG("1234567" + i);
-		d.setRGbanco(Criptografia.encrypt(d.getRG()));
-		d.setSenha("4" + i);
-		d.setSenhaBanco(Criptografia.encrypt(d.getSenha()));
-		d.setSexo("MASCULINO");
-		d.setEtnia("BRANCA");
-		d.setNomePai("Exemplo de Nome do Pai " + i);
-		d.setNomeMae("Exemplo de Nome da Mãe " + i);
-		d.setEstadoCivil("SOLTEIRO");
-		d.setEmail("exemplo1" + i + "@gmail.com");
-		d.setLinkCurriculoLattes("https://wwws.cnpq.br/cvlattesweb/PKG_MENU.menu?f_cod=66443CA9D507B0651D4690F514632E67#");
-		d.setLinkPerfilLinkedIn("https://www.linkedin.com/in/victor-yan-b4312415b/");
-
-		data.set(Calendar.DAY_OF_MONTH, new Random().nextInt(30));
-		data.set(Calendar.MONTH, new Random().nextInt(12));
-		data.set(Calendar.YEAR, 1980 + (new Random().nextInt(10)));
-
-		d.setDataNascimento(data.getTime());
-
-		out.println(dDAO.salvar(d));
-
-		fec = FormacaoEmCampus.getInstance();
-		fec.setNome(cursos[new Random().nextInt(4)]);
-		fec.setAnoTermino(2018);
-		fec.setDiscente(d);
-
-		int sorteiaCampus = new Random().nextInt(2);
-		System.out.println(entTeste1.getNome() + " " + entTeste2.getNome() + " " + sorteiaCampus);
-		if (sorteiaCampus == 0) {
-		    fec.setCampus(entTeste1);
-		} else {
-		    fec.setCampus(entTeste2);
-		}
-
-		//fec.setCampus(e);
-		out.println(fecDAO.salvar(fec));
-	    }
-
+            
 	    //Cadastro de Eventos
 	    ev = Evento.getInstance();
-	    ev.setNome("Aulas de Informática");
-	    ev.setDescricao("Aulas oferecidas ao IFAM");
+	    ev.setNome("Semana de Informática");
+	    ev.setDescricao("Palestras e minicursos ofertados à comunidade do IFAM");
 	    ev.setDataInicioInscricao(Calendar.getInstance().getTime());
 	    ev.setDataFinalInscricao(Calendar.getInstance().getTime());
 	    ev.setDataInicioEvento(Calendar.getInstance().getTime());
@@ -384,9 +350,10 @@ public class EncherBanco extends HttpServlet {
 	    fe.setEvento(ev);
 	    fe.setFoto(IOUtils.toByteArray(stream));
 	    out.println(feDAO.salvar(fe));
-
-	    ev.setNome("Aulas de Química");
-	    ev.setDescricao("Aulas oferecidas ao IFAM");
+            
+            ev = Evento.getInstance();
+	    ev.setNome("Semana da Construção Civil");
+	    ev.setDescricao("Palestras e minicursos ofertados à comunidade do IFAM");
 	    ev.setDataInicioInscricao(Calendar.getInstance().getTime());
 	    ev.setDataFinalInscricao(Calendar.getInstance().getTime());
 	    ev.setDataInicioEvento(Calendar.getInstance().getTime());
@@ -409,6 +376,61 @@ public class EncherBanco extends HttpServlet {
 	    fe.setFoto(IOUtils.toByteArray(stream));
 	    out.println(feDAO.salvar(fe));
 
+            
+            
+            
+
+	    //Cadastro de outros discentes
+	    for (int i = 0; i < 14; i++) {
+                
+		d = Discente.getInstance();
+		d.setNome(nomesFemininos[i]);
+                d.setTelefone("9299313548" + i);
+		d.setNomeBanco(Criptografia.encrypt(d.getNome()));
+		d.setCPF("025465692" + i);
+		d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
+		d.setUsuario("2019114403" + i);
+		d.setUsuarioBanco(Criptografia.encrypt(d.getUsuario()));
+		d.setRG("1234567" + i);
+		d.setRGbanco(Criptografia.encrypt(d.getRG()));
+		d.setSenha("123");
+		d.setSenhaBanco(Criptografia.encrypt(d.getSenha()));
+		d.setSexo("FEMININO");
+		d.setEtnia("BRANCA");
+		d.setNomePai("Heraldo Bezerra Costa " + i);
+		d.setNomeMae("Nilda Mônica Marcela Pinheiro " + i);
+		d.setEstadoCivil("SOLTEIRO");
+		d.setEmail("danielaferreira1133@gmail.com");
+		d.setLinkCurriculoLattes("https://wwws.cnpq.br/cvlattesweb/PKG_MENU.menu?f_cod=66443CA9D507B0651D4690F514632E67#");
+		d.setLinkPerfilLinkedIn("https://www.linkedin.com/in/victor-yan-b4312415b/");
+
+		data.set(Calendar.DAY_OF_MONTH, new Random().nextInt(30));
+		data.set(Calendar.MONTH, new Random().nextInt(12));
+		data.set(Calendar.YEAR, 1980 + (new Random().nextInt(10)));
+
+		d.setDataNascimento(data.getTime());
+
+		out.println(dDAO.salvar(d));
+
+		fec = FormacaoEmCampus.getInstance();
+		fec.setNome(cursos[new Random().nextInt(4)]);
+		fec.setAnoTermino(2018);
+		fec.setDiscente(d);
+
+		int sorteiaCampus = new Random().nextInt(2);
+		System.out.println(entTeste1.getNome() + " " + entTeste2.getNome() + " " + sorteiaCampus);
+		if (sorteiaCampus == 0) {
+		    fec.setCampus(entTeste1);
+		} else {
+		    fec.setCampus(entTeste2);
+		}
+
+		//fec.setCampus(e);
+		out.println(fecDAO.salvar(fec));
+	    }
+            
+            
+            
 	    stream.close();
 	} catch (Exception ex) {
 	    Logger.getLogger(EncherBanco.class.getName()).log(Level.SEVERE, null, ex);

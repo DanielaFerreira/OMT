@@ -64,9 +64,9 @@
                                             </div>
                                             
                                               <div class="col-md-6">
-                                            <div class="row justify-content-end">
-                                                <a class="btn btn-green" href="../crud_vagas/vagas_candidatadas.jsp"><i class="fa fa-address-card" style="margin-right: 2px;"></i> Candidaturas</a>
-                                            </div>
+                                           <!-- <div class="row justify-content-end">
+                                                <a class="btn btn-green" href="../crud_vagas/vagas_candidatadas.jsp?id=${usuario.id}"><i class="fa fa-address-card" style="margin-right: 2px;"></i> Candidaturas</a>
+                                            </div>-->
                                         </div> 
                                         </div>
                                         <div class="mr-3 ml-3 mt-3">

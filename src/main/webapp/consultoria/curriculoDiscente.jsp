@@ -80,10 +80,10 @@
                                 </div>
                                 <table class="table table-sm table-bordered">
                                     <tbody>
-                                        <tr>
+                                       <!-- <tr>
                                             <th scope="row">Nome em citações bibliográficas</th>
                                             <td>LIMA, V. Y. P.</td>
-                                        </tr>
+                                        </tr-->
                                         <tr>
                                             <th scope="row">Sexo</th>
                                             <td><c:out value="${discente.sexo}"/></td>
@@ -109,28 +109,16 @@
                                             <td><fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="${discente.dataNascimento}"/> - Brasil</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row">Carteira de Identidade</th>
-                                            <td>40028922 SSP - AM - 12/07/2012</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">CPF</th>
-                                            <td class="CPF"><c:out value="${discente.CPF}"/> </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Endereço residencial</th>
-                                            <td>Av. Djalma Batista</td>
-                                        </tr>
-                                        <tr>
                                             <th scope="row">
                                                 <i class="fa fa-phone mr-1"></i>Telefone
                                             </th>
-                                            <td>4002-8922</td>
+                                            <td><c:out value="${discente.telefone}"/></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">
                                                 <i class="fa fa-at mr-1"></i>Endereço eletrônico
                                             </th>
-                                            <td>E-mail para contato : ${discente.email}</td>
+                                            <td>${discente.email}</td>
                                         </tr>
                                     </tbody>
                                 </table>

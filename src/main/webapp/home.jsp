@@ -20,17 +20,18 @@
             <div class="container">
                 <!--cabeçalho da página de menu logins-->
 
-                <!--mensagem de boas vindas-->
+                <!--marca nas boas vindas-->
                 <h4 class="text-center my-4">
                     <img src="img/logoInicial.png" alt="Logotipo do OMT" height="175" width="270">
+                    <p>Observatório Mundo do Trabalho</p>
                 </h4>
 
                 <!--Nav Tabs-->
                 <ul class="nav nav-tabs nav-justified green darken-2" role="tablist">
                     <li class="nav-item">
-                        <a href="#login1" class="nav-link active" data-toggle="tab" role="tab">
+                        <a href="#login1" style="min-width: 90px;" class="nav-link active" data-toggle="tab" role="tab">
                             <i class="fas fa-user-graduate fa-lg"></i>
-                            Discente
+                            Egresso/Formando
                         </a>
                     </li>
                     <li class="nav-item">
@@ -48,12 +49,12 @@
 
                     <li class="nav-item">
                         <a href="#login4" class="nav-link" data-toggle="tab" role="tab">
-                            <i class="fas fa-school fa-lg"></i>
+                            <i class="fas fa-address-card fa-lg"></i>
                             Empresa
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="consultoria/consultoria.jsp" class="nav-link"><i class="fa fa-search fa-lg"></i>Ver Egressos</a>
+                        <a href="consultoria/consultoria.jsp" class="nav-link"><i class="fa fa-search fa-lg"></i>Ver Currículos</a>
                     </li>
                 </ul>
 
@@ -65,7 +66,7 @@
                         %>
                         <label class="col-md-12 text-center text-danger">Usuário ou senha inválidos</label>
                         <%}%>
-                        <%if(request.getParameter("alt").equals("certo")){%>
+                        <%if (request.getParameter("alt").equals("certo")) {%>
                         <label class="col-md-12 text-center green-text">Usuário cadastrado com sucesso</label>
                         <%}%>
                         <%}%>
@@ -89,9 +90,13 @@
                                         </div>
                                     </form>
 
-                                    <div class="text-center">
+                                    <div class="text-center"  style="margin-bottom: 5px;">
                                         <label>Ainda não possui cadastro?</label>
-                                        <a class="link" href="cadastro/egresso.jsp"><b>Registre-se agora</b></a>
+                                        <a class="link" href="crud_egressos/cadastro.jsp"><b>Registre-se agora</b></a>
+                                    </div>
+                                    <div class="text-center"  style="margin-bottom: 5px;">
+                                        <label>Esqueceu sua senha?</label>
+                                        <a class="link" href="recuperaSenha.jsp"><b>Recuperar conta</b></a>
                                     </div>
                                 </div>
                             </div>
@@ -115,6 +120,10 @@
                                     <label>Ainda não possui cadastro?</label>
                                     <a class="link" href="cadastro/administrador.jsp"><b>Registre-se agora</b></a>
                                 </div>
+                                <div class="text-center"  style="margin-bottom: 5px;">
+                                    <label>Esqueceu sua senha?</label>
+                                    <a class="link" href="#!"><b>Recuperar conta</b></a>
+                                </div>
                             </div>
                             <div class="tab-pane fade" id="login3" role="tabpanel">
                                 <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
@@ -133,7 +142,11 @@
                                     </div>
                                     <div class="text-center">
                                         <label>Ainda não possui cadastro?</label>
-                                        <a class="link" href="cadastro/campus.jsp"><b>Registre-se agora</b></a>
+                                        <a class="link" href="crud_campus/cadastro.jsp"><b>Registre-se agora</b></a>
+                                    </div>
+                                    <div class="text-center"  style="margin-bottom: 5px;">
+                                        <label>Esqueceu sua senha?</label>
+                                        <a class="link" href="#!"><b>Recuperar conta</b></a>
                                     </div>
                                 </form>
                             </div>
@@ -156,6 +169,10 @@
                                 <div class="text-center">
                                     <label>Ainda não possui cadastro?</label>
                                     <a class="link" href="cadastro/empresa.jsp"><b>Registre-se agora</b></a>
+                                </div>
+                                <div class="text-center"  style="margin-bottom: 5px;">
+                                        <label>Esqueceu sua senha?</label>
+                                        <a class="link" href="#!"><b>Recuperar conta</b></a>
                                 </div>
                             </div>
                         </div>

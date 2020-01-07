@@ -3,6 +3,8 @@ package com.br.OMT.DAO;
 import com.br.OMT.Hibernate.HibernateFactory;
 import com.br.OMT.Hibernate.HibernateUtil;
 import com.br.OMT.models.CandidatoVaga;
+import com.br.OMT.models.Usuario;
+
 import com.br.OMT.models.Discente;
 import com.br.OMT.models.Trabalho;
 import java.util.ArrayList;
@@ -49,7 +51,7 @@ public class CandidatoVagaDAO {
         }
     }
     
-    public List<Long> listarCodigodasVagasCandidato(Discente d){
+    public List<Long> listarCodigodasVagasCandidato(Usuario d){
         List<Long> le = null;
         try {
             s = HibernateFactory.getSessionFactory().openSession();

@@ -118,6 +118,10 @@
                                 <label for="email">E-mail</label>
                                 <input class="form-control" type="email" name="email" id="email" maxlength="40" value="<c:out value="${discente.email}"/>">
                             </div>
+                             <div class="form-group col-md-3">
+                                <label for="email">Telefone</label>
+                                <input class="form-control" type="text" name="telefone" id="telefone" maxlength="11">
+                            </div>
                             <div class="form-row">
                                 <div class="form-group col-sm-12 col-lg-6">
                                     <label for="linkCurriculoLattes">Link Currículo Lattes</label>

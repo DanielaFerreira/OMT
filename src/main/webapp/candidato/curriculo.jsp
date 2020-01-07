@@ -54,7 +54,7 @@
                                     <h3 class="font-weight-bold mb-4">Dados pessoais</h3>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="candidato/alterarPerfil.jsp" class="btn btn-primary btn-md float-right">
+                                    <a href="alterarPerfil.jsp" class="btn btn-primary btn-md float-right">
                                         <i class="fa fa-edit mr-1"></i>Atualizar informações
                                     </a>
                                 </div>  
@@ -172,7 +172,7 @@
                                                     <td><c:out value="${formacao.escola}"/></td>
                                                     <td><c:out value="${formacao.anoTermino}"/></td>
                                                     <td><a href="curriculo/crud_formacao/alteracao_de_formacao.jsp?id=${formacao.id}" class="nav-link text-success"><i class="fa fa-edit fa-1x"></i>Alterar</a>
-                                                        <a class="nav-link  text-danger" href="#" data-toggle="modal" data-target="#excluir_formacao${formacao.id}"><i class="fa fa-trash fa-1x"></i> Excluir</td>
+                                                        <a class="nav-link  text-danger" href="#" data-toggle="modal" data-target="#excluir_formacao${formacao.id}"><i class="fa fa-trash fa-1x"></i> Excluir</a></td>
                                                 </tr>
                                                 
                                                 

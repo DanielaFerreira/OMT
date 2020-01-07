@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Consultar Egressos</title>
+        <title>Consultar Currículos</title>
         <link rel="stylesheet" href="../css/bootstrap.css"/>
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
@@ -24,11 +24,13 @@
             <div class="container">
                 <!--cabeçalho da página de menu logins-->
 
-                <!--mensagem de boas vindas-->
+
+                <!--marca nas boas vindas-->
                 <h4 class="text-center my-4">
                     <img src="../img/logoInicial.png" alt="Logotipo do OMT" height="175" width="270">
+                    <p>Observatório Mundo do Trabalho</p>
                 </h4>
-
+                
                 <!--Nav Tabs-->
                 <ul class="nav nav-tabs nav-justified green darken-2" role="tablist">
                     <li class="nav-item">
@@ -57,7 +59,7 @@
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a href="consultoria.jsp" class="nav-link active"><i class="fa fa-search fa-lg"></i>Ver Egressos</a>
+                        <a href="consultoria.jsp" class="nav-link active"><i class="fa fa-search fa-lg"></i>Ver Currículos</a>
                     </li>
                 </ul>
 
@@ -134,9 +136,9 @@
 
                     <div class="tab-pane fade in show active"  role="tabpanel">
                         <div class="mt-4 mx-4" role="tablist">
-                            <h3 class="font-weight-bold mb-4">Lista de egressos</h3>
+                            <h3 class="font-weight-bold mb-4">Lista de egressos e formandos</h3>
                             <table class="table table-sm table-striped table-bordered table-hover" id="filtro">
-                                <caption>Lista de egressos</caption>
+                                <caption>Lista de egressos e formandos</caption>
                                 <thead>
                                     <tr>
                                         <th>Nome<i class="fa fa-sort float-right"></i></th>

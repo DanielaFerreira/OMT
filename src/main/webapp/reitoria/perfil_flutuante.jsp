@@ -15,7 +15,7 @@
     </nav>
     <div class="text-center">
         <img class="foto-curriculo z-depth-1 border-light mt-2" src="../img/empresa.png"> 
-        <h6 class="mt-2">Reitor</h6>
+        <h6 class="mt-2">Reitoria</h6>
         <h3 for="nome"><c:out value=""/>${usuario.nome}</h3>
     </div>
     <div class="list-group">

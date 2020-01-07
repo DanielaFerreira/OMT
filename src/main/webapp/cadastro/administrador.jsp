@@ -27,7 +27,7 @@
 
                 <div class="card mb-5">
                     <div class="mt-4 mx-4 mb-4">
-                        <h4 class="mb-4"><strong>Dados do Administrador</strong></h4>
+                        <h4 class="mb-4"><strong>Cadastro de Membro da Reitoria</strong></h4>
                         <form id="cadastrar-formacao" method="POST" action="/OMT/AdmistradoresServlet">
                             <div class="form-row">
                                 <div class="form-group col-md-6">

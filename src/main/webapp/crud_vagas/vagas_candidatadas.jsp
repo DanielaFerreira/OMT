@@ -7,7 +7,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="CandidatoVagaDAO" class="com.br.OMT.DAO.CandidatoVagaDAO"/>
-<c:set var="candidatovagas" value="${CandidatoVagaDAO.listarCodigodasVagasCandidato(d)}"/>
+<c:set var="candidatovagas" value="${CandidatoVagaDAO.listarCodigodasVagasCandidato(usuario)}"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>

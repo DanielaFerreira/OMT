@@ -6,7 +6,12 @@
 package com.br.OMT.models;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static javax.persistence.CascadeType.ALL;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,7 +29,6 @@ import javax.persistence.Table;
  *
  * @author daniela
  */
-
 @Entity
 @Table(name = "notificacao")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -36,37 +40,52 @@ public class Notificacao implements Serializable {
 
     @Column(name = "status", nullable = false)
     private String status;
-    
+
     @Column(name = "tituloRemetente")
     private String tituloRemetente;
-    
+
     @Column(name = "mensagemRemetente")
     private String mensagemdoRemetente;
 
     @Column(name = "tituloDestinatario")
     private String tituloDestinatario;
-    
+
     @Column(name = "mensagemDestinatario")
     private String mensagemdoDestinatario;
-    
+
+    @Column(name = "dataNotificacao")
+    private String dataNotificacao;
+
+    @Column(name = "link")
+    private String link;
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
     @ManyToOne
     @JoinColumn(name = "usuario")
     private Usuario destinatario;
 
     public Notificacao() {
+        
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat in= new SimpleDateFormat("yyyy-MM-dd");
+
+            dataNotificacao = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
     }
-    
-    /*
-            String dateStr = request.getParameter("dataNasc");
-            //Date date = df.parse(dateStr);
-            //df = new SimpleDateFormat("dd-MM-yyyy");
-            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-            //Date date = df.parse(dateStr);
-            //Date result = formater.parse(dateStr);
-            //SimpleDateFormat AppDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-            //System.out.println(AppDateFormat.format(result))
-            dataNasc = formatter.parse(dateStr);*/
-    
+
+    public String getDataNotificacao() {
+        return dataNotificacao;
+    }
+
+    public void setDataNotificacao(String dataNotificacao) {
+        this.dataNotificacao = dataNotificacao;
+    }
 
     public Long getId() {
         return id;
@@ -123,6 +142,5 @@ public class Notificacao implements Serializable {
     public void setDestinatario(Usuario destinatario) {
         this.destinatario = destinatario;
     }
-    
-    
+
 }

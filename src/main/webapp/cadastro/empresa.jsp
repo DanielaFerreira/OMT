@@ -34,7 +34,7 @@
                     <div class="mt-4 mx-4 mb-4">
                         <form method="post" name="cadastrar-empresa" action="/OMT/EmpresaServlet">
                             <section>
-                                <h4 class="mb-4"><strong>Dados da Empresa</strong></h4>
+                                <h4 class="mb-4"><strong>Cadastro de Empresa</strong></h4>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="cnpj">CNPJ</label>

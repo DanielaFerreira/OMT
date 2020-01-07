@@ -34,7 +34,7 @@
                         </li>
                     </ul>
                 </nav>
-                
+
                 <div class="card px-4 py-4">
                     <h3 class="font-weight-bold text-center">Meu Perfil</h3>
                     <form id="formAlterar" name="formAlterar" method="post" action="/OMT/DiscenteServlet" data-id="<c:out value="${usuario.id}"/>">
@@ -112,9 +112,15 @@
                                     <input class="form-control RG" type="text" id="rg" name="rg" maxlength="8" value="<c:out value="${usuario.RG}"/>">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="email">E-mail</label>
-                                <input class="form-control" type="email" name="email" id="email" maxlength="40" value="<c:out value="${usuario.email}"/>">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="email">E-mail</label>
+                                    <input class="form-control" type="email" <c:out value="${usuario.email}"/> name="email" id="email" maxlength="40">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="email">Telefone</label>
+                                    <input class="form-control" type="text" <c:out value="${usuario.telefone}"/> name="telefone" id="telefone" maxlength="11">
+                                </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-sm-12 col-lg-6">

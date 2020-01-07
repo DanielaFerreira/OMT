@@ -7,6 +7,8 @@ package com.br.OMT.DAO;
 
 import com.br.OMT.Hibernate.HibernateFactory;
 import com.br.OMT.Hibernate.HibernateUtil;
+import com.br.OMT.models.Entidade;
+import com.br.OMT.models.Usuario;
 import com.br.OMT.models.Trabalho;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -45,6 +47,24 @@ public class TrabalhoDAO {
             s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
             Query query = s.createQuery("from Trabalho t");
+            le = query.getResultList();
+            s.getTransaction().commit();
+            return le;
+        } catch (HibernateException ex) {
+            s.getTransaction().rollback();
+            return null;
+        } finally {
+            s.close();
+        }
+    }
+    
+    public List<Trabalho> listTrabalhoEmpresa(Usuario u) {
+        List<Trabalho> le = null;
+        Entidade e = new Entidade();
+        try {
+            s = HibernateFactory.getSessionFactory().openSession();
+            s.beginTransaction();
+            Query query = s.createQuery("from Trabalho t where t.entidade =:ent").setParameter("ent", u.getEntidade());
             le = query.getResultList();
             s.getTransaction().commit();
             return le;
